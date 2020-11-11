@@ -14,6 +14,7 @@ namespace AutoZip
 
                 List<string> folders = new List<string>
                 {
+                    Path.Combine(Directory.GetCurrentDirectory(), "bfa"),
                     Path.Combine(Directory.GetCurrentDirectory(), "legion"),
                     Path.Combine(Directory.GetCurrentDirectory(), "wod"),
                     Path.Combine(Directory.GetCurrentDirectory(), "mop"),
