@@ -1,0 +1,3085 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<FightClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FightClassGeneralSettings>
+    <FightClassName>Resto Druid - Raid</FightClassName>
+    <Range>40</Range>
+    <FramePerSecond>60</FramePerSecond>
+  </FightClassGeneralSettings>
+  <FightClassSpells>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Global Settings --
+group = false
+if not group then
+	group = "solo"
+end
+groupmembers = false
+if not groupmembers then
+	groupmembers = 0
+end
+
+if GetNumPartyMembers() &gt; 0 then
+	group ="party"
+	groupmembers = GetNumPartyMembers()
+end
+if GetNumRaidMembers() &gt; 0 then
+	group = "raid"
+	groupmembers = GetNumRaidMembers()
+end
+      </SpellName>
+      <Priority>45</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CastIfMounted>true</CastIfMounted>
+      <CastIfDead>true</CastIfDead>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Functions --
+if not FuncLoaded then
+	FuncLoaded = true
+	-- Range Check
+	function rangeCheck(spellid,unit)
+		if IsSpellInRange(GetSpellInfo(spellid),unit) == 1 then
+			return true
+		end
+	end
+	-- Cooldown Check
+	function cdRemains(spellid)
+		if select(2,GetSpellCooldown(GetSpellInfo(spellid))) + (select(1,GetSpellCooldown(GetSpellInfo(spellid))) - GetTime()) &gt; 0 then 
+			return select(2,GetSpellCooldown(GetSpellInfo(spellid))) + (select(1,GetSpellCooldown(GetSpellInfo(spellid))) - GetTime())
+		else 
+			return 0
+		end
+	end
+	-- Cast Spell 
+	function _castSpell(spellid,tar)
+		if UnitCastingInfo("player") == nil and UnitChannelInfo("player") == nil and cdRemains(spellid) == 0 then
+			if tar ~= nil and rangeCheck(spellid,tar) == nil then
+				return false
+			elseif tar ~= nil and rangeCheck(spellid,tar) == true then
+				CastSpellByName(GetSpellInfo(spellid), tar)
+			return true elseif tar == nil then
+				CastSpellByName(GetSpellInfo(spellid))
+				return true
+			else
+				return false
+			end
+		end
+	end
+	-- Cast Buff 
+	function _castBuff(spellid,tar)
+		if UnitCastingInfo("player") == nil and UnitChannelInfo("player") == nil and cdRemains(spellid) == 0 then
+			if tar ~= nil and rangeCheck(26990,tar) == nil then
+				return false
+			elseif tar ~= nil and rangeCheck(26990,tar) == true then
+				CastSpellByName(GetSpellInfo(spellid), tar)
+			return true elseif tar == nil then
+				CastSpellByName(GetSpellInfo(spellid))
+				return true
+			else
+				return false
+			end
+		end
+	end
+	-- Unit Buff ID
+	function UnitBuffID(unit, spellid)
+        for i=1,40 do 
+            local buffName,buffRank,buffTexture,buffCount,buffDuration,buffExpiration=UnitBuff(unit,i);
+            if buffName == GetSpellInfo(spellid) then 
+              return true
+            end 
+        end
+    end
+    -- IsSpellKnown
+    function IsSpellKnown(spellid)
+    	if IsUsableSpell(GetSpellInfo(spellid)) == 1 then
+    		return true
+    	end
+    end
+    -- Print
+    function print(message)
+    	if not message ~= true or not message ~= nil or not message ~= false then
+    		DEFAULT_CHAT_FRAME:AddMessage(message)
+    	end
+    	if message == true then
+    		DEFAULT_CHAT_FRAME:AddMessage("|cff228B22true")
+    	end
+    	if message == false then
+    		DEFAULT_CHAT_FRAME:AddMessage("|cffC41F3Bfalse")
+    	end
+    	if message == nil then
+    		DEFAULT_CHAT_FRAME:AddMessage("|cffFF8C00nil")
+    	end
+    end
+
+-- Functions Loaded
+end
+      </SpellName>
+      <Priority>44</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CastIfMounted>true</CastIfMounted>
+      <CastIfDead>true</CastIfDead>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Keybindings --
+SLASH_STATUSFRAME1="/statusframe" 
+SlashCmdList.STATUSFRAME=function() 
+	if StatusFrame:IsShown() then 
+		StatusFrame:Hide()
+	else 
+		StatusFrame:Show()
+	end 
+end
+SLASH_STOPROTATOGGLE1 = '/rotatoggle'
+SlashCmdList.STOPROTATOGGLE=function() 
+	if RotaOn then
+		RotaOn  = false 
+	else
+		RotaOn  = true 
+	end
+end
+      </SpellName>
+      <Priority>43</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CastIfMounted>true</CastIfMounted>
+      <CastIfDead>true</CastIfDead>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Framework --
+if not FrameCreated then
+	FrameCreated = true
+	-- Default Variables
+	RotaOn = true -- Is rotation on by default
+	DecurseOn = false -- Is pet enabled by default
+	AbolishPoisonDisabled = true -- Is Abolish Poison disabled by deafult
+	RemoveCurseDisabled = true -- is Remove Cruse disabled by default
+	AutoBuffingDisabled = true -- is Auto Buffing disabled by default
+	InnervateGroupDisabled = true -- is Innervating Group disabled by default
+	InnervateFocusDisabled = true -- is Innervating Focus disabled by default
+
+	-- Status Frame
+	StatusFrame=CreateFrame("Frame")
+	StatusFrame:ClearAllPoints()
+	StatusFrame:SetBackdrop({bgFile = "Interface/Buttons/WHITE8X8",})
+	StatusFrame:SetBackdropColor(0,0,0,.4)
+	StatusFrame:SetHeight(60)
+	StatusFrame:SetWidth(122)
+	StatusFrame:SetPoint("TOPLEFT",ChatFrame1, 0,90)
+	StatusFrame:SetMovable(true)
+	StatusFrame:EnableMouse(true)
+	StatusFrame:RegisterForDrag('LeftButton')
+	StatusFrame:SetScript('OnDragStart', StatusFrame.StartMoving)
+	StatusFrame:SetScript('OnDragStop', StatusFrame.StopMovingOrSizing)
+
+	-- Status Frame Text Settings
+	StatusFrame.text = StatusFrame:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	StatusFrame.text:SetPoint("TOPLEFT", 0, -14)
+	StatusFrame.text:SetJustifyH("LEFT")
+	StatusFrame.text:SetFont("Fonts/ARIALN.TTF",14,"OUTLINE")
+
+	-- Status Frame Close Button
+	StatusFrame.btn = CreateFrame("BUTTON", nil, StatusFrame, "UIPanelCloseButton")
+	StatusFrame.btn:SetWidth(20)
+	StatusFrame.btn:SetHeight(20)
+	StatusFrame.btn:SetPoint("TOPLEFT",StatusFrame, -3,3) 
+	StatusFrame.btn:SetScript("OnClick", function() 
+		StatusFrame:Hide() 
+		SettingsFrame:Hide()
+		SettingsFrameHeader.text:Hide()
+		SettingsMiscFrame:Hide()
+		SettingsMiscFrameHeader.text:Hide()
+		SettingsMiscFrameMore:Hide()
+		SettingsMiscFrameMoreHeader.text:Hide()
+		SettingsFrame.miscbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.miscbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		SettingsMiscFrame.morebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.morebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		DEFAULT_CHAT_FRAME:AddMessage("Status frame |cffC41F3Bclosed |cffFFFFFFWrite /statusframe to enable again.")
+	end)
+	StatusFrame.btn:SetAlpha(1)
+	StatusFrame.btn:Show()
+
+	-- Status Frame Advanced Button
+	StatusFrame.btn2 = CreateFrame("BUTTON", nil, StatusFrame, "UIPanelCloseButton")
+	StatusFrame.btn2:SetWidth(15)
+	StatusFrame.btn2:SetHeight(15)
+	StatusFrame.btn2:SetNormalTexture("Interface/Cursor/Interact")
+	StatusFrame.btn2:SetPushedTexture("Interface/Cursor/UnableInteract")
+	StatusFrame.btn2:SetPoint("TOPRIGHT",StatusFrame, 0,0) 
+	StatusFrame.btn2:SetScript("OnClick", function() 
+		if SettingsFrame:IsShown() then 
+			SettingsFrame:Hide()
+			SettingsFrameHeader.text:Hide()
+			SettingsMiscFrame:Hide()
+			SettingsMiscFrameHeader.text:Hide()
+			SettingsMiscFrameMore:Hide()
+			SettingsMiscFrameMoreHeader:Hide()
+			SettingsFrame.miscbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.miscbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+			SettingsMiscFrame.morebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.morebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else 
+			SettingsFrame:Show()
+			SettingsFrameHeader.text:Show()
+		end 
+	end)
+	StatusFrame.btn2:SetAlpha(1)
+	StatusFrame.btn2:Show()
+
+	-- Status Frame Header Settings
+	StatusFrameHeader = CreateFrame("Frame")
+	StatusFrameHeader:ClearAllPoints()
+	StatusFrameHeader:SetHeight(14)
+	StatusFrameHeader:SetWidth(122)
+	StatusFrameHeader:SetPoint("TOPLEFT",StatusFrame, 0,0)
+	
+	-- Status Frame Header Text 
+	StatusFrameHeader.text = StatusFrame:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	StatusFrameHeader.text:SetPoint("Center",StatusFrameHeader, 0)
+	StatusFrameHeader.text:SetJustifyH("LEFT")
+	StatusFrameHeader.text:SetFont("Fonts/ARIALN.TTF",12,"OUTLINE") 
+	StatusFrameHeader.text:SetText("Rotation |cffFFFFFFStatus")
+	
+	-- Settings Frame (Combat Spells)
+	SettingsFrame = CreateFrame("Frame")
+	SettingsFrame:ClearAllPoints()
+	SettingsFrame:SetBackdrop({bgFile = "Interface/Buttons/WHITE8X8",})
+	SettingsFrame:SetBackdropColor(0,0,0,.4)
+	SettingsFrame:SetHeight(190)
+	SettingsFrame:SetWidth(200)
+	SettingsFrame:SetPoint("TOPLEFT",StatusFrame, 0,200) 
+	SettingsFrame:EnableMouse(true)
+	SettingsFrame:SetMovable(true)
+	SettingsFrame:RegisterForDrag("LeftButton")
+	SettingsFrame:SetScript("OnDragStart", SettingsFrame.StartMoving)
+	SettingsFrame:SetScript("OnDragStop", SettingsFrame.StopMovingOrSizing)
+	SettingsFrame:Hide()
+	
+	-- Settings Frame (Combat Spells) Text Settings
+	SettingsFrame.text = SettingsFrame:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	SettingsFrame.text:SetPoint("TOPLEFT", 0, -14)
+	SettingsFrame.text:SetJustifyH("LEFT")
+	SettingsFrame.text:SetFont("Fonts/ARIALN.TTF",14,"OUTLINE") 
+	
+	-- Settings Frame (Combat Spells) Header Settings
+	SettingsFrameHeader = CreateFrame("Frame")
+	SettingsFrameHeader:ClearAllPoints()
+	SettingsFrameHeader:SetHeight(14)
+	SettingsFrameHeader:SetWidth(200)
+	SettingsFrameHeader:SetPoint("TOPLEFT",SettingsFrame, 0,0)
+	SettingsFrameHeader:Hide()
+	
+	-- Settings Frame (Combat Spells) Header Text
+	SettingsFrameHeader.text = StatusFrame:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	SettingsFrameHeader.text:SetPoint("Center",SettingsFrameHeader, 0)
+	SettingsFrameHeader.text:SetJustifyH("LEFT")
+	SettingsFrameHeader.text:SetFont("Fonts/ARIALN.TTF",12,"OUTLINE") 
+	SettingsFrameHeader.text:SetText("WRobot |cffFFFFFFCombat Spells")
+	SettingsFrameHeader.text:Hide()
+
+	-- Settings Frame (Combat Spells) Misc Spells Button
+	SettingsFrame.miscbtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.miscbtn:SetWidth(16)
+	SettingsFrame.miscbtn:SetHeight(16)
+	SettingsFrame.miscbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+	SettingsFrame.miscbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	SettingsFrame.miscbtn:SetPoint("TOPRIGHT",SettingsFrame, 0,0) 
+	SettingsFrame.miscbtn:SetScript("OnClick", function()
+		if SettingsMiscFrame:IsShown() then 
+			SettingsMiscFrame:Hide()
+			SettingsMiscFrameHeader.text:Hide()
+			SettingsMiscFrameMore:Hide()
+			SettingsMiscFrameMoreHeader.text:Hide()
+			SettingsFrame.miscbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.miscbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+			SettingsMiscFrame.morebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.morebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else 
+			SettingsMiscFrame:Show()
+			SettingsMiscFrameHeader.text:Show() 
+			SettingsFrame.miscbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.miscbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		end 
+	end)
+	SettingsFrame.miscbtn:SetAlpha(1)
+
+	-- Settings Frame (Combat Spells) Regrowth Toggle Button
+	SettingsFrame.regrowthbtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.regrowthbtn:SetWidth(16)
+	SettingsFrame.regrowthbtn:SetHeight(16)
+	if RegrowthDisabled then
+		SettingsFrame.regrowthbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.regrowthbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsFrame.regrowthbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsFrame.regrowthbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsFrame.regrowthbtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-28) 
+	SettingsFrame.regrowthbtn:SetScript("OnClick", function() 
+		if RegrowthDisabled then 
+			RegrowthDisabled = false
+			SettingsFrame.regrowthbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.regrowthbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			RegrowthDisabled = true
+			SettingsFrame.regrowthbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.regrowthbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		end 
+	end)
+	SettingsFrame.regrowthbtn:SetAlpha(1)
+	SettingsFrame.regrowthbtn:Show()
+
+	-- Settings Frame (Combat Spells) Rejuvenation Toggle Button
+	SettingsFrame.rejuvenationbtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.rejuvenationbtn:SetWidth(16)
+	SettingsFrame.rejuvenationbtn:SetHeight(16)
+	if RejuvenationDisabled then
+		SettingsFrame.rejuvenationbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.rejuvenationbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsFrame.rejuvenationbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsFrame.rejuvenationbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsFrame.rejuvenationbtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-42) 
+	SettingsFrame.rejuvenationbtn:SetScript("OnClick", function() 
+		if RejuvenationDisabled then 
+			RejuvenationDisabled = false
+			SettingsFrame.rejuvenationbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.rejuvenationbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			RejuvenationDisabled = true
+			SettingsFrame.rejuvenationbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.rejuvenationbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		end 
+	end)
+	SettingsFrame.rejuvenationbtn:SetAlpha(1)
+	SettingsFrame.rejuvenationbtn:Show()
+
+	-- Settings Frame (Combat Spells) Lifebloom Toggle Button
+	SettingsFrame.lifebloombtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.lifebloombtn:SetWidth(16)
+	SettingsFrame.lifebloombtn:SetHeight(16)
+	SettingsFrame.lifebloombtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+	SettingsFrame.lifebloombtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	SettingsFrame.lifebloombtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-56) 
+	SettingsFrame.lifebloombtn:SetScript("OnClick", function() 
+		if LifebloomDisabled then 
+			LifebloomDisabled = false
+			SettingsFrame.lifebloombtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.lifebloombtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			LifebloomDisabled = true
+			SettingsFrame.lifebloombtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.lifebloombtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		end 
+	end)
+	SettingsFrame.lifebloombtn:SetAlpha(1)
+	SettingsFrame.lifebloombtn:Show()
+
+	-- Settings Frame (Combat Spells) Swiftmend Toggle Button
+	SettingsFrame.swiftmendbtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.swiftmendbtn:SetWidth(16)
+	SettingsFrame.swiftmendbtn:SetHeight(16)
+	if SwiftmendDisabled then
+		SettingsFrame.swiftmendbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.swiftmendbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsFrame.swiftmendbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsFrame.swiftmendbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsFrame.swiftmendbtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-71) 
+	SettingsFrame.swiftmendbtn:SetScript("OnClick", function() 
+		if SwiftmendDisabled then 
+			SwiftmendDisabled = false
+			SettingsFrame.swiftmendbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.swiftmendbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			SwiftmendDisabled = true  
+			SettingsFrame.swiftmendbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.swiftmendbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsFrame.swiftmendbtn:SetAlpha(1)
+	SettingsFrame.swiftmendbtn:Show()
+
+	-- Settings Frame (Combat Spells) Healing Touch Toggle Button
+	SettingsFrame.healingtouchbtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.healingtouchbtn:SetWidth(16)
+	SettingsFrame.healingtouchbtn:SetHeight(16)
+	if HealingTouchDisabled then
+		SettingsFrame.healingtouchbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.healingtouchbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsFrame.healingtouchbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsFrame.healingtouchbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsFrame.healingtouchbtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-86) 
+	SettingsFrame.healingtouchbtn:SetScript("OnClick", function() 
+		if HealingTouchDisabled then 
+			HealingTouchDisabled = false
+			SettingsFrame.healingtouchbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.healingtouchbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			HealingTouchDisabled = true  
+			SettingsFrame.healingtouchbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.healingtouchbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsFrame.healingtouchbtn:SetAlpha(1)
+	SettingsFrame.healingtouchbtn:Show()
+	
+	-- Settings Frame (Combat Spells) Tree of Life Toggle Button
+	SettingsFrame.treeoflifebtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.treeoflifebtn:SetWidth(16)
+	SettingsFrame.treeoflifebtn:SetHeight(16)
+	if TreeofLifeDisabled then
+		SettingsFrame.treeoflifebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.treeoflifebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsFrame.treeoflifebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsFrame.treeoflifebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsFrame.treeoflifebtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-115) 
+	SettingsFrame.treeoflifebtn:SetScript("OnClick", function() 
+		if TreeofLifeDisabled then 
+			TreeofLifeDisabled = false
+			SettingsFrame.treeoflifebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.treeoflifebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			TreeofLifeDisabled = true  
+			SettingsFrame.treeoflifebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.treeoflifebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsFrame.treeoflifebtn:SetAlpha(1)
+	SettingsFrame.treeoflifebtn:Show()
+	
+	-- Settings Frame (Combat Spells) Innervate Toggle Button
+	SettingsFrame.innervatebtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.innervatebtn:SetWidth(16)
+	SettingsFrame.innervatebtn:SetHeight(16)
+	if InnervateDisabled then
+		SettingsFrame.innervatebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.innervatebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsFrame.innervatebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsFrame.innervatebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsFrame.innervatebtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-129) 
+	SettingsFrame.innervatebtn:SetScript("OnClick", function() 
+		if InnervateDisabled then 
+			InnervateDisabled = false
+			SettingsFrame.innervatebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.innervatebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			InnervateDisabled = true 
+			SettingsFrame.innervatebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.innervatebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsFrame.innervatebtn:SetAlpha(1)
+	SettingsFrame.innervatebtn:Show()
+	
+	-- Settings Frame (Combat Spells) Abolish Poison Toggle Button
+	SettingsFrame.abolishpoisonbtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.abolishpoisonbtn:SetWidth(16)
+	SettingsFrame.abolishpoisonbtn:SetHeight(16)
+		if AbolishPoisonDisabled then
+			SettingsFrame.abolishpoisonbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.abolishpoisonbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else
+			SettingsFrame.abolishpoisonbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.abolishpoisonbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		end
+	SettingsFrame.abolishpoisonbtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-143) 
+	SettingsFrame.abolishpoisonbtn:SetScript("OnClick", function() 
+		if AbolishPoisonDisabled then 
+			AbolishPoisonDisabled = false
+			SettingsFrame.abolishpoisonbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.abolishpoisonbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			AbolishPoisonDisabled = true 
+			SettingsFrame.abolishpoisonbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.abolishpoisonbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsFrame.abolishpoisonbtn:SetAlpha(1)
+	SettingsFrame.abolishpoisonbtn:Show()
+	
+	-- Settings Frame (Combat Spells) Remove Curse Toggle Button
+	SettingsFrame.removecursebtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.removecursebtn:SetWidth(16)
+	SettingsFrame.removecursebtn:SetHeight(16)
+	if RemoveCurseDisabled then
+		SettingsFrame.removecursebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsFrame.removecursebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsFrame.removecursebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsFrame.removecursebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsFrame.removecursebtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-157) 
+	SettingsFrame.removecursebtn:SetScript("OnClick", function() 
+		if RemoveCurseDisabled then 
+			RemoveCurseDisabled = false
+			SettingsFrame.removecursebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.removecursebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			RemoveCurseDisabled = true  
+			SettingsFrame.removecursebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.removecursebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsFrame.removecursebtn:SetAlpha(1)
+	SettingsFrame.removecursebtn:Show()
+	
+	-- Settings Frame (Combat Spells) Auto Buffing Toggle Button
+	SettingsFrame.autobuffingbtn = CreateFrame("BUTTON", nil, SettingsFrame, "UIPanelCloseButton")
+	SettingsFrame.autobuffingbtn:SetWidth(16)
+	SettingsFrame.autobuffingbtn:SetHeight(16)
+		if AutoBuffingDisabled then
+			SettingsFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else
+			SettingsFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		end
+	SettingsFrame.autobuffingbtn:SetPoint("TOPRIGHT",SettingsFrame, -2,-171) 
+	SettingsFrame.autobuffingbtn:SetScript("OnClick", function() 
+		if AutoBuffingDisabled then 
+			AutoBuffingDisabled = false
+			SettingsFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			AutoBuffingDisabled = true 
+			SettingsFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsFrame.autobuffingbtn:SetAlpha(1)
+	SettingsFrame.autobuffingbtn:Show()
+	
+	-- Settings Frame (Misc Spells)
+	SettingsMiscFrame = CreateFrame("Frame")
+	SettingsMiscFrame:ClearAllPoints()
+	SettingsMiscFrame:SetBackdrop({bgFile = "Interface/Buttons/WHITE8X8",})
+	SettingsMiscFrame:SetBackdropColor(0,0,0,.4)
+	SettingsMiscFrame:SetHeight(190)
+	SettingsMiscFrame:SetWidth(200)
+	SettingsMiscFrame:SetPoint("TOPLEFT",SettingsFrame, 205,0) 
+	SettingsMiscFrame:EnableMouse(true)
+	SettingsMiscFrame:SetMovable(true)
+	SettingsMiscFrame:RegisterForDrag("LeftButton")
+	SettingsMiscFrame:SetScript("OnDragStart", SettingsMiscFrame.StartMoving)
+	SettingsMiscFrame:SetScript("OnDragStop", SettingsMiscFrame.StopMovingOrSizing)
+	SettingsMiscFrame:Hide()
+	
+	-- Settings Frame (Misc Spells) Text Settings
+	SettingsMiscFrame.text = SettingsMiscFrame:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	SettingsMiscFrame.text:SetPoint("TOPLEFT", 0, -14)
+	SettingsMiscFrame.text:SetJustifyH("LEFT")
+	SettingsMiscFrame.text:SetFont("Fonts/ARIALN.TTF",14,"OUTLINE")
+	
+	-- Settings Frame (Misc Spells) Header Settings
+	SettingsMiscFrameHeader = CreateFrame("Frame")
+	SettingsMiscFrameHeader:ClearAllPoints()
+	SettingsMiscFrameHeader:SetHeight(14)
+	SettingsMiscFrameHeader:SetWidth(200)
+	SettingsMiscFrameHeader:SetPoint("TOPLEFT",SettingsMiscFrame, 0,0)
+	SettingsMiscFrameHeader:Hide()
+	
+	-- Settings Frame (Misc Spells) Header Text
+	SettingsMiscFrameHeader.text = SettingsMiscFrame:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	SettingsMiscFrameHeader.text:SetPoint("Center",SettingsMiscFrameHeader, 0)
+	SettingsMiscFrameHeader.text:SetJustifyH("LEFT")
+	SettingsMiscFrameHeader.text:SetFont("Fonts/ARIALN.TTF",12,"OUTLINE") 
+	SettingsMiscFrameHeader.text:SetText("WRobot |cffFFFFFFSpell Settings")
+	SettingsMiscFrameHeader.text:Hide()
+	
+	-- Settings Frame (Misc Spells) Misc Spells More Button
+	SettingsMiscFrame.morebtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.morebtn:SetWidth(16)
+	SettingsMiscFrame.morebtn:SetHeight(16)
+	SettingsMiscFrame.morebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+	SettingsMiscFrame.morebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	SettingsMiscFrame.morebtn:SetPoint("TOPRIGHT",SettingsMiscFrame, 0,0) 
+	SettingsMiscFrame.morebtn:SetScript("OnClick", function()
+		if SettingsMiscFrameMore:IsShown() then 
+			SettingsMiscFrameMore:Hide()
+			SettingsMiscFrameMoreHeader.text:Hide()
+			SettingsMiscFrame.morebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.morebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else 
+			SettingsMiscFrameMore:Show()
+			SettingsMiscFrameMoreHeader.text:Show() 
+			SettingsMiscFrame.morebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.morebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		end 
+	end)
+	SettingsMiscFrame.morebtn:SetAlpha(1)
+	
+	-- Settings Frame (Misc Spells) Heal Self Toggle Button
+	SettingsMiscFrame.healselfbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.healselfbtn:SetWidth(16)
+	SettingsMiscFrame.healselfbtn:SetHeight(16)
+		if HealSelfDisabled then
+			SettingsMiscFrame.healselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.healselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else
+			SettingsMiscFrame.healselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.healselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		end
+	SettingsMiscFrame.healselfbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-28) 
+	SettingsMiscFrame.healselfbtn:SetScript("OnClick", function() 
+		if HealSelfDisabled then 
+			HealSelfDisabled = false
+			SettingsMiscFrame.healselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.healselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			HealSelfDisabled = true 
+			SettingsMiscFrame.healselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.healselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrame.healselfbtn:SetAlpha(1)
+	SettingsMiscFrame.healselfbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Heal Group Toggle Button
+	SettingsMiscFrame.healgroupbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.healgroupbtn:SetWidth(16)
+	SettingsMiscFrame.healgroupbtn:SetHeight(16)
+	if HealGroupDisabled then
+		SettingsMiscFrame.healgroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.healgroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.healgroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.healgroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.healgroupbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-42) 
+	SettingsMiscFrame.healgroupbtn:SetScript("OnClick", function() 
+		if HealGroupDisabled then 
+			HealGroupDisabled = false
+			SettingsMiscFrame.healgroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.healgroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			HealGroupDisabled = true 
+			SettingsMiscFrame.healgroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.healgroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrame.healgroupbtn:SetAlpha(1)
+	SettingsMiscFrame.healgroupbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Heal Focus Toggle Button
+	SettingsMiscFrame.healfocusbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.healfocusbtn:SetWidth(16)
+	SettingsMiscFrame.healfocusbtn:SetHeight(16)
+	if HealFocusDisabled then
+		SettingsMiscFrame.healfocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.healfocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.healfocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.healfocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.healfocusbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-56) 
+	SettingsMiscFrame.healfocusbtn:SetScript("OnClick", function() 
+		if HealFocusDisabled then 
+			HealFocusDisabled = false
+			SettingsMiscFrame.healfocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.healfocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			HealFocusDisabled = true 
+			SettingsMiscFrame.healfocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.healfocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrame.healfocusbtn:SetAlpha(1)
+	SettingsMiscFrame.healfocusbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Innervate Self Toggle Button
+	SettingsMiscFrame.innervateselfbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.innervateselfbtn:SetWidth(16)
+	SettingsMiscFrame.innervateselfbtn:SetHeight(16)
+	if InnervateSelfDisabled then
+		SettingsMiscFrame.innervateselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.innervateselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.innervateselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.innervateselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.innervateselfbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-86) 
+	SettingsMiscFrame.innervateselfbtn:SetScript("OnClick", function() 
+		if InnervateSelfDisabled then 
+			InnervateSelfDisabled = false
+			SettingsMiscFrame.innervateselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.innervateselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			InnervateSelfDisabled = true 
+			SettingsMiscFrame.innervateselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.innervateselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrame.innervateselfbtn:SetAlpha(1)
+	SettingsMiscFrame.innervateselfbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Innervate Group Toggle Button
+	SettingsMiscFrame.innervategroupbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.innervategroupbtn:SetWidth(16)
+	SettingsMiscFrame.innervategroupbtn:SetHeight(16)
+	if InnervateGroupDisabled then
+		SettingsMiscFrame.innervategroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.innervategroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.innervategroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.innervategroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.innervategroupbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-101) 
+	SettingsMiscFrame.innervategroupbtn:SetScript("OnClick", function() 
+		if InnervateGroupDisabled then 
+			InnervateGroupDisabled = false
+			SettingsMiscFrame.innervategroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.innervategroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			InnervateGroupDisabled = true  
+			SettingsMiscFrame.innervategroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.innervategroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsMiscFrame.innervategroupbtn:SetAlpha(1)
+	SettingsMiscFrame.innervategroupbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Innervate Focus Toggle Button
+	SettingsMiscFrame.innervatefocusbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.innervatefocusbtn:SetWidth(16)
+	SettingsMiscFrame.innervatefocusbtn:SetHeight(16)
+	if InnervateFocusDisabled then
+		SettingsMiscFrame.innervatefocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.innervatefocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.innervatefocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.innervatefocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.innervatefocusbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-115) 
+	SettingsMiscFrame.innervatefocusbtn:SetScript("OnClick", function() 
+		if InnervateFocusDisabled then 
+			InnervateFocusDisabled = false
+			SettingsMiscFrame.innervatefocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.innervatefocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			InnervateFocusDisabled = true  
+			SettingsMiscFrame.innervatefocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.innervatefocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsMiscFrame.innervatefocusbtn:SetAlpha(1)
+	SettingsMiscFrame.innervatefocusbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Buff Self Toggle Button
+	SettingsMiscFrame.buffselfbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.buffselfbtn:SetWidth(16)
+	SettingsMiscFrame.buffselfbtn:SetHeight(16)
+	if BuffSelfDisabled then
+		SettingsMiscFrame.buffselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.buffselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.buffselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.buffselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.buffselfbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-143) 
+	SettingsMiscFrame.buffselfbtn:SetScript("OnClick", function() 
+		if BuffSelfDisabled then 
+			BuffSelfDisabled = false
+			SettingsMiscFrame.buffselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.buffselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			BuffSelfDisabled = true  
+			SettingsMiscFrame.buffselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.buffselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsMiscFrame.buffselfbtn:SetAlpha(1)
+	SettingsMiscFrame.buffselfbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Buff Group Toggle Button
+	SettingsMiscFrame.buffgroupbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.buffgroupbtn:SetWidth(16)
+	SettingsMiscFrame.buffgroupbtn:SetHeight(16)
+	if BuffGroupDisabled then
+		SettingsMiscFrame.buffgroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.buffgroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.buffgroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.buffgroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.buffgroupbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-157) 
+	SettingsMiscFrame.buffgroupbtn:SetScript("OnClick", function() 
+		if BuffGroupDisabled then 
+			BuffGroupDisabled = false
+			SettingsMiscFrame.buffgroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.buffgroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			BuffGroupDisabled = true  
+			SettingsMiscFrame.buffgroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.buffgroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsMiscFrame.buffgroupbtn:SetAlpha(1)
+	SettingsMiscFrame.buffgroupbtn:Show()
+	
+	-- Settings Frame (Misc Spells) Buff Focus Toggle Button
+	SettingsMiscFrame.bufffocusbtn = CreateFrame("BUTTON", nil, SettingsMiscFrame, "UIPanelCloseButton")
+	SettingsMiscFrame.bufffocusbtn:SetWidth(16)
+	SettingsMiscFrame.bufffocusbtn:SetHeight(16)
+	if BuffFocusDisabled then
+		SettingsMiscFrame.bufffocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrame.bufffocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrame.bufffocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrame.bufffocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrame.bufffocusbtn:SetPoint("TOPRIGHT",SettingsMiscFrame, -2,-171) 
+	SettingsMiscFrame.bufffocusbtn:SetScript("OnClick", function() 
+		if BuffFocusDisabled then 
+			BuffFocusDisabled = false
+			SettingsMiscFrame.bufffocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrame.bufffocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			BuffFocusDisabled = true  
+			SettingsMiscFrame.bufffocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrame.bufffocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down") 
+		end 
+	end)
+	SettingsMiscFrame.bufffocusbtn:SetAlpha(1)
+	SettingsMiscFrame.bufffocusbtn:Show()
+	
+	-- Settings Frame (Misc Spells More)
+	SettingsMiscFrameMore = CreateFrame("Frame")
+	SettingsMiscFrameMore:ClearAllPoints()
+	SettingsMiscFrameMore:SetBackdrop({bgFile = "Interface/Buttons/WHITE8X8",})
+	SettingsMiscFrameMore:SetBackdropColor(0,0,0,.4)
+	SettingsMiscFrameMore:SetHeight(190)
+	SettingsMiscFrameMore:SetWidth(200)
+	SettingsMiscFrameMore:SetPoint("TOPLEFT",SettingsMiscFrame, 205,0) 
+	SettingsMiscFrameMore:EnableMouse(true)
+	SettingsMiscFrameMore:SetMovable(true)
+	SettingsMiscFrameMore:RegisterForDrag("LeftButton")
+	SettingsMiscFrameMore:SetScript("OnDragStart", SettingsMiscFrameMore.StartMoving)
+	SettingsMiscFrameMore:SetScript("OnDragStop", SettingsMiscFrameMore.StopMovingOrSizing)
+	SettingsMiscFrameMore:Hide()
+	
+	-- Settings Frame (Misc Spells More) Text Settings
+	SettingsMiscFrameMore.text = SettingsMiscFrameMore:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	SettingsMiscFrameMore.text:SetPoint("TOPLEFT", 0, -14)
+	SettingsMiscFrameMore.text:SetJustifyH("LEFT")
+	SettingsMiscFrameMore.text:SetFont("Fonts/ARIALN.TTF",14,"OUTLINE")
+	
+	-- Settings Frame (Misc Spells More) Header Settings
+	SettingsMiscFrameMoreHeader = CreateFrame("Frame")
+	SettingsMiscFrameMoreHeader:ClearAllPoints()
+	SettingsMiscFrameMoreHeader:SetHeight(14)
+	SettingsMiscFrameMoreHeader:SetWidth(200)
+	SettingsMiscFrameMoreHeader:SetPoint("TOPLEFT",SettingsMiscFrameMore, 0,0)
+	SettingsMiscFrameMoreHeader:Hide()
+	
+	-- Settings Frame (Misc Spells More) Header Text
+	SettingsMiscFrameMoreHeader.text = SettingsMiscFrameMore:CreateFontString(nil, "BACKGROUND", "GameFontNormal")
+	SettingsMiscFrameMoreHeader.text:SetPoint("Center",SettingsMiscFrameMoreHeader, 0)
+	SettingsMiscFrameMoreHeader.text:SetJustifyH("LEFT")
+	SettingsMiscFrameMoreHeader.text:SetFont("Fonts/ARIALN.TTF",12,"OUTLINE") 
+	SettingsMiscFrameMoreHeader.text:SetText("WRobot |cffFFFFFFMore Spell Settings")
+	SettingsMiscFrameMoreHeader.text:Hide()
+	
+	-- Settings Frame (Misc Spells More) Abolish Poison Self Toggle Button
+	SettingsMiscFrameMore.abolishpoisonselfbtn = CreateFrame("BUTTON", nil, SettingsMiscFrameMore, "UIPanelCloseButton")
+	SettingsMiscFrameMore.abolishpoisonselfbtn:SetWidth(16)
+	SettingsMiscFrameMore.abolishpoisonselfbtn:SetHeight(16)
+	if AbolishPoisonSelfDisabled then
+		SettingsMiscFrameMore.abolishpoisonselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrameMore.abolishpoisonselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrameMore.abolishpoisonselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrameMore.abolishpoisonselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrameMore.abolishpoisonselfbtn:SetPoint("TOPRIGHT",SettingsMiscFrameMore, -2,-28) 
+	SettingsMiscFrameMore.abolishpoisonselfbtn:SetScript("OnClick", function() 
+		if AbolishPoisonSelfDisabled then 
+			AbolishPoisonSelfDisabled = false
+			SettingsMiscFrameMore.abolishpoisonselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrameMore.abolishpoisonselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			AbolishPoisonSelfDisabled = true 
+			SettingsMiscFrameMore.abolishpoisonselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrameMore.abolishpoisonselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrameMore.abolishpoisonselfbtn:SetAlpha(1)
+	SettingsMiscFrameMore.abolishpoisonselfbtn:Show()
+	
+	-- Settings Frame (Misc Spells More) Abolish Poison Group Toggle Button
+	SettingsMiscFrameMore.abolishpoisongroupbtn = CreateFrame("BUTTON", nil, SettingsMiscFrameMore, "UIPanelCloseButton")
+	SettingsMiscFrameMore.abolishpoisongroupbtn:SetWidth(16)
+	SettingsMiscFrameMore.abolishpoisongroupbtn:SetHeight(16)
+	if AbolishPoisonGroupDisabled then
+		SettingsMiscFrameMore.abolishpoisongroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrameMore.abolishpoisongroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrameMore.abolishpoisongroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrameMore.abolishpoisongroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrameMore.abolishpoisongroupbtn:SetPoint("TOPRIGHT",SettingsMiscFrameMore, -2,-42) 
+	SettingsMiscFrameMore.abolishpoisongroupbtn:SetScript("OnClick", function() 
+		if AbolishPoisonGroupDisabled then 
+			AbolishPoisonGroupDisabled = false
+			SettingsMiscFrameMore.abolishpoisongroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrameMore.abolishpoisongroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			AbolishPoisonGroupDisabled = true 
+			SettingsMiscFrameMore.abolishpoisongroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrameMore.abolishpoisongroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrameMore.abolishpoisongroupbtn:SetAlpha(1)
+	SettingsMiscFrameMore.abolishpoisongroupbtn:Show()
+	
+	-- Settings Frame (Misc Spells More) Abolish Poison Focus Toggle Button
+	SettingsMiscFrameMore.abolishpoisonfocusbtn = CreateFrame("BUTTON", nil, SettingsMiscFrameMore, "UIPanelCloseButton")
+	SettingsMiscFrameMore.abolishpoisonfocusbtn:SetWidth(16)
+	SettingsMiscFrameMore.abolishpoisonfocusbtn:SetHeight(16)
+	if AbolishPoisonFocusDisabled then
+		SettingsMiscFrameMore.abolishpoisonfocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrameMore.abolishpoisonfocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrameMore.abolishpoisonfocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrameMore.abolishpoisonfocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrameMore.abolishpoisonfocusbtn:SetPoint("TOPRIGHT",SettingsMiscFrameMore, -2,-56) 
+	SettingsMiscFrameMore.abolishpoisonfocusbtn:SetScript("OnClick", function() 
+		if AbolishPoisonFocusDisabled then 
+			AbolishPoisonFocusDisabled = false
+			SettingsMiscFrameMore.abolishpoisonfocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrameMore.abolishpoisonfocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			AbolishPoisonFocusDisabled = true 
+			SettingsMiscFrameMore.abolishpoisonfocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrameMore.abolishpoisonfocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrameMore.abolishpoisonfocusbtn:SetAlpha(1)
+	SettingsMiscFrameMore.abolishpoisonfocusbtn:Show()
+	
+	-- Settings Frame (Misc Spells More) Remove Curse Self Toggle Button
+	SettingsMiscFrameMore.removecurseselfbtn = CreateFrame("BUTTON", nil, SettingsMiscFrameMore, "UIPanelCloseButton")
+	SettingsMiscFrameMore.removecurseselfbtn:SetWidth(16)
+	SettingsMiscFrameMore.removecurseselfbtn:SetHeight(16)
+	if RemoveCurseSelfDisabled then
+		SettingsMiscFrameMore.removecurseselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrameMore.removecurseselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrameMore.removecurseselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrameMore.removecurseselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrameMore.removecurseselfbtn:SetPoint("TOPRIGHT",SettingsMiscFrameMore, -2,-71) 
+	SettingsMiscFrameMore.removecurseselfbtn:SetScript("OnClick", function() 
+		if RemoveCurseSelfDisabled then 
+			RemoveCurseSelfDisabled = false
+			SettingsMiscFrameMore.removecurseselfbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrameMore.removecurseselfbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			RemoveCurseSelfDisabled = true 
+			SettingsMiscFrameMore.removecurseselfbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrameMore.removecurseselfbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrameMore.removecurseselfbtn:SetAlpha(1)
+	SettingsMiscFrameMore.removecurseselfbtn:Show()
+	
+	-- Settings Frame (Misc Spells More) Remove Curse Group Toggle Button
+	SettingsMiscFrameMore.removecursegroupbtn = CreateFrame("BUTTON", nil, SettingsMiscFrameMore, "UIPanelCloseButton")
+	SettingsMiscFrameMore.removecursegroupbtn:SetWidth(16)
+	SettingsMiscFrameMore.removecursegroupbtn:SetHeight(16)
+	if RemoveCurseGroupDisabled then
+		SettingsMiscFrameMore.removecursegroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrameMore.removecursegroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrameMore.removecursegroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrameMore.removecursegroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrameMore.removecursegroupbtn:SetPoint("TOPRIGHT",SettingsMiscFrameMore, -2,-86) 
+	SettingsMiscFrameMore.removecursegroupbtn:SetScript("OnClick", function() 
+		if RemoveCurseGroupDisabled then 
+			RemoveCurseGroupDisabled = false
+			SettingsMiscFrameMore.removecursegroupbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrameMore.removecursegroupbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			RemoveCurseGroupDisabled = true 
+			SettingsMiscFrameMore.removecursegroupbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrameMore.removecursegroupbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrameMore.removecursegroupbtn:SetAlpha(1)
+	SettingsMiscFrameMore.removecursegroupbtn:Show()
+	
+	-- Settings Frame (Misc Spells More) Remove Curse Focus Toggle Button
+	SettingsMiscFrameMore.removecursefocusbtn = CreateFrame("BUTTON", nil, SettingsMiscFrameMore, "UIPanelCloseButton")
+	SettingsMiscFrameMore.removecursefocusbtn:SetWidth(16)
+	SettingsMiscFrameMore.removecursefocusbtn:SetHeight(16)
+	if RemoveCurseFocusDisabled then
+		SettingsMiscFrameMore.removecursefocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		SettingsMiscFrameMore.removecursefocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		SettingsMiscFrameMore.removecursefocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		SettingsMiscFrameMore.removecursefocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	SettingsMiscFrameMore.removecursefocusbtn:SetPoint("TOPRIGHT",SettingsMiscFrameMore, -2,-101) 
+	SettingsMiscFrameMore.removecursefocusbtn:SetScript("OnClick", function() 
+		if RemoveCurseFocusDisabled then 
+			RemoveCurseFocusDisabled = false
+			SettingsMiscFrameMore.removecursefocusbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			SettingsMiscFrameMore.removecursefocusbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		else 
+			RemoveCurseFocusDisabled = true 
+			SettingsMiscFrameMore.removecursefocusbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			SettingsMiscFrameMore.removecursefocusbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")  
+		end 
+	end)
+	SettingsMiscFrameMore.removecursefocusbtn:SetAlpha(1)
+	SettingsMiscFrameMore.removecursefocusbtn:Show()
+	
+	-- Status Frame: Rota Toggle Button
+	StatusFrame.rotatogglebtn = CreateFrame("BUTTON", nil, StatusFrame, "UIPanelCloseButton")
+	StatusFrame.rotatogglebtn:SetWidth(16)
+	StatusFrame.rotatogglebtn:SetHeight(16)
+	StatusFrame.rotatogglebtn:SetPoint("TOPRIGHT",StatusFrame, 0,-15) 
+	StatusFrame.rotatogglebtn:SetScript("OnClick", function() 
+		if RotaOn then 
+			RotaOn = false
+		else 
+			RotaOn = true
+		end 
+	end)
+	StatusFrame.rotatogglebtn:SetAlpha(1)
+	StatusFrame.rotatogglebtn:Show()
+	
+	-- Status Frame: Decurse Toggle Button
+	StatusFrame.decursebtn = CreateFrame("BUTTON", nil, StatusFrame, "UIPanelCloseButton")
+	StatusFrame.decursebtn:SetWidth(16)
+	StatusFrame.decursebtn:SetHeight(16)
+	if DecurseOn then
+		StatusFrame.decursebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		StatusFrame.decursebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	else
+		StatusFrame.decursebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		StatusFrame.decursebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	end
+	StatusFrame.decursebtn:SetPoint("TOPRIGHT",StatusFrame, 0,-29) 
+	StatusFrame.decursebtn:SetScript("OnClick", function() 
+		if DecurseOn then 
+			DecurseOn = false
+			RemoveCurseDisabled = true
+			AbolishPoisonDisabled = true
+			StatusFrame.decursebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			StatusFrame.decursebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else 
+			DecurseOn = true
+			RemoveCurseDisabled = false
+			AbolishPoisonDisabled = false
+			StatusFrame.decursebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			StatusFrame.decursebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		end 
+	end)
+	StatusFrame.decursebtn:SetAlpha(1)
+	StatusFrame.decursebtn:Show()
+
+	-- Status Frame: Auto Buffing Toggle Button
+	StatusFrame.autobuffingbtn = CreateFrame("BUTTON", nil, StatusFrame, "UIPanelCloseButton")
+	StatusFrame.autobuffingbtn:SetWidth(16)
+	StatusFrame.autobuffingbtn:SetHeight(16)
+	if AutoBuffingDisabled then
+		StatusFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+		StatusFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+	else
+		StatusFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+		StatusFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+	end
+	StatusFrame.autobuffingbtn:SetPoint("TOPRIGHT",StatusFrame, 0,-43) 
+	StatusFrame.autobuffingbtn:SetScript("OnClick", function() 
+		if AutoBuffingDisabled then 
+			AutoBuffingDisabled = false
+			StatusFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+			StatusFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+		else 
+			AutoBuffingDisabled = true
+			StatusFrame.autobuffingbtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+			StatusFrame.autobuffingbtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+		end 
+	end)
+	StatusFrame.autobuffingbtn:SetAlpha(1)
+	StatusFrame.autobuffingbtn:Show()
+
+-- Framework created
+end
+      </SpellName>
+      <Priority>42</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CastIfMounted>true</CastIfMounted>
+      <CastIfDead>true</CastIfDead>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Framework Data --
+if RotaOn then
+	RotaStatusText = "|cffFFBE69Rotation |cff228B22Running"
+else
+	RotaStatusText = "|cffFFBE69Rotation |cffC41F3BPaused"
+end
+
+if DecurseOn then
+	DecurseText = "|cffFFBE69Decursing |cff228B22On"
+else
+	DecurseText = "|cffFFBE69Decursing |cffC41F3BOff"
+end
+
+if AutoBuffingDisabled then  
+	AutoBuffingSText = "|cffFFBE69Auto Buffing |cffC41F3BOff"
+else
+	AutoBuffingSText = "|cffFFBE69Auto Buffing |cff228B22On"
+end
+
+StatusFrame.text:SetText(RotaStatusText.."\\n"..DecurseText.."\\n"..AutoBuffingSText)
+
+ClassText = "|cffFFFFFFHealing Abilities"
+MiscText = "|cffFFFFFFMisc Abilities"
+BuffingText = "|cffFFFFFFBuffing"
+DispellingText = "|cffFFFFFFDispelling"
+
+if RegrowthDisabled then
+	RegrowthText = "|TInterface/ICONS/spell_nature_resistnature:15|t|cffFFBE69Regrowth: |cffC41F3BOff"
+else
+	RegrowthText = "|TInterface/ICONS/spell_nature_resistnature:15|t|cffFFBE69Regrowth: |cff228B22On"
+end
+
+if RejuvenationDisabled then
+	RejuvenationText = "|TInterface/ICONS/spell_nature_rejuvenation:15|t|cffFFBE69Rejuvenation: |cffC41F3BOff"
+else
+	RejuvenationText = "|TInterface/ICONS/spell_nature_rejuvenation:15|t|cffFFBE69Rejuvenation: |cff228B22On"
+end
+
+if LifebloomDisabled then
+	LifebloomText = "|TInterface/ICONS/inv_misc_herb_felblossom:15|t|cffFFBE69Lifebloom: |cffC41F3BOff"
+else
+	LifebloomText = "|TInterface/ICONS/inv_misc_herb_felblossom:15|t|cffFFBE69Lifebloom: |cff228B22On"
+end
+
+if SwiftmendDisabled then
+	SwiftmendText = "|TInterface/ICONS/inv_relics_idolofrejuvenation:15|t|cffFFBE69Swiftmend: |cffC41F3BOff"
+else
+	SwiftmendText = "|TInterface/ICONS/inv_relics_idolofrejuvenation:15|t|cffFFBE69Swiftmend: |cff228B22On"
+end
+
+if HealingTouchDisabled then
+	HealingTouchText = "|TInterface/ICONS/spell_nature_healingtouch:15|t|cffFFBE69Instant Healing Touch: |cffC41F3BOff"
+else
+	HealingTouchText = "|TInterface/ICONS/spell_nature_healingtouch:15|t|cffFFBE69Instant Healing Touch: |cff228B22On"
+end
+
+if TreeofLifeDisabled then
+	TreeofLifeText = "|TInterface/ICONS/Ability_druid_treeoflife:15|t|cffFFBE69Tree of Life: |cffC41F3BOff"
+else
+	TreeofLifeText = "|TInterface/ICONS/Ability_druid_treeoflife:15|t|cffFFBE69Tree of Life: |cff228B22On"
+end
+
+if InnervateDisabled then
+	InnervateText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate: |cffC41F3BOff"
+else
+	InnervateText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate: |cff228B22On"
+end
+
+if AbolishPoisonDisabled then
+	AbolishPoisonText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Poison: |cffC41F3BOff"
+else
+	AbolishPoisonText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Poison: |cff228B22On"
+end
+
+if RemoveCurseDisabled then
+	RemoveCurseText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Remove Curse: |cffC41F3BOff"
+else
+	RemoveCurseText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Remove Curse: |cff228B22On"
+end
+
+if AutoBuffingDisabled then
+	AutoBuffingText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Auto Buffing: |cffC41F3BOff |cffFFFFFF"
+else
+	AutoBuffingText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Auto Buffing: |cff228B22On |cffFFFFFF"
+end
+
+SettingsFrame.text:SetText(ClassText.."\\n"..RegrowthText.."\\n"..RejuvenationText.."\\n"..LifebloomText.."\\n"..SwiftmendText.."\\n"..HealingTouchText.."\\n"..MiscText.."\\n"..TreeofLifeText.."\\n"..InnervateText.."\\n"..AbolishPoisonText.."\\n"..RemoveCurseText.."\\n"..AutoBuffingText)
+
+if HealSelfDisabled then
+	HealSelfText = "|TInterface/ICONS/Spell_ChargePositive:15|t|cffFFBE69Heal Yourself: |cffC41F3BOff"
+else
+	HealSelfText = "|TInterface/ICONS/Spell_ChargePositive:15|t|cffFFBE69Heal Yourself: |cff228B22On"
+end
+
+if HealGroupDisabled then
+	HealGroupText = "|TInterface/ICONS/Spell_ChargePositive:15|t|cffFFBE69Heal Group: |cffC41F3BOff"
+else
+	HealGroupText = "|TInterface/ICONS/Spell_ChargePositive:15|t|cffFFBE69Heal Group: |cff228B22On"
+end
+
+if HealFocusDisabled then
+	HealFocusText = "|TInterface/ICONS/Spell_ChargePositive:15|t|cffFFBE69Heal focus: |cffC41F3BOff"
+else
+	HealFocusText = "|TInterface/ICONS/Spell_ChargePositive:15|t|cffFFBE69Heal focus: |cff228B22On"
+end
+
+if InnervateSelfDisabled then
+	InnervateSelfText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate Youself: |cffC41F3BOff"
+else
+	InnervateSelfText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate Youself: |cff228B22On"
+end
+
+if InnervateGroupDisabled then
+	InnervateGroupText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate Group: |cffC41F3BOff"
+else
+	InnervateGroupText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate Group: |cff228B22On"
+end
+
+if InnervateFocusDisabled then
+	InnervateFocusText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate Focus: |cffC41F3BOff"
+else
+	InnervateFocusText = "|TInterface/ICONS/spell_nature_lightning:15|t|cffFFBE69Innervate Focus: |cff228B22On"
+end
+
+if BuffSelfDisabled then
+	BuffSelfText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Buff Yourself: |cffC41F3BOff"
+else
+	BuffSelfText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Buff Yourself: |cff228B22On"
+end
+
+if BuffGroupDisabled then
+	BuffGroupText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Buff Group: |cffC41F3BOff"
+else
+	BuffGroupText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Buff Group: |cff228B22On"
+end
+
+if BuffFocusDisabled then
+	BuffFocusText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Buff Focus: |cffC41F3BOff"
+else
+	BuffFocusText = "|TInterface/ICONS/spell_nature_giftofthewild:15|t|cffFFBE69Buff Focus: |cff228B22On"
+end
+
+SettingsMiscFrame.text:SetText(ClassText.."\\n"..HealSelfText.."\\n"..HealGroupText.."\\n"..HealFocusText.."\\n"..MiscText.."\\n"..InnervateSelfText.."\\n"..InnervateGroupText.."\\n"..InnervateFocusText.."\\n"..BuffingText.."\\n"..BuffSelfText.."\\n"..BuffGroupText.."\\n"..BuffFocusText)
+
+if AbolishPoisonSelfDisabled then
+	AbolishPoisonSelfText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Yourself: |cffC41F3BOff"
+else
+	AbolishPoisonSelfText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Yourself: |cff228B22On"
+end
+
+if AbolishPoisonGroupDisabled then
+	AbolishPoisonGroupText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Group: |cffC41F3BOff"
+else
+	AbolishPoisonGroupText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Group: |cff228B22On"
+end
+
+if AbolishPoisonFocusDisabled then
+	AbolishPoisonFocusText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Focus: |cffC41F3BOff"
+else
+	AbolishPoisonFocusText = "|TInterface/ICONS/spell_nature_nullifypoison_02:15|t|cffFFBE69Abolish Focus: |cff228B22On"
+end
+
+if RemoveCurseSelfDisabled then
+	RemoveCurseSelfText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Decurse Self: |cffC41F3BOff"
+else
+	RemoveCurseSelfText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Decurse Self: |cff228B22On"
+end
+
+if RemoveCurseGroupDisabled then
+	RemoveCurseGroupText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Decurse Group: |cffC41F3BOff"
+else
+	RemoveCurseGroupText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Decurse Group: |cff228B22On"
+end
+
+if RemoveCurseFocusDisabled then
+	RemoveCurseFocusText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Decurse Focus: |cffC41F3BOff"
+else
+	RemoveCurseFocusText = "|TInterface/ICONS/spell_holy_removecurse:15|t|cffFFBE69Decurse Focus: |cff228B22On"
+end
+
+SettingsMiscFrameMore.text:SetText(DispellingText.."\\n"..AbolishPoisonSelfText.."\\n"..AbolishPoisonGroupText.."\\n"..AbolishPoisonFocusText.."\\n"..RemoveCurseSelfText.."\\n"..RemoveCurseGroupText.."\\n"..RemoveCurseFocusText)
+
+if RotaOn then
+	StatusFrame.rotatogglebtn:SetNormalTexture("Interface/Buttons/UI-MinusButton-Up")
+	StatusFrame.rotatogglebtn:SetPushedTexture("Interface/Buttons/UI-MinusButton-Down")
+else
+	StatusFrame.rotatogglebtn:SetNormalTexture("Interface/Buttons/UI-PlusButton-Up")
+	StatusFrame.rotatogglebtn:SetPushedTexture("Interface/Buttons/UI-PlusButton-Down")
+end
+if RemoveCurseDisabled == false and AbolishPoisonDisabled == false then
+	DecurseOn = true
+elseif RemoveCurseDisabled == true and AbolishPoisonDisabled == true then
+	DecurseOn = false
+end
+      </SpellName>
+      <Priority>41</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CastIfMounted>true</CastIfMounted>
+      <CastIfDead>true</CastIfDead>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Auto Buffing -- 
+PlayerMP = 100 * UnitMana("player") / UnitManaMax("player")
+if PlayerMP &gt; 50 then
+	--Mark of the Wild
+	local MotW = 26990
+
+	-- Gift of the Wild
+	local GotW = 26991
+	local GotWMat = WildQuillvines
+
+	local p1range = 0
+	local p2range = 0
+	local p3range = 0
+	local p4range = 0
+
+	if rangeCheck(26990, "party1") then
+		p1range = 1
+	end
+
+	if rangeCheck(26990, "party2") then
+		p2range = 1
+	end
+
+	if rangeCheck(26990, "party3") then
+		p3range = 1
+	end
+
+	if rangeCheck(26990, "party4") then
+		p4range = 1
+	end
+
+	local NumInRange = p1range + p2range + p3range + p4range
+
+	local playerhasGotWbuff = 1
+	local p1hasGotWbuff = 1
+	local p2hasGotWbuff = 1
+	local p3hasGotWbuff = 1
+	local p4hasGotWbuff = 1
+
+	if not UnitBuffID("Player", GotW) then
+		playerhasGotWbuff = 0
+	end
+	if not UnitBuffID("party1", GotW) then
+		p1hasGotWbuff = 0
+	end
+	if not UnitBuffID("party2", GotW) then
+		p2hasGotWbuff = 0
+	end
+	if not UnitBuffID("party3", GotW) then
+		p3hasGotWbuff = 0
+	end
+	if not UnitBuffID("party4", GotW) then
+		p4hasGotWbuff = 0
+	end
+
+	local GotWBuffAmount =  playerhasGotWbuff + p1hasGotWbuff + p2hasGotWbuff + p3hasGotWbuff + p4hasGotWbuff
+
+	local WildQuillvine =  GetItemCount(22148)
+
+	local GotWMatAmount = WildQuillvine
+
+	if group ~= "raid" and not AutoBuffingDisabled and not BuffGroupDisabled then
+		local members = {"player", "party1", "party2", "party3", "party4"}
+		table.foreach(members, function(_, membersTarget)
+			-- Mark/Gift of the Wild
+			if not UnitBuffID(membersTarget, MotW) and not UnitBuffID(membersTarget, GotW) then
+				if groupmembers &gt;= 2 and GotWMatAmount &gt; 5 and NumInRange == 4 and 3 &gt;= GotWBuffAmount and UnitLevel(membersTarget) &gt;= 40 then
+					_castBuff(GotW, membersTarget)
+				elseif groupmembers &lt; 2 or 5 &gt;= GotWMatAmount or NumInRange &lt; 4 or GotWBuffAmount &gt; 3 then
+					_castSpell(MotW, membersTarget)
+				end
+			end
+
+			if not UnitBuffID(membersTarget, MotW) then
+				if groupmembers &lt; 2 or 5 &gt;= GotWMatAmount or NumInRange &lt; 4 or GotWBuffAmount &gt; 3 then
+					_castSpell(MotW, membersTarget)
+				end
+			end
+
+			if not UnitBuffID(membersTarget, GotW) then
+				if groupmembers &gt;= 2 and GotWMatAmount &gt; 5 and NumInRange == 4 and 3 &gt;= GotWBuffAmount and UnitLevel(membersTarget) &gt;= 40 then
+					_castBuff(GotW, membersTarget)
+				end
+			end
+		end)
+	end
+
+	if BuffGroupDisabled and not BuffSelfDisabled then
+		if not UnitBuffID("player", MotW) and not UnitBuffID("player", GotW) then
+			_castSpell(MotW, "player")
+		end
+	end
+
+	if not BuffFocusDisabled then
+		if not UnitBuffID("focus", MotW) and not UnitBuffID("focus", GotW) then
+			_castSpell(MotW, "focus")
+		end
+	end
+end
+      </SpellName>
+      <Priority>40</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CastIfMounted>true</CastIfMounted>
+      <CastIfDead>true</CastIfDead>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Tree of Life</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not TreeofLifeDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Tree of Life</SpellName>
+      <Priority>39</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>ManaPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>20</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not InnervateDisabled and not InnervateSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Innervate</SpellName>
+      <Priority>38</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>25</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not HealingTouchDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Nature's Swiftness</SpellName>
+      <Priority>37</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not HealingTouchDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Healing Touch</SpellName>
+      <Priority>36</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>BuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Rejuvenation</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not SwiftmendDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Swiftmend</SpellName>
+      <Priority>35</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>BuffStack</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>3</Number>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffTimeLeft</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>1200</Number>
+            <Type>SmallerOrEqual</Type>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>100</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "player")</SpellName>
+      <Priority>34</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>BuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Abolish Poison</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>havePoisonSelf = false;
+for i=1,40 do
+	local _, _, _, _, debuffType  = UnitDebuff('player',i);
+	if debuffType == "Poison" then
+		havePoisonSelf = true;
+		return;
+	end
+end</LuaScript>
+            <VarRet>havePoisonSelf</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not AbolishPoisonDisabled and not AbolishPoisonSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Abolish Poison</SpellName>
+      <Priority>33</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>haveCurseSelf = false;
+for i=1,40 do
+	local _, _, _, _, debuffType  = UnitDebuff('player',i);
+  if debuffType == "Curse" then
+		haveCurseSelf = true;
+		return;
+	end
+end</LuaScript>
+            <VarRet>haveCurseSelf</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RemoveCurseDisabled and not RemoveCurseSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Remove Curse</SpellName>
+      <Priority>32</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RegrowthDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Regrowth</SpellName>
+      <Priority>31</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>60</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Regrowth</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RegrowthDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Regrowth</SpellName>
+      <Priority>30</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>75</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Rejuvenation</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RejuvenationDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Rejuvenation</SpellName>
+      <Priority>29</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>80</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffStack</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>3</Number>
+            <Type>Smaller</Type>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "player")</SpellName>
+      <Priority>28</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>99</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffStack</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>1</Number>
+            <Type>Smaller</Type>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealSelfDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "player")</SpellName>
+      <Priority>27</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Group --</SpellName>
+      <Priority>26</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>100000</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <OncePerTarget>true</OncePerTarget>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not InnervateDisabled and not InnervateGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>TargetMP = 100 * UnitMana("target") / UnitManaMax("target")
+if 20 &gt;= TargetMP then
+  TargetNeedsInnervate = "1"
+end</LuaScript>
+            <VarRet>TargetNeedsInnervate </VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Innervate</SpellName>
+      <Priority>25</Priority>
+      <IsBuff>true</IsBuff>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>25</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not HealingTouchDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Nature's Swiftness</SpellName>
+      <Priority>24</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not HealingTouchDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Healing Touch</SpellName>
+      <Priority>23</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetBuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Rejuvenation</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not SwiftmendDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Swiftmend</SpellName>
+      <Priority>22</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>BuffStackTarget</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>3</Number>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffTimeLeftTarget</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>1200</Number>
+            <Type>SmallerOrEqual</Type>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>100</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "target")</SpellName>
+      <Priority>21</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetBuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Abolish Poison</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>havePoisonGroup = false;
+for i=1,40 do
+	local _, _, _, _, debuffType  = UnitDebuff('target',i);
+  if debuffType == "Poison" then
+		havePoisonGroup = true;
+		return;
+	end
+end</LuaScript>
+            <VarRet>havePoisonGroup</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not AbolishPoisonDisabled and not AbolishPoisonGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Abolish Poison</SpellName>
+      <Priority>20</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>haveCurseGroup = false;
+for i=1,40 do
+	local _, _, _, _, debuffType  = UnitDebuff('target',i);
+  if debuffType == "Curse" then
+		haveCurseGroup = true;
+		return;
+	end
+end</LuaScript>
+            <VarRet>haveCurseGroup</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RemoveCurseDisabled and not RemoveCurseGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Remove Curse</SpellName>
+      <Priority>19</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RegrowthDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Regrowth</SpellName>
+      <Priority>18</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>60</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Regrowth</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RegrowthDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Regrowth</SpellName>
+      <Priority>17</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>75</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RejuvenationDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Rejuvenation</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Rejuvenation</SpellName>
+      <Priority>16</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>80</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffStackTarget</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>3</Number>
+            <Type>NotEqual</Type>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "target")</SpellName>
+      <Priority>15</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>99</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>BuffStackTarget</ContionType>
+          <Param xsi:type="FightClassConditionBuffStack">
+            <Number>1</Number>
+            <Type>Smaller</Type>
+            <Name>Lifebloom</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>40</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Enfeeble</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealGroupDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "target")</SpellName>
+      <Priority>14</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <TargetFriends>true</TargetFriends>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>-- Focus --</SpellName>
+      <Priority>13</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>100000</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <OncePerTarget>true</OncePerTarget>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not InnervateDisabled and not InnervateFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>--Innervate Focus --\n        if UnitExists("focus") then\n          FocusMP = 100 * UnitMana("focus") / UnitManaMax("focus")\n          if 20 &gt;= FocusMP then\n            _castSpell(29166, "focus")\n          end\n        end\n      </SpellName>
+      <Priority>12</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfKnow>false</CheckIfKnow>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <LockFrame>false</LockFrame>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt;= 25)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Enfeeble"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not HealingTouchDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Nature's Swiftness</SpellName>
+      <Priority>11</Priority>
+      <IsBuff>true</IsBuff>
+      <CombatOnly>false</CombatOnly>
+      <Timer>500</Timer>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Healing Touch","focus") then
+  HealingTouchRangeOk = "1"
+end</LuaScript>
+            <VarRet>HealingTouchRangeOk</VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not HealingTouchDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Healing Touch</SpellName>
+      <Priority>10</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.BuffCastedByAll("Rejuvenation").Contains(ObjectManager.Me.Guid))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt;= 50)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Swiftmend","focus") then
+  SwiftmendRangeOk = "1"
+end</LuaScript>
+            <VarRet>SwiftmendRangeOk </VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not SwiftmendDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Swiftmend</SpellName>
+      <Priority>9</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.BuffStack("Lifebloom") == 3)
+</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.BuffTimeLeft("Lifebloom") &lt;= 1200)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt; 100)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Enfeeble"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Lifebloom","focus") then
+  LifebloomRangeOk = "1"
+end
+</LuaScript>
+            <VarRet>LifebloomRangeOk</VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "focus")</SpellName>
+      <Priority>8</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Abolish Poison"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Abolish Poison","focus") then
+  AbolishPoisonRangeOk = "1"
+end
+</LuaScript>
+            <VarRet>AbolishPoisonRangeOk</VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>havePoisonFocus = false;
+for i=1,40 do
+	local _, _, _, _, debuffType  = UnitDebuff('focus',i);
+  if debuffType == "Poison" then
+		havePoisonFocus = true;
+		return;
+	end
+end
+</LuaScript>
+            <VarRet>havePoisonFocus</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not AbolishPoisonDisabled and not AbolishPoisonFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Abolish Poison</SpellName>
+      <Priority>7</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Remove Curse","focus") then
+  RemoveCurseRangeOk = "1"
+end</LuaScript>
+            <VarRet>RemoveCurseRangeOk </VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>haveCurseFocus = false;
+for i=1,40 do
+	local _, _, _, _, debuffType  = UnitDebuff('focus',i);
+  if debuffType == "Curse" then
+		haveCurseFocus = true;
+		return;
+	end
+end
+</LuaScript>
+            <VarRet>haveCurseFocus</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RemoveCurseDisabled and not RemoveCurseFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Remove Curse</SpellName>
+      <Priority>6</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Regrowth","focus") then
+  RegrowthRangeOk = "1"
+end
+</LuaScript>
+            <VarRet>RegrowthRangeOk</VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Enfeeble"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt;= 40)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RegrowthDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Regrowth</SpellName>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt;= 60)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.BuffCastedByAll("Regrowth").Contains(ObjectManager.Me.Guid))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Regrowth","focus") then
+  RegrowthRangeOk = "1"
+end</LuaScript>
+            <VarRet>RegrowthRangeOk</VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Infeeble"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RegrowthDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Regrowth</SpellName>
+      <Priority>4</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <CanMoveDuringCast>No</CanMoveDuringCast>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt;= 75)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.BuffCastedByAll("Rejuvenation").Contains(ObjectManager.Me.Guid))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Rejuvenation","focus") then
+  RejuvenationRangeOk = "1"
+end</LuaScript>
+            <VarRet>RejuvenationRangeOk </VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Infeeble"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not RejuvenationDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Rejuvenation</SpellName>
+      <Priority>3</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt;= 80)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.BuffStack("Lifebloom") != 3)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Lifebloom","focus") then
+  LifebloomRangeOk = "1"
+end</LuaScript>
+            <VarRet>LifebloomRangeOk</VarRet>
+            <ValueRet>1</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Infeeble"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "target")</SpellName>
+      <Priority>2</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.HealthPercent &lt;= 90)</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; ObjectManager.Me.FocusObj.BuffStack("Lifebloom") &lt; 1)
+</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nature's Swiftness</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if rangeCheck("Lifebloom","focus") then
+  LifebloomRangeOk = "1"
+end</LuaScript>
+            <VarRet>1</VarRet>
+            <ValueRet>LifebloomRangeOk</ValueRet>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>(ObjectManager.Me.FocusObj.IsValid &amp;&amp; !ObjectManager.Me.FocusObj.HaveBuff("Infeeble"))</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>LuaScript</ContionType>
+          <Param xsi:type="FightClassConditionLua">
+            <LuaScript>if RotaOn and not LifebloomDisabled and not HealFocusDisabled then canCast = "true" else canCast = "false" end</LuaScript>
+            <VarRet>canCast</VarRet>
+            <ValueRet>true</ValueRet>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>_castSpell(33763, "target")</SpellName>
+      <Priority>1</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>500</Timer>
+      <NotSpellIsLuaScript>true</NotSpellIsLuaScript>
+      <CastOn>focus</CastOn>
+    </FightClassSpell>
+  </FightClassSpells>
+</FightClass>

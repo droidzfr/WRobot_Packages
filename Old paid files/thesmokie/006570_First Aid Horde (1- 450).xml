@@ -1,0 +1,2491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="AutoUpdater.CheckUpdate();&#xD;&#xA;&#xD;&#xA;Thread.Sleep(500);" />
+    <QuestsSorted Action="If" NameClass="!Skill.Has(SkillLine.FirstAid)" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerFirstAid" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Linen Bandage&quot;) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt; 50 " />
+    <QuestsSorted Action="Pulse" NameClass="FarmerLinenCloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Linen Bandage&quot;) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt; 50 " />
+    <QuestsSorted Action="Pulse" NameClass="CraftingLinenCloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Linen Bandage&quot;)) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &gt;= 50 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 75" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerHeavyLinenBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Linen Bandage&quot;) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &gt;= 50 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt; 80 " />
+    <QuestsSorted Action="Pulse" NameClass="CraftingHeavyLinenCloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 80 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 115 &amp;&amp; !Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Wool Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerWoolBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Wool Bandage&quot;) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &gt;= 80 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 115 " />
+    <QuestsSorted Action="Pulse" NameClass="FarmerWoolCloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Wool Bandage&quot;) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &gt;= 80 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 115 " />
+    <QuestsSorted Action="Pulse" NameClass="CraftingWoolBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Wool Bandage&quot;)) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &gt;= 115 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 150" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerHeavyWoolBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Wool Bandage&quot;) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &gt;= 115 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt; 150" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingHeavyWoolBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 150 &amp;&amp; !(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Silk Bandage&quot;)) " />
+    <QuestsSorted Action="Pulse" NameClass="TrainerSilkBandages" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 150 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 180 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Silk Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="FarmerSilkCloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 150 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 180 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Silk Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingSilkBandages" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 180 &amp;&amp; !(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Silk Bandage&quot;)) " />
+    <QuestsSorted Action="Pulse" NameClass="TrainerHeavySilkBandages" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 180 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt;= 210 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Silk Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingHeavySilkBandages" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 210 &amp;&amp; !(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Mageweave Bandage&quot;)) " />
+    <QuestsSorted Action="Pulse" NameClass="TrainerMageweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 210 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 240 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Mageweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="FarmerMageweave" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 210 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt;= 240 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Mageweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingMageweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 240 &amp;&amp; !(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Mageweave Bandage&quot;)) " />
+    <QuestsSorted Action="Pulse" NameClass="TrainerHeavyMageweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 240 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 260 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Mageweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingHeavyMageweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="PickUp" NameClass="HordeTrauma" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 180 &amp;&amp; !(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Runecloth Bandage&quot;)) " />
+    <QuestsSorted Action="Pulse" NameClass="TrainerRuneclothBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 260 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 290 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Runecloth Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="FarmerRunecloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 260 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 290 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Runecloth Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingRuneclothBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 290 &amp;&amp; !(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Runecloth Bandage&quot;))" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerHeavyRuneclothBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 290 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 300 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Runecloth Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingHeavyRuneclothBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Usefuls.MapZoneName == &quot;Orgrimmar&quot; &amp;&amp; Skill.GetValue(SkillLine.FirstAid) == 300" />
+    <QuestsSorted Action="Pulse" NameClass="MovetoBlastedLands" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Usefuls.MapZoneName == &quot;Blasted Lands&quot; &amp;&amp; Skill.GetValue(SkillLine.FirstAid) == 300" />
+    <QuestsSorted Action="Pulse" NameClass="MovetoOutlands" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Expansion01 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) == 300 &amp;&amp; !Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Netherweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerNetherweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 300 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 350 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Netherweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="FarmerNetherweaveCloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 300 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 330 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Netherweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingNetherweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Expansion01 &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &gt;= 300 &amp;&amp; !Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Netherweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerHeavyNetherweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 330 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 375 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Heavy Netherweave Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CraftingHeavyNetherweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Usefuls.MapZoneName != &quot;Orgrimmar&quot; &amp;&amp; Skill.GetValue(SkillLine.FirstAid) == 375 &amp;&amp; Usefuls.ContinentId == (int)ContinentId.Expansion01" />
+    <QuestsSorted Action="Pulse" NameClass="MoveToOrg" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int) ContinentId.Kalimdor &amp;&amp; Skill.GetValue(SkillLine.FirstAid) == 375" />
+    <QuestsSorted Action="Pulse" NameClass="MovetoNorthran" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) == 375 &amp;&amp; !(Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Frostweave Bandage&quot;)) &amp;&amp; Usefuls.ContinentId == (int) ContinentId.Northrend" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerFrostweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) == 375 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Frostweave Bandage&quot;) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 400" />
+    <QuestsSorted Action="Pulse" NameClass="FarmerFrostweaveCloth" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &gt;= 375 &amp;&amp;  Skill.GetValue(SkillLine.FirstAid) &lt; 400 &amp;&amp; Extension.RecipeIsKnown(&quot;First Aid&quot;, &quot;Frostweave Bandage&quot;) " />
+    <QuestsSorted Action="Pulse" NameClass="CraftyFrostweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="FirstAidHorde.Load();&#xD;&#xA;        if(FirstAidHorde.CurrentSetting.HFB == null)&#xD;&#xA;        {&#xD;&#xA;            FirstAidHorde.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FirstAidHorde.CurrentSetting.Save();" />
+    <QuestsSorted Action="If" NameClass="FirstAidHorde.CurrentSetting.HFB == true" />
+    <QuestsSorted Action="Pulse" NameClass="FarmerHeavyFrostweaveBandage" />
+    <QuestsSorted Action="Pulse" NameClass="TrainerHeavyfrostweaveBandage" />
+    <QuestsSorted Action="Pulse" NameClass="CraftyHeavyFrostweaveBandage" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="3373" Name="Arnok" GameObject="false">
+      <PickUpQuests>
+        <int>6623</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="1482.72" Y="-4159.95" Z="44.02099" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>[Trainer] </Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] First Aid</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+        int Npc = 3373;
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(100);
+            Lua.LuaDoString(@"GossipTitleButton1:Click();");
+            Thread.Sleep(100);
+            Extension.BuyThisSpell("Apprentice First Aid");
+        }
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.Has(SkillLine.FirstAid) &amp;&amp; Extension.RecipeIsKnown("First Aid","Linen Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Heavy Linen Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+                int Npc = 3373;
+                if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+                while (MovementManager.InMovement)
+                {
+                    Thread.Sleep(1500);
+                }
+                if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+                {
+                    wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+                    Thread.Sleep(1000);
+                    Lua.LuaDoString(@"GossipTitleButton1:Click();");
+	Thread.Sleep(1000);
+	Extension.BuyThisSpell("Journeyman First Aid");	
+                    Thread.Sleep(1000);
+                    Extension.BuyThisSpell("Heavy Linen Bandage");
+                    
+                }
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Heavy Linen Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer]  Wool Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+        int Npc = 3373;
+
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(1000);
+            Lua.LuaDoString(@"GossipTitleButton1:Click();");
+            Thread.Sleep(1000);
+            Extension.BuyThisSpell("Wool Bandage");
+	Thread.Sleep(1000);
+            Extension.BuyThisSpell("Anti-Venom");
+
+        }
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Wool Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Heavy Wool Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+        int Npc = 3373;
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(100);
+            Lua.LuaDoString(@"GossipTitleButton1:Click();");
+            Thread.Sleep(100);
+            Extension.BuyThisSpell("Heavy Wool Bandage");
+
+        }
+return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Heavy Wool Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Silk Bandages</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+                int Npc = 3373;
+                if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+                while (MovementManager.InMovement)
+                {
+                    Thread.Sleep(1500);
+                }
+                if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+                {
+                    wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+                    Thread.Sleep(1000);
+                    Lua.LuaDoString(@"GossipTitleButton1:Click();");
+	Thread.Sleep(1000);
+	Extension.BuyThisSpell("Expert First Aid");	
+                    Thread.Sleep(1000);
+                    Extension.BuyThisSpell("Silk Bandage");
+                    
+                }
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Silk Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Heavy Silk Bandages</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+        int Npc = 3373;
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(100);
+            Lua.LuaDoString(@"GossipTitleButton1:Click();");
+            Thread.Sleep(100);
+            Extension.BuyThisSpell("Heavy Silk Bandage");
+
+        }
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Heavy Silk Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Mageweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+                int Npc = 3373;
+                if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+                while (MovementManager.InMovement)
+                {
+                    Thread.Sleep(1500);
+                }
+                if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+                {
+                    wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+                    Thread.Sleep(1000);
+                    Lua.LuaDoString(@"GossipTitleButton1:Click();");
+	Thread.Sleep(1000);
+	Extension.BuyThisSpell("Artisan First Aid");	
+                    Thread.Sleep(1000);
+                    Extension.BuyThisSpell("Mageweave Bandage");
+                    
+                }
+return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Mageweave Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Heavy Mageweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+        int Npc = 3373;
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(100);
+            Lua.LuaDoString(@"GossipTitleButton1:Click();");
+            Thread.Sleep(100);
+            Extension.BuyThisSpell("Heavy Mageweave Bandage");
+
+        }
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Heavy Mageweave Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Runecloth Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+        int Npc = 3373;
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(100);
+            Lua.LuaDoString(@"GossipTitleButton1:Click();");
+            Thread.Sleep(100);
+            Extension.BuyThisSpell("Runecloth Bandage");
+
+        }
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Runecloth Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Heavy Runecloth Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1484.004f, -4159.712f, 43.79393f);
+        int Npc = 3373;
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(100);
+            Lua.LuaDoString(@"GossipTitleButton1:Click();");
+            Thread.Sleep(100);
+            Extension.BuyThisSpell("Heavy Runecloth Bandage");
+
+        }
+return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Heavy Runecloth Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Netherweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(-655.603f, 4187.3f, 68.51841f);
+        int Npc = 18991;
+
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(1000);
+            Lua.LuaDoString(@"GossipTitleButton2:Click();");
+            Thread.Sleep(1000);
+            Extension.BuyThisSpell("Master First Aid");
+            Thread.Sleep(1000);
+            Extension.BuyThisSpell("Netherweave Bandage");
+
+        }
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Netherweave Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Heavy Netherweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(-655.603f, 4187.3f, 68.51841f);
+        int Npc = 18991;
+
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(1000);
+            Lua.LuaDoString(@"GossipTitleButton2:Click();");
+            Thread.Sleep(1000);
+            Extension.BuyThisSpell("Heavy Netherweave Bandage");
+
+        }
+return true;
+
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Heavy Netherweave Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Frostweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(2809.35f, 6169.41f, 104.9693f);
+        int Npc = 29233;
+
+        if (!(ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)) { wManager.Wow.Bot.Tasks.GoToTask.ToPosition(pos); }
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(1500);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 5)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWUnitByEntry(Npc).FirstOrDefault().GetBaseAddress);
+            Thread.Sleep(1000);
+            Lua.LuaDoString(@"GossipTitleButton2:Click();");
+            Thread.Sleep(1000);
+            Extension.BuyThisSpell("Grand Master First Aid");
+            Thread.Sleep(1000);
+            Extension.BuyThisSpell("Frostweave Bandage");
+
+        }
+return true;
+
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Extension.RecipeIsKnown("First Aid","Frostweave Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Trainer] Heavy frostweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>ItemsManager.UseItem(39152);
+Usefuls.WaitIsCasting();
+                return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return ItemsManager.GetItemCountById(39152) &gt;= 1;</CanCondition>
+      <IsCompleteCondition>return !CanConditions() || Extension.RecipeIsKnown("First Aid","Heavy Netherweave Bandage");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Crafty</Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Linen Cloth</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Linen Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 50;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Heavy Linen Cloth</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Heavy Linen Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 80;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Wool Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Wool Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 115;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Heavy Wool Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Heavy Wool Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 150;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Silk Bandages</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Silk Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 180;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Heavy Silk Bandages</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Heavy Silk Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 210;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Mageweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Mageweave Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 240;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Heavy Mageweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Heavy Mageweave Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 260;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Runecloth Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Runecloth Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 290;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Heavy Runecloth Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Heavy Runecloth Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 300;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Netherweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Netherweave Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 330;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafting] Heavy Netherweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Heavy Netherweave Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) == 375;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafty] Frostweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Frostweave Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) &gt;= 400;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Crafty] Heavy Frostweave Bandage</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Extension.Crafty("First Aid", "Heavy Frostweave Bandage", 1);
+Usefuls.WaitIsCasting();
+                return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.FirstAid) == 450;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer]</Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer]Linen Cloth</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-93.75836" Y="-4902.93" Z="17.90663" />
+          <Vector3 X="-118.4076" Y="-4987.109" Z="19.12961" />
+          <Vector3 X="-122.6868" Y="-4954.4" Z="20.04803" />
+          <Vector3 X="-64.1312" Y="-4982.18" Z="19.6142" />
+          <Vector3 X="-58.7476" Y="-4955.55" Z="21.4143" />
+          <Vector3 X="-64.9716" Y="-4961.5" Z="21.4108" />
+          <Vector3 X="-93.36636" Y="-5013.557" Z="17.55742" />
+          <Vector3 X="-86.27084" Y="-5052.358" Z="16.3466" />
+          <Vector3 X="-142.0472" Y="-5003.435" Z="22.08214" />
+          <Vector3 X="-192.284" Y="-4996.99" Z="22.5548" />
+          <Vector3 X="-208.0459" Y="-4981.834" Z="21.38019" />
+          <Vector3 X="-255.313" Y="-5010.76" Z="22.11359" />
+          <Vector3 X="-259.423" Y="-5018.76" Z="22.1559" />
+          <Vector3 X="-243.801" Y="-4996.51" Z="21.29544" />
+          <Vector3 X="-217.1509" Y="-5054.734" Z="21.28402" />
+          <Vector3 X="-191.896" Y="-5092.67" Z="22.10616" />
+          <Vector3 X="-191.936" Y="-5113.18" Z="22.104" />
+          <Vector3 X="-151.3763" Y="-5093.053" Z="21.50054" />
+          <Vector3 X="-145.4472" Y="-5109.38" Z="21.23134" />
+          <Vector3 X="-267.5981" Y="-5130.331" Z="24.34172" />
+          <Vector3 X="-273.3334" Y="-5110.784" Z="26.02251" />
+          <Vector3 X="-242.195" Y="-5114.24" Z="25.2436" />
+          <Vector3 X="-230.775" Y="-5123.68" Z="42.47748" />
+          <Vector3 X="-310.5257" Y="-5072.925" Z="21.59272" />
+          <Vector3 X="-312.8055" Y="-5146.373" Z="21.42351" />
+          <Vector3 X="-280.2816" Y="-5172.452" Z="21.18959" />
+          <Vector3 X="-261.4381" Y="-5189.095" Z="21.13985" />
+        </HotSpots>
+        <EntryTarget>
+          <int>3128</int>
+          <int>3129</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2589) &gt;= 170;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer]Wool Cloth</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-4132.571" Y="-2156.332" Z="50.47579" />
+          <Vector3 X="-4124.47" Y="-2194.2" Z="50.27496" />
+          <Vector3 X="-4124.47" Y="-2194.2" Z="50.27496" />
+          <Vector3 X="-4098.409" Y="-2174.23" Z="50.1837" />
+          <Vector3 X="-4071.917" Y="-2181.168" Z="50.18982" />
+          <Vector3 X="-4065.9" Y="-2188.94" Z="54.1878" />
+          <Vector3 X="-4124.47" Y="-2194.2" Z="50.27496" />
+          <Vector3 X="-4151.9" Y="-2179.89" Z="50.59177" />
+          <Vector3 X="-4155.672" Y="-2192.107" Z="50.18381" />
+          <Vector3 X="-4128.042" Y="-2206.053" Z="50.18435" />
+          <Vector3 X="-4122.04" Y="-2237.25" Z="51.13822" />
+          <Vector3 X="-4105" Y="-2211.54" Z="53.16146" />
+          <Vector3 X="-4165.266" Y="-2194.788" Z="50.18358" />
+          <Vector3 X="-4160.164" Y="-2222.804" Z="51.35863" />
+          <Vector3 X="-4184.92" Y="-2262.35" Z="50.95207" />
+          <Vector3 X="-4162.53" Y="-2246.74" Z="59.31119" />
+        </HotSpots>
+        <EntryTarget>
+          <int>3375</int>
+          <int>3374</int>
+          <int>5849</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2592) &gt;= 150;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer]Silk Cloth</Name>
+      <QuestId>
+        <int>4306</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-4680.948" Y="-1449.446" Z="-50.4903" />
+          <Vector3 X="-4714.959" Y="-1426.674" Z="-51.05773" />
+          <Vector3 X="-4685.516" Y="-1426.678" Z="-50.48728" />
+          <Vector3 X="-4924.599" Y="-2150.464" Z="-55.98322" />
+          <Vector3 X="-4979.298" Y="-2186.253" Z="-52.63202" />
+          <Vector3 X="-4941.56" Y="-2188.08" Z="-51.17183" />
+          <Vector3 X="-5022.41" Y="-2242.457" Z="-52.82284" />
+          <Vector3 X="-5012.522" Y="-2182.951" Z="-49.19091" />
+          <Vector3 X="-4990.494" Y="-2245.677" Z="-52.40767" />
+          <Vector3 X="-5014.67" Y="-2228.95" Z="-53.28234" />
+          <Vector3 X="-5021.114" Y="-2243.301" Z="-52.76686" />
+          <Vector3 X="-5048.793" Y="-2246.079" Z="-53.39444" />
+          <Vector3 X="-5055.38" Y="-2254.64" Z="-53.50932" />
+          <Vector3 X="-5087.662" Y="-2256.656" Z="-54.52623" />
+          <Vector3 X="-5118.386" Y="-2268.98" Z="-55.46967" />
+          <Vector3 X="-5156.99" Y="-2293.19" Z="-44.60847" />
+          <Vector3 X="-5185.17" Y="-2238.689" Z="-45.59179" />
+          <Vector3 X="-5117.357" Y="-2356.588" Z="-53.54215" />
+          <Vector3 X="-5114.85" Y="-2318.79" Z="-55.38429" />
+          <Vector3 X="-5087.366" Y="-2312.298" Z="-54.09538" />
+          <Vector3 X="-5080.898" Y="-2349.48" Z="-53.84912" />
+          <Vector3 X="-5093.31" Y="-2388.52" Z="-53.62063" />
+          <Vector3 X="-5093.31" Y="-2388.52" Z="-53.62063" />
+          <Vector3 X="-5121.594" Y="-2419.398" Z="-52.38534" />
+          <Vector3 X="-5157.455" Y="-2416.533" Z="-50.45522" />
+          <Vector3 X="-5153.346" Y="-2430.826" Z="-51.68715" />
+          <Vector3 X="-5181.209" Y="-2451.916" Z="-52.3778" />
+          <Vector3 X="-5146.346" Y="-2454.24" Z="-52.41535" />
+          <Vector3 X="-5146.42" Y="-2483.186" Z="-51.46829" />
+          <Vector3 X="-5149.26" Y="-2508.91" Z="-50.85307" />
+          <Vector3 X="-5180.68" Y="-2531.83" Z="-50.96618" />
+          <Vector3 X="-5161.625" Y="-2534.899" Z="-50.62983" />
+          <Vector3 X="-5171.513" Y="-2510.543" Z="-51.40156" />
+          <Vector3 X="-5172.678" Y="-2574.332" Z="-50.52293" />
+          <Vector3 X="-5182.593" Y="-2613.279" Z="-50.77662" />
+          <Vector3 X="-5191.02" Y="-2579.95" Z="-51.24881" />
+        </HotSpots>
+        <EntryTarget>
+          <int>4097</int>
+          <int>4099</int>
+          <int>4096</int>
+          <int>4094</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(4306) &gt;= 170;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer]Mageweave</Name>
+      <QuestId>
+        <int>4338</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-7849.412" Y="-5147.88" Z="3.305188" />
+          <Vector3 X="-7851.662" Y="-5150.252" Z="3.103222" />
+          <Vector3 X="-7859.23" Y="-5114.25" Z="6.579074" />
+          <Vector3 X="-7855.76" Y="-5108.79" Z="6.833493" />
+          <Vector3 X="-7888.13" Y="-5157.8" Z="5.530509" />
+          <Vector3 X="-7920.116" Y="-5173.379" Z="4.368818" />
+          <Vector3 X="-7954.072" Y="-5182.086" Z="4.391909" />
+          <Vector3 X="-7981.762" Y="-5184.971" Z="1.989899" />
+          <Vector3 X="-7951.592" Y="-5216.037" Z="1.738893" />
+          <Vector3 X="-7960.51" Y="-5241.07" Z="1.693221" />
+          <Vector3 X="-7943.73" Y="-5273.955" Z="0.6407638" />
+          <Vector3 X="-7912.25" Y="-5208.65" Z="0.6470145" />
+          <Vector3 X="-7906.94" Y="-5204.53" Z="0.7606663" />
+          <Vector3 X="-7997.485" Y="-5286.701" Z="0.5752163" />
+          <Vector3 X="-8018.85" Y="-5282.885" Z="0.6010922" />
+          <Vector3 X="-8043.38" Y="-5281.05" Z="0.5793272" />
+          <Vector3 X="-8054.12" Y="-5278.53" Z="0.5836927" />
+          <Vector3 X="-8049.36" Y="-5277.84" Z="0.5826184" />
+          <Vector3 X="-8052.44" Y="-5282.36" Z="0.5770741" />
+          <Vector3 X="-8046.346" Y="-5256.525" Z="1.308195" />
+          <Vector3 X="-8079.13" Y="-5255.23" Z="0.683682" />
+          <Vector3 X="-8075.11" Y="-5251.57" Z="0.6875945" />
+          <Vector3 X="-8087.94" Y="-5244.56" Z="1.9519" />
+          <Vector3 X="-8080.88" Y="-5237.27" Z="2.083009" />
+          <Vector3 X="-8075.5" Y="-5236.79" Z="2.2639" />
+          <Vector3 X="-8073.02" Y="-5234.792" Z="2.37751" />
+          <Vector3 X="-8048.087" Y="-5210.164" Z="0.8879494" />
+          <Vector3 X="-8045.414" Y="-5187.48" Z="4.347321" />
+          <Vector3 X="-8079.21" Y="-5287.67" Z="0.5752262" />
+          <Vector3 X="-8078.53" Y="-5292.72" Z="0.5751045" />
+          <Vector3 X="-8096.12" Y="-5301.68" Z="2.05875" />
+          <Vector3 X="-8100.54" Y="-5299.71" Z="2.07958" />
+          <Vector3 X="-8100.37" Y="-5269.52" Z="1.874764" />
+          <Vector3 X="-8115.78" Y="-5270.91" Z="1.67574" />
+          <Vector3 X="-8084.86" Y="-5341.22" Z="7.731727" />
+          <Vector3 X="-8090.72" Y="-5309.2" Z="0.7982678" />
+          <Vector3 X="-8013.113" Y="-5354.002" Z="0.8268512" />
+          <Vector3 X="-7989.705" Y="-5403.635" Z="1.120607" />
+          <Vector3 X="-7989.63" Y="-5414.49" Z="1.121334" />
+          <Vector3 X="-7960.814" Y="-5415.133" Z="1.120466" />
+        </HotSpots>
+        <EntryTarget>
+          <int>7855</int>
+          <int>7856</int>
+          <int>7858</int>
+          <int>7857</int>
+          <int>7883</int>
+          <int>8203</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(4338) &gt;= 170;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer] Runecloth</Name>
+      <QuestId>
+        <int>14047</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-4475.744" Y="1335.074" Z="123.6243" />
+          <Vector3 X="-4462.1" Y="1312.85" Z="125.7813" />
+          <Vector3 X="-4363.365" Y="1325.021" Z="159.2332" />
+          <Vector3 X="-4306.55" Y="1352.24" Z="161.2126" />
+          <Vector3 X="-4198.15" Y="1349.25" Z="161.2147" />
+          <Vector3 X="-4233.77" Y="1309.94" Z="161.2147" />
+          <Vector3 X="-4178.415" Y="1308.631" Z="162.6392" />
+          <Vector3 X="-4161.89" Y="1276.92" Z="161.2167" />
+          <Vector3 X="-4190.729" Y="1152.161" Z="161.2132" />
+          <Vector3 X="-4202.78" Y="1187.64" Z="161.2157" />
+          <Vector3 X="-4165.59" Y="1116.31" Z="161.2134" />
+          <Vector3 X="-4130.61" Y="1155.34" Z="161.2136" />
+          <Vector3 X="-4031.139" Y="1140.641" Z="159.7115" />
+          <Vector3 X="-4029.233" Y="1120.076" Z="159.7024" />
+          <Vector3 X="-4036.672" Y="1069.376" Z="159.7276" />
+          <Vector3 X="-4034.078" Y="1008.692" Z="159.7112" />
+          <Vector3 X="-4059.75" Y="1007.06" Z="161.2187" />
+          <Vector3 X="-4011.29" Y="1007.44" Z="161.0906" />
+          <Vector3 X="-4035.448" Y="954.1736" Z="159.7153" />
+          <Vector3 X="-4033.652" Y="964.0107" Z="159.7107" />
+          <Vector3 X="-4026.237" Y="873.8293" Z="159.6795" />
+          <Vector3 X="-4043.947" Y="899.8555" Z="159.7529" />
+          <Vector3 X="-4046.686" Y="888.6182" Z="159.7617" />
+          <Vector3 X="-4027.739" Y="934.7112" Z="159.6876" />
+          <Vector3 X="-4034.036" Y="1124.757" Z="159.72" />
+          <Vector3 X="-4041.984" Y="1142.791" Z="159.7531" />
+          <Vector3 X="-4040.107" Y="1199.424" Z="159.7457" />
+          <Vector3 X="-4032.359" Y="1260.982" Z="159.7257" />
+          <Vector3 X="-4025.055" Y="1319.14" Z="159.7063" />
+          <Vector3 X="-4035.791" Y="1333.39" Z="159.7514" />
+          <Vector3 X="-3866.678" Y="1157.283" Z="154.7882" />
+          <Vector3 X="-3867.334" Y="1151.757" Z="154.7882" />
+          <Vector3 X="-3921.992" Y="1198.028" Z="149.8423" />
+          <Vector3 X="-3884.598" Y="1096.222" Z="154.7882" />
+          <Vector3 X="-3920.096" Y="1070.79" Z="149.125" />
+          <Vector3 X="-3871.705" Y="1037.97" Z="154.7885" />
+          <Vector3 X="-3839.654" Y="1044.989" Z="154.7885" />
+          <Vector3 X="-3831.684" Y="996.9248" Z="150.7553" />
+          <Vector3 X="-3782.533" Y="1027.47" Z="154.7843" />
+          <Vector3 X="-3756.649" Y="1015.128" Z="154.7732" />
+          <Vector3 X="-3669.592" Y="1035.6" Z="154.7882" />
+          <Vector3 X="-3632.08" Y="1036.94" Z="154.788" />
+          <Vector3 X="-3604.79" Y="1089.1" Z="154.788" />
+          <Vector3 X="-3643.469" Y="1115.052" Z="154.787" />
+          <Vector3 X="-3642.416" Y="1138.284" Z="154.7881" />
+          <Vector3 X="-3661.76" Y="1193.192" Z="149.6395" />
+          <Vector3 X="-3633.892" Y="1199.574" Z="150.7586" />
+          <Vector3 X="-3707.986" Y="1164.618" Z="154.7884" />
+        </HotSpots>
+        <EntryTarget>
+          <int>11443</int>
+          <int>11440</int>
+          <int>11442</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(14047) &gt;= 170;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer]Netherweave Cloth</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-247.0547" Y="3075.953" Z="-65.3511" />
+          <Vector3 X="-244.95" Y="3090.06" Z="-65.22771" />
+          <Vector3 X="-252.053" Y="3079.74" Z="-65.90672" />
+          <Vector3 X="-232.831" Y="3101.73" Z="-62.74949" />
+          <Vector3 X="-222.417" Y="3105.29" Z="-60.11008" />
+          <Vector3 X="-196.3262" Y="3080.674" Z="-57.85365" />
+          <Vector3 X="-196.92" Y="3107.41" Z="-54.80488" />
+          <Vector3 X="-244.1523" Y="3008.943" Z="-65.79907" />
+          <Vector3 X="-233.579" Y="3008.41" Z="-65.4722" />
+          <Vector3 X="-233.579" Y="3008.41" Z="-65.4722" />
+          <Vector3 X="-282.123" Y="2988.141" Z="-66.22085" />
+          <Vector3 X="-317.0796" Y="2961.84" Z="-65.80064" />
+          <Vector3 X="-355.0957" Y="2980.052" Z="-66.15241" />
+          <Vector3 X="-354.2461" Y="3009.093" Z="-65.39804" />
+          <Vector3 X="-381.362" Y="2953.81" Z="-61.07656" />
+          <Vector3 X="-349.668" Y="2914.687" Z="-56.88902" />
+          <Vector3 X="-349.6191" Y="2881.61" Z="-52.33718" />
+          <Vector3 X="-332.2109" Y="2871.32" Z="-49.51269" />
+          <Vector3 X="-342.268" Y="2855.8" Z="-43.03615" />
+          <Vector3 X="-209.9531" Y="2891.205" Z="-47.80504" />
+          <Vector3 X="-262.844" Y="2795.42" Z="-37.58501" />
+          <Vector3 X="-250.3789" Y="2744.769" Z="-27.74784" />
+          <Vector3 X="-220.932" Y="2714.82" Z="-17.8391" />
+          <Vector3 X="-229.08" Y="2711.57" Z="-17.12626" />
+          <Vector3 X="-247.6602" Y="2708.986" Z="-21.2466" />
+          <Vector3 X="-248.8086" Y="2685.889" Z="-17.57633" />
+          <Vector3 X="-279.292" Y="2667.55" Z="-12.50651" />
+          <Vector3 X="-240.8984" Y="2640.686" Z="-10.31126" />
+          <Vector3 X="-244.1094" Y="2617.447" Z="-6.830763" />
+          <Vector3 X="-237.4023" Y="2575.39" Z="0.1012396" />
+          <Vector3 X="-208.728" Y="2588.16" Z="4.732139" />
+          <Vector3 X="-215.2935" Y="2567.999" Z="6.520319" />
+          <Vector3 X="-230.9219" Y="2550.095" Z="4.681913" />
+          <Vector3 X="-227.7285" Y="2525.642" Z="7.984965" />
+          <Vector3 X="-263.0241" Y="2505.162" Z="14.8969" />
+          <Vector3 X="-260.66" Y="2495.97" Z="16.08683" />
+          <Vector3 X="-237.873" Y="2475.078" Z="14.90755" />
+          <Vector3 X="-234.0329" Y="2444.667" Z="19.87391" />
+          <Vector3 X="-232.0898" Y="2418.284" Z="25.3508" />
+        </HotSpots>
+        <EntryTarget>
+          <int>16867</int>
+          <int>16870</int>
+          <int>19411</int>
+          <int>19410</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(21877) &gt;= 170;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer] Frostweave Cloth</Name>
+      <QuestId>
+        <int>33470</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="2759.443" Y="5691.235" Z="48.92468" />
+          <Vector3 X="2734.655" Y="5677.957" Z="48.60848" />
+          <Vector3 X="2638.158" Y="5672.41" Z="45.7908" />
+          <Vector3 X="2638.201" Y="5675.361" Z="45.62836" />
+          <Vector3 X="2616.349" Y="5678.757" Z="45.22137" />
+          <Vector3 X="2616.349" Y="5678.757" Z="45.22137" />
+          <Vector3 X="2594.722" Y="5832.764" Z="38.60365" />
+          <Vector3 X="2557.669" Y="5867.304" Z="27.99633" />
+          <Vector3 X="2651.515" Y="5903.451" Z="3.51317" />
+          <Vector3 X="2596.724" Y="5816.922" Z="-12.41063" />
+          <Vector3 X="2569.234" Y="5828.611" Z="-12.41063" />
+          <Vector3 X="2564.328" Y="5889.922" Z="-8.706146" />
+          <Vector3 X="2600.274" Y="5944.738" Z="-17.45645" />
+          <Vector3 X="2614.813" Y="5943.304" Z="-18.49883" />
+          <Vector3 X="2814.37" Y="5704.957" Z="51.74229" />
+          <Vector3 X="2847.168" Y="5698.854" Z="49.85691" />
+          <Vector3 X="2867.848" Y="5723.803" Z="49.4524" />
+          <Vector3 X="2920.189" Y="5688.218" Z="45.09463" />
+          <Vector3 X="2947.88" Y="5643.605" Z="49.92527" />
+          <Vector3 X="3171.162" Y="5731.246" Z="49.97131" />
+          <Vector3 X="3173.63" Y="5758.37" Z="50.78464" />
+          <Vector3 X="3190.975" Y="5763.977" Z="49.89034" />
+          <Vector3 X="3319.95" Y="5701.67" Z="60.67391" />
+          <Vector3 X="3324.23" Y="5710.78" Z="61.0955" />
+          <Vector3 X="3272.087" Y="5694.863" Z="53.44319" />
+          <Vector3 X="3317.42" Y="5657.76" Z="53.45004" />
+          <Vector3 X="3315.74" Y="5606.96" Z="52.09808" />
+          <Vector3 X="3317.78" Y="5592.11" Z="53.42914" />
+          <Vector3 X="3279.816" Y="6123.731" Z="73.71965" />
+          <Vector3 X="3240.443" Y="6137.816" Z="69.29147" />
+          <Vector3 X="3266.73" Y="6149.113" Z="72.86108" />
+          <Vector3 X="3256.596" Y="6171.863" Z="72.86108" />
+          <Vector3 X="3245.121" Y="6200.458" Z="66.87535" />
+          <Vector3 X="3338.499" Y="6158.584" Z="76.1829" />
+          <Vector3 X="3357" Y="6189.142" Z="78.95181" />
+          <Vector3 X="3341.481" Y="6208.98" Z="76.4949" />
+          <Vector3 X="3344.606" Y="6216.075" Z="75.23682" />
+          <Vector3 X="3370.696" Y="6234.125" Z="73.77512" />
+          <Vector3 X="3373.408" Y="6241.072" Z="74.39685" />
+          <Vector3 X="3399.079" Y="6207.235" Z="76.59193" />
+          <Vector3 X="3446.98" Y="6186.61" Z="76.86178" />
+          <Vector3 X="3425.822" Y="6211.254" Z="76.03069" />
+          <Vector3 X="3439.391" Y="6209.861" Z="73.65641" />
+          <Vector3 X="3462.25" Y="6174.75" Z="71.80462" />
+          <Vector3 X="3446.984" Y="6148.361" Z="74.73113" />
+          <Vector3 X="3437.95" Y="6107.015" Z="68.22629" />
+          <Vector3 X="3453.214" Y="6103.371" Z="66.98434" />
+          <Vector3 X="3481.725" Y="6121.283" Z="70.96665" />
+          <Vector3 X="3492.051" Y="6110.222" Z="70.96645" />
+          <Vector3 X="3510.015" Y="6092.704" Z="64.88888" />
+          <Vector3 X="3678.156" Y="5708.758" Z="64.2318" />
+          <Vector3 X="3674.39" Y="5717.39" Z="65.20208" />
+          <Vector3 X="3674.39" Y="5717.39" Z="65.20208" />
+          <Vector3 X="3646.87" Y="5676.2" Z="66.243" />
+          <Vector3 X="3646.99" Y="5668.24" Z="66.3264" />
+          <Vector3 X="3612.72" Y="5696.8" Z="67.64468" />
+          <Vector3 X="3581.332" Y="5690.309" Z="67.84258" />
+          <Vector3 X="3565.98" Y="5690.127" Z="68.44913" />
+          <Vector3 X="3502.05" Y="5668.27" Z="58.91787" />
+          <Vector3 X="3502.28" Y="5651.83" Z="62.07711" />
+          <Vector3 X="3503.08" Y="5650.28" Z="62.4533" />
+          <Vector3 X="3506.655" Y="5640.863" Z="63.29409" />
+          <Vector3 X="3514.76" Y="5591.35" Z="63.47142" />
+          <Vector3 X="3530.094" Y="5543.85" Z="64.82682" />
+        </HotSpots>
+        <EntryTarget>
+          <int>24567</int>
+          <int>25467</int>
+          <int>25979</int>
+          <int>25585</int>
+          <int>25316</int>
+          <int>25353</int>
+          <int>25449</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(33470) &gt;= 250;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>[Farmer] Heavy Frostweave Bandage</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7191.57" Y="2507.714" Z="402.7389" />
+          <Vector3 X="7197.416" Y="2501.204" Z="403.7822" />
+          <Vector3 X="7184.857" Y="2511.658" Z="402.0293" />
+          <Vector3 X="7201.38" Y="2467.48" Z="409.5067" />
+          <Vector3 X="7281.164" Y="2498.997" Z="396.1479" />
+          <Vector3 X="7267.002" Y="2506.134" Z="397.03" />
+          <Vector3 X="7319.116" Y="2447.384" Z="395.8759" />
+          <Vector3 X="7345.278" Y="2468.751" Z="390.5027" />
+          <Vector3 X="7392.516" Y="2510.112" Z="391.8244" />
+          <Vector3 X="7346.08" Y="2591.166" Z="392.0863" />
+          <Vector3 X="7379.833" Y="2643.094" Z="393.5191" />
+          <Vector3 X="7365.865" Y="2661.338" Z="394.4823" />
+          <Vector3 X="7410.869" Y="2693.876" Z="403.2298" />
+          <Vector3 X="7378.808" Y="2724.201" Z="399.6546" />
+          <Vector3 X="7415.3" Y="2767.755" Z="406.6577" />
+          <Vector3 X="7414.494" Y="2790.18" Z="407.5137" />
+          <Vector3 X="7385.654" Y="2791.237" Z="405.1276" />
+          <Vector3 X="7401.127" Y="2835.997" Z="412.6079" />
+          <Vector3 X="7329.988" Y="2819.737" Z="402.6412" />
+          <Vector3 X="7318.574" Y="2835.069" Z="404.6901" />
+          <Vector3 X="7298.301" Y="2882.939" Z="412.4755" />
+          <Vector3 X="7303.684" Y="2912.879" Z="419.58" />
+          <Vector3 X="7318.376" Y="2925.508" Z="423.4073" />
+          <Vector3 X="7234.871" Y="2956.685" Z="429.4006" />
+        </HotSpots>
+        <EntryTarget>
+          <int>32255</int>
+          <int>31900</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+        <IsHotspots>true</IsHotspots>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return (FirstAidHorde.CurrentSetting.HFB == "true");</CanCondition>
+      <IsCompleteCondition>return CanConditions() &amp;&amp; ItemsManager.GetItemCountById(39152) &gt;= 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Horde Trauma</Name>
+      <QuestId>
+        <int>6623</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move to </Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move to Blasted Lands</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(1473.045f, -4215.642f, 59.22095f);
+        int portal = 195142;
+
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+        GoToTask.ToPosition(pos);
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(250);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 3)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWGameObjectByEntry(portal).FirstOrDefault().GetBaseAddress);
+Thread.Sleep(10000);
+        }
+        return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Usefuls.MapZoneName == "Blasted Lands";</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move to Outlands</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(-11902.88f, -3208.262f, -14.81243f);
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+        GoToTask.ToPosition(pos);
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(250);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 3)
+        {
+            Move.Forward(Move.MoveAction.PressKey, 2500);
+            Thread.Sleep(500);
+        }
+        return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Usefuls.ContinentId == (int)ContinentId.Expansion01;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move To Org</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>var pos = new Vector3(-1934.372f, 5453.018f, -12.4282f);
+        int portal = 183323;
+
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+        GoToTask.ToPosition(pos);
+        while (MovementManager.InMovement)
+        {
+            Thread.Sleep(250);
+        }
+        if (ObjectManager.Me.Position.DistanceTo2D(pos) &lt; 3)
+        {
+            wManager.Wow.Helpers.Interact.InteractGameObject(ObjectManager.GetWoWGameObjectByEntry(portal).FirstOrDefault().GetBaseAddress);
+Thread.Sleep(10000);
+        }
+        return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Usefuls.MapZoneName == "Orgrimmar" &amp;&amp; Skill.GetValue(SkillLine.FirstAid) == 375;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move to Northran</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code> var zeppelinEntryId = 186238; 
+        var fromZeppelinWaitPosition = new Vector3(1185.022, -4144.208, 70.62553); 
+        var fromPlayerWaitPosition = new Vector3(1180.093, -4147.332, 51.92663); 
+        var fromPlayerInZeppelinPosition = new Vector3(1189.892, -4144.217, 52.78342); 
+        var toZeppelinWaitPosition = new Vector3(2837.908, 6187.443, 140.1648);
+        var toPlayerLeavePosition = new Vector3(2828.173, 6176.871, 121.9823); 
+
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+        
+        if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+            return true;
+
+        if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+        {
+            if (!ObjectManager.Me.InTransport)
+            {
+                if (GoToTask.ToPosition(fromPlayerWaitPosition))
+                {
+                    var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+                    if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+                    {
+                        GoToTask.ToPosition(fromPlayerInZeppelinPosition);
+                    }
+                }
+            }
+        }
+        else if (Usefuls.ContinentId == (int)ContinentId.Northrend)
+        {
+            if (ObjectManager.Me.InTransport)
+            {
+                var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+                if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+                {
+                    Move.Backward(Move.MoveAction.PressKey, 3650);
+                }
+            }
+        }
+        return true;
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Northrend &amp;&amp; !ObjectManager.Me.InTransport &amp;&amp;
+Skill.GetValue(SkillLine.FirstAid) == 375;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>using System;
+using System.ComponentModel;
+using System.IO;
+using wManager.Wow.Helpers;
+using System.Collections.Generic;
+using robotManager.Products;
+using robotManager.Helpful;
+using System.Linq;
+using System.Threading;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Enums;
+using wManager.Wow.ObjectManager;
+using wManager;
+
+
+public class AutoUpdater
+{
+    public static void CheckUpdate()
+    {
+        try
+        {
+            string onlineFile = "https://github.com/TheSmokie/Horde-First-Aid/raw/master/First%20Aid%20Horde%20(1%20-%20450)";    
+            Quester.Bot.QuesterSetting.Load();
+            string profileName = "First Aid Horde (1- 450).xml";
+
+            string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + profileName; 
+            var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+            var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+            if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+            {
+                    if (currentFileContent != onlineFileContent) // if new update
+                    {
+                        robotManager.Helpful.Logging.Write("New version found, try to update file", (Logging.LogType)1, System.Drawing.Color.Red);
+                        System.IO.File.WriteAllText(currentFile, onlineFileContent); // replace user file by online file
+                        new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+                    
+                         
+                    }
+                Logging.Write("[Auto Updater]The version on your pc is the latest updated version.", (Logging.LogType)1, System.Drawing.Color.Red);
+            }
+
+            
+        }
+        catch (System.Exception e)
+        {
+            robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+            
+        }
+    } 
+}
+
+
+public class Extension
+{
+    public static void Crafty(string profession, string itemName, int quantity)
+    {
+        if (Usefuls.WowVersion == 12340)
+        {
+            Lua.LuaDoString(string.Format(@"
+                  if not TradeSkillFrame then
+                           CastSpellByName('{0}')
+                   end
+
+              if TradeSkillFrame:IsVisible() == nil then
+                      CastSpellByName('{0}')
+                     end 
+
+                     for i=1,GetNumTradeSkills() do
+                  local name, _, _, _ = GetTradeSkillInfo(i)
+                   if (name == '{1}') then
+                  DoTradeSkill(i, {2})
+                      end
+                  
+                  if (TradeSkillFrame:IsVisible() and {2} &lt; 2) then
+                  TradeSkillFrame:Hide();
+                  end
+                      end
+               ",
+              profession, itemName, quantity));
+        }
+        else
+            if (Usefuls.WowVersion == 8606 || Usefuls.WowVersion == 5875)
+        {
+            Lua.LuaDoString(string.Format(@"
+             if not TradeSkillFrame then
+             CastSpellByName('{0}')
+             end
+            if TradeSkillFrame:IsVisible() == nil then
+             CastSpellByName('{0}')
+             end 
+             for i=1,GetNumTradeSkills() do
+            local name, _, _, _ = GetTradeSkillInfo(i)
+            if (name == '{1}') then
+            DoTradeSkill(i, {2})
+            end
+            if (TradeSkillFrame:IsVisible() and {2} &lt; 2) then
+            TradeSkillFrame:Hide();
+            end
+            end
+        ", profession, itemName, quantity));
+        }
+    }
+
+    public static bool RecipeIsKnown(string profession, string RecipeName)
+    {
+
+        bool Known = Lua.LuaDoString&lt;bool&gt;(string.Format(@"
+	    if not TradeSkillFrame then
+        CastSpellByName('{0}')
+        end
+
+        if TradeSkillFrame:IsVisible() == nil then
+        CastSpellByName('{0}')
+        end 
+            numTradeSkills = GetNumTradeSkills()
+            for i = 1, numTradeSkills do
+                tradeSkillName, _, _, _ = GetTradeSkillInfo(i)
+                if (tradeSkillName == '{1}') then
+                    return true;
+                end 
+	    if (TradeSkillFrame:IsVisible() ) then
+            TradeSkillFrame:Hide();
+            end
+            end
+            return false;
+        ", profession, RecipeName));
+
+        return Known;
+    }
+
+    public static void BuyThisSpell(string skillname)
+    {
+        Lua.LuaDoString(string.Format(@"
+        for i=1,GetNumTrainerServices() do
+        local name = GetTrainerServiceInfo(i)
+        if (name == '{0}') then
+            BuyTrainerService(i)
+         end
+        end
+        ", skillname.Replace("'", "\'")));
+    }
+}
+
+public class Cloths
+{
+    public static List&lt;string&gt; Cloth()
+    {
+        return new List&lt;string&gt;
+            {
+                "Linen Cloth",
+                "Wool Cloth",
+                "Silk Cloth",
+                "Mageweave Cloth",
+                "Runecloth",
+                "Felcloth",
+                "Mooncloth"
+            };
+
+    }
+}
+
+public class DoNOtSell
+{
+    public static void Start()
+    {
+
+        foreach (string cloth in Cloths.Cloth())
+        {
+            if (!wManagerSetting.CurrentSetting.DoNotSellList.Contains(cloth))
+            {
+                wManagerSetting.CurrentSetting.DoNotSellList.Add(cloth);
+                Logging.Write("Do Not Sell List : " + cloth);
+
+            }
+        }
+    }
+}
+
+
+public class CallingCode
+{
+    static CallingCode()
+    {
+        DoNOtSell.Start();
+
+        if (ObjectManager.Me.IsHorde)
+        {
+            Logging.Write("[First Aid]: Hello, Thank you for using Sye | Smokies 1 - 450 First Aid Profile. Make sure to leave a review and a reaction to help keep profile free. ");
+
+        }
+        else
+            if (ObjectManager.Me.IsAlliance)
+        {
+            Products.ProductStop();
+            Logging.Write("[First Aid]: This profile is only for Horde ! ");
+        }
+    }
+}
+
+
+[Serializable]
+public class FirstAidHorde : Settings
+{
+
+	[Category("REQUIRED [Farming]: ")]
+	[DisplayName("Heavy Frostweave Bandage")]
+	[Description("Do you wish to farm : [Heavy Frostweave Bandage] Set true or false.")]
+	public string HFB { get; set; }
+
+
+	private FirstAidHorde()
+	{
+		HFB = null;
+	}
+
+	public static FirstAidHorde CurrentSetting { get; set; }
+
+
+	public bool Save()
+	{
+		try
+		{
+			return Save(AdviserFilePathAndName("FirstAidHorde",
+				ObjectManager.Me.Name + "." + Usefuls.RealmName));
+		}
+		catch (Exception e)
+		{
+			Logging.WriteError("FirstAidHorde &gt; Save(): " + e);
+			return false;
+		}
+	}
+
+
+	public static bool Load()
+	{
+		try
+		{
+			if (File.Exists(AdviserFilePathAndName("FirstAidHorde",
+				ObjectManager.Me.Name + "." + Usefuls.RealmName)))
+			{
+				CurrentSetting = Load&lt;FirstAidHorde&gt;(
+					AdviserFilePathAndName("FirstAidHorde",
+					ObjectManager.Me.Name + "." + Usefuls.RealmName));
+				return true;
+			}
+			CurrentSetting = new FirstAidHorde();
+		}
+		catch (Exception e)
+		{
+			Logging.WriteError("FirstAidHorde &gt; Load(): " + e);
+		}
+		return false;
+	}
+}
+
+
+
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc>
+    <BlackNpc UniqueId="F130005F95000563" Name="Magnataur Huntress" />
+  </BlacklistNpc>
+  <BlacklistNpcType>
+    <BlackNpcType TypeId="24469" Name="Magnataur Huntress" />
+  </BlacklistNpcType>
+  <Blackspots />
+</EasyQuestProfile>

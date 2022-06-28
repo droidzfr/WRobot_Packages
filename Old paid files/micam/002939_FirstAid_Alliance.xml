@@ -1,0 +1,1107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <QuestsSorted>
+		<QuestsSorted Action="RunCode" NameClass="Tools.AuthSystem(&quot;6bd24b899308&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Linen Cloth&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Wool Cloth&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Silk Cloth&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Mageweave Cloth&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Runecloth&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Expert First Aid - Under Wraps&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Manual: Heavy Silk Bandage&quot;);" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.AddNotToSell(&quot;Manual: Mageweave Bandage&quot;);" />
+		<!-- until we reach 225, everything is on Azeroth -->
+		<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Kalimdor  &amp;&amp; wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 225" />
+			<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+			<QuestsSorted Action="Pulse" NameClass="GoToAuberdine" />
+			<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipAuberdineToMenethil()" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+        <!-- Learn FirstAid if needed -->
+        <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetMaxValue(wManager.Wow.Enums.SkillLine.FirstAid) == 0" />
+			<QuestsSorted Action="Pulse" NameClass="GoToIronforgeTrainer" />
+            <QuestsSorted Action="RunCode" NameClass="Tools.LearnSpellsFromNpc(5150, new Vector3(-4876.63,-1149.14,512.4373))" /> <!-- IF -->
+        <QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 1-40 : Linen Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 40" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 40 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(2589) &gt;= 1" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Linen Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+            <QuestsSorted Action="Pulse" NameClass="FarmLinenClothTo40" />
+        <QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Trainer : Heavy Linen Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Linen Bandage&quot;)" />
+			<QuestsSorted Action="Pulse" NameClass="GoToIronforgeTrainer" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.LearnSpellsFromNpc(5150, new Vector3(-4876.63,-1149.14,512.4373))" /> <!-- IF -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 40-50 : Heavy Linen Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 50" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 50 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(2589) &gt;= 2" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Linen Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmLinenClothTo50" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Trainer : Journeyman First Aid (150) -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetMaxValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 150" />
+			<QuestsSorted Action="Pulse" NameClass="GoToIronforgeTrainer" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.LearnSpellsFromNpc(5150, new Vector3(-4876.63,-1149.14,512.4373))" /> <!-- IF -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 50-80 : Heavy Linen Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 80" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 80 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(2589) &gt;= 2" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Linen Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmLinenClothTo80" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Linen Cloth&quot;);" />
+		<!-- Trainer : Wool Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Wool Bandage&quot;)" />
+			<QuestsSorted Action="Pulse" NameClass="GoToIronforgeTrainer" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.LearnSpellsFromNpc(5150, new Vector3(-4876.63,-1149.14,512.4373))" /> <!-- IF -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 80-115 : Wool Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 115" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 115 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(2592) &gt;= 1" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Wool Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmWoolClothTo115" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Trainer : Heavy Wool Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Wool Bandage&quot;)" />
+			<QuestsSorted Action="Pulse" NameClass="GoToStormwindTrainer" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.LearnSpellsFromNpc(2327, new Vector3(-8513,801.809,106.519))" /> <!-- SW -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 115-150 : Heavy Wool Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 150" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 150 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(2592) &gt;= 2" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Wool Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmWoolClothTo150" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Wool Cloth&quot;);" />
+		<!-- Trainer : Silk Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Silk Bandage&quot;)" />
+			<QuestsSorted Action="Pulse" NameClass="GoToStormwindTrainer" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.LearnSpellsFromNpc(2327, new Vector3(-8513,801.809,106.519))" /> <!-- SW -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Buy Expert First Aid - Under Wraps -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetMaxValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 225 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(16084) == 0" />
+			<QuestsSorted Action="Pulse" NameClass="GoToArathiSeller" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.BuyObjectFromNpc(2805,new Vector3(-1545.36, -1837.41, 67.94712),1,&quot;Expert First Aid - Under Wraps&quot;)" /> <!-- Arathi -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Learn Expert First Aid - Under Wraps -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetMaxValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 225 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(16084) == 1" />
+			<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.ItemsManager.UseItem(16084)" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Expert First Aid - Under Wraps&quot;);" />
+		<!-- Buy Manual: Heavy Silk Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Silk Bandage&quot;) &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(16112) == 0" />
+			<QuestsSorted Action="Pulse" NameClass="GoToArathiSeller" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.BuyObjectFromNpc(2805,new Vector3(-1545.36, -1837.41, 67.94712),1,&quot;Manual: Heavy Silk Bandage&quot;)" /> <!-- Arathi -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Buy Manual: Mageweave Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Mageweave Bandage&quot;) &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(16113) == 0" />
+			<QuestsSorted Action="Pulse" NameClass="GoToArathiSeller" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.BuyObjectFromNpc(2805,new Vector3(-1545.36, -1837.41, 67.94712),1,&quot;Manual: Mageweave Bandage&quot;)" /> <!-- Arathi -->
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 150-180 : Silk Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 180" />			
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 180 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(4306) &gt;= 1" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Silk Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmSilkClothTo180" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Learn Manual: Heavy Silk Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Silk Bandage&quot;) &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(16112) == 1" />
+			<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.ItemsManager.UseItem(16112)" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Manual: Heavy Silk Bandage&quot;);" />		
+		<!-- 180-210 : Heavy Silk Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 210" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 210 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(4306) &gt;= 2" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Silk Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmSilkClothTo210" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Silk Cloth&quot;);" />
+		<!-- Learn Manual: Mageweave Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Mageweave Bandage&quot;) &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(16113) == 1" />
+			<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.ItemsManager.UseItem(16113)" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Manual: Mageweave Bandage&quot;);" />
+		<!-- 210-225 : Mageweave Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 225" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 225 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(4338) &gt;= 1" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Mageweave Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmMageweaveClothTo225" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetMaxValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 300" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Azeroth" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToMenethilForTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipMenethilToTheramore()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<!-- <QuestsSorted Action="RunLuaCode" NameClass="for i=1,GetNumQuestLogEntries() do SelectQuestLogEntry(i) local questTitle = GetQuestLogTitle(i) if questTitle == &quot;Triage&quot; then SetAbandonQuest() AbandonQuest() end end" /> -->
+			<QuestsSorted Action="PickUp" NameClass="Triage" />
+			<QuestsSorted Action="Pulse" NameClass="Triage" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.TurnInQuestBugged(12939,new Vector3(-3747.27,-4532.25,11.91045))" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 225-240 : Mageweave Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 240" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Kalimdor" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipTheramoreToMenethil()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 240 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(4338) &gt;= 1" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Mageweave Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmMageweaveClothTo240" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Trainer : Heavy Mageweave Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Mageweave Bandage&quot;)" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Azeroth" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToMenethilForTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipMenethilToTheramore()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SpeakWithNpc(12939, new Vector3(-3747.27,-4532.25,11.91045))" /> <!-- Theramore --> 
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 240-260 : Heavy Mageweave Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 260" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Kalimdor" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipTheramoreToMenethil()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 260 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(4338) &gt;= 2" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Mageweave Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmMageweaveClothTo260" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Mageweave Cloth&quot;);" />
+		<!-- Trainer : Runecloth Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Runecloth Bandage&quot;)" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Azeroth" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToMenethilForTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipMenethilToTheramore()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SpeakWithNpc(12939, new Vector3(-3747.27,-4532.25,11.91045))" /> <!-- Theramore --> 
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 260-290 : Runecloth Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 290" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Kalimdor" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipTheramoreToMenethil()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 290 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(14047) &gt;= 1" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Runecloth Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmRuneclothTo290" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- Trainer : Heavy Runecloth Bandage -->
+		<QuestsSorted Action="While" NameClass="!Tools.CheckIfLearned((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Runecloth Bandage&quot;)" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Azeroth" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToMenethilForTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipMenethilToTheramore()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SpeakWithNpc(12939, new Vector3(-3747.27,-4532.25,11.91045))" /> <!-- Theramore --> 
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<!-- 290-300 : Heavy Runecloth Bandage -->
+		<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 300" />
+			<QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int)ContinentId.Kalimdor" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+				<QuestsSorted Action="Pulse" NameClass="GoToTheramore" />
+				<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.TakeShipTheramoreToMenethil()" />
+			<QuestsSorted Action="EndIf" NameClass="" />
+			<QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &lt; 300 &amp;&amp; wManager.Wow.Helpers.ItemsManager.GetItemCountById(14047) &gt;= 2" />
+				<QuestsSorted Action="RunCode" NameClass="Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Runecloth Bandage&quot;);" />
+			<QuestsSorted Action="EndWhile" NameClass="" />
+			<QuestsSorted Action="Pulse" NameClass="FarmRuneclothTo300" />
+		<QuestsSorted Action="EndWhile" NameClass="" />
+		<QuestsSorted Action="RunCode" NameClass="Tools.RemoveNotToSell(&quot;Runecloth&quot;);" />
+		<QuestsSorted Action="MessageBox" NameClass="Congratulation, you are now 300/300 First Aid !" />﻿
+		<QuestsSorted Action="StopBot" NameClass="" />
+    </QuestsSorted>
+    <NpcQuest>   
+		<NPCQuest Id="12939" Name="Doctor Gustaf VanHowzen" GameObject="false">
+			<PickUpQuests>
+				<int>6624</int>
+			</PickUpQuests>
+			<TurnInQuests>
+				<int>6624</int>
+			</TurnInQuests>
+			<Position X="-3747.27" Y="-4532.25" Z="11.91045" />
+		</NPCQuest>
+    </NpcQuest>
+	<Npc />       
+    <Blackspots />
+    <BlackGuids />
+    <EasyQuests>
+		<EasyQuest>
+			<Name>Triage</Name>
+			<QuestId>
+				<int>6624</int>
+			</QuestId>
+			<QuestType>UseItemOn</QuestType>
+			<QuestClass xsi:type="UseItemOnEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-3747.27" Y="-4532.25" Z="11.91045" />
+			</HotSpots>
+			<EntryIdTarget>
+				<int>12938</int>
+				<int>12936</int>
+				<int>12937</int>
+			</EntryIdTarget>
+			<ItemId>16991</ItemId>
+			<Range>4.5</Range>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition />
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>GoTo Auberdine</Name>
+			<QuestId />
+			<QuestType>FollowPath</QuestType>
+			<QuestClass xsi:type="FollowPathEasyQuestClass">
+			<Path>			
+				<Vector3 X="6420.464" Y="817.8544" Z="5.731891" />
+			</Path>
+			<IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+			<ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+			<IsHotSpots>false</IsHotSpots>
+			<IsLoop>false</IsLoop>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition />
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>GoTo Menethil For Theramore</Name>
+			<QuestId />
+			<QuestType>FollowPath</QuestType>
+			<QuestClass xsi:type="FollowPathEasyQuestClass">
+			<Path>
+				<!-- <Vector3 X="-3898.89" Y="-602.5692" Z="5.384632" /> -->
+				<Vector3 X="-3811.436" Y="-785.4554" Z="10.08374" />
+				<Vector3 X="-3834.719" Y="-748.5793" Z="8.46346" />
+				<Vector3 X="-3860.768" Y="-707.3762" Z="8.069922" />
+				<Vector3 X="-3889.487" Y="-662.7797" Z="8.125098" />
+				<Vector3 X="-3904.871" Y="-626.0137" Z="4.674417" />				
+				<Vector3 X="-3898.902" Y="-601.1245" Z="5.367361" />
+			</Path>
+			<IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+			<ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+			<IsHotSpots>false</IsHotSpots>
+			<IsLoop>false</IsLoop>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition />
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>GoTo Theramore</Name>
+			<QuestId />
+			<QuestType>FollowPath</QuestType>
+			<QuestClass xsi:type="FollowPathEasyQuestClass">
+			<Path>
+				<Vector3 X="-3867.429" Y="-4581.858" Z="8.917956" />
+				<Vector3 X="-3896.553" Y="-4614.734" Z="9.659492" />
+				<Vector3 X="-3927.194" Y="-4646.706" Z="9.258077" />
+				<Vector3 X="-3953.885" Y="-4674.46" Z="9.032899" />
+				<Vector3 X="-3983.968" Y="-4705.742" Z="4.362444" />				
+				<Vector3 X="-4007.245" Y="-4728.329" Z="5.248651" />
+			</Path>
+			<IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+			<ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+			<IsHotSpots>false</IsHotSpots>
+			<IsLoop>false</IsLoop>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition />
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>GoTo Ironforge Trainer</Name>
+			<QuestId />
+			<QuestType>FollowPath</QuestType>
+			<QuestClass xsi:type="FollowPathEasyQuestClass">
+			<Path>			
+				<Vector3 X="-4876.63" Y="-1149.14" Z="512.4373" />
+			</Path>
+			<IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+			<ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+			<IsHotSpots>false</IsHotSpots>
+			<IsLoop>false</IsLoop>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition />
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>GoTo Stormwind Trainer</Name>
+			<QuestId />
+			<QuestType>FollowPath</QuestType>
+			<QuestClass xsi:type="FollowPathEasyQuestClass">
+			<Path>			
+				<Vector3 X="-8513" Y="801.809" Z="106.519" />
+			</Path>
+			<IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+			<ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+			<IsHotSpots>false</IsHotSpots>
+			<IsLoop>false</IsLoop>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition />
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>GoTo Arathi Seller</Name>
+			<QuestId />
+			<QuestType>FollowPath</QuestType>
+			<QuestClass xsi:type="FollowPathEasyQuestClass">
+			<Path>
+				<Vector3 X="-1490.089" Y="-1804.997" Z="68.06625" />
+				<Vector3 X="-1520.652" Y="-1805.009" Z="65.85989" />
+				<Vector3 X="-1550.223" Y="-1804.514" Z="67.4913" />
+				<Vector3 X="-1574.257" Y="-1788.01" Z="67.17964" />
+				<Vector3 X="-1587.9" Y="-1743.297" Z="66.93928" />
+				<Vector3 X="-1582.307" Y="-1691.502" Z="66.03614" />
+				<Vector3 X="-1525.663" Y="-1724.106" Z="66.26541" />
+				<Vector3 X="-1528.017" Y="-1779.635" Z="67.84454" />
+				<Vector3 X="-1528.272" Y="-1808.395" Z="71.41848" />
+				<Vector3 X="-1529.368" Y="-1839.334" Z="67.88982" />
+				<Vector3 X="-1545.36" Y="-1837.41" Z="67.94712" />
+			</Path>
+			<IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+			<ForceToStartFirstPosition>false</ForceToStartFirstPosition>		
+			<IsHotSpots>false</IsHotSpots>
+			<IsLoop>false</IsLoop>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition />
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Linen Cloth To 40</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-5777.495" Y="-2846.691" Z="367.7057" />
+				<Vector3 X="-5847.281" Y="-2938.789" Z="359.7029" />
+				<Vector3 X="-5971.663" Y="-2822.974" Z="378.9658" />
+				<Vector3 X="-6063.309" Y="-2797.783" Z="408.7625" />
+			</HotSpots>
+			<EntryTarget>
+				<int>1161</int>
+				<int>1162</int>
+				<int>1163</int>
+				<int>1166</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 40 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(2589) &gt;= 1 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Linen Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Linen Cloth To 50</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-5777.495" Y="-2846.691" Z="367.7057" />
+				<Vector3 X="-5847.281" Y="-2938.789" Z="359.7029" />
+				<Vector3 X="-5971.663" Y="-2822.974" Z="378.9658" />
+				<Vector3 X="-6063.309" Y="-2797.783" Z="408.7625" />
+			</HotSpots>
+			<EntryTarget>
+				<int>1161</int>
+				<int>1162</int>
+				<int>1163</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 50 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(2589) &gt;= 2 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Linen Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Linen Cloth To 80</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-5777.495" Y="-2846.691" Z="367.7057" />
+				<Vector3 X="-5847.281" Y="-2938.789" Z="359.7029" />
+				<Vector3 X="-5971.663" Y="-2822.974" Z="378.9658" />
+				<Vector3 X="-6063.309" Y="-2797.783" Z="408.7625" />
+			</HotSpots>
+			<EntryTarget>
+				<int>1161</int>
+				<int>1162</int>
+				<int>1163</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 80 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(2589) &gt;= 2 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Linen Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Wool Cloth To 115</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-9249.989" Y="-3090.182" Z="103.156" Type="None" />
+				<Vector3 X="-9250.394" Y="-3177.847" Z="105.8205" Type="None" />
+				<Vector3 X="-9147.82" Y="-3247.826" Z="100.8703" Type="None" />
+				<Vector3 X="-9249.547" Y="-3368.277" Z="100.4855" Type="None" />
+				<!-- <Vector3 X="-11056.1" Y="-474.7417" Z="30.32284" />
+				<Vector3 X="-11089.13" Y="-492.9551" Z="31.6932" />
+				<Vector3 X="-11053.42" Y="-557.678" Z="33.41677" /> -->
+				
+				<!-- <Vector3 X="-11039.62" Y="-280.168" Z="16.53317" />
+				<Vector3 X="-10943.88" Y="-27.07201" Z="13.98906" />
+				<Vector3 X="-11102.11" Y="-85.18382" Z="17.74666" />
+				<Vector3 X="-11137.62" Y="-176.7415" Z="15.76335" /> -->
+			</HotSpots>
+			<EntryTarget>
+				<int>429</int>
+				<int>431</int>
+				<int>432</int>
+				<int>433</int>
+				<int>434</int>
+				<int>568</int>
+				<!-- <int>215</int>
+				<int>909</int>
+				<int>910</int>				 -->
+			
+				<!-- <int>212</int>
+				<int>892</int>
+				<int>889</int>
+				<int>1251</int>
+				<int>1487</int>
+				<int>891</int> -->
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 115 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(2592) &gt;= 1 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Wool Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Wool Cloth To 150</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-9249.989" Y="-3090.182" Z="103.156" Type="None" />
+				<Vector3 X="-9250.394" Y="-3177.847" Z="105.8205" Type="None" />
+				<Vector3 X="-9147.82" Y="-3247.826" Z="100.8703" Type="None" />
+				<Vector3 X="-9249.547" Y="-3368.277" Z="100.4855" Type="None" />
+				<!-- <Vector3 X="-11056.1" Y="-474.7417" Z="30.32284" />
+				<Vector3 X="-11089.13" Y="-492.9551" Z="31.6932" />
+				<Vector3 X="-11053.42" Y="-557.678" Z="33.41677" /> -->
+				
+				<!-- <Vector3 X="-11039.62" Y="-280.168" Z="16.53317" />
+				<Vector3 X="-10943.88" Y="-27.07201" Z="13.98906" />
+				<Vector3 X="-11102.11" Y="-85.18382" Z="17.74666" />
+				<Vector3 X="-11137.62" Y="-176.7415" Z="15.76335" /> -->
+			</HotSpots>
+			<EntryTarget>
+				<int>429</int>
+				<int>431</int>
+				<int>432</int>
+				<int>433</int>
+				<int>434</int>
+				<int>568</int>
+				<!-- <int>215</int>
+				<int>909</int>
+				<int>910</int> -->
+			
+				<!-- <int>212</int>
+				<int>892</int>
+				<int>889</int>
+				<int>1251</int>
+				<int>1487</int>
+				<int>891</int> -->
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 150 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(2592) &gt;= 2 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Wool Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Silk Cloth To 180</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-1836.065" Y="-3077.038" Z="57.31445" />
+				<Vector3 X="-1742.57" Y="-3173.863" Z="31.66453" />
+				<Vector3 X="-1617.093" Y="-3308.167" Z="25.65517" />
+				<Vector3 X="-1621" Y="-3456.073" Z="53.95685" />
+				<Vector3 X="-1841.212" Y="-3396.027" Z="54.66029" />
+			</HotSpots>
+			<EntryTarget>
+				<int>2554</int>
+				<int>2555</int>
+				<int>2556</int>
+				<int>2557</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 180 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(4306) &gt;= 1 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Silk Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Silk Cloth To 210</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-1836.065" Y="-3077.038" Z="57.31445" />
+				<Vector3 X="-1742.57" Y="-3173.863" Z="31.66453" />
+				<Vector3 X="-1617.093" Y="-3308.167" Z="25.65517" />
+				<Vector3 X="-1621" Y="-3456.073" Z="53.95685" />
+				<Vector3 X="-1841.212" Y="-3396.027" Z="54.66029" />
+			</HotSpots>
+			<EntryTarget>
+				<int>2554</int>
+				<int>2555</int>
+				<int>2556</int>
+				<int>2557</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 210 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(4306) &gt;= 2 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Silk Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Mageweave Cloth To 225</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-306.678" Y="-3365.8" Z="149.5845" />
+				<Vector3 X="-199.1671" Y="-3282.816" Z="122.2031" />
+				<Vector3 X="-131.1454" Y="-3459.604" Z="127.3547" />
+				<Vector3 X="-221.0993" Y="-3511.939" Z="147.0226" />
+			</HotSpots>
+			<EntryTarget>
+				<int>2639</int>
+				<int>4466</int>
+				<int>4467</int>
+				<int>2557</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 225 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(4338) &gt;= 1 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Mageweave Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Mageweave Cloth To 240</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-306.678" Y="-3365.8" Z="149.5845" />
+				<Vector3 X="-199.1671" Y="-3282.816" Z="122.2031" />
+				<Vector3 X="-131.1454" Y="-3459.604" Z="127.3547" />
+				<Vector3 X="-221.0993" Y="-3511.939" Z="147.0226" />
+			</HotSpots>
+			<EntryTarget>
+				<int>2639</int>
+				<int>4466</int>
+				<int>4467</int>
+				<int>2557</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 240 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(4338) &gt;= 1 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Mageweave Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Mageweave Cloth To 260</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="-306.678" Y="-3365.8" Z="149.5845" />
+				<Vector3 X="-199.1671" Y="-3282.816" Z="122.2031" />
+				<Vector3 X="-131.1454" Y="-3459.604" Z="127.3547" />
+				<Vector3 X="-221.0993" Y="-3511.939" Z="147.0226" />
+			</HotSpots>
+			<EntryTarget>
+				<int>2639</int>
+				<int>4466</int>
+				<int>4467</int>
+				<int>2557</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 260 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(4338) &gt;= 2 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Mageweave Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Runecloth To 290</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="2354.47" Y="-1684.252" Z="105.245" />
+				<Vector3 X="2427.63" Y="-1603.454" Z="108.5778" />
+				<Vector3 X="2337.019" Y="-1497.694" Z="92.48125" />
+			</HotSpots>
+			<EntryTarget>
+				<int>1833</int>
+				<int>1884</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 290 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(14047) &gt;= 1 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Runecloth Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+		<EasyQuest>
+			<Name>Farm Runecloth To 300</Name>
+			<QuestId/>
+			<QuestType>KillAndLoot</QuestType>
+			<QuestClass xsi:type="KillAndLootEasyQuestClass">
+			<HotSpots>
+				<Vector3 X="2354.47" Y="-1684.252" Z="105.245" />
+				<Vector3 X="2427.63" Y="-1603.454" Z="108.5778" />
+				<Vector3 X="2337.019" Y="-1497.694" Z="92.48125" />
+			</HotSpots>
+			<EntryTarget>
+				<int>1833</int>
+				<int>1884</int>
+			</EntryTarget>
+			<IsGrinderNotQuest>true</IsGrinderNotQuest>
+			</QuestClass>
+			<ObjectiveCount1>0</ObjectiveCount1>
+			<ObjectiveCount2>0</ObjectiveCount2>
+			<ObjectiveCount3>0</ObjectiveCount3>
+			<ObjectiveCount4>0</ObjectiveCount4>
+			<ObjectiveCount5>0</ObjectiveCount5>
+			<AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+			<AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+			<AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+			<AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+			<AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+			<CanCondition />
+			<IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.FirstAid) &gt;= 300 || (wManager.Wow.Helpers.ItemsManager.GetItemCountById(14047) &gt;= 2 ? Tools.Craft((int)wManager.Wow.Enums.SkillLine.FirstAid, &quot;Heavy Runecloth Bandage&quot;) : false);</IsCompleteCondition>
+			<RepeatableQuest>false</RepeatableQuest>
+			<NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+			<PickUpQuestOnItem>false</PickUpQuestOnItem>
+			<PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+			<Comment />
+			<GossipOptionRewardItem>1</GossipOptionRewardItem>
+			<RequiredQuest>0</RequiredQuest>
+			<MaxLevel>60</MaxLevel>
+			<MinLevel>0</MinLevel>
+			<WoWClass>None</WoWClass>
+		</EasyQuest>
+	</EasyQuests>
+	<Script>++Micam_Profiles++\Tools.cs</Script>
+    <OffMeshConnections>
+		<OffMeshConnection>
+		  <Path>
+			<Vector3 X="-1490.089" Y="-1804.997" Z="68.06625" />
+			<Vector3 X="-1520.652" Y="-1805.009" Z="65.85989" />
+			<Vector3 X="-1550.223" Y="-1804.514" Z="67.4913" />
+			<Vector3 X="-1574.257" Y="-1788.01" Z="67.17964" />
+			<Vector3 X="-1587.9" Y="-1743.297" Z="66.93928" />
+			<Vector3 X="-1582.307" Y="-1691.502" Z="66.03614" />
+			<Vector3 X="-1525.663" Y="-1724.106" Z="66.26541" />
+			<Vector3 X="-1528.017" Y="-1779.635" Z="67.84454" />
+			<Vector3 X="-1528.272" Y="-1808.395" Z="71.41848" />
+			<Vector3 X="-1529.368" Y="-1839.334" Z="67.88982" />
+			<Vector3 X="-1545.36" Y="-1837.41" Z="67.94712" />
+		  </Path>
+		  <ContinentId>0</ContinentId>
+		  <Name>go to vendor stormgarde keep</Name>
+		</OffMeshConnection>
+		<OffMeshConnection>
+		  <Path>
+			<Vector3 X="-1545.36" Y="-1837.41" Z="67.94712" />
+			<Vector3 X="-1529.368" Y="-1839.334" Z="67.88982" />
+			<Vector3 X="-1528.272" Y="-1808.395" Z="71.41848" />
+			<Vector3 X="-1528.017" Y="-1779.635" Z="67.84454" />
+			<Vector3 X="-1525.663" Y="-1724.106" Z="66.26541" />
+			<Vector3 X="-1582.307" Y="-1691.502" Z="66.03614" />
+			<Vector3 X="-1587.9" Y="-1743.297" Z="66.93928" />
+			<Vector3 X="-1574.257" Y="-1788.01" Z="67.17964" />
+			<Vector3 X="-1550.223" Y="-1804.514" Z="67.4913" />
+			<Vector3 X="-1520.652" Y="-1805.009" Z="65.85989" />			
+			<Vector3 X="-1490.089" Y="-1804.997" Z="68.06625" />
+		  </Path>
+		  <ContinentId>0</ContinentId>
+		  <Name>go outside of stormgarde keep from vendor</Name>
+		</OffMeshConnection>
+	</OffMeshConnections>
+</EasyQuestProfile>

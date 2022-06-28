@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Aszuna 8 ---" />
+	<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.Lua.LuaDoString&lt;bool&gt;(@&quot;&#xD;&#xA;local achievementID = 10665;&#xD;&#xA;local indexCriteria = 8;&#xD;&#xA;local id, name, points, completedA, month, day, year, description, flagsA, icon, rewardText, isGuild, wasEarnedByMe, earnedBy = GetAchievementInfo(achievementID);&#xD;&#xA;if completedA then return completedA end&#xD;&#xA;local criteriaString, criteriaType, completed, quantity, reqQuantity, charName, flags, assetID, quantityString, criteriaID, eligible = GetAchievementCriteriaInfo(achievementID, indexCriteria);&#xD;&#xA;return completed;&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="Aszuna8" />
+    <QuestsSorted Action="RunLuaCode" NameClass="RunMacroText(&quot;/use item:141605&quot;)" />
+    <QuestsSorted Action="Wait" NameClass="10000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="createdby\Legion\Aszuna\Aszuna9.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Aszuna8</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-823.2813" Y="6187.443" Z="1.497947" />
+          <Vector3 X="-828.024" Y="6192.901" Z="-0.2006659" />
+          <Vector3 X="-833.1353" Y="6198.783" Z="-1.865915" />
+          <Vector3 X="-837.088" Y="6202.623" Z="-1.84479" Type="Swimming" />
+          <Vector3 X="-842.39" Y="6207.326" Z="-0.7223402" />
+          <Vector3 X="-847.9302" Y="6212.242" Z="-1.057612" />
+          <Vector3 X="-852.1555" Y="6215.99" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-858.9139" Y="6218.04" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-865.7187" Y="6219.999" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-872.3392" Y="6222.477" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-878.9994" Y="6224.97" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-885.5889" Y="6227.437" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-892.5005" Y="6229.041" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-899.5563" Y="6229.607" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-906.6451" Y="6230.177" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-913.6869" Y="6230.743" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-920.7676" Y="6230.796" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-927.8217" Y="6230.514" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-934.8757" Y="6230.232" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-941.9864" Y="6229.947" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-949.0473" Y="6230.344" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-956.0065" Y="6231.689" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-962.9705" Y="6233.035" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-969.8586" Y="6234.742" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-976.4982" Y="6236.998" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-983.2094" Y="6239.278" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-989.9071" Y="6241.555" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-996.6495" Y="6243.846" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1003.325" Y="6246.114" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1009.905" Y="6248.74" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1016.427" Y="6251.502" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1022.993" Y="6254.283" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1029.902" Y="6255.458" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1036.914" Y="6256.729" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1043.856" Y="6257.985" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1050.47" Y="6260.365" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1056.745" Y="6263.713" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1062.969" Y="6267.034" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1069.243" Y="6270.382" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1075.468" Y="6273.703" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1081.942" Y="6276.539" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1088.696" Y="6278.623" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1095.142" Y="6281.444" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1101.355" Y="6284.861" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1106.617" Y="6289.597" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1111.541" Y="6294.683" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1116.137" Y="6300.022" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1120.78" Y="6305.416" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1125.382" Y="6310.763" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1130.025" Y="6316.156" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1134.646" Y="6321.525" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1139.264" Y="6326.89" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1143.903" Y="6332.28" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1148.518" Y="6337.641" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1153.117" Y="6342.984" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1157.751" Y="6348.367" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1162.372" Y="6353.735" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1166.99" Y="6359.1" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1171.635" Y="6364.497" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1176.219" Y="6369.823" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1180.85" Y="6375.202" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1185.486" Y="6380.588" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1190.098" Y="6385.946" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1194.713" Y="6391.307" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1199.34" Y="6396.683" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1203.985" Y="6402.08" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1208.591" Y="6407.43" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1213.209" Y="6412.795" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1217.818" Y="6418.149" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1222.442" Y="6423.521" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1227.066" Y="6428.893" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1231.665" Y="6434.236" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1236.329" Y="6439.655" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1240.907" Y="6445.003" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1244.718" Y="6450.958" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1248.557" Y="6456.955" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1252.396" Y="6462.953" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1256.183" Y="6468.871" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1259.999" Y="6474.833" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1263.815" Y="6480.795" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1267.636" Y="6486.765" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1271.455" Y="6492.731" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1275.271" Y="6498.693" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1279.099" Y="6504.675" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1282.908" Y="6510.625" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1286.736" Y="6516.607" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1290.563" Y="6522.585" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1294.374" Y="6528.539" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1298.192" Y="6534.505" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1301.693" Y="6540.647" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1304.39" Y="6547.203" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1307.061" Y="6553.696" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1310.086" Y="6560.104" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1314.198" Y="6565.849" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1318.353" Y="6571.655" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1322.774" Y="6577.04" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1327.991" Y="6581.915" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1334.102" Y="6585.478" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1340.234" Y="6589.053" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1346.361" Y="6592.625" Z="-1.867716" Type="Swimming" />
+          <Vector3 X="-1352.673" Y="6595.691" Z="-1.867716" Type="Swimming" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>0</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+</EasyQuestProfile>

@@ -1,0 +1,109 @@
+//Requirements:
+
+-A fight class that is able to deal with at least two enemies at once
+-Default range pull for any class besides Paladin
+-Update your characters gear / spells / skills frequently, especially if playing Warrior & Rogue
+-An advanced C# fight class for botting on Warrior, Rogue and Mage
+
+
+//Important information:
+
+-Hunters will stay in their belonging starting zone and grind their way to level 10, due to them performing awful without a pet. After they reached level 10, they do their pet quest and
+tame their default pet (Dwarf: Boar, Nightelf: Cat). Don't forget to set up pet feeding, or it's going to run away quickly.
+-Night Elfs
+-DO NOT abandon any quest, before it turned Grey in your characters quest log. Elite, dungeon or group quests are NEVER done and can be abandoned as soon as you wish.
+-Keep the profile in its default folder and put it directly in the Quester folder (f.e. D:\Bot\WRobot\Profiles\Quester). Otherwise, the profile isn't able to load a following profile.
+DO NOT change the name / location of any file!
+-There are a few occasions, where the bot has to grind some time (in general one level up). This can be drastically reduced by resting in a city, botting only on every other day or running dungeons.
+There are some quests I skipped, but will be added to get rid of grinding entirely.
+-Plugins that alter the bot's path finding can cause issues / loops. Please keep that in mind.
+
+
+//Recomondations:
+
+-Only learn new spells / skills, that are mandatory for your fight class, to save gold for gear.
+-Spend any gold you make in (not overpriced) auction house gear, bags and spells, that provide an upgrade for your character. 
+-Discovering taxi flight paths are automated and fully scripted.
+-It's not necessary to activate wRobots inbuilt taxi feature (but you are free to do so, if you want). Necessary flights are scripted and performed by the profile.
+-This profile has two force breaks (three for Night Elf characters), when it is necessary to take a boat. This will happen at level 30 & level 36-37 (+ level 6 for Night Elfs). 
+The automated boats feature has not been implemented yet.
+-For the low performance classes, a small amount of seed money makes things a lot easier.
+-To get in touch with the profile and learn how it works, choose a class with a high performance.
+
+//Bug - problems reports
+
+This is an overall huge project, running under drastically different circumstances. So bugs are pretty likely to occur, regardless how many runs I perform myself. 
+Please make sure that a bug is not caused by a plugin, your fight class or an ingame addon, before you write a bug report and try ALWAYS provide your bots log file.
+An ingame screenshot can be handy too, but is optional. 
+
+Some quests are tricky to perform with a bot, what leads to a higher amount of deaths than usual. Examples for this are "The Coast isn't clear" or "Down the Coast".
+This is especially true for classes that overall perform bad in questing (Warrior, Rogue, Mage). A high amount of deaths alone is not something I consider to be a problem, if
+the bot is still making progress. But don't hesitate to report areas / quests you experienced chain dying or the bot getting stuck. 
+
+
+//How to write a bug / problem report?
+
+First of all, you can contact me via wRobot / wRobot PM, my discord Server (https://discord.gg/hM9QSq8) or E-Mail (fnv316@gmail.com).
+
+A bug report should look like this:
+
+Topic -> Quest you have troubles with, NPC that doesn't function, area you die a lot
+Category -> F.e. Quest, script, taxi, route, miscellaneous
+Urgency -> Rated from 1 (low urgency) - 5 (game breaking)
+Description -> Detailed description of your problem / bug
+Log file -> Attach the recorded log file, when the bug / problem occurred
+
+
+EXAMPLE
+
+Topic: Quest Peoples Militia Part 1 not turning in
+Catergory: Quest
+Urgency: 4
+Description: The bot is not turning in 'The Peoples Militia' part 1. It's just grinding over and over the same related quests mobs, but not making any progress.
+Log file: exampleLogFile.XML
+
+
+//Class performance (1-5)
+I run test runs with any class besides Druid at least once.
+
+Best						Used Fight Class:
+Paladin 	4,5				Self written fight class FCE* (included)
+Hunter		4				Ordush's Beast Mastery Hunter (paid)
+Warlock		4				eeny's Demon Affliction FC (free)
+Priest		4				Self written fight class FCE* (included)
+Mage		2,5				Matenia's Frost Mage FC (paid / sponsored)
+Rogue		2				Self written (modified fight class of eeny's Warlock FC)
+Warrior		1,5				Self written (modified fight class of eeny's Warlock FC)
+Druid		NOT TESTED (expected 3-3,5)
+Worst
+
+*Fight Class Editor
+
+
+//What is implemented: 
+
+-Full 1-40 leveling
+-Night Elf start (1-6)
+-Dwarf / Gnome start (1-6)
+-Hunter pet quests - alpha state
+-Warlock pets Imp / Voidwalker 
+-Fully scripted taxi 
+-Scripted Hearthstone 
+-Automated discovery of any necessary flight path
+-A huge amount of custom routes, whenever it's necessary
+
+
+//What has not been implemented, but will be in the future:
+
+-Automated boats
+-Automated abandoning of unnecessary quests
+-Druid bear form
+-More quests, to get fully rid of grinding
+
+
+//What will maybe be implemented:
+
+-Other class quests (Rogue poison, Warrior stance)
+-Throw away unnecessary not salable items
+
+

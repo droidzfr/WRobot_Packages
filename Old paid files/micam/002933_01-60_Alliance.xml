@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<QuestsSorted>
+		<QuestsSorted Action="RunCode" NameClass="Tools.AuthSystem(&quot;6df5162123bf&quot;);" />
+		<!-- 1-12 Gnome & Dwarf -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 12  &amp;&amp; (ObjectManager.Me.PlayerRace == PlayerFactions.Gnome || ObjectManager.Me.PlayerRace == PlayerFactions.Dwarf)" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\01-12_DwarfGnome.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 1-12 Human -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 12  &amp;&amp; ObjectManager.Me.PlayerRace == PlayerFactions.Human" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\01-12_Human.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 1-12 Night Elf -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 12  &amp;&amp; ObjectManager.Me.PlayerRace == PlayerFactions.NightElf" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\01-12_NightElf.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />		
+		<!-- 12-22 Darkshore -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 22" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\12-22_Darkshore.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 22-25 Wetlands -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 25" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\22-25_wetlands.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 25-32 Duskwood -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 32" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\25-32_Duskwood.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 32-36 Arathi Highlands -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 36" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\32-36_ArathiHighlands.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 36-42 Badlands -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 42" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\36-42_Badlands.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 42-50 Hinterlands -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 50" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\42-50_Hinterlands.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 50-56 Western Plaguelands -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 56" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\50-56_WesternPlaguelands.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 56-60 Eastern Plaguelands -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 60" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Alliance\56-60_EasternPlaguelands.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+	</QuestsSorted>
+	<NpcQuest />		
+	<Npc />		
+	<Blackspots />
+	<BlackGuids />
+	<EasyQuests />		
+	<Script>++Micam_Profiles++\Tools.cs</Script>
+	<OffMeshConnections />
+</EasyQuestProfile>

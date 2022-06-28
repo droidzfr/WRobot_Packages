@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Stormheim 20 ---" />
+ 	<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+   <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.Lua.LuaDoString&lt;bool&gt;(@&quot;&#xD;&#xA;local achievementID = 10668;&#xD;&#xA;local indexCriteria = 20;&#xD;&#xA;local id, name, points, completedA, month, day, year, description, flagsA, icon, rewardText, isGuild, wasEarnedByMe, earnedBy = GetAchievementInfo(achievementID);&#xD;&#xA;if completedA then return completedA end&#xD;&#xA;local criteriaString, criteriaType, completed, quantity, reqQuantity, charName, flags, assetID, quantityString, criteriaID, eligible = GetAchievementCriteriaInfo(achievementID, indexCriteria);&#xD;&#xA;return completed;&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="Stormheim20" />
+    <QuestsSorted Action="RunLuaCode" NameClass="RunMacroText(&quot;/use item:141605&quot;)" />
+    <QuestsSorted Action="Wait" NameClass="10000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="createdby\Legion\Suramar\Suramar1.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Stormheim20</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="3435.812" Y="3329.986" Z="659.6668" />
+          <Vector3 X="3430.655" Y="3326.592" Z="659.1887" />
+          <Vector3 X="3427.519" Y="3324.319" Z="658.6052" />
+          <Vector3 X="3424.553" Y="3322.17" Z="657.514" Type="Swimming" />
+          <Vector3 X="3420.707" Y="3319.382" Z="657.514" Type="Swimming" />
+          <Vector3 X="3416.894" Y="3316.619" Z="657.514" Type="Swimming" />
+          <Vector3 X="3413.063" Y="3313.843" Z="657.514" Type="Swimming" />
+          <Vector3 X="3409.845" Y="3310.423" Z="657.514" Type="Swimming" />
+          <Vector3 X="3407.428" Y="3306.377" Z="657.514" Type="Swimming" />
+          <Vector3 X="3405.569" Y="3302.435" Z="657.514" Type="Swimming" />
+          <Vector3 X="3403.849" Y="3298.017" Z="657.514" Type="Swimming" />
+          <Vector3 X="3402.131" Y="3293.603" Z="657.514" Type="Swimming" />
+          <Vector3 X="3400.433" Y="3289.237" Z="657.514" Type="Swimming" />
+          <Vector3 X="3398.706" Y="3284.801" Z="657.514" Type="Swimming" />
+          <Vector3 X="3397.004" Y="3280.427" Z="657.514" Type="Swimming" />
+          <Vector3 X="3395.28" Y="3275.995" Z="657.514" Type="Swimming" />
+          <Vector3 X="3393.581" Y="3271.63" Z="657.514" Type="Swimming" />
+          <Vector3 X="3391.854" Y="3267.194" Z="657.514" Type="Swimming" />
+          <Vector3 X="3390.157" Y="3262.833" Z="657.514" Type="Swimming" />
+          <Vector3 X="3388.433" Y="3258.401" Z="657.514" Type="Swimming" />
+          <Vector3 X="3386.73" Y="3254.027" Z="657.514" Type="Swimming" />
+          <Vector3 X="3385.004" Y="3249.591" Z="657.514" Type="Swimming" />
+          <Vector3 X="3383.295" Y="3245.199" Z="657.514" Type="Swimming" />
+          <Vector3 X="3381.904" Y="3240.746" Z="657.514" Type="Swimming" />
+          <Vector3 X="3380.935" Y="3236.115" Z="657.514" Type="Swimming" />
+          <Vector3 X="3379.907" Y="3231.492" Z="657.514" Type="Swimming" />
+          <Vector3 X="3378.746" Y="3226.876" Z="657.514" Type="Swimming" />
+          <Vector3 X="3377.465" Y="3222.357" Z="657.514" Type="Swimming" />
+          <Vector3 X="3376.05" Y="3217.867" Z="657.514" Type="Swimming" />
+          <Vector3 X="3374.55" Y="3213.104" Z="657.514" Type="Swimming" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>0</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

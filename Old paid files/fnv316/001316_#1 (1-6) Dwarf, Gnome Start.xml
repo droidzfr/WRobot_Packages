@@ -1,0 +1,3786 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="ProgressSettings.Initialize();&#xD;&#xA;wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = ProgressSettings.CurrentSettings.dwarfStart - 1;&#xD;&#xA;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Loading current Quester step &quot; + (ProgressSettings.CurrentSettings.dwarfStart));&#xD;&#xA;&#xD;&#xA;Thread p = new Thread(() =&gt;&#xD;&#xA;{    &#xD;&#xA;ProgressSettings.inProgress = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver initialized&quot;);&#xD;&#xA; &#xD;&#xA; while(robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;if(!ProgressSettings.inProgress)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.Dispose();&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver disposed&quot;);&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xD;&#xA;  {&#xD;&#xA; if(ProgressSettings.CurrentSettings.dwarfStart &lt; wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.CurrentSettings.dwarfStart = wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep;&#xD;&#xA;ProgressSettings.CurrentSettings.Save();&#xD;&#xA;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  Thread.Sleep(1000);&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA;});&#xD;&#xA;&#xD;&#xA;p.Start();&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Thread t = new Thread(() =&gt;&#xD;&#xA;{&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Starting auto equip of bags&quot;);&#xD;&#xA;bags.bagsStarted = true;&#xD;&#xA; while (robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause &amp;&amp; bags.bagsStarted)&#xD;&#xA;  {&#xD;&#xA;     if(bags.canEquip())&#xD;&#xA;{&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5571) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5571);&#xD;&#xA;//Small Black Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(828) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(828);&#xD;&#xA;//Small Blue Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(4496) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(4496);&#xD;&#xA;//Small Brown Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5572) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5572);&#xD;&#xA;//Small Green Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(805) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(805);&#xD;&#xA;//Small Red Pouch&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Stopping auto equip of bags&quot;);&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  }&#xD;&#xA;  Thread.Sleep(5000);&#xD;&#xA; }&#xD;&#xA;});&#xD;&#xA;if(bags.canEquip())&#xD;&#xA;t.Start();&#xD;&#xA;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;NpcDB.AcceptOnlyProfileNpc = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.Selling = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.Repair = true;" />
+    <QuestsSorted Action="If" NameClass="((ObjectManager.Me.PlayerRace == PlayerFactions.Dwarf || ObjectManager.Me.PlayerRace == PlayerFactions.Gnome) &amp;&amp; !Quest.GetQuestCompleted(2158))" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;&#xD;&#xA;FNVSettings.flightMasterSaveChanges(&quot;Ironforge&quot;);&#xD;&#xA;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.WallDistancePathFinder = 1;" />
+    <QuestsSorted Action="PickUp" NameClass="DwarvenOutfitters" />
+    <QuestsSorted Action="Pulse" NameClass="DwarvenOutfitters" />
+    <QuestsSorted Action="TurnIn" NameClass="DwarvenOutfitters" />
+    <QuestsSorted Action="PickUp" NameClass="ColdridgeValleyMailDelivery" />
+    <QuestsSorted Action="PickUp" NameClass="ANewThreat" />
+    <QuestsSorted Action="Pulse" NameClass="ANewThreat" />
+    <QuestsSorted Action="TurnIn" NameClass="ANewThreat" />
+    <QuestsSorted Action="Pulse" NameClass="GRINDERGrindTo3" />
+    <QuestsSorted Action="TurnIn" NameClass="ColdridgeValleyMailDelivery" />
+    <QuestsSorted Action="PickUp" NameClass="ColdridgeValleyMailDelivery2" />
+    <QuestsSorted Action="PickUp" NameClass="TheBoarHunter" />
+    <QuestsSorted Action="Pulse" NameClass="TheBoarHunter" />
+    <QuestsSorted Action="TurnIn" NameClass="TheBoarHunter" />
+    <QuestsSorted Action="TurnIn" NameClass="ColdridgeValleyMailDelivery2" />
+    <QuestsSorted Action="PickUp" NameClass="TheTrollCave" />
+    <QuestsSorted Action="Pulse" NameClass="TheTrollCave" />
+    <QuestsSorted Action="TurnIn" NameClass="TheTrollCave" />
+    <QuestsSorted Action="PickUp" NameClass="WARLOCKBeginnings" />
+    <QuestsSorted Action="Pulse" NameClass="WARLOCKBeginnings" />
+    <QuestsSorted Action="TurnIn" NameClass="WARLOCKBeginnings" />
+    <QuestsSorted Action="Pulse" NameClass="GRINDERGrindTo6" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Mage || ObjectManager.Me.WowClass == WoWClass.Warlock || ObjectManager.Me.WowClass == WoWClass.Warrior || ObjectManager.Me.WowClass == WoWClass.Rogue || ObjectManager.Me.WowClass == WoWClass.Hunter" />
+    <QuestsSorted Action="WriteLog" NameClass="[FNV_Quester]: Going to grind to level 8 as Warlock / Mage / Warrior / Rogue / Hunter" />
+    <QuestsSorted Action="Pulse" NameClass="GRINDGrindTo8WLMAWRRO" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="TheStolenJournal" />
+    <QuestsSorted Action="RunCode" NameClass="abandonQuest.abandon(&quot;Consecrated Rune&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Encrypted Rune&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Etched Rune&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Glyphic Rune&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Hallowed Rune&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Simple Rune&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Observations&quot;);&#xD;&#xA;&#xD;&#xA;bags.bagsStarted = false;&#xD;&#xA;&#xD;&#xA;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="ProgressSettings.Dispose();&#xD;&#xA;ProgressSettings.inProgress = false;&#xD;&#xA;&#xD;&#xA;FNVSettings.Initialize();&#xD;&#xA;FNVSettings.CurrentSettings.dwarfStart = true;&#xD;&#xA;FNVSettings.Dispose();" />
+    <QuestsSorted Action="LoadProfile" NameClass="FNV_V2\#0 START_FNVLauncher_V2.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="658" Name="Sten Stoutarm" GameObject="false">
+      <PickUpQuests>
+        <int>233</int>
+        <int>3107</int>
+        <int>179</int>
+        <int>3113</int>
+        <int>3109</int>
+        <int>3108</int>
+        <int>3114</int>
+        <int>3110</int>
+        <int>3112</int>
+        <int>3106</int>
+        <int>3115</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>179</int>
+      </TurnInQuests>
+      <Position X="-6214.85" Y="328.181" Z="383.4865" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="713" Name="Balir Frosthammer" GameObject="false">
+      <PickUpQuests>
+        <int>170</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>170</int>
+      </TurnInQuests>
+      <Position X="-6216.53" Y="339.002" Z="383.271" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="8416" Name="Felix Whindlebolt" GameObject="false">
+      <PickUpQuests>
+        <int>3361</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>3361</int>
+      </TurnInQuests>
+      <Position X="-6098.09" Y="396.074" Z="395.54" />
+    </NPCQuest>
+    <NPCQuest Id="714" Name="Talin Keeneye" GameObject="false">
+      <PickUpQuests>
+        <int>234</int>
+        <int>183</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>183</int>
+        <int>233</int>
+      </TurnInQuests>
+      <Position X="-6222.47" Y="688.973" Z="384.9194" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="786" Name="Grelin Whitebeard" GameObject="false">
+      <PickUpQuests>
+        <int>282</int>
+        <int>218</int>
+        <int>182</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>234</int>
+        <int>218</int>
+        <int>182</int>
+      </TurnInQuests>
+      <Position X="-6363" Y="567.085" Z="385.7677" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="1965" Name="Mountaineer Thalos" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>282</int>
+      </TurnInQuests>
+      <Position X="-6235.87" Y="152.989" Z="428.3168" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="460" Name="Alamar Grimm" GameObject="false">
+      <PickUpQuests>
+        <int>1599</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>1599</int>
+      </TurnInQuests>
+      <Position X="-6048.79" Y="391.078" Z="398.8755" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc>
+    <Npc>
+      <Position X="-6225.24" Y="320.372" Z="383.1175" Type="Flying" />
+      <Entry>829</Entry>
+      <Name>Adlin Pridedrift</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6101.1" Y="390.569" Z="395.5428" />
+      <Entry>945</Entry>
+      <Name>Rybrad Coldbank</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5590.67" Y="-428.416" Z="397.3257" />
+      <Entry>1273</Entry>
+      <Name>Grawn Thromwyn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5601.6" Y="-531.203" Z="399.6536" />
+      <Entry>1247</Entry>
+      <Name>Innkeeper Belm</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6048.79" Y="391.078" Z="398.8755" />
+      <Entry>460</Entry>
+      <Name>Alamar Grimm</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarlockTrainer</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6056.09" Y="388.175" Z="392.7612" />
+      <Entry>944</Entry>
+      <Name>Marryk Nurribit</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6056.74" Y="393.548" Z="392.7595" />
+      <Entry>837</Entry>
+      <Name>Branstock Khalder</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6091.79" Y="365.141" Z="395.5396" />
+      <Entry>895</Entry>
+      <Name>Thorgas Grimson</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6120.68" Y="382.089" Z="395.5435" />
+      <Entry>926</Entry>
+      <Name>Bromos Grummner</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PaladinTrainer</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6093.75" Y="404.918" Z="395.537" />
+      <Entry>916</Entry>
+      <Name>Solm Hargrin</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>RogueTrainer</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6084.77" Y="382.141" Z="395.5427" />
+      <Entry>912</Entry>
+      <Name>Thran Khorman</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots>
+    <Blackspot X="-6396.951" Y="778.4316" Z="386.213" Radius="15" />
+    <Blackspot X="-6511.762" Y="686.6635" Z="387.274933" Radius="15" />
+    <Blackspot X="-6503.43164" Y="308.554138" Z="370.3773" Radius="45" />
+    <Blackspot X="-6608.09131" Y="386.57666" Z="389.865234" Radius="15" />
+    <Blackspot X="-6543.21875" Y="367.4418" Z="396.2552" Radius="25" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>A New Threat</Name>
+      <QuestId>
+        <int>170</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6326.575" Y="309.6253" Z="379.0745" />
+          <Vector3 X="-6268.678" Y="495.4694" Z="386.1175" />
+        </HotSpots>
+        <EntryTarget>
+          <int>724</int>
+          <int>707</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Refugee's Quandary</Name>
+      <QuestId>
+        <int>3361</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6373.915" Y="772.5228" Z="386.213" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>148499</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Refugee's Quandary2</Name>
+      <QuestId>
+        <int>3361</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6501.474" Y="678.5402" Z="387.2746" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>178084</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Refugee's Quandary3</Name>
+      <QuestId>
+        <int>3361</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6478.112" Y="506.1786" Z="385.9132" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>178085</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>true</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Coldridge Valley Mail Delivery</Name>
+      <QuestId>
+        <int>233</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Coldridge Valley Mail Delivery2</Name>
+      <QuestId>
+        <int>234</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Dwarven Outfitters</Name>
+      <QuestId>
+        <int>179</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6326.905" Y="357.4499" Z="377.1592" />
+          <Vector3 X="-6374.933" Y="484.5061" Z="380.9768" />
+        </HotSpots>
+        <EntryTarget>
+          <int>705</int>
+          <int>704</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GRINDERGrindTo3</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6324.255" Y="306.3352" Z="379.0646" />
+          <Vector3 X="-6274.254" Y="453.5694" Z="386.1808" />
+          <Vector3 X="-6398.141" Y="427.4802" Z="379.6588" />
+        </HotSpots>
+        <EntryTarget>
+          <int>705</int>
+          <int>707</int>
+          <int>724</int>
+          <int>708</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>2</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GRINDERGrindTo6</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6381.01" Y="775.867" Z="386.2132" />
+          <Vector3 X="-6502.67" Y="685.902" Z="387.2742" />
+          <Vector3 X="-6216.103" Y="735.1304" Z="387.4884" />
+        </HotSpots>
+        <EntryTarget>
+          <int>706</int>
+          <int>708</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>5</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>ROUTEStormwindToHumanStart</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-8798.489" Y="593.7233" Z="97.48536" />
+          <Vector3 X="-8811.192" Y="605.7567" Z="96.04408" />
+          <Vector3 X="-8824.408" Y="618.0422" Z="94.57997" />
+          <Vector3 X="-8830.958" Y="619.2742" Z="93.86533" />
+          <Vector3 X="-8845.049" Y="608.9033" Z="92.66541" />
+          <Vector3 X="-8859.38" Y="597.9139" Z="92.01637" />
+          <Vector3 X="-8872.495" Y="587.1944" Z="92.70063" />
+          <Vector3 X="-8886.424" Y="575.6984" Z="92.80397" />
+          <Vector3 X="-8899.525" Y="564.9585" Z="92.81625" />
+          <Vector3 X="-8913.14" Y="553.9643" Z="93.814" />
+          <Vector3 X="-8924.358" Y="544.3589" Z="94.25432" />
+          <Vector3 X="-8920.346" Y="531.3929" Z="94.79802" />
+          <Vector3 X="-8913.323" Y="515.3992" Z="93.86639" />
+          <Vector3 X="-8916.879" Y="504.5376" Z="93.88494" />
+          <Vector3 X="-8923.534" Y="498.4711" Z="93.868" />
+          <Vector3 X="-8939.14" Y="506.2813" Z="94.98109" />
+          <Vector3 X="-8954.359" Y="514.8523" Z="96.35815" />
+          <Vector3 X="-8970.464" Y="509.9178" Z="96.35157" />
+          <Vector3 X="-8984.021" Y="498.8578" Z="96.45685" />
+          <Vector3 X="-8997.856" Y="488.1434" Z="96.61992" />
+          <Vector3 X="-9012.137" Y="477.0875" Z="96.47024" />
+          <Vector3 X="-9025.532" Y="466.7171" Z="94.47813" />
+          <Vector3 X="-9039.369" Y="456.004" Z="93.05624" />
+          <Vector3 X="-9053.207" Y="445.2908" Z="93.05624" />
+          <Vector3 X="-9067.045" Y="434.5777" Z="93.05624" />
+          <Vector3 X="-9080.886" Y="423.8683" Z="92.52913" />
+          <Vector3 X="-9095.194" Y="413.7959" Z="92.12041" />
+          <Vector3 X="-9109.503" Y="403.7204" Z="92.6192" />
+          <Vector3 X="-9123.278" Y="392.933" Z="91.81026" />
+          <Vector3 X="-9136.597" Y="381.5854" Z="90.64966" />
+          <Vector3 X="-9149.144" Y="368.6039" Z="90.37992" />
+          <Vector3 X="-9160.141" Y="355.7198" Z="88.51685" />
+          <Vector3 X="-9170.715" Y="341.0908" Z="84.87413" />
+          <Vector3 X="-9179.045" Y="325.772" Z="81.20165" />
+          <Vector3 X="-9180.565" Y="308.97" Z="78.89033" />
+          <Vector3 X="-9180.575" Y="291.4701" Z="77.05386" />
+          <Vector3 X="-9180.501" Y="273.4102" Z="75.13261" />
+          <Vector3 X="-9181.173" Y="256.4952" Z="73.86385" />
+          <Vector3 X="-9186.787" Y="240.0464" Z="72.53564" />
+          <Vector3 X="-9195.855" Y="225.1052" Z="71.60852" />
+          <Vector3 X="-9207.98" Y="212.5366" Z="70.51082" />
+          <Vector3 X="-9221.439" Y="200.5128" Z="68.69363" />
+          <Vector3 X="-9232.071" Y="187.3448" Z="67.67371" />
+          <Vector3 X="-9241.539" Y="171.989" Z="67.85105" />
+          <Vector3 X="-9253.649" Y="160.4393" Z="67.75178" />
+          <Vector3 X="-9270.107" Y="154.837" Z="67.08743" />
+          <Vector3 X="-9287.711" Y="150.863" Z="66.56328" />
+          <Vector3 X="-9303.137" Y="143.9373" Z="65.7847" />
+          <Vector3 X="-9318.172" Y="135.0029" Z="64.57686" />
+          <Vector3 X="-9333.494" Y="125.4522" Z="63.55779" />
+          <Vector3 X="-9348.686" Y="116.7713" Z="62.60555" />
+          <Vector3 X="-9364.453" Y="110.6245" Z="61.22637" />
+          <Vector3 X="-9381.391" Y="106.2299" Z="60.06672" />
+          <Vector3 X="-9398.244" Y="99.86794" Z="58.7687" />
+          <Vector3 X="-9412.64" Y="90.96172" Z="57.4704" />
+          <Vector3 X="-9426.823" Y="80.73067" Z="56.60097" />
+          <Vector3 X="-9440.132" Y="69.36658" Z="56.02245" />
+          <Vector3 X="-9432.023" Y="48.7035" Z="56.54382" />
+          <Vector3 X="-9411.837" Y="21.49722" Z="58.63479" />
+          <Vector3 X="-9390.478" Y="-3.336598" Z="60.85267" />
+          <Vector3 X="-9366.754" Y="-29.051" Z="63.24266" />
+          <Vector3 X="-9340.377" Y="-50.19236" Z="65.47728" />
+          <Vector3 X="-9319.145" Y="-55.31688" Z="66.52237" />
+          <Vector3 X="-9285.476" Y="-67.37714" Z="67.85442" />
+          <Vector3 X="-9258.071" Y="-87.2393" Z="69.53921" />
+          <Vector3 X="-9227.12" Y="-105.5967" Z="71.11157" />
+          <Vector3 X="-9195.792" Y="-114.8549" Z="71.09279" />
+          <Vector3 X="-9161.229" Y="-108.1671" Z="72.66881" />
+          <Vector3 X="-9129.708" Y="-90.53562" Z="77.14198" />
+          <Vector3 X="-9104.873" Y="-69.41543" Z="83.03304" />
+          <Vector3 X="-9077.17" Y="-48.37921" Z="87.42242" />
+          <Vector3 X="-9065.964" Y="-44.26425" Z="88.09898" />
+          <Vector3 X="-9054.993" Y="-44.91518" Z="88.40983" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return (Quest.GetQuestCompleted(2158) ||  new Vector3(-9054.993f, -44.91518f, 88.40983f).DistanceTo(ObjectManager.Me.Position) &lt; 3);
+
+
+</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>ROUTEToStormwind</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-6234.658" Y="126.7186" Z="430.6251" />
+          <Vector3 X="-6231.228" Y="124.8423" Z="430.7651" />
+          <Vector3 X="-6221.781" Y="119.5358" Z="431.6618" />
+          <Vector3 X="-6212.766" Y="114.842" Z="431.6618" />
+          <Vector3 X="-6207.784" Y="112.3162" Z="431.8899" />
+          <Vector3 X="-6196.402" Y="117.9303" Z="430.2196" />
+          <Vector3 X="-6189.64" Y="125.9618" Z="429.0498" />
+          <Vector3 X="-6181.195" Y="131.9438" Z="425.9787" />
+          <Vector3 X="-6170.808" Y="132.1393" Z="422.9008" />
+          <Vector3 X="-6164.044" Y="127.7619" Z="422.5421" />
+          <Vector3 X="-6160.58" Y="122.9872" Z="421.9613" />
+          <Vector3 X="-6156.632" Y="113.3361" Z="420.8667" />
+          <Vector3 X="-6156.865" Y="102.5379" Z="419.2678" />
+          <Vector3 X="-6157.96" Y="88.81396" Z="416.8835" />
+          <Vector3 X="-6156.976" Y="78.36019" Z="414.2181" />
+          <Vector3 X="-6155.721" Y="74.79415" Z="413.6888" />
+          <Vector3 X="-6145.482" Y="72.55794" Z="415.9415" />
+          <Vector3 X="-6136.666" Y="73.06705" Z="416.606" />
+          <Vector3 X="-6136.666" Y="73.06705" Z="416.606" />
+          <Vector3 X="-6129.571" Y="77.15603" Z="417.2857" />
+          <Vector3 X="-6128.96" Y="77.43639" Z="417.2838" />
+          <Vector3 X="-6119.391" Y="78.30783" Z="416.5444" />
+          <Vector3 X="-6119.073" Y="78.1995" Z="416.4962" />
+          <Vector3 X="-6111.408" Y="71.85905" Z="416.0042" />
+          <Vector3 X="-6111.095" Y="71.26424" Z="416.0201" />
+          <Vector3 X="-6107.637" Y="61.71175" Z="415.0874" />
+          <Vector3 X="-6107.637" Y="61.71175" Z="415.0874" />
+          <Vector3 X="-6102.526" Y="53.05252" Z="413.9529" />
+          <Vector3 X="-6102.267" Y="52.83905" Z="413.9348" />
+          <Vector3 X="-6093.491" Y="48.62719" Z="413.4755" />
+          <Vector3 X="-6092.518" Y="48.46444" Z="413.3784" />
+          <Vector3 X="-6082.846" Y="46.73645" Z="411.5129" />
+          <Vector3 X="-6082.518" Y="46.66111" Z="411.4554" />
+          <Vector3 X="-6072.602" Y="44.42995" Z="409.5898" />
+          <Vector3 X="-6071.945" Y="44.28762" Z="409.4795" />
+          <Vector3 X="-6062.242" Y="42.89974" Z="408.4588" />
+          <Vector3 X="-6061.906" Y="42.9038" Z="408.4842" />
+          <Vector3 X="-6051.45" Y="43.85828" Z="407.8439" />
+          <Vector3 X="-6051.45" Y="43.85828" Z="407.8439" />
+          <Vector3 X="-6041.497" Y="45.86133" Z="407.8439" />
+          <Vector3 X="-6040.845" Y="46.02223" Z="407.3767" />
+          <Vector3 X="-6028.025" Y="49.64777" Z="405.905" />
+          <Vector3 X="-6027.277" Y="49.8826" Z="405.9213" />
+          <Vector3 X="-6011.943" Y="54.69646" Z="404.2545" />
+          <Vector3 X="-6011.943" Y="54.69646" Z="404.2545" />
+          <Vector3 X="-5992.225" Y="60.45208" Z="400.6035" />
+          <Vector3 X="-5991.137" Y="60.71871" Z="400.4293" />
+          <Vector3 X="-5974.916" Y="62.42582" Z="396.9508" />
+          <Vector3 X="-5974.357" Y="62.39288" Z="396.7689" />
+          <Vector3 X="-5957.456" Y="61.25754" Z="389.9059" />
+          <Vector3 X="-5956.896" Y="61.2262" Z="389.6929" />
+          <Vector3 X="-5939.979" Y="60.34927" Z="382.4934" />
+          <Vector3 X="-5939.42" Y="60.31951" Z="382.2545" />
+          <Vector3 X="-5923.124" Y="58.7353" Z="375.994" />
+          <Vector3 X="-5921.592" Y="58.13593" Z="375.3576" />
+          <Vector3 X="-5911.429" Y="46.09949" Z="370.5257" />
+          <Vector3 X="-5911.167" Y="45.01053" Z="370.2913" />
+          <Vector3 X="-5908.36" Y="28.88714" Z="367.4963" />
+          <Vector3 X="-5908.336" Y="28.32765" Z="367.4631" />
+          <Vector3 X="-5911.526" Y="11.77648" Z="367.4636" />
+          <Vector3 X="-5911.822" Y="10.69639" Z="367.5396" />
+          <Vector3 X="-5915.977" Y="-5.14776" Z="368.949" />
+          <Vector3 X="-5916.122" Y="-5.688846" Z="369.0039" />
+          <Vector3 X="-5920.778" Y="-21.94299" Z="371.8043" />
+          <Vector3 X="-5920.935" Y="-22.48067" Z="371.919" />
+          <Vector3 X="-5925.617" Y="-39.30168" Z="375.676" />
+          <Vector3 X="-5925.617" Y="-39.30168" Z="375.676" />
+          <Vector3 X="-5929.988" Y="-55.66683" Z="379.3346" />
+          <Vector3 X="-5930.121" Y="-56.21067" Z="379.4654" />
+          <Vector3 X="-5934.4" Y="-72.05575" Z="383.543" />
+          <Vector3 X="-5934.906" Y="-73.62095" Z="383.9969" />
+          <Vector3 X="-5942.705" Y="-87.92279" Z="389.3586" />
+          <Vector3 X="-5943.37" Y="-88.82446" Z="389.7418" />
+          <Vector3 X="-5951.832" Y="-102.8212" Z="393.7944" />
+          <Vector3 X="-5952.088" Y="-103.3189" Z="393.8644" />
+          <Vector3 X="-5959.055" Y="-118.7557" Z="395.6507" />
+          <Vector3 X="-5959.484" Y="-119.7899" Z="395.8325" />
+          <Vector3 X="-5965.453" Y="-135.0423" Z="397.0198" />
+          <Vector3 X="-5965.647" Y="-135.5676" Z="397.0813" />
+          <Vector3 X="-5971.708" Y="-151.9567" Z="398.9279" />
+          <Vector3 X="-5971.708" Y="-151.9567" Z="398.9279" />
+          <Vector3 X="-5977.609" Y="-167.8358" Z="401.0041" />
+          <Vector3 X="-5978" Y="-168.8851" Z="401.1425" />
+          <Vector3 X="-5983.761" Y="-184.2189" Z="403.3737" />
+          <Vector3 X="-5983.959" Y="-184.7424" Z="403.4373" />
+          <Vector3 X="-5990.164" Y="-201.1058" Z="405.7626" />
+          <Vector3 X="-5990.359" Y="-201.6305" Z="405.8418" />
+          <Vector3 X="-5995.778" Y="-217.0367" Z="407.6057" />
+          <Vector3 X="-5996.108" Y="-218.1071" Z="407.7637" />
+          <Vector3 X="-6000.619" Y="-233.3063" Z="410.2598" />
+          <Vector3 X="-6000.901" Y="-234.3538" Z="410.4743" />
+          <Vector3 X="-6004.761" Y="-250.8459" Z="413.4529" />
+          <Vector3 X="-6004.959" Y="-251.9481" Z="413.6563" />
+          <Vector3 X="-6006.927" Y="-268.2088" Z="416.2892" />
+          <Vector3 X="-6006.992" Y="-268.765" Z="416.37" />
+          <Vector3 X="-6007.744" Y="-286.2308" Z="418.0952" />
+          <Vector3 X="-6007.744" Y="-286.2308" Z="418.0952" />
+          <Vector3 X="-6005.212" Y="-302.9278" Z="419.089" />
+          <Vector3 X="-6005.212" Y="-302.9278" Z="419.089" />
+          <Vector3 X="-6001.948" Y="-320.1203" Z="419.4271" />
+          <Vector3 X="-6001.833" Y="-320.6683" Z="419.4511" />
+          <Vector3 X="-5998.17" Y="-337.7605" Z="419.0862" />
+          <Vector3 X="-5998.17" Y="-337.7605" Z="419.0862" />
+          <Vector3 X="-5992.604" Y="-353.6483" Z="417.9346" />
+          <Vector3 X="-5992.352" Y="-354.1487" Z="417.8751" />
+          <Vector3 X="-5984.795" Y="-369.9312" Z="416.1156" />
+          <Vector3 X="-5984.795" Y="-369.9312" Z="416.1156" />
+          <Vector3 X="-5977.655" Y="-385.2899" Z="413.7952" />
+          <Vector3 X="-5977.117" Y="-386.2723" Z="413.6865" />
+          <Vector3 X="-5967.634" Y="-400.3044" Z="412.9966" />
+          <Vector3 X="-5967.634" Y="-400.3044" Z="412.9966" />
+          <Vector3 X="-5957.708" Y="-414.0271" Z="412.9795" />
+          <Vector3 X="-5957.028" Y="-414.917" Z="412.9863" />
+          <Vector3 X="-5946.698" Y="-428.3425" Z="413.0356" />
+          <Vector3 X="-5946.698" Y="-428.3425" Z="413.0356" />
+          <Vector3 X="-5934.842" Y="-441.1952" Z="412.9305" />
+          <Vector3 X="-5934.842" Y="-441.1952" Z="412.9305" />
+          <Vector3 X="-5923.121" Y="-453.3418" Z="413.4716" />
+          <Vector3 X="-5923.121" Y="-453.3418" Z="413.4716" />
+          <Vector3 X="-5911.216" Y="-466.1637" Z="412.5522" />
+          <Vector3 X="-5910.852" Y="-466.5897" Z="412.5437" />
+          <Vector3 X="-5897.65" Y="-477.5304" Z="411.0558" />
+          <Vector3 X="-5897.65" Y="-477.5304" Z="411.0558" />
+          <Vector3 X="-5881.175" Y="-481.4534" Z="409.9953" />
+          <Vector3 X="-5880.629" Y="-481.5774" Z="409.9573" />
+          <Vector3 X="-5865.198" Y="-486.8816" Z="408.6407" />
+          <Vector3 X="-5863.824" Y="-487.7855" Z="408.5918" />
+          <Vector3 X="-5850.501" Y="-497.3144" Z="408" />
+          <Vector3 X="-5850.046" Y="-497.6399" Z="407.9446" />
+          <Vector3 X="-5836.448" Y="-506.823" Z="406.1794" />
+          <Vector3 X="-5835.498" Y="-507.3471" Z="406.0772" />
+          <Vector3 X="-5818.674" Y="-511.5689" Z="404.4985" />
+          <Vector3 X="-5818.674" Y="-511.5689" Z="404.4985" />
+          <Vector3 X="-5801.765" Y="-512.5402" Z="403.3011" />
+          <Vector3 X="-5801.205" Y="-512.5541" Z="403.2435" />
+          <Vector3 X="-5784.266" Y="-512.7279" Z="401.6083" />
+          <Vector3 X="-5783.706" Y="-512.7243" Z="401.5447" />
+          <Vector3 X="-5766.767" Y="-512.6158" Z="399.1824" />
+          <Vector3 X="-5765.646" Y="-512.6087" Z="398.9783" />
+          <Vector3 X="-5749.268" Y="-512.4576" Z="396.6582" />
+          <Vector3 X="-5748.708" Y="-512.4302" Z="396.6107" />
+          <Vector3 X="-5732.274" Y="-508.6538" Z="396.0838" />
+          <Vector3 X="-5731.247" Y="-508.2083" Z="396.0808" />
+          <Vector3 X="-5717.591" Y="-499.2887" Z="395.9859" />
+          <Vector3 X="-5717.138" Y="-498.9599" Z="395.969" />
+          <Vector3 X="-5703.564" Y="-489.7333" Z="395.7904" />
+          <Vector3 X="-5702.175" Y="-488.8524" Z="395.824" />
+          <Vector3 X="-5686.776" Y="-483.813" Z="395.949" />
+          <Vector3 X="-5685.666" Y="-483.6712" Z="395.9273" />
+          <Vector3 X="-5669.321" Y="-483.0603" Z="396.1383" />
+          <Vector3 X="-5668.762" Y="-483.0773" Z="396.1383" />
+          <Vector3 X="-5651.852" Y="-483.5927" Z="396.2105" />
+          <Vector3 X="-5650.732" Y="-483.6237" Z="396.2287" />
+          <Vector3 X="-5634.363" Y="-483.5333" Z="396.8452" />
+          <Vector3 X="-5633.805" Y="-483.4853" Z="396.9114" />
+          <Vector3 X="-5616.915" Y="-482.1937" Z="396.9805" />
+          <Vector3 X="-5616.355" Y="-482.1742" Z="396.9805" />
+          <Vector3 X="-5598.858" Y="-482.3987" Z="396.9805" />
+          <Vector3 X="-5598.858" Y="-482.3987" Z="396.9805" />
+          <Vector3 X="-5581.92" Y="-482.2472" Z="397.441" />
+          <Vector3 X="-5581.361" Y="-482.2277" Z="397.4473" />
+          <Vector3 X="-5563.872" Y="-481.6241" Z="397.4861" />
+          <Vector3 X="-5563.872" Y="-481.6241" Z="397.4861" />
+          <Vector3 X="-5546.941" Y="-481.6491" Z="397.4678" />
+          <Vector3 X="-5545.83" Y="-481.7846" Z="397.4797" />
+          <Vector3 X="-5530.996" Y="-488.1575" Z="397.4616" />
+          <Vector3 X="-5530.559" Y="-488.5071" Z="397.4616" />
+          <Vector3 X="-5518.819" Y="-500.6484" Z="397.4616" />
+          <Vector3 X="-5518.121" Y="-501.5245" Z="397.4616" />
+          <Vector3 X="-5507.184" Y="-513.6271" Z="397.4616" />
+          <Vector3 X="-5506.713" Y="-513.9304" Z="397.4616" />
+          <Vector3 X="-5490.079" Y="-518.7545" Z="397.4753" />
+          <Vector3 X="-5490.079" Y="-518.7545" Z="397.4753" />
+          <Vector3 X="-5473.144" Y="-519.0845" Z="397.461" />
+          <Vector3 X="-5472.584" Y="-519.0889" Z="397.461" />
+          <Vector3 X="-5455.697" Y="-517.9608" Z="397.4552" />
+          <Vector3 X="-5455.141" Y="-517.9001" Z="397.4497" />
+          <Vector3 X="-5437.726" Y="-516.1905" Z="396.3467" />
+          <Vector3 X="-5437.167" Y="-516.1583" Z="396.2971" />
+          <Vector3 X="-5420.792" Y="-515.7919" Z="394.3687" />
+          <Vector3 X="-5420.232" Y="-515.7883" Z="394.2914" />
+          <Vector3 X="-5402.738" Y="-516.2206" Z="392.2693" />
+          <Vector3 X="-5402.738" Y="-516.2206" Z="392.2693" />
+          <Vector3 X="-5385.952" Y="-518.2449" Z="391.5615" />
+          <Vector3 X="-5385.401" Y="-518.3471" Z="391.5598" />
+          <Vector3 X="-5368.163" Y="-521.3089" Z="391.4937" />
+          <Vector3 X="-5368.163" Y="-521.3089" Z="391.4937" />
+          <Vector3 X="-5350.77" Y="-519.7546" Z="391.4937" />
+          <Vector3 X="-5350.77" Y="-519.7546" Z="391.4937" />
+          <Vector3 X="-5334.045" Y="-517.0632" Z="391.4937" />
+          <Vector3 X="-5333.492" Y="-516.9742" Z="391.4937" />
+          <Vector3 X="-5316.881" Y="-513.6864" Z="391.6411" />
+          <Vector3 X="-5316.336" Y="-513.5554" Z="391.7253" />
+          <Vector3 X="-5299.915" Y="-509.3968" Z="391.5072" />
+          <Vector3 X="-5298.83" Y="-509.1194" Z="391.5034" />
+          <Vector3 X="-5283.535" Y="-503.5006" Z="389.8971" />
+          <Vector3 X="-5283.04" Y="-503.2392" Z="389.7961" />
+          <Vector3 X="-5267.064" Y="-499.2522" Z="386.9215" />
+          <Vector3 X="-5267.064" Y="-499.2522" Z="386.9215" />
+          <Vector3 X="-5252.574" Y="-508.5449" Z="386.1115" />
+          <Vector3 X="-5252.23" Y="-508.9869" Z="386.1115" />
+          <Vector3 X="-5245.597" Y="-525.0414" Z="388.2557" />
+          <Vector3 X="-5245.597" Y="-525.0414" Z="388.2557" />
+          <Vector3 X="-5243.363" Y="-541.8284" Z="394.3566" />
+          <Vector3 X="-5243.307" Y="-542.3857" Z="394.5652" />
+          <Vector3 X="-5242.24" Y="-559.2836" Z="400.6644" />
+          <Vector3 X="-5242.213" Y="-559.843" Z="400.8659" />
+          <Vector3 X="-5241.301" Y="-576.7573" Z="406.9794" />
+          <Vector3 X="-5241.192" Y="-577.8719" Z="407.382" />
+          <Vector3 X="-5238.572" Y="-594.03" Z="412.7741" />
+          <Vector3 X="-5238.452" Y="-594.577" Z="412.8667" />
+          <Vector3 X="-5234.495" Y="-611.0472" Z="416.814" />
+          <Vector3 X="-5234.22" Y="-612.1328" Z="417.049" />
+          <Vector3 X="-5229.978" Y="-627.9533" Z="420.5421" />
+          <Vector3 X="-5229.824" Y="-628.4918" Z="420.6611" />
+          <Vector3 X="-5224.852" Y="-644.6851" Z="424.5935" />
+          <Vector3 X="-5224.684" Y="-645.2195" Z="424.727" />
+          <Vector3 X="-5218.608" Y="-664.5153" Z="429.5613" />
+          <Vector3 X="-5218.439" Y="-665.0493" Z="429.6939" />
+          <Vector3 X="-5212.532" Y="-680.9224" Z="433.7264" />
+          <Vector3 X="-5212.127" Y="-681.967" Z="434.0058" />
+          <Vector3 X="-5205.329" Y="-698.6575" Z="437.8545" />
+          <Vector3 X="-5205.1" Y="-699.1682" Z="437.9781" />
+          <Vector3 X="-5197.32" Y="-714.839" Z="442.2538" />
+          <Vector3 X="-5197.32" Y="-714.839" Z="442.2538" />
+          <Vector3 X="-5187.572" Y="-728.6332" Z="446.4554" />
+          <Vector3 X="-5186.752" Y="-729.396" Z="446.6938" />
+          <Vector3 X="-5172.091" Y="-736.4319" Z="449.403" />
+          <Vector3 X="-5171.554" Y="-736.5928" Z="449.5349" />
+          <Vector3 X="-5154.345" Y="-739.6277" Z="453.9481" />
+          <Vector3 X="-5154.345" Y="-739.6277" Z="453.9481" />
+          <Vector3 X="-5137.454" Y="-740.911" Z="458.2838" />
+          <Vector3 X="-5136.896" Y="-740.9471" Z="458.4136" />
+          <Vector3 X="-5120.515" Y="-742.005" Z="462.5759" />
+          <Vector3 X="-5119.432" Y="-742.075" Z="462.8619" />
+          <Vector3 X="-5113.424" Y="-742.4629" Z="464.4386" />
+          <Vector3 X="-5112.307" Y="-742.5446" Z="464.7259" />
+          <Vector3 X="-5095.439" Y="-743.7782" Z="469.1269" />
+          <Vector3 X="-5095.439" Y="-743.7782" Z="469.1269" />
+          <Vector3 X="-5078.118" Y="-746.1365" Z="474.4197" />
+          <Vector3 X="-5078.118" Y="-746.1365" Z="474.4197" />
+          <Vector3 X="-5063.753" Y="-754.6165" Z="481.696" />
+          <Vector3 X="-5063.362" Y="-755.0179" Z="481.9704" />
+          <Vector3 X="-5054.452" Y="-769.2631" Z="490" />
+          <Vector3 X="-5054.247" Y="-769.7843" Z="490.2474" />
+          <Vector3 X="-5049.682" Y="-786.0552" Z="495.0918" />
+          <Vector3 X="-5049.51" Y="-787.162" Z="495.1275" />
+          <Vector3 X="-5043.52" Y="-802.2792" Z="495.1275" />
+          <Vector3 X="-5043.254" Y="-802.7723" Z="495.1275" />
+          <Vector3 X="-5034.457" Y="-817.2341" Z="495.1275" />
+          <Vector3 X="-5033.806" Y="-818.1456" Z="495.1275" />
+          <Vector3 X="-5023.904" Y="-831.1922" Z="495.3188" />
+          <Vector3 X="-5023.211" Y="-832.0723" Z="495.6173" />
+          <Vector3 X="-5013.373" Y="-844.5026" Z="497.0647" />
+          <Vector3 X="-5012.7" Y="-845.3533" Z="497.1038" />
+          <Vector3 X="-5001.805" Y="-859.049" Z="497.0557" />
+          <Vector3 X="-5001.805" Y="-859.049" Z="497.0557" />
+          <Vector3 X="-4990.839" Y="-871.9601" Z="496.9843" />
+          <Vector3 X="-4990.472" Y="-872.3829" Z="496.9843" />
+          <Vector3 X="-4983.582" Y="-880.0713" Z="501.3337" />
+          <Vector3 X="-4983.582" Y="-880.0713" Z="501.3337" />
+          <Vector3 X="-4964.667" Y="-878.2189" Z="501.6617" />
+          <Vector3 X="-4963.636" Y="-877.7821" Z="501.6617" />
+          <Vector3 X="-4949.109" Y="-869.1113" Z="501.6617" />
+          <Vector3 X="-4949.109" Y="-869.1113" Z="501.6617" />
+          <Vector3 X="-4934.739" Y="-860.1505" Z="501.6617" />
+          <Vector3 X="-4934.244" Y="-859.889" Z="501.6617" />
+          <Vector3 X="-4920.087" Y="-866.5045" Z="501.6601" />
+          <Vector3 X="-4919.708" Y="-866.9168" Z="501.6601" />
+          <Vector3 X="-4910.48" Y="-881.0357" Z="501.6601" />
+          <Vector3 X="-4909.986" Y="-882.0408" Z="501.6601" />
+          <Vector3 X="-4902.571" Y="-896.6432" Z="501.6601" />
+          <Vector3 X="-4902.303" Y="-897.1348" Z="501.6601" />
+          <Vector3 X="-4894.235" Y="-912.0303" Z="502.9591" />
+          <Vector3 X="-4893.971" Y="-912.5242" Z="502.9215" />
+          <Vector3 X="-4885.297" Y="-927.0435" Z="501.6039" />
+          <Vector3 X="-4884.579" Y="-927.9025" Z="501.5988" />
+          <Vector3 X="-4872.678" Y="-939.1165" Z="501.4504" />
+          <Vector3 X="-4872.222" Y="-939.4408" Z="501.4504" />
+          <Vector3 X="-4863.943" Y="-943.5864" Z="501.4406" />
+          <Vector3 X="-4863.943" Y="-943.5864" Z="501.4406" />
+          <Vector3 X="-4854.11" Y="-942.7404" Z="501.4406" />
+          <Vector3 X="-4854.11" Y="-942.7404" Z="501.4406" />
+          <Vector3 X="-4845.113" Y="-959.3763" Z="501.6377" />
+          <Vector3 X="-4844.784" Y="-960.4469" Z="501.649" />
+          <Vector3 X="-4839.917" Y="-976.0865" Z="501.8135" />
+          <Vector3 X="-4839.744" Y="-976.6194" Z="501.8187" />
+          <Vector3 X="-4834.41" Y="-992.6976" Z="501.9823" />
+          <Vector3 X="-4834.054" Y="-993.7594" Z="501.9938" />
+          <Vector3 X="-4828.845" Y="-1009.289" Z="502.1469" />
+          <Vector3 X="-4828.489" Y="-1010.351" Z="502.1584" />
+          <Vector3 X="-4823.135" Y="-1025.831" Z="502.1873" />
+          <Vector3 X="-4822.938" Y="-1026.355" Z="502.1873" />
+          <Vector3 X="-4818.641" Y="-1033.919" Z="502.1918" />
+          <Vector3 X="-4818.063" Y="-1034.879" Z="502.1918" />
+          <Vector3 X="-4811.7" Y="-1050.414" Z="502.1935" />
+          <Vector3 X="-4811.7" Y="-1050.414" Z="502.1935" />
+          <Vector3 X="-4813.366" Y="-1067.109" Z="502.1988" />
+          <Vector3 X="-4813.55" Y="-1067.638" Z="502.2007" />
+          <Vector3 X="-4821.177" Y="-1076.151" Z="502.2043" />
+          <Vector3 X="-4821.592" Y="-1076.526" Z="502.2043" />
+          <Vector3 X="-4836.476" Y="-1085.553" Z="502.1924" />
+          <Vector3 X="-4836.476" Y="-1085.553" Z="502.1924" />
+          <Vector3 X="-4853.007" Y="-1091.29" Z="502.2021" />
+          <Vector3 X="-4853.007" Y="-1091.29" Z="502.2021" />
+          <Vector3 X="-4868.431" Y="-1098.17" Z="502.212" />
+          <Vector3 X="-4868.913" Y="-1098.455" Z="502.212" />
+          <Vector3 X="-4883.007" Y="-1106.87" Z="502.212" />
+          <Vector3 X="-4883.938" Y="-1107.427" Z="502.212" />
+          <Vector3 X="-4898.748" Y="-1116.743" Z="501.6978" />
+          <Vector3 X="-4898.748" Y="-1116.743" Z="501.6978" />
+          <Vector3 X="-4911.564" Y="-1127.747" Z="501.6978" />
+          <Vector3 X="-4911.935" Y="-1128.167" Z="501.6978" />
+          <Vector3 X="-4921.563" Y="-1142.055" Z="501.4561" />
+          <Vector3 X="-4922.079" Y="-1143.049" Z="501.4623" />
+          <Vector3 X="-4928.541" Y="-1158.088" Z="501.4997" />
+          <Vector3 X="-4928.734" Y="-1158.613" Z="501.5019" />
+          <Vector3 X="-4934.306" Y="-1174.609" Z="501.6746" />
+          <Vector3 X="-4934.473" Y="-1175.143" Z="501.6766" />
+          <Vector3 X="-4939.22" Y="-1191.985" Z="501.5165" />
+          <Vector3 X="-4939.22" Y="-1191.985" Z="501.5165" />
+          <Vector3 X="-4942.078" Y="-1208.656" Z="501.6606" />
+          <Vector3 X="-4942.102" Y="-1209.215" Z="501.6606" />
+          <Vector3 X="-4936.966" Y="-1225.518" Z="501.6517" />
+          <Vector3 X="-4936.966" Y="-1225.518" Z="501.6517" />
+          <Vector3 X="-4925.55" Y="-1237.96" Z="501.6595" />
+          <Vector3 X="-4925.101" Y="-1238.294" Z="501.6595" />
+          <Vector3 X="-4911.098" Y="-1246.851" Z="501.869" />
+          <Vector3 X="-4910.154" Y="-1247.386" Z="501.869" />
+          <Vector3 X="-4894.521" Y="-1255.24" Z="501.869" />
+          <Vector3 X="-4894.521" Y="-1255.24" Z="501.869" />
+          <Vector3 X="-4878.925" Y="-1261.848" Z="501.869" />
+          <Vector3 X="-4878.402" Y="-1262.047" Z="501.869" />
+          <Vector3 X="-4861.736" Y="-1267.37" Z="501.869" />
+          <Vector3 X="-4861.736" Y="-1267.37" Z="501.869" />
+          <Vector3 X="-4846" Y="-1272.041" Z="501.869" />
+          <Vector3 X="-4846" Y="-1272.041" Z="501.869" />
+          <Vector3 X="-4838.776" Y="-1274.494" Z="501.869" />
+          <Vector3 X="-4838.259" Y="-1274.709" Z="501.869" />
+          <Vector3 X="-4835.354" Y="-1279.726" Z="501.869" />
+          <Vector3 X="-4835.354" Y="-1279.726" Z="501.869" />
+          <Vector3 X="-4835.051" Y="-1284.652" Z="501.869" />
+          <Vector3 X="-4835.051" Y="-1284.652" Z="501.869" />
+          <Vector3 X="-4835.188" Y="-1289.55" Z="501.869" />
+          <Vector3 X="-4835.188" Y="-1289.55" Z="501.869" />
+          <Vector3 X="-4837.1" Y="-1304.155" Z="501.869" />
+          <Vector3 X="-4837.185" Y="-1304.709" Z="501.869" />
+          <Vector3 X="-4837.766" Y="-1308.479" Z="501.869" />
+          <Vector3 X="-4837.766" Y="-1308.479" Z="501.869" />
+          <Vector3 X="-4838.427" Y="-1312.768" Z="501.869" />
+          <Vector3 X="-4838.51" Y="-1313.322" Z="501.869" />
+          <Vector3 X="-4839.002" Y="-1316.575" Z="501.869" />
+          <Vector3 X="-4839.248" Y="-1318.202" Z="501.869" />
+          <Vector3 X="-4839.739" Y="-1321.455" Z="501.869" />
+          <Vector3 X="-4839.822" Y="-1322.009" Z="501.869" />
+          <Vector3 X="-4840.323" Y="-1330.039" Z="501.869" />
+          <Vector3 X="-4842.323" Y="-1332.039" Z="503.869" />
+          <Vector3 X="43.03407" Y="11.06601" Z="-4.297344" />
+          <Vector3 X="38.12021" Y="11.096" Z="-4.297344" />
+          <Vector3 X="27.93795" Y="11.28735" Z="-4.297344" />
+          <Vector3 X="17.7784" Y="14.3432" Z="-4.297344" />
+          <Vector3 X="17.49033" Y="24.50041" Z="-4.297344" />
+          <Vector3 X="18.02508" Y="32.3545" Z="-4.297344" />
+          <Vector3 X="21.66537" Y="35.15179" Z="-4.297344" />
+          <Vector3 X="26.58547" Y="35.51544" Z="-4.297344" />
+          <Vector3 X="30.6186" Y="37.44245" Z="-4.297344" />
+          <Vector3 X="22.16048" Y="39.40787" Z="-8.229182" />
+          <Vector3 X="11.47801" Y="41.02354" Z="-13.53503" />
+          <Vector3 X="4.736948" Y="47.91613" Z="-13.86343" />
+          <Vector3 X="4.790727" Y="58.41328" Z="-13.86343" />
+          <Vector3 X="4.653714" Y="74.59645" Z="-13.86343" />
+          <Vector3 X="4.780041" Y="92.09597" Z="-13.86343" />
+          <Vector3 X="4.747419" Y="110.1208" Z="-13.86343" />
+          <Vector3 X="4.67594" Y="127.0957" Z="-13.86343" />
+          <Vector3 X="4.600039" Y="145.1205" Z="-13.86343" />
+          <Vector3 X="4.52856" Y="162.0954" Z="-13.86343" />
+          <Vector3 X="4.45487" Y="179.5952" Z="-13.86343" />
+          <Vector3 X="4.38118" Y="197.0951" Z="-13.86343" />
+          <Vector3 X="4.358189" Y="202.555" Z="-13.86343" />
+          <Vector3 X="4.286857" Y="219.4949" Z="-20.00733" />
+          <Vector3 X="4.204295" Y="239.1017" Z="-25.81147" />
+          <Vector3 X="4.098033" Y="264.3365" Z="-34.04978" />
+          <Vector3 X="3.963387" Y="296.3122" Z="-40.93103" />
+          <Vector3 X="3.820723" Y="330.1919" Z="-51.90271" />
+          <Vector3 X="3.460785" Y="366.3091" Z="-54.46487" />
+          <Vector3 X="3.332485" Y="401.3053" Z="-54.46487" />
+          <Vector3 X="3.775861" Y="437.3525" Z="-54.46487" />
+          <Vector3 X="3.537216" Y="471.3013" Z="-54.46487" />
+          <Vector3 X="3.489104" Y="506.3013" Z="-54.46487" />
+          <Vector3 X="3.440991" Y="541.3013" Z="-54.46487" />
+          <Vector3 X="3.725393" Y="576.2982" Z="-54.46487" />
+          <Vector3 X="4.7349" Y="611.2835" Z="-65.28667" />
+          <Vector3 X="5.032172" Y="647.3322" Z="-74.76553" />
+          <Vector3 X="5.082189" Y="681.2817" Z="-84.92974" />
+          <Vector3 X="4.587411" Y="716.2781" Z="-95.06628" />
+          <Vector3 X="4.098986" Y="751.2745" Z="-95.06628" />
+          <Vector3 X="4.094356" Y="786.2744" Z="-95.06628" />
+          <Vector3 X="4.145511" Y="821.2744" Z="-95.06628" />
+          <Vector3 X="4.196666" Y="856.2743" Z="-95.06628" />
+          <Vector3 X="4.249356" Y="892.3243" Z="-95.06628" />
+          <Vector3 X="4.300512" Y="927.3242" Z="-95.06628" />
+          <Vector3 X="4.350132" Y="961.2742" Z="-97.83864" />
+          <Vector3 X="4.118982" Y="996.273" Z="-108.6001" />
+          <Vector3 X="3.773084" Y="1031.271" Z="-117.4809" />
+          <Vector3 X="3.427186" Y="1066.27" Z="-128.9008" />
+          <Vector3 X="3.07091" Y="1102.318" Z="-135.6677" />
+          <Vector3 X="3.110998" Y="1136.266" Z="-135.6677" />
+          <Vector3 X="3.659588" Y="1172.312" Z="-135.6677" />
+          <Vector3 X="3.811847" Y="1206.262" Z="-135.6677" />
+          <Vector3 X="3.962265" Y="1241.261" Z="-135.6677" />
+          <Vector3 X="3.938973" Y="1276.261" Z="-135.6677" />
+          <Vector3 X="3.890865" Y="1311.261" Z="-135.6677" />
+          <Vector3 X="3.768309" Y="1346.261" Z="-135.6677" />
+          <Vector3 X="4.121559" Y="1382.309" Z="-135.6677" />
+          <Vector3 X="4.652587" Y="1416.255" Z="-135.1391" />
+          <Vector3 X="5.182521" Y="1450.13" Z="-123.1689" />
+          <Vector3 X="5.519345" Y="1487.299" Z="-115.0441" />
+          <Vector3 X="5.587626" Y="1521.249" Z="-103.0423" />
+          <Vector3 X="5.561158" Y="1556.249" Z="-95.06606" />
+          <Vector3 X="5.460242" Y="1591.248" Z="-95.06606" />
+          <Vector3 X="5.31287" Y="1626.248" Z="-95.06606" />
+          <Vector3 X="5.300448" Y="1660.128" Z="-95.06606" />
+          <Vector3 X="5.340733" Y="1696.248" Z="-95.06606" />
+          <Vector3 X="5.291181" Y="1732.298" Z="-95.06606" />
+          <Vector3 X="5.409094" Y="1766.248" Z="-95.06606" />
+          <Vector3 X="5.687909" Y="1800.126" Z="-90.61327" />
+          <Vector3 X="6.058484" Y="1837.294" Z="-79.88584" />
+          <Vector3 X="6.396645" Y="1871.211" Z="-70.50108" />
+          <Vector3 X="6.195426" Y="1907.259" Z="-60.25814" />
+          <Vector3 X="5.667353" Y="1941.205" Z="-54.46441" />
+          <Vector3 X="5.122948" Y="1976.201" Z="-54.46441" />
+          <Vector3 X="4.99895" Y="2012.25" Z="-54.46441" />
+          <Vector3 X="4.952284" Y="2046.2" Z="-54.46441" />
+          <Vector3 X="5.011127" Y="2082.25" Z="-54.46441" />
+          <Vector3 X="5.439527" Y="2116.197" Z="-54.46441" />
+          <Vector3 X="5.901171" Y="2152.244" Z="-54.46441" />
+          <Vector3 X="6.109212" Y="2186.193" Z="-47.69762" />
+          <Vector3 X="6.062643" Y="2220.073" Z="-35.83216" />
+          <Vector3 X="6.012995" Y="2256.193" Z="-27.39691" />
+          <Vector3 X="5.976914" Y="2282.443" Z="-19.48648" />
+          <Vector3 X="5.943912" Y="2306.453" Z="-13.86308" />
+          <Vector3 X="5.897246" Y="2340.403" Z="-13.86308" />
+          <Vector3 X="5.792956" Y="2375.402" Z="-13.86308" />
+          <Vector3 X="5.325047" Y="2402.698" Z="-13.86308" />
+          <Vector3 X="5.021571" Y="2424.606" Z="-13.86308" />
+          <Vector3 X="4.881138" Y="2438.815" Z="-13.86308" />
+          <Vector3 X="4.940031" Y="2443.413" Z="-13.86308" />
+          <Vector3 X="5.09191" Y="2451.938" Z="-13.86308" />
+          <Vector3 X="5.390513" Y="2456.522" Z="-13.86308" />
+          <Vector3 X="10.78065" Y="2459.54" Z="-13.86308" />
+          <Vector3 X="20.9477" Y="2460.144" Z="-8.831277" />
+          <Vector3 X="31.40736" Y="2460.974" Z="-4.297014" />
+          <Vector3 X="32.56397" Y="2465.206" Z="-4.297014" />
+          <Vector3 X="31.09654" Y="2475.28" Z="-4.296459" />
+          <Vector3 X="30.24754" Y="2485.369" Z="-4.296113" />
+          <Vector3 X="31.7309" Y="2490.049" Z="-4.296113" />
+          <Vector3 X="37.29616" Y="2490.366" Z="-4.296113" />
+          <Vector3 X="42.23095" Y="2490.349" Z="-4.296113" />
+          <Vector3 X="48.44682" Y="2490.39" Z="-4.296113" />
+          <Vector3 X="54.6834" Y="2490.461" Z="-4.296113" />
+          <Vector3 X="58.29513" Y="2490.505" Z="-4.296113" />
+          <Vector3 X="61.90686" Y="2490.55" Z="-4.296113" />
+          <Vector3 X="82.13547" Y="2490.614" Z="-4.296113" />
+          <Vector3 X="-8367.643" Y="539.8162" Z="91.7969" />
+          <Vector3 X="-8371.017" Y="544.268" Z="91.7969" />
+          <Vector3 X="-8377.524" Y="552.9323" Z="91.7969" />
+          <Vector3 X="-8382.645" Y="559.7496" Z="91.7969" />
+          <Vector3 X="-8390.755" Y="570.0513" Z="91.7969" />
+          <Vector3 X="-8396.895" Y="572.5865" Z="91.3298" />
+          <Vector3 X="-8414.048" Y="569.152" Z="92.42038" />
+          <Vector3 X="-8430.951" Y="573.9994" Z="94.02469" />
+          <Vector3 X="-8446.615" Y="580.0803" Z="94.48235" />
+          <Vector3 X="-8462.853" Y="574.3329" Z="95.33842" />
+          <Vector3 X="-8477.06" Y="563.2115" Z="97.10958" />
+          <Vector3 X="-8490.476" Y="550.0182" Z="97.48755" />
+          <Vector3 X="-8507.322" Y="533.3264" Z="97.7924" />
+          <Vector3 X="-8525.424" Y="516.8364" Z="98.36327" />
+          <Vector3 X="-8542.199" Y="504.4253" Z="98.4901" />
+          <Vector3 X="-8550.519" Y="507.141" Z="98.36659" />
+          <Vector3 X="-8555.481" Y="516.2621" Z="99.44007" />
+          <Vector3 X="-8564.981" Y="531.6028" Z="101.2537" />
+          <Vector3 X="-8577.502" Y="541.095" Z="101.784" />
+          <Vector3 X="-8586.387" Y="536.9328" Z="103.5804" />
+          <Vector3 X="-8599.431" Y="526.153" Z="106.4582" />
+          <Vector3 X="-8612.771" Y="514.826" Z="103.413" />
+          <Vector3 X="-8623.912" Y="524.5216" Z="101.924" />
+          <Vector3 X="-8637.236" Y="536.7102" Z="99.65813" />
+          <Vector3 X="-8651.347" Y="547.978" Z="97.05293" />
+          <Vector3 X="-8660.438" Y="552.9023" Z="96.93359" />
+          <Vector3 X="-8674.766" Y="549.4728" Z="97.36392" />
+          <Vector3 X="-8689.05" Y="539.4504" Z="97.85152" />
+          <Vector3 X="-8702.481" Y="528.2341" Z="97.67848" />
+          <Vector3 X="-8711.939" Y="520.792" Z="97.30478" />
+          <Vector3 X="-8725.597" Y="535.5993" Z="100.5479" />
+          <Vector3 X="-8736.963" Y="548.9001" Z="100.5342" />
+          <Vector3 X="-8747.13" Y="559.6099" Z="97.40246" />
+          <Vector3 X="-8743.655" Y="566.4408" Z="97.39405" />
+          <Vector3 X="-8738.082" Y="577.1095" Z="97.53005" />
+          <Vector3 X="-8745.235" Y="583.0593" Z="97.43817" />
+          <Vector3 X="-8757.137" Y="595.113" Z="97.21247" />
+          <Vector3 X="-8768.519" Y="606.9413" Z="96.99496" />
+          <Vector3 X="-8778.381" Y="601.3635" Z="97.28312" />
+          <Vector3 X="-8792.561" Y="591.11" Z="97.59814" />
+          <Vector3 X="-8805.521" Y="580.3613" Z="96.03001" />
+          <Vector3 X="-8807.519" Y="577.3768" Z="95.43327" />
+          <Vector3 X="-8813.608" Y="568.4147" Z="94.15166" />
+          <Vector3 X="-8819.998" Y="560.5169" Z="94.38174" />
+          <Vector3 X="-8823.835" Y="556.1544" Z="94.92928" />
+          <Vector3 X="-8829" Y="550.6915" Z="95.82998" />
+          <Vector3 X="-8836.269" Y="542.6624" Z="96.99928" />
+          <Vector3 X="-8842.36" Y="534.5304" Z="101.5125" />
+          <Vector3 X="-8847.921" Y="527.0658" Z="106.0214" />
+          <Vector3 X="-8851.581" Y="528.3154" Z="106.0261" />
+          <Vector3 X="-8853.066" Y="531.3609" Z="105.9455" />
+          <Vector3 X="-8854.582" Y="534.6396" Z="105.9117" />
+          <Vector3 X="-8857.312" Y="536.1687" Z="106.389" />
+          <Vector3 X="-8860.782" Y="535.2136" Z="106.4809" />
+          <Vector3 X="-8863.929" Y="533.9559" Z="106.6291" />
+          <Vector3 X="-8866.59" Y="531.7625" Z="106.7717" />
+          <Vector3 X="-8865.216" Y="526.6431" Z="107.2576" />
+          <Vector3 X="-8860.267" Y="517.0384" Z="108.6253" />
+          <Vector3 X="-8854.162" Y="508.9124" Z="109.6068" />
+          <Vector3 X="-8847.38" Y="500.4635" Z="109.6091" />
+          <Vector3 X="-8842.806" Y="494.8723" Z="109.6092" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return (Quest.GetQuestCompleted(2158) ||  new Vector3(-8842.806f, 494.8723f, 109.6092f).DistanceTo(ObjectManager.Me.Position) &lt; 3);
+
+
+</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Senir's Observations</Name>
+      <QuestId>
+        <int>282</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Boar Hunter</Name>
+      <QuestId>
+        <int>183</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6217.192" Y="728.4557" Z="387.0123" />
+          <Vector3 X="-6158.98" Y="662.3466" Z="387.9768" />
+        </HotSpots>
+        <EntryTarget>
+          <int>708</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Stolen Journal</Name>
+      <QuestId>
+        <int>218</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6508.82" Y="300.758" Z="370.346" />
+        </HotSpots>
+        <EntryTarget>
+          <int>808</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Troll Cave</Name>
+      <QuestId>
+        <int>182</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6476.084" Y="505.9113" Z="385.93" />
+          <Vector3 X="-6482.49" Y="676.4665" Z="387.0213" />
+          <Vector3 X="-6378.326" Y="761.8306" Z="386.2136" />
+        </HotSpots>
+        <EntryTarget>
+          <int>706</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>WARLOCKBeginnings</Name>
+      <QuestId>
+        <int>1599</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6585.07" Y="380.3444" Z="388.2545" />
+          <Vector3 X="-6551.734" Y="299.0935" Z="385.4496" />
+        </HotSpots>
+        <EntryTarget>
+          <int>946</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return (ObjectManager.Me.WowClass == WoWClass.Warlock);</CanCondition>
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>7</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GRINDGrindTo8-WL,MA,WR,RO</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6529.918" Y="441.0732" Z="384.9514" />
+          <Vector3 X="-6465.695" Y="499.7453" Z="386.5805" />
+          <Vector3 X="-6445.137" Y="648.556" Z="387.2147" />
+          <Vector3 X="-6341.206" Y="762.5639" Z="387.3737" />
+        </HotSpots>
+        <EntryTarget>
+          <int>706</int>
+          <int>946</int>
+          <int>708</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>7</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>ROUTERefugesQuandry2</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-6453.726" Y="684.2026" Z="388.286" />
+          <Vector3 X="-6459.796" Y="681.1925" Z="387.5794" />
+          <Vector3 X="-6463.141" Y="679.8294" Z="387.3992" />
+          <Vector3 X="-6469.922" Y="679.0941" Z="387.0887" />
+          <Vector3 X="-6476.644" Y="680.9626" Z="387.5812" />
+          <Vector3 X="-6479.884" Y="682.2869" Z="388.0605" />
+          <Vector3 X="-6483.232" Y="683.6372" Z="387.9965" />
+          <Vector3 X="-6488.47" Y="679.6959" Z="387.3135" />
+          <Vector3 X="-6494.949" Y="677.7564" Z="386.9118" />
+          <Vector3 X="-6501.803" Y="677.5945" Z="387.2743" />
+          <Vector3 X="-6505.256" Y="676.765" Z="387.2743" />
+          <Vector3 X="-6506.372" Y="682.578" Z="387.2743" />
+          <Vector3 X="-6500.39" Y="686.2025" Z="387.2918" />
+          <Vector3 X="-6497.098" Y="684.9985" Z="387.3132" />
+          <Vector3 X="-6500.31" Y="681.5867" Z="387.2724" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>using robotManager.Helpful;
+//using robotManager.Products;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using wManager.Events;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.ComponentModel;
+//using System.Threading.Tasks;
+
+//FlightMaster
+public class FlightMaster
+{
+
+    private int priority;
+
+    public FlightMaster(int priority)
+    {
+        this.priority = priority;
+    }
+
+    public static void main(String[] args)
+    {
+        FlightMaster temp = new FlightMaster(1);
+        Logging.Write("Stuff");
+        
+
+       // temp.startFlightMaster();
+    }
+
+    public static int timer = 0;
+    public static Vector3 myPositionAtStart = new Vector3(0, 0, 0);
+    public static bool _deleteOldPath = false;
+    public static bool _isLaunched ;
+    static bool longMoveState = false;
+    static Vector3 checkDistanceToDestination;
+    private static int travelDistance = 1250;
+    private static float saveDistance;
+    public static Vector3 destinationVector = new Vector3(0, 0, 0);
+
+    //public static MovementEvents.MovementCancelableHandler MovementEventsOnOnMovementPulse { get; private set; }
+
+    // public static List&lt;FlightMasterDB&gt; FML = fillDB();
+
+    public void startFlightMaster()
+    {
+        Logging.Write("[FNV_Quester]: Flight Master initialized");
+        _isLaunched = true;
+        FNVQuesterFlightMaster.Load();
+        
+        //flightMasterLoop();
+    }
+
+    public void start()
+    {
+        //Logging.Write("Subscribing to event");
+       // SubscribeToEvent();
+       // watchForEvents();
+    }
+
+    public void stop()
+    {
+        //Logging.Write("Unsubscribing to event");
+        //UnSubscribeEvents();
+    }
+
+    public static void disposeFlightMaster()
+    {
+        _isLaunched = false;
+        FNVQuesterFlightMaster.CurrentSettings.Save();
+        //clearOldPath();
+        //_deleteOldPath = true;
+        //UnSubscribeEvents();
+        //MovementEvents.OnMovementPulse -= new MovementEvents.MovementCancelableHandler(FlightMaster.MovementEventsOnOnMovementPulse);
+        //Logging.Write("[FNV_Quester]: Flight Master disposed");
+    }
+
+    public static void disposeFlightMaster(int wert)
+    {
+        _isLaunched = false;
+        if(wert == 1)
+        {
+            Logging.Write("Flight Master stopped, dead");
+        }
+        else
+        {
+            Logging.Write("Flight Master stopped, combat");
+        }
+    }
+
+
+    private void SubscribeToEvent()
+    {
+         MovementEvents.OnMovementPulse += MovementEventsOnOnMovementPulse;
+    }
+
+    public void UnSubscribeEvents()
+    {
+        MovementEvents.OnMovementPulse -= MovementEventsOnOnMovementPulse;
+    }
+
+    private void watchForEvents()
+    {
+
+        EventsLuaWithArgs.OnEventsLuaWithArgs += (LuaEventsId id, List&lt;string&gt; args) =&gt;
+        {
+
+
+            if (id == wManager.Wow.Enums.LuaEventsId.PLAYER_DEAD)
+            {
+                Logging.Write("[FNV_Quester]: Player died, stop Flight Master");
+                disposeFlightMaster(1);
+            }
+            if (id == wManager.Wow.Enums.LuaEventsId.PLAYER_ENTER_COMBAT)
+            {
+                disposeFlightMaster(2);
+          		  Logging.Write("[FNV_Quester]: Player entered combat, stop Flight Master");
+            }
+          	
+
+        };
+
+    }
+
+
+    private void MovementEventsOnOnMovementPulse(List&lt;Vector3&gt; path, CancelEventArgs cancelEventArgs)
+    {
+        if(timer &lt; 1)
+        {
+            //Logging.Write("Enter MovementEventsOnOnMovementPulse");
+            checkDistanceToDestination = path.Last&lt;Vector3&gt;();
+            longMove(path.Last&lt;Vector3&gt;());
+            destinationVector = path.Last&lt;Vector3&gt;();
+            if(ObjectManager.Me.Position.DistanceTo(destinationVector) &gt; 1000 &amp;&amp; !_isLaunched)
+                startFlightMaster();
+        }
+        else
+        {
+            Logging.Write("[FNV_Quester]: Taxi in Pause");
+        }
+    }
+
+    public bool longMove(Vector3 destination)
+    {
+        saveDistance = new Vector3(destination).DistanceTo(ObjectManager.Me.Position);
+        //Logging.Write("[FNV_Quester]: Distance to destination " + saveDistance);
+        if(new Vector3(destination).DistanceTo(ObjectManager.Me.Position) &lt; travelDistance)
+        {
+            longMoveState = false;
+            return false;
+        }
+        else
+        {
+            longMoveState = true;
+            return true;
+        }
+    }
+
+
+    /*
+    public static void flightMasterLoop()
+    {
+
+        myPositionAtStart = ObjectManager.Me.Position;
+        //Logging.Write("[FNV_Quester]: Current position " + myPositionAtStart);
+        while(Products.IsStarted &amp;&amp; _isLaunched)
+        {
+            try
+            {
+                if(!Products.InPause &amp;&amp; longMoveState)
+                {
+                    Logging.Write("[FNV_Quester]: Long move detected, checking own Taxi DB to find a better path");
+
+                    FlightMasterDB from = getClosestFlightMasterFrom();
+                    FlightMasterDB to = getClosestFlightMasterTo();
+
+                    if(!to.name.Contains("null") &amp;&amp; !from.name.Contains("null") &amp;&amp; !from.Equals(to) &amp;&amp; from.position.DistanceTo(ObjectManager.Me.Position) + to.position.DistanceTo(destinationVector) &lt;= saveDistance)
+                    {
+                        Logging.Write("[FNV_Quester]: Shorter path detected, taking Taxi from " + from.name + " to " + to.name);
+                        takeTaxi(from.name, to.name);
+
+                        disposeFlightMaster();
+                    }
+                    else
+                    {
+                        Logging.Write("[FNV_Quester]: No shorter path available, skip flying");
+                        disposeFlightMaster();
+
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Logging.Write("[FNV_Quester]: Error " + e);
+            }
+
+            //Logging.Write("Pause flight master scan for 10 seconds");
+            disposeFlightMaster();
+            //Thread.Sleep(10000);
+        }
+    }
+    */
+
+    public static FlightMasterDB getClosestFlightMasterFrom()
+    {
+        List&lt;FlightMasterDB&gt; FMLnfmd = fillDB();
+        float tempDistance = 99999;
+        FlightMasterDB returnObject = new FlightMasterDB("null", 0, new Vector3(0, 0, 0), false);
+        //Logging.Write("returnObject " + returnObject.name);
+
+        foreach(var a in FMLnfmd)
+        {
+            //Logging.Write("A : " + a.name);
+            if(a.alreadyDiscovered &amp;&amp; a.position.DistanceTo(ObjectManager.Me.Position) &lt; tempDistance &amp;&amp; (a.continent == checkContinent()))
+            {
+                tempDistance = a.position.DistanceTo(ObjectManager.Me.Position);
+                returnObject = a;
+            }
+        }
+        //Logging.Write("returnObject " + returnObject.name);
+        return returnObject;
+    }
+
+    public static FlightMasterDB getClosestFlightMasterTo()
+    {
+        List&lt;FlightMasterDB&gt; FMLgcfmt = fillDB();
+        float tempDistance = 99999;
+        FlightMasterDB returnObject = new FlightMasterDB("null", 0, new Vector3(0, 0, 0), false);
+        //Logging.Write("returnObject " + returnObject.name);
+
+        foreach(var a in FMLgcfmt)
+        {
+            //Logging.Write("A : " + a.name);
+            if(a.alreadyDiscovered &amp;&amp; a.position.DistanceTo(destinationVector) &lt; tempDistance &amp;&amp; (a.continent == checkContinent()))
+            {
+                tempDistance = a.position.DistanceTo(destinationVector);
+                returnObject = a;
+            }
+        }
+        //Logging.Write("returnObject " + returnObject.name);
+        return returnObject;
+    }
+
+    public static bool checkContinent()
+    {
+        if(Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+        {
+            //Logging.Write("[FNV_Quester]: Currently located in Kalimdor");
+            return true;
+        }
+        else
+        {
+            //Logging.Write("[FNV_Quester]: Currently located in Eastern Kingdoms");
+            return false;
+        }
+        
+    }
+
+    public static void waitFlying()
+    {
+        //Logging.Write("Disable movement during flying");
+        //MovementManager.StopMove();
+        /*
+        //Disable movement
+        if(ObjectManager.Me.IsOnTaxi)
+        {
+            Logging.Write("[APF]: Stopping movement");
+
+            wManager.Events.MovementEvents.OnMovementPulse += (points, cancelable) =&gt;
+            {
+                cancelable.Cancel = true;
+            };
+            wManager.Events.MovementEvents.OnMoveToPulse += (point, cancelable) =&gt;
+            {
+                cancelable.Cancel = true;
+            };
+
+            wManager.Wow.Helpers.Fight.StopFight();
+            Lua.LuaDoString("ClearTarget()");
+
+            Thread.Sleep(Usefuls.Latency + 2500);
+        }
+        */
+
+
+
+
+        while(ObjectManager.Me.IsOnTaxi)
+        {
+            Logging.Write("[FNV_Quester]: On taxi, waiting");
+            Thread.Sleep(30000);
+        }
+
+
+
+      /*
+        //Reenable movement
+        if(!ObjectManager.Me.IsOnTaxi)
+        {
+            wManager.Events.MovementEvents.OnMovementPulse += (points, cancelable) =&gt;
+            {
+                cancelable.Cancel = false;
+            };
+            wManager.Events.MovementEvents.OnMoveToPulse += (point, cancelable) =&gt;
+            {
+                cancelable.Cancel = false;
+            };
+        }
+        */
+        Logging.Write("[FNV_Quester]: Arrived at destination Flight Master, finished waiting");
+    }
+
+    public static List&lt;FlightMasterDB&gt; fillDB()
+    {
+        //FNVFlightMasterSettings.Load();
+        //True = Kalimdor ; False = Eastern Kingdoms
+        List&lt;FlightMasterDB&gt; FMListe = new List&lt;FlightMasterDB&gt;();
+        FlightMasterDB Stormwind = new FlightMasterDB("Stormwind", 352, new Vector3(-8835.76f, 490.084f, 109.6157f), false);
+        FMListe.Add(Stormwind);
+        FlightMasterDB ArathiHighlands = new FlightMasterDB("Arathi Highlands", 2835, new Vector3(-1240.03f, -2513.96f, 21.92969f), false);
+        FMListe.Add(ArathiHighlands);
+        FlightMasterDB Ashenvale = new FlightMasterDB("Ashenvale", 4267, new Vector3(2828.4f, -284.3f, 106.7f), true);
+        FMListe.Add(Ashenvale);
+        FlightMasterDB Darkshore = new FlightMasterDB("Darkshore", 3841, new Vector3(6343.2f, 561.651f, 15.79876f), true);
+        FMListe.Add(Darkshore);
+        FlightMasterDB Stranglethorn = new FlightMasterDB("Stranglethorn", 2859, new Vector3(-14477.9f, 464.101f, 36.38163f), false);
+        FMListe.Add(Stranglethorn);
+        FlightMasterDB Duskwood = new FlightMasterDB("Duskwood", 2409, new Vector3(-10513.8f, -1258.79f, 41.43174f), false);
+        FMListe.Add(Duskwood);
+        FlightMasterDB FeralasFeathermoon = new FlightMasterDB("Feralas, Feathermoon", 8019, new Vector3(-4370.5f, 3340f, 12f), true);
+        FMListe.Add(FeralasFeathermoon);
+        FlightMasterDB FeralasThalanaar = new FlightMasterDB("Feralas, Thalanaar", 4319, new Vector3(-4491f, -781f, -40f), true);
+        FMListe.Add(FeralasThalanaar);
+        FlightMasterDB Tanaris = new FlightMasterDB("Tanaris", 7823, new Vector3(-7224.9f, -3738.2f, 8.4f), true);
+        FMListe.Add(Tanaris);
+        FlightMasterDB Hinterlands = new FlightMasterDB("The Hinterlands", 8018, new Vector3(282.1f, -2001.3f, 194.1f), false);
+        FMListe.Add(Hinterlands);
+        FlightMasterDB Ironforge = new FlightMasterDB("Ironforge", 1573, new Vector3(-4821.13f, -1152.4f, 502.2116f), false);
+        FMListe.Add(Ironforge);
+        FlightMasterDB Menethil = new FlightMasterDB("Wetlands", 1571, new Vector3(-3793.2f, -782.052f, 9.014864f), false);
+        FMListe.Add(Menethil);
+        FlightMasterDB TheBarrens = new FlightMasterDB("The Barrens", 16227, new Vector3(-898.246f, -3769.65f, 11.71021f), true);
+        FMListe.Add(TheBarrens);
+        FlightMasterDB Redridge = new FlightMasterDB("Redridge Mountains", 931, new Vector3(-9435.8f, -2234.79f, 69.43174f), false);
+        FMListe.Add(Redridge);
+        FlightMasterDB Teldrassil = new FlightMasterDB("Teldrassil", 3838, new Vector3(8640.58f, 841.118f, 23.26363f), true);
+        FMListe.Add(Teldrassil);
+        FlightMasterDB Southshore = new FlightMasterDB("Hillsbrad Foothiils", 2432, new Vector3(-715.146f, -512.134f, 26.54455f), false);
+        FMListe.Add(Southshore);
+        FlightMasterDB Stonetalon = new FlightMasterDB("Stonetalon Mountains", 4407, new Vector3(2682.83f, 1466.45f, 233.6483f), true);
+        FMListe.Add(Stonetalon);
+        FlightMasterDB Thelsamar = new FlightMasterDB("Loch Modan", 1572, new Vector3(-5424.85f, -2929.87f, 347.5623f), false);
+        FMListe.Add(Thelsamar);
+        FlightMasterDB Theramore = new FlightMasterDB("Dustwallow Marsh", 4321, new Vector3(-3828.88f, -4517.51f, 10.66067f), true);
+        FMListe.Add(Theramore);
+        FlightMasterDB WesternP = new FlightMasterDB("Western Pleaguelands", 12596, new Vector3(928.3f, -1429.1f, 64.8f), false);
+        FMListe.Add(WesternP);
+        FlightMasterDB Westfall = new FlightMasterDB("Westfall", 523, new Vector3(-10628.8f, 1037.79f, 34.43174f), false);
+        FMListe.Add(Westfall);
+        FlightMasterDB EasternP = new FlightMasterDB("Eastern Pleaguelands", 12617, new Vector3(2269.9f, -5345.4f, 86.9f), false);
+        FMListe.Add(EasternP);
+        FlightMasterDB SearingGorge = new FlightMasterDB("Searing Gorge", 2941, new Vector3(-6559.1f, -1169.4f, 309.8f), false);
+        FMListe.Add(SearingGorge);
+        FlightMasterDB BurningSteppes = new FlightMasterDB("Burning Steppes", 2299, new Vector3(-8365.1f, -2758.5f, 185.6f), false);
+        FMListe.Add(BurningSteppes);
+        FlightMasterDB BlastedLands = new FlightMasterDB("Blasted Lands", 8609, new Vector3(-11110.2f, -3437.1f, 79.2f), false);
+        FMListe.Add(BlastedLands);
+        FlightMasterDB Azshara = new FlightMasterDB("Azshara", 12577, new Vector3(2718.2f, -3880.8f, 101.4f), true);
+        FMListe.Add(Azshara);
+        FlightMasterDB Felwood = new FlightMasterDB("Felwood", 12578, new Vector3(6204.2f, -1951.4f, 571.3f), true);
+        FMListe.Add(Felwood);
+        FlightMasterDB Winterspring = new FlightMasterDB("Winterspring", 11138, new Vector3(6800.5f, -4742.4f, 701.5f), true);
+        FMListe.Add(Winterspring);
+        FlightMasterDB UngoroCreater = new FlightMasterDB("Ungoro Crater", 10583, new Vector3(-6110.5f, -1140.4f, -186.9f), true);
+        FMListe.Add(UngoroCreater);
+        FlightMasterDB Silithus = new FlightMasterDB("Silithus", 15177, new Vector3(-6758.6f, 775.6f, 89f), true);
+        FMListe.Add(Silithus);
+        FlightMasterDB Desolace = new FlightMasterDB("Desolace", 6706, new Vector3(136f, 1326f, 193f), true);
+        FMListe.Add(Desolace);
+        return FMListe;
+    }
+
+    public static bool validFlight(String from, String to)
+    {
+        bool von = false;
+        bool zu = false;
+        List&lt;FlightMasterDB&gt; FMLvf = fillDB();
+
+        for(int i = 0; i &lt; FMLvf.Count; i++)
+        {
+            if(FMLvf[i].name.Contains(from))
+            {
+                von = FMLvf[i].continent;
+            }
+            if(FMLvf[i].name.Contains(to))
+            {
+                zu = FMLvf[i].continent;
+            }
+        }
+        return von != zu;
+    }
+
+    public static bool discoveredTaxiNodes(String from, String to)
+    {
+
+    //Logging.Write("Enter discoveredTaxiNodes");
+        List&lt;FlightMasterDB&gt; FMLDTN = fillDB();
+        //Logging.Write("Test 0: " + FMLDTN.Count);
+
+        foreach(var ele in FMLDTN)
+        {
+            if(ele.name.Contains(from))
+            {
+            //Logging.Write("Test 1");
+                if(!ele.alreadyDiscovered)
+                {
+                    Logging.Write("[FNV_Quester]: Taxi node from " + ele.name + " has not been discovered so far. Abort taking taxi.");
+                    return false;
+                }
+            }
+        }
+
+        foreach(var ele in FMLDTN)
+        {
+            //Logging.Write("Test 2");
+            if(ele.name.Contains(to))
+            {
+                if(!ele.alreadyDiscovered)
+                {
+                    Logging.Write("[FNV_Quester]: Taxi node to " + ele.name + " has not been discovered so far. Abort taking taxi.");
+                    return false;
+                }
+            }
+        }
+        //Logging.Write("Test 3");
+        return true;
+    }
+
+    public static void takeTaxi(String from, String to)
+    {
+
+        List&lt;FlightMasterDB&gt; FMLtt = fillDB();
+        bool canProceed = true;
+        try
+        {
+            //List&lt;FlightMasterDB&gt; 
+            FMLtt = fillDB();
+        }
+        catch(Exception e)
+        {
+            Logging.Write("Error: " + e);
+        }
+
+        //Logging.Write("Enter take taxi");
+
+        Vector3 myPos = ObjectManager.Me.Position;
+
+        if(Usefuls.MapZoneName.Contains(to))
+        {
+            canProceed = false;
+            Logging.Write("[FNV_Quester]: Already in the zone we are going to travel to. Skip flying.");
+        }
+        /*
+        if(!discoveredTaxiNodes(from, to))
+            canProceed = false;
+        
+        if(canProceed)
+        {
+            foreach(var temp in FMLtt)
+            {
+                if(temp.name.Contains(from) &amp;&amp; temp.position.DistanceTo(myPos) &gt; 1000)
+                {
+                    Logging.Write("[FNV_Quester]: Distance to Flight Master " + temp.position.DistanceTo(myPos) + ", &gt; 1000. Skip flying.");
+                    canProceed = false;
+                }
+            }
+        }
+        */
+
+        if(canProceed)
+        {
+
+            if(validFlight(from, to))
+            {
+                Logging.Write("[FNV_Quester]: Unable to fly between Kalimdor and Eastern Kingdoms");
+            }
+
+            var position = new Vector3();
+            int npcEntryId = 0;
+
+            for(int i = 0; i &lt; FMLtt.Count; i++)
+            {
+                if(FMLtt[i].name.Contains(from))
+                {
+                    position = FMLtt[i].position;
+                    npcEntryId = FMLtt[i].NPCId;
+                    FMLtt[i].name.Contains(from);
+                }
+            }
+
+
+            if(!ObjectManager.Me.IsOnTaxi)
+            {
+                wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+
+                while(!wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId) &amp;&amp; !Fight.InFight)
+                {
+                    //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;
+                    wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+                    wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId);
+                }
+                if(wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))
+                {
+                    while(!ObjectManager.Me.IsOnTaxi)
+                    {
+                        Usefuls.SelectGossipOption(GossipOptionsType.taxi);
+
+                        int node = Lua.LuaDoString&lt;int&gt;("for i=0,30 do if string.find(TaxiNodeName(i),'" + to + "') then return i end end");
+                        Lua.LuaDoString("TakeTaxiNode(" + node + ")");
+                        Logging.Write("[FNV_Quester]: Taking Taxi from " + from + " to " + to + ".");
+                        Thread.Sleep(Usefuls.Latency + 2500);
+                    }
+                }
+            }
+            //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;
+            waitFlying();
+            return;
+        }
+        //return;
+    }
+
+    public static void discoverTaxi(String discoverName)
+    {
+        FNVQuesterFlightMaster.Load();
+        List&lt;FlightMasterDB&gt; FMLdt = fillDB();
+
+        var position = new Vector3();
+        int npcEntryId = 0;
+        int j = 0;
+        bool alreadyDiscoveredFlightMaster = false;
+
+        for(int i = 0; i &lt; FMLdt.Count; i++)
+        {
+            if(FMLdt[i].name.Contains(discoverName))
+            {
+                if(FMLdt[i].alreadyDiscovered)
+                {
+                    Logging.Write("[FNV_Quester]: Flight Master of " + FMLdt[i].name + " already discovered. Skip it.");
+                    alreadyDiscoveredFlightMaster = true;
+                    break;
+                }
+
+                position = FMLdt[i].position;
+                npcEntryId = FMLdt[i].NPCId;
+                j = i;
+            }
+        }
+
+        if(!alreadyDiscoveredFlightMaster)
+        {
+
+            if(!ObjectManager.Me.IsOnTaxi)
+            {
+                wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+
+                while(!wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))
+                {
+                   // wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;
+                    wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+                    wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId);
+                }
+                if(wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))
+                {
+                    Usefuls.SelectGossipOption(GossipOptionsType.taxi);
+                    Thread.Sleep(Usefuls.Latency + 250);
+                    //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;
+                }
+            }
+            Logging.Write("[FNV_Quester]: Flight Master " + FMLdt[j].name + " discovered");
+            FMLdt[j].alreadyDiscovered = true;
+            FNVQuesterFlightMaster.flightMasterSaveChanges(FMLdt[j]);
+            //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;
+            
+        }
+        timer = 0;
+        return;
+    }
+
+    }
+
+    public class FlightMasterDB
+    {
+        public FlightMasterDB(String name, int NPCId, Vector3 position, bool continent, bool alreadyDiscovered)
+        {
+            this.name = name;
+            this.NPCId = NPCId;
+            this.position = position;
+            this.continent = continent;
+            this.alreadyDiscovered = alreadyDiscovered;
+        }
+
+        public FlightMasterDB(String name, int NPCId, Vector3 position, bool continent)
+        {
+            this.name = name;
+            this.NPCId = NPCId;
+            this.position = position;
+            this.continent = continent;
+            
+        }
+
+        public int NPCId { get; set; }
+        public Vector3 position { get; set; }
+        public String name { get; set; }
+        public bool continent { get; set; }
+        public bool alreadyDiscovered { get; set; }
+
+    }
+
+//Tram
+public class Tram
+{
+
+    //Stormwind to Ironforge
+    static Vector3 positionTramInIronforge = new Vector3(4.58065, 28.2097, 6.90526);
+    static Vector3 positionTramInStormwind = new Vector3(4.581913, 2511.531, 7.091796);
+
+    static Vector3 positionWaitTramIronforge = new Vector3(19.1, 28, -4.3);
+    static Vector3 positionOnTramIronforge = new Vector3(4.8, 28.1, -4.3);
+
+    static Vector3 positionWaitTramStormwind = new Vector3(15.3, 2510.4, -4.3);
+    static Vector3 positionOnTramStormwind = new Vector3(4.3, 2510.6, -4.3);
+
+    static Vector3 enterStormwindInside = new Vector3(67, 2490.7, -4.3);
+    static Vector3 enterIronforgeInside = new Vector3(64.5, 10.2, -4.3);
+
+    static Vector3 enterStormwindOutside = new Vector3(-8365, 536.9, 91.8);
+    static Vector3 enterIronforgeOutside = new Vector3(-4836.7, -1304.6, 501.9);
+
+    static Vector3 leavePosIronforge = new Vector3(-10.6, 30.2, -4.3);
+    static Vector3 leavePosStormwind = new Vector3(-10.6, 2510.9, -4.3);
+
+    static Vector3 playerFellDownIronforge = new Vector3(4.5, 28, -13.9);
+
+    static int[] tramEntryArray = new int[6] { 176080, 176082, 176083, 176084, 176085, 176081 };
+
+    //Ironforge to Stormwind
+    static Vector3 waitPosPlayerInStormwindToIronforge = new Vector3(-32.8, 2512.1, -4.3);
+
+    //Pos where upper Tram arrives and waits in Stormwind
+    static Vector3 waitPosTramSwTramStormwind = new Vector3(-45.4007, 2512.15, 6.90526);
+    //Pos where player waits on upper tram in Stormwind
+    static Vector3 waitPosPlayerSwTramStormwind = new Vector3(-45.20206, 2512.266, -3.562748);
+
+    static Vector3 waitPosSwTramIronforge = new Vector3(-45.399, 30.38013, 5.877773);
+
+    static Vector3 leavePosSwTramIronforge = new Vector3(-61.8, 30.3, -4.3);
+    static Vector3 waitPlayerOnTramPosSwTramIronforge = new Vector3(-34.49804, 2511.917, -4.3);
+    static Vector3 posPlayerOnTramSwToIfInIronforge = new Vector3(-20.9837, 2459.93, -4.297);
+
+    static Vector3 playerFellDownStormwind = new Vector3(-45, 2512.6, -13.9);
+
+    static bool isRestarted = false;
+    static Process[] pname = Process.GetProcessesByName(AppDomain.CurrentDomain.FriendlyName.Remove(AppDomain.CurrentDomain.FriendlyName.Length - 4));
+    static Vector3 nullVector = new Vector3(0, 0, 0);
+
+
+    public static void restartTram(String from)
+    {
+        switch(from)
+        {
+            case ("Stormwind"):
+                takeTramStormwind();
+                break;
+            case ("Ironforge"):
+                takeTramIronforge();
+                break;
+            default:
+                Logging.Write("Something failed");
+                break;
+        }
+    }
+
+    public static void end()
+    {
+        Logging.Write("[FNV_Quester]: Ending Tream");
+    }
+
+
+
+    public static void takeTramStormwind()
+    {
+        Logging.Write("[FNV_Quester]: Taking Tram from Stormwind to Ironforge");
+
+        if(!Usefuls.MapZoneName.Contains("Deep"))
+        {
+            while(!GoToTask.ToPosition(enterStormwindOutside))
+            {
+                GoToTask.ToPosition(enterStormwindOutside);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+            Logging.Write("[FNV_Quester]: Disable teleport during Tram");
+            wManager.Wow.Helpers.MovementManager.Face(new Vector3(-8353.4, 521.4, 91.8));
+
+            while(!Usefuls.MapZoneName.Contains("Deep"))
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+            }
+
+        }
+
+        if(Usefuls.MapZoneName.Contains("Deep"))
+        {
+            if(!GoToTask.ToPosition(enterStormwindInside))
+            {
+                GoToTask.ToPosition(enterStormwindInside);
+                Thread.Sleep(250);
+            }
+            while(!GoToTask.ToPosition(waitPosPlayerInStormwindToIronforge))
+            {
+                GoToTask.ToPosition(waitPosPlayerInStormwindToIronforge);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+            var tram = (WoWGameObject)null;
+
+            try
+            {
+                tram = chooseTramStormwind();
+            }
+            catch
+            {
+
+            }
+
+
+            if(tram != null &amp;&amp; ObjectManager.Me.Position.DistanceTo(tram.Position) &lt; 200 &amp;&amp; !tram.Position.Equals(nullVector))
+            {
+                Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                isRestarted = true;
+                takeTramStormwind();
+                end();
+            }
+
+            if(!isRestarted)
+            {
+
+                if(tram != null &amp;&amp; tram.Position.DistanceTo(nullVector) &gt; 1)
+                {
+                    while(tram.Position.DistanceTo(waitPosTramSwTramStormwind) &gt;= 5 || ObjectManager.Me.Position.DistanceTo(waitPosPlayerInStormwindToIronforge) &gt;= 5)
+                    {
+                        Thread.Sleep(500);
+                    }
+
+                    if(tram.Position.DistanceTo(waitPosTramSwTramStormwind) &lt; 5)
+                    {
+                        Lua.LuaDoString("ClearTarget()");
+                        wManager.Wow.Helpers.MovementManager.Face(waitPosPlayerSwTramStormwind);
+
+                        while(ObjectManager.Me.Position.DistanceTo(waitPosPlayerSwTramStormwind) &gt; 1)
+                        {
+                            wManager.Wow.Helpers.MovementManager.Face(waitPosPlayerSwTramStormwind);
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+
+                            if(ObjectManager.Me.Position.DistanceTo(playerFellDownStormwind) &lt; 4)
+                            {
+                                Logging.Write("[FNV_Quester]: Fell down, while trying to take tram. Restart...");
+                                restartTram("Stormwind");
+                            }
+                        }
+
+                        GoToTask.ToPosition(waitPosPlayerSwTramStormwind);
+                    }
+
+                    while(tram.Position.DistanceTo(waitPosSwTramIronforge) &gt; 5)
+                    {
+                        Thread.Sleep(3000);
+                    }
+
+                    if(ObjectManager.Me.HaveBuff("Stealth"))
+                    {
+                        Lua.LuaDoString("CastSpellByName('Stealth')");
+                    }
+
+                    wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 1500);
+
+                    if(ObjectManager.Me.Position.DistanceTo(posPlayerOnTramSwToIfInIronforge) &lt; 5)
+                    {
+                        wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 500);
+
+                        while(ObjectManager.Me.Position.DistanceTo(leavePosSwTramIronforge) &gt; 4)
+                        {
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+                        }
+                    }
+
+                    if(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        if(!GoToTask.ToPosition(enterIronforgeInside))
+                        {
+                            GoToTask.ToPosition(enterIronforgeInside);
+                            Thread.Sleep(250);
+                        }
+                    }
+
+                    while(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                        Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+                    }
+
+                    Logging.Write("[FNV_Quester]: Re enable teleport ");
+                    wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
+
+
+                    while(!GoToTask.ToPosition(enterIronforgeOutside))
+                    {
+                        wManager.Wow.Helpers.MovementManager.Face(enterIronforgeOutside);
+                        GoToTask.ToPosition(enterIronforgeOutside);
+                        Thread.Sleep(250);
+                    }
+
+                }
+                else if(Usefuls.MapZoneName.Contains("Tram") || Usefuls.MapZoneName.Contains("Stormwind"))
+                {
+                    Logging.Write("[FNV_Quester]: Unable to find tram, restart... .");
+                    isRestarted = true;
+                    restartTram("Stormwind");
+                }
+
+            }
+        }
+
+        isRestarted = false;
+    }
+
+    public static WoWGameObject chooseTramIronforge()
+    {
+        List&lt;WoWGameObject&gt; tramList = new List&lt;WoWGameObject&gt;();
+        var tramTemp = (WoWGameObject)null;
+
+        foreach(int ele in tramEntryArray)
+        {
+            tramTemp = null;
+            try
+            {
+                tramTemp = ObjectManager.GetWoWGameObjectByEntry(ele).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            }
+            catch
+            {
+            }
+
+            if(tramTemp != null &amp;&amp; tramTemp.IsValid &amp;&amp; !tramTemp.Equals((WoWGameObject)null) &amp;&amp; tramTemp.ToString().Contains("Subway"))
+            {
+                tramList.Add(tramTemp);
+            }
+            else
+            {
+
+            }
+        }
+
+        float distance = 0;
+        float entryDistance = 0;
+        foreach(var ele in tramList)
+        {
+            if(ObjectManager.Me.Position.DistanceTo(ele.Position) &gt;= distance)
+            {
+                distance = ObjectManager.Me.Position.DistanceTo(ele.Position);
+                entryDistance = ele.Entry;
+            }
+        }
+
+        foreach(var ele in tramList)
+        {
+            if(ele.Entry == entryDistance &amp;&amp; ele != null &amp;&amp; !ele.Position.Equals(nullVector))
+            {
+                if(ObjectManager.Me.Position.DistanceTo(ele.Position) &lt; 200)
+                {
+                    Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                    restartTram("Ironforge");
+                }
+
+                Logging.Write("[FNV_Quester]: Choosing tram id: " + ele.Entry + " with a current position of " + ele.Position);
+                return ele;
+            }
+        }
+        return null;
+    }
+
+    public static WoWGameObject chooseTramStormwind()
+    {
+        List&lt;WoWGameObject&gt; tramList = new List&lt;WoWGameObject&gt;();
+        var tramTemp = (WoWGameObject)null;
+
+        foreach(int ele in tramEntryArray)
+        {
+            tramTemp = null;
+            try
+            {
+                tramTemp = ObjectManager.GetWoWGameObjectByEntry(ele).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            }
+            catch
+            {
+            }
+
+            if(tramTemp != null &amp;&amp; tramTemp.IsValid &amp;&amp; !tramTemp.Equals((WoWGameObject)null) &amp;&amp; tramTemp.ToString().Contains("Subway"))
+            {
+                tramList.Add(tramTemp);
+            }
+            else
+            {
+
+            }
+        }
+
+        float distance = 99999;
+        float entryDistance = 0;
+        foreach(var ele in tramList)
+        {
+            if(ObjectManager.Me.Position.DistanceTo(ele.Position) &lt;= distance)
+            {
+                distance = ObjectManager.Me.Position.DistanceTo(ele.Position);
+                entryDistance = ele.Entry;
+            }
+        }
+
+        foreach(var ele in tramList)
+        {
+            if(ele.Entry == entryDistance &amp;&amp; ele != null &amp;&amp; !ele.Position.Equals(nullVector))
+            {
+                if(ObjectManager.Me.Position.DistanceTo(ele.Position) &lt; 200)
+                {
+                    Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                    restartTram("Stormwind");
+                }
+
+                Logging.Write("[FNV_Quester]: Choosing tram id: " + ele.Entry + " with a current position of " + ele.Position);
+                return ele;
+            }
+        }
+
+        return null;
+    }
+
+
+    public static void takeTramIronforge()
+    {
+        Logging.Write("[FNV_Quester]: Taking Tram from Ironforge to Stormwind");
+
+        if(!Usefuls.MapZoneName.Contains("Deep"))
+        {
+            while(!GoToTask.ToPosition(enterIronforgeOutside))
+            {
+                GoToTask.ToPosition(enterIronforgeOutside);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+            Logging.Write("[FNV_Quester]: Disable teleport during Tram");
+            wManager.Wow.Helpers.MovementManager.Face(new Vector3(-4839.4, -1320.9, 501.9));
+
+            while(!Usefuls.MapZoneName.Contains("Deep"))
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+            }
+        }
+
+        if(Usefuls.MapZoneName.Contains("Deep"))
+        {
+            if(!GoToTask.ToPosition(enterIronforgeInside))
+            {
+                GoToTask.ToPosition(enterIronforgeInside);
+                Thread.Sleep(250);
+            }
+
+            GoToTask.ToPosition(new Vector3(26.31003, 9.936551, -4.29664));
+            Thread.Sleep(250);
+            GoToTask.ToPosition(new Vector3(17.09965, 12.71437, -4.29664));
+            Thread.Sleep(250);
+            GoToTask.ToPosition(new Vector3(18.14983, 22.89955, -4.29664));
+            Thread.Sleep(250);
+
+            while(!GoToTask.ToPosition(positionWaitTramIronforge))
+            {
+                GoToTask.ToPosition(positionWaitTramIronforge);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+            var tram = (WoWGameObject)null;
+
+            try
+            {
+                tram = chooseTramIronforge();
+            }
+            catch
+            {
+
+            }
+
+            if(ObjectManager.Me.Position.DistanceTo(tram.Position) &lt; 200 &amp;&amp; tram != null &amp;&amp; !tram.Position.Equals(nullVector))
+            {
+                Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                isRestarted = true;
+                restartTram("Ironforge");
+                end();
+            }
+
+            if(!isRestarted)
+            {
+
+                if(tram != null &amp;&amp; tram.Position.DistanceTo(nullVector) &gt; 1)
+                {
+
+
+                    while(tram.Position.DistanceTo(positionTramInIronforge) &gt;= 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep") &amp;&amp; !tram.Position.Equals(nullVector))
+                    {
+                        Thread.Sleep(1000);
+                    }
+
+
+                    if(tram.Position.DistanceTo(positionTramInIronforge) &lt; 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        Lua.LuaDoString("ClearTarget()");
+                        wManager.Wow.Helpers.MovementManager.Face(positionOnTramIronforge);
+
+                        while(ObjectManager.Me.Position.DistanceTo(positionOnTramIronforge) &gt; 2)
+                        {
+                            wManager.Wow.Helpers.MovementManager.Face(positionOnTramIronforge);
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+
+                            if(ObjectManager.Me.Position.DistanceTo(playerFellDownIronforge) &lt; 4)
+                            {
+                                Logging.Write("[FNV_Quester]: Fell down, while trying to take tram. Restart");
+                                restartTram("Ironforge");
+                            }
+                        }
+
+                        GoToTask.ToPosition(positionOnTramIronforge);
+                    }
+
+
+                    while(tram.Position.DistanceTo(positionTramInStormwind) &gt; 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        Thread.Sleep(3000);
+                    }
+
+                    if(ObjectManager.Me.Position.DistanceTo(positionOnTramStormwind) &lt; 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep"))
+                    {
+
+                        wManager.Wow.Helpers.Move.StrafeLeft(Move.MoveAction.PressKey, 350);
+
+                        while(ObjectManager.Me.Position.DistanceTo(leavePosStormwind) &gt; 4)
+                        {
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+
+                        }
+
+                    }
+
+                    if(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        if(!GoToTask.ToPosition(enterStormwindInside))
+                        {
+                            GoToTask.ToPosition(enterStormwindInside);
+                            Thread.Sleep(250);
+                        }
+                    }
+
+                    while(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                        Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+                    }
+
+                    Logging.Write("Re enable teleport ");
+                    wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
+
+
+                    while(!GoToTask.ToPosition(enterStormwindOutside))
+                    {
+                        wManager.Wow.Helpers.MovementManager.Face(enterStormwindOutside);
+                        GoToTask.ToPosition(enterStormwindOutside);
+                        Thread.Sleep(250);
+                    }
+
+                }
+                else if(Usefuls.MapZoneName.Contains("Tram") || Usefuls.MapZoneName.Contains("Ironforge"))
+                {
+                    Logging.Write("[FNV_Quester]: Unable to find tram, restart... .");
+                    isRestarted = true;
+                    restartTram("Ironforge");
+                }
+
+            }
+        }
+        isRestarted = false;
+    }
+}
+
+//Additional functions for quests
+public class Quests
+{
+    public static void abandon(string questName)
+    {
+        wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + questName + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+    }
+
+    public static bool hasFailed(string questName)
+    {
+        int temp = 0;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) local questTimer = GetQuestLogTimeLeft() return questTimer end end");
+
+        if(temp &gt; 8)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public static bool isComplete(string questName)
+    {
+        int temp;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then local questTitleZ, levelZ, questTagZ, isHeaderZ, isCollapsedZ, isCompleteZ = GetQuestLogTitle(i) return isCompleteZ end end");
+
+        if(temp == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static bool isFailed(string questName)
+    {
+        int temp;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then local questTitleZ, levelZ, questTagZ, isHeaderZ, isCollapsedZ, isCompleteZ = GetQuestLogTitle(i) return isCompleteZ end end");
+
+        if(temp == -1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+
+public class ProgressSettings : Settings
+{
+    public static bool inProgress = false;
+        public static void Initialize()
+        {
+            ProgressSettings.Load();
+        }
+
+        public static void Dispose()
+        {
+            ProgressSettings.CurrentSettings.Save();
+            //isLaunched = false;
+        }
+
+        public void Settings()
+        {
+            ProgressSettings.Load();
+            ProgressSettings.CurrentSettings.ToForm();
+            ProgressSettings.CurrentSettings.Save();
+        }
+
+    public ProgressSettings()
+    {
+        this.launcher = 2;
+        this.dwarfStart = 1;
+        this.humanStart = 1;
+        this.nightelfStart = 1;
+        this.dwarfHunter = 1;
+        this.nightelfHunter = 1;
+        this.nightelfDruid = 1;
+        this.warlock = 1;
+        this.kharanos = 1;
+        this.elwynn = 1;
+        this.westfallEins = 1;
+        this.lochModanEins = 1;
+        this.darkshoreEins = 10;
+        this.westfallZwei = 1;
+        this.lochModanZwei = 1;
+        this.darkshoreZwei = 6;
+        this.westfallDrei = 1;
+        this.redridge = 1;
+        this.duskwoodEins = 1;
+        this.stonetalon = 1;
+        this.darkshoreDrei = 1;
+        this.duskwoodZwei = 1;
+        this.wetlandsEins = 1;
+        this.ashenvaleEins = 7;
+        this.wetlandsZwei = 1;
+        this.duskwoodDrei = 2;
+        this.ashenvaleZwei = 7;
+        this.duskwoodVier = 2;
+        this.ashenvaleDrei = 7;
+    }
+    
+
+      public static ProgressSettings CurrentSettings { get; set; }
+
+        public bool Save()
+        {
+            try
+            {
+                return Save(AdviserFilePathAndName("FNV_Progress", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Progress =&gt; Save(): " + e);
+                return false;
+            }
+        }
+
+        public static bool Load()
+        {
+            try
+            {
+                if(File.Exists(AdviserFilePathAndName("FNV_Progress", ObjectManager.Me.Name + "." + Usefuls.RealmName)))
+                {
+                    CurrentSettings = Load&lt;ProgressSettings&gt;(AdviserFilePathAndName("FNV_Progress", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+                    return true;
+                }
+
+                ProgressSettings.CurrentSettings = new ProgressSettings();
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Progress =&gt; Load(): " + e);
+            }
+            return false;
+        }
+
+        public int launcher { get; set; }
+        public int dwarfStart { get; set; }
+        public int dwarfHunter { get; set; }
+        public int nightelfHunter { get; set; }
+        public int nightelfDruid { get; set; }
+        public int warlock { get; set; }
+        public int nightelfStart { get; set; }
+        public int humanStart { get; set; }
+        public int kharanos { get; set; }
+        public int elwynn { get; set; }
+        public int westfallEins { get; set; }
+        public int lochModanEins { get; set; }
+        public int darkshoreEins { get; set; }
+        public int westfallZwei { get; set; }
+        public int lochModanZwei { get; set; }
+        public int darkshoreZwei { get; set; }
+        public int westfallDrei { get; set; }
+        public int redridge { get; set; }
+        public int duskwoodEins { get; set; }
+        public int darkshoreDrei { get; set; }
+        public int stonetalon { get; set; }
+        public int duskwoodZwei { get; set; }
+        public int wetlandsEins { get; set; }
+        public int ashenvaleEins { get; set; }
+        public int wetlandsZwei { get; set; }
+        public int duskwoodDrei { get; set; }
+        public int ashenvaleZwei { get; set; }
+        public int duskwoodVier { get; set; }
+        public int ashenvaleDrei { get; set; }
+
+
+
+}
+
+
+/*
+    //Settings   
+    public class QuesterSettings
+    {
+        private static bool isLaunched;
+
+        public static void Initialize()
+        {
+            isLaunched = true;
+            FNVSettings.Load();
+
+            while(isLaunched &amp; Products.IsStarted)
+            {
+                Thread.Sleep(500);
+                Dispose();
+            }
+        }
+
+        public static void Dispose()
+        {
+            FNVSettings.CurrentSettings.Save();
+            //isLaunched = false;
+        }
+
+        public void Settings()
+        {
+            FNVSettings.Load();
+            FNVSettings.CurrentSettings.ToForm();
+            FNVSettings.CurrentSettings.Save();
+        }
+    }
+
+    */
+
+    [Serializable]
+    public class FNVSettings : Settings
+    {
+
+        public static bool inProgress = false;
+        public static void Initialize()
+        {
+            FNVSettings.Load();
+        }
+
+        public static void Dispose()
+        {
+            FNVSettings.CurrentSettings.Save();
+            //isLaunched = false;
+        }
+
+        public void Settings()
+        {
+            FNVSettings.Load();
+            FNVSettings.CurrentSettings.ToForm();
+            FNVSettings.CurrentSettings.Save();
+        }
+
+        public FNVSettings()
+        {
+        //Completed profiles -&gt; True == completed
+        this.launcher = false;
+        this.dwarfStart = false;
+        this.humanStart = false;
+        this.nightelfStart = false;
+        this.dwarfHunter = false;
+        this.nightelfHunter = false;
+        this.nightelfDruid = false;
+        this.warlock = false;
+        this.kharanos = false;
+        this.elwynn = false;
+        this.westfallEins = false;
+        this.lochModanEins = false;
+        this.darkshoreEins = false;
+        this.westfallZwei = false;
+        this.lochModanZwei = false;
+        this.darkshoreZwei = false;
+        this.westfallDrei = false;
+        this.redridge = false;
+        this.duskwoodEins = false;
+        this.darkshoreDrei = false;
+        this.stonetalon = false;
+        this.duskwoodZwei = false;
+        this.wetlandsEins = false;
+        this.ashenvaleEins = false;
+        this.wetlandsZwei = false;
+        this.duskwoodDrei = false;
+        this.ashenvaleZwei = false;
+        this.duskwoodVier = false;
+        this.ashenvaleDrei = false;
+
+            //FlightMaster discovered
+            //Eastern Kingdoms
+            this.ArathiHighlands = false;
+            this.Wetlands = false;
+            this.WesternPlaguelands = false;
+            this.EasternPlaguelands = false;
+            this.HillsbradFoothills = false;
+            this.TheHinterlands = false;
+            this.LochModan = false;
+            this.Ironforge = false;
+            this.SearingGorge = false;
+            this.BurningSteppes = false;
+            this.RedridgeMountains = false;
+            this.Stormwind = false;
+            this.Westfall = false;
+            this.Duskwood = false;
+            this.StranglethornValley = false;
+            this.BlastedLands = false;
+
+            //Kalimdor
+            this.Teldrassil = false;
+            this.Darkshore = false;
+            this.Winterspring = false;
+            this.Azshara = false;
+            this.Ashenvale = false;
+            this.StonetalonMountains = false;
+            this.Desolace = false;
+            this.TheBarrens = false;
+            this.Tanaris = false;
+            this.FeralasFeathermoon = false;
+            this.FeralasThalanaar = false;
+            this.UngoroCrater = false;
+            this.DustwallowMarsh = false;
+            this.Silithus = false;
+            this.Moonglade = false;
+            this.Felwood = false;
+
+        }
+
+    public static void flightMasterSaveChanges(FlightMasterDB needToChange)
+    {
+
+        if(needToChange.name.Contains("Arathi"))
+            CurrentSettings.ArathiHighlands = true;
+
+        if(needToChange.name.Contains("Wetlands"))
+            CurrentSettings.Wetlands = true;
+
+        if(needToChange.name.Contains("Western"))
+            CurrentSettings.WesternPlaguelands = true;
+
+        if(needToChange.name.Contains("Eastern"))
+            CurrentSettings.EasternPlaguelands = true;
+
+        if(needToChange.name.Contains("Hillsbrad"))
+            CurrentSettings.HillsbradFoothills = true;
+
+        if(needToChange.name.Contains("Hinterlands"))
+            CurrentSettings.TheHinterlands = true;
+
+        if(needToChange.name.Contains("Modan"))
+            CurrentSettings.LochModan = true;
+
+        if(needToChange.name.Contains("Ironforge"))
+            CurrentSettings.Ironforge = true;
+
+        if(needToChange.name.Contains("Searing"))
+            CurrentSettings.SearingGorge = true;
+
+        if(needToChange.name.Contains("Burning"))
+            CurrentSettings.BurningSteppes = true;
+
+        if(needToChange.name.Contains("Redridge"))
+            CurrentSettings.RedridgeMountains = true;
+
+        if(needToChange.name.Contains("Stormwind"))
+            CurrentSettings.Stormwind = true;
+
+        if(needToChange.name.Contains("Westfall"))
+            CurrentSettings.Westfall = true;
+
+        if(needToChange.name.Contains("Duskwood"))
+            CurrentSettings.Duskwood = true;
+
+        if(needToChange.name.Contains("Stranglethorn"))
+            CurrentSettings.StranglethornValley = true;
+
+        if(needToChange.name.Contains("Blasted"))
+            CurrentSettings.BlastedLands = true;
+
+        if(needToChange.name.Contains("Teldrassil"))
+            CurrentSettings.Teldrassil = true;
+
+        if(needToChange.name.Contains("Darkshore"))
+            CurrentSettings.Darkshore = true;
+
+        if(needToChange.name.Contains("Winterspring"))
+            CurrentSettings.Winterspring = true;
+
+        if(needToChange.name.Contains("Azshara"))
+            CurrentSettings.Azshara = true;
+
+        if(needToChange.name.Contains("Ashenvale"))
+            CurrentSettings.Ashenvale = true;
+
+        if(needToChange.name.Contains("Stonetalon"))
+            CurrentSettings.StonetalonMountains = true;
+
+        if(needToChange.name.Contains("Desolace"))
+            CurrentSettings.Desolace = true;
+
+        if(needToChange.name.Contains("TheBarrens"))
+            CurrentSettings.TheBarrens = true;
+
+        if(needToChange.name.Contains("Tanaris"))
+            CurrentSettings.Tanaris = true;
+
+        if(needToChange.name.Contains("TheBarrens"))
+            CurrentSettings.TheBarrens = true;
+
+        if(needToChange.name.Contains("Feathermoon"))
+            CurrentSettings.FeralasFeathermoon = true;
+
+        if(needToChange.name.Contains("Thalanaar"))
+            CurrentSettings.FeralasThalanaar = true;
+
+        if(needToChange.name.Contains("ro Crater"))
+            CurrentSettings.UngoroCrater = true;
+
+        if(needToChange.name.Contains("Dustwallow"))
+            CurrentSettings.DustwallowMarsh = true;
+
+        if(needToChange.name.Contains("Silithus"))
+            CurrentSettings.Silithus = true;
+
+        if(needToChange.name.Contains("Felwood"))
+            CurrentSettings.Felwood = true;
+            
+            FNVSettings.CurrentSettings.Save();
+            Logging.Write("[FNV_Quester]: Settings saved of Flight Master " + needToChange.name);
+            return;
+    }
+
+        public static void flightMasterSaveChanges(String needToChange)
+    {
+
+        if(needToChange.Contains("Arathi"))
+            CurrentSettings.ArathiHighlands = true;
+
+        if(needToChange.Contains("Wetlands"))
+            CurrentSettings.Wetlands = true;
+
+        if(needToChange.Contains("Western"))
+            CurrentSettings.WesternPlaguelands = true;
+
+        if(needToChange.Contains("Eastern"))
+            CurrentSettings.EasternPlaguelands = true;
+
+        if(needToChange.Contains("Hillsbrad"))
+            CurrentSettings.HillsbradFoothills = true;
+
+        if(needToChange.Contains("Hinterlands"))
+            CurrentSettings.TheHinterlands = true;
+
+        if(needToChange.Contains("Modan"))
+            CurrentSettings.LochModan = true;
+
+        if(needToChange.Contains("Ironforge"))
+            CurrentSettings.Ironforge = true;
+
+        if(needToChange.Contains("Searing"))
+            CurrentSettings.SearingGorge = true;
+
+        if(needToChange.Contains("Burning"))
+            CurrentSettings.BurningSteppes = true;
+
+        if(needToChange.Contains("Redridge"))
+            CurrentSettings.RedridgeMountains = true;
+
+        if(needToChange.Contains("Stormwind"))
+            CurrentSettings.Stormwind = true;
+
+        if(needToChange.Contains("Westfall"))
+            CurrentSettings.Westfall = true;
+
+        if(needToChange.Contains("Duskwood"))
+            CurrentSettings.Duskwood = true;
+
+        if(needToChange.Contains("Stranglethorn"))
+            CurrentSettings.StranglethornValley = true;
+
+        if(needToChange.Contains("Blasted"))
+            CurrentSettings.BlastedLands = true;
+
+        if(needToChange.Contains("Teldrassil"))
+            CurrentSettings.Teldrassil = true;
+
+        if(needToChange.Contains("Darkshore"))
+            CurrentSettings.Darkshore = true;
+
+        if(needToChange.Contains("Winterspring"))
+            CurrentSettings.Winterspring = true;
+
+        if(needToChange.Contains("Azshara"))
+            CurrentSettings.Azshara = true;
+
+        if(needToChange.Contains("Ashenvale"))
+            CurrentSettings.Ashenvale = true;
+
+        if(needToChange.Contains("Stonetalon"))
+            CurrentSettings.StonetalonMountains = true;
+
+        if(needToChange.Contains("Desolace"))
+            CurrentSettings.Desolace = true;
+
+        if(needToChange.Contains("TheBarrens"))
+            CurrentSettings.TheBarrens = true;
+
+        if(needToChange.Contains("Tanaris"))
+            CurrentSettings.Tanaris = true;
+
+        if(needToChange.Contains("TheBarrens"))
+            CurrentSettings.TheBarrens = true;
+
+        if(needToChange.Contains("Feathermoon"))
+            CurrentSettings.FeralasFeathermoon = true;
+
+        if(needToChange.Contains("Thalanaar"))
+            CurrentSettings.FeralasThalanaar = true;
+
+        if(needToChange.Contains("ro Crater"))
+            CurrentSettings.UngoroCrater = true;
+
+        if(needToChange.Contains("Dustwallow"))
+            CurrentSettings.DustwallowMarsh = true;
+
+        if(needToChange.Contains("Silithus"))
+            CurrentSettings.Silithus = true;
+
+        if(needToChange.Contains("Felwood"))
+            CurrentSettings.Felwood = true;
+            
+            FNVSettings.CurrentSettings.Save();
+            Logging.Write("[FNV_Quester]: Settings saved of Flight Master " + needToChange);
+            return;
+    }
+
+        public static FNVSettings CurrentSettings { get; set; }
+
+        public bool Save()
+        {
+            try
+            {
+                return Save(AdviserFilePathAndName("FNV_Quester", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Quester =&gt; Save(): " + e);
+                return false;
+            }
+        }
+
+        public static bool Load()
+        {
+            try
+            {
+                if(File.Exists(AdviserFilePathAndName("FNV_Quester", ObjectManager.Me.Name + "." + Usefuls.RealmName)))
+                {
+                    CurrentSettings = Load&lt;FNVSettings&gt;(AdviserFilePathAndName("FNV_Quester", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+                    return true;
+                }
+
+                FNVSettings.CurrentSettings = new FNVSettings();
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Quester =&gt; Load(): " + e);
+            }
+            return false;
+        }
+
+        //Finished profiles -&gt; True == completed
+        public bool launcher { get; set; }
+        public bool dwarfStart { get; set; }
+        public bool dwarfHunter { get; set; }
+        public bool nightelfHunter { get; set; }
+        public bool nightelfDruid { get; set; }
+        public bool warlock { get; set; }
+        public bool nightelfStart { get; set; }
+        public bool humanStart { get; set; }
+        public bool kharanos { get; set; }
+        public bool elwynn { get; set; }
+        public bool westfallEins { get; set; }
+        public bool lochModanEins { get; set; }
+        public bool darkshoreEins { get; set; }
+        public bool westfallZwei { get; set; }
+        public bool lochModanZwei { get; set; }
+        public bool darkshoreZwei { get; set; }
+        public bool westfallDrei { get; set; }
+        public bool redridge { get; set; }
+        public bool duskwoodEins { get; set; }
+        public bool darkshoreDrei { get; set; }
+        public bool stonetalon { get; set; }
+        public bool duskwoodZwei { get; set; }
+        public bool wetlandsEins { get; set; }
+        public bool ashenvaleEins { get; set; }
+        public bool wetlandsZwei { get; set; }
+        public bool duskwoodDrei { get; set; }
+        public bool ashenvaleZwei { get; set; }
+        public bool duskwoodVier { get; set; }
+        public bool ashenvaleDrei { get; set; }
+
+
+        public bool hinterlandsZwei { get; set; }
+
+        public bool defaultSettings { get; set; }
+       // public bool dwarfStart { get; set; }
+       // public bool nightelfStart { get; set; }
+        //public bool humanStart { get; set; }
+      //  public bool westfallEins { get; set; }
+        public bool lochModan { get; set; }
+        public bool auberdine { get; set; }
+       // public bool westfallZwei { get; set; }
+        public bool lakeshire { get; set; }
+        public bool wetlands { get; set; }
+        public bool ashenvale { get; set; }
+        public bool thousandNeedles { get; set; }
+        public bool dustwallow { get; set; }
+        public bool badlands { get; set; }
+        public bool alterac { get; set; }
+        public bool swampOfSorrows { get; set; }
+        public bool tanaris { get; set; }
+        public bool stranglethorn { get; set; }
+        public bool hinterlandsEins { get; set; }
+        public bool feralas { get; set; }
+       // public bool hinterlandsZwei { get; set; }
+
+        //FlightMaster
+        //Eastern Kingdoms
+        public bool Stormwind { get; set; }
+        public bool Westfall { get; set; }
+        public bool RedridgeMountains { get; set; }
+        public bool Duskwood { get; set; }
+        public bool StranglethornValley { get; set; }
+        public bool Ironforge { get; set; }
+        public bool BurningSteppes { get; set; }
+        public bool BlastedLands { get; set; }
+        public bool SearingGorge { get; set; }
+        public bool LochModan { get; set; }
+        public bool Wetlands { get; set; }
+        public bool ArathiHighlands { get; set; }
+        public bool HillsbradFoothills { get; set; }
+        public bool WesternPlaguelands { get; set; }
+        public bool EasternPlaguelands { get; set; }
+        public bool TheHinterlands { get; set; }
+
+        //Kalimdor
+        public bool Ashenvale { get; set; }
+        public bool Azshara { get; set; }
+        public bool Darkshore { get; set; }
+        public bool Teldrassil { get; set; }
+        public bool Desolace { get; set; }
+        public bool DustwallowMarsh { get; set; }
+        public bool Felwood { get; set; }
+        public bool FeralasFeathermoon { get; set; }
+        public bool FeralasThalanaar { get; set; }
+        public bool Moonglade { get; set; }
+        public bool Silithus { get; set; }
+        public bool StonetalonMountains { get; set; }
+        public bool Tanaris { get; set; }
+        public bool TheBarrens { get; set; }
+        public bool UngoroCrater { get; set; }
+        public bool Winterspring { get; set; }
+
+    }
+
+    //Buy and check bags
+    public class bags
+    {
+        public static bool bagsStarted = false;
+
+        public static int bagsEquipped()
+        {
+            int returnValue = 0;
+            string empty = "";
+
+            for(int i = 20; i &lt;= 23; i++)
+            {
+                empty = wManager.Wow.Helpers.Lua.LuaDoString&lt;string&gt;("return GetInventoryItemLink('player', " + i + ")");
+
+                if(empty.Contains("o"))
+                    returnValue++;
+            }
+
+            return returnValue;
+        }
+
+        public static string checkMoney()
+        {
+            string returnVariableNameZ = "";
+
+            returnVariableNameZ = wManager.Wow.Helpers.Lua.LuaDoString("returnVariableNameZ = GetMoney() return returnVariableNameZ", returnVariableNameZ);
+
+            return returnVariableNameZ;
+        }
+
+        public static bool canEquip()
+        {
+            string returnVariableName = "";
+
+            returnVariableName = wManager.Wow.Helpers.Lua.LuaDoString("returnVariableName = GetInventoryItemLink('player', 23 ) return returnVariableName", returnVariableName);
+
+
+            if(returnVariableName.Equals(""))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+    }
+
+
+    //Abandon Quests
+    public class abandonQuest
+    {
+
+        public static void abandon(string questName)
+        {
+
+            string name = questName;
+
+            wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + name + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+
+        }
+
+    }
+
+
+
+    //Throw away items - by Reapler
+    public class throwAway
+    {
+        public static int GetItemQuantity(string itemName)
+        {
+            var execute =
+                "local itemCount = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "if string.find(itemLink, \"" + itemName + "\") then " +
+                                    "itemCount = itemCount + stackCount; " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; " +
+                "return itemCount; ";
+            return Lua.LuaDoString&lt;int&gt;(execute);
+        }
+
+        /// &lt;summary&gt;
+        /// Used to delete all items by name.
+        /// &lt;/summary&gt;
+        /// &lt;param name="itemName"&gt;The item to delete.&lt;/param&gt;
+        /// &lt;param name="leaveAmount"&gt;The amount of items which remain in the bag.&lt;/param&gt;
+        /// &lt;remarks&gt;Bug at links with "-"&lt;/remarks&gt;
+        public static void DeleteItems(string itemName, int leaveAmount)
+        {
+            var itemQuantity = GetItemQuantity(itemName) - leaveAmount;
+            if(string.IsNullOrWhiteSpace(itemName) || itemQuantity &lt;= 0)
+                return;
+            var execute =
+                "local itemCount = " + itemQuantity + "; " +
+                "local deleted = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "local leftItems = itemCount - deleted; " +
+                                "if string.find(itemLink, \"" + itemName + "\") and leftItems &gt; 0 then " +
+                                    "if stackCount &lt;= 1 then " +
+                                        "PickupContainerItem(b, s); " +
+                                        "DeleteCursorItem(); " +
+                                        "deleted = deleted + 1; " +
+                                    "else " +
+                                        "if (leftItems &gt; stackCount) then " +
+                                            "SplitContainerItem(b, s, stackCount); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + stackCount; " +
+                                        "else " +
+                                            "SplitContainerItem(b, s, leftItems); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + leftItems; " +
+                                        "end " +
+                                    "end " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; ";
+            Lua.LuaDoString(execute);
+        }
+    }
+
+
+public class Darnassus
+{
+    private static Vector3 darnassusEnterPos = new Vector3(8775.104, 962.8825, 30.33067);
+    private static Vector3 darnassusLeavePos = new Vector3(9945.827, 2598.705, 1316.187);
+
+    public static void enter()
+    {
+        Logging.Write("[FNV_Quester]: Moving to position to enter Darnassus portal...");
+
+        GoToTask.ToPosition(darnassusEnterPos);
+
+        Logging.Write("[FNV_Quester]: Enter Darnassus, disable teleport...");
+
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+        Vector3 pos = new Vector3(8812.807f, 972.6884f, 32.50122f);
+
+        while(ObjectManager.Me.Position.DistanceTo(pos) &gt; 1 &amp;&amp; Usefuls.SubMapZoneName.Contains("theran Village"))
+        {
+            wManager.Wow.Helpers.MovementManager.Face(pos);
+            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+        }
+
+        Logging.Write("[FNV_Quester]: Reenable teleport");
+
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
+    }
+
+    public static void leave()
+    {
+        Logging.Write("[FNV_Quester]: Moving to position to leave Darnassus portal...");
+
+        GoToTask.ToPosition(darnassusLeavePos);
+
+        Logging.Write("[FNV_Quester]: Leave Darnassus, disable teleport...");
+
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+        Vector3 pos = new Vector3(9946.378f, 2642.551f, 1316.749f);
+
+        while(ObjectManager.Me.Position.DistanceTo(pos) &gt; 1 &amp;&amp; Usefuls.MapZoneName.Contains("Darnassus"))
+        {
+            wManager.Wow.Helpers.MovementManager.Face(pos);
+            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+        }
+
+        Logging.Write("[FNV_Quester]: Reenable teleport");
+        wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
+    }
+}
+
+    [Serializable]
+    public class FNVQuesterFlightMaster : Settings
+    {
+        public FNVQuesterFlightMaster()
+        {
+            //FlightMaster discovered
+            //Eastern Kingdoms
+            this.ArathiHighlands = false;
+            this.Wetlands = false;
+            this.WesternPlaguelands = false;
+            this.EasternPlaguelands = false;
+            this.HillsbradFoothills = false;
+            this.TheHinterlands = false;
+            this.LochModan = false;
+            this.Ironforge = false;
+            this.SearingGorge = false;
+            this.BurningSteppes = false;
+            this.RedridgeMountains = false;
+            this.Stormwind = false;
+            this.Westfall = false;
+            this.Duskwood = false;
+            this.StranglethornValley = false;
+            this.BlastedLands = false;
+
+            //Kalimdor
+            this.Teldrassil = false;
+            this.Darkshore = false;
+            this.Winterspring = false;
+            this.Azshara = false;
+            this.Ashenvale = false;
+            this.StonetalonMountains = false;
+            this.Desolace = false;
+            this.TheBarrens = false;
+            this.Tanaris = false;
+            this.FeralasFeathermoon = false;
+            this.FeralasThalanaar = false;
+            this.UngoroCrater = false;
+            this.DustwallowMarsh = false;
+            this.Silithus = false;
+            this.Moonglade = false;
+            this.Felwood = false;
+
+        }
+
+    public static void flightMasterSaveChanges(FlightMasterDB needToChange)
+    {
+
+        if(needToChange.name.Contains("Arathi"))
+            CurrentSettings.ArathiHighlands = true;
+
+        if(needToChange.name.Contains("Wetlands"))
+            CurrentSettings.Wetlands = true;
+
+        if(needToChange.name.Contains("Western"))
+            CurrentSettings.WesternPlaguelands = true;
+
+        if(needToChange.name.Contains("Eastern"))
+            CurrentSettings.EasternPlaguelands = true;
+
+        if(needToChange.name.Contains("Hillsbrad"))
+            CurrentSettings.HillsbradFoothills = true;
+
+        if(needToChange.name.Contains("Hinterlands"))
+            CurrentSettings.TheHinterlands = true;
+
+        if(needToChange.name.Contains("Modan"))
+            CurrentSettings.LochModan = true;
+
+        if(needToChange.name.Contains("Ironforge"))
+            CurrentSettings.Ironforge = true;
+
+        if(needToChange.name.Contains("Searing"))
+            CurrentSettings.SearingGorge = true;
+
+        if(needToChange.name.Contains("Burning"))
+            CurrentSettings.BurningSteppes = true;
+
+        if(needToChange.name.Contains("Redridge"))
+            CurrentSettings.RedridgeMountains = true;
+
+        if(needToChange.name.Contains("Stormwind"))
+            CurrentSettings.Stormwind = true;
+
+        if(needToChange.name.Contains("Westfall"))
+            CurrentSettings.Westfall = true;
+
+        if(needToChange.name.Contains("Duskwood"))
+            CurrentSettings.Duskwood = true;
+
+        if(needToChange.name.Contains("Stranglethorn"))
+            CurrentSettings.StranglethornValley = true;
+
+        if(needToChange.name.Contains("Blasted"))
+            CurrentSettings.BlastedLands = true;
+
+        if(needToChange.name.Contains("Teldrassil"))
+            CurrentSettings.Teldrassil = true;
+
+        if(needToChange.name.Contains("Darkshore"))
+            CurrentSettings.Darkshore = true;
+
+        if(needToChange.name.Contains("Winterspring"))
+            CurrentSettings.Winterspring = true;
+
+        if(needToChange.name.Contains("Azshara"))
+            CurrentSettings.Azshara = true;
+
+        if(needToChange.name.Contains("Ashenvale"))
+            CurrentSettings.Ashenvale = true;
+
+        if(needToChange.name.Contains("Stonetalon"))
+            CurrentSettings.StonetalonMountains = true;
+
+        if(needToChange.name.Contains("Desolace"))
+            CurrentSettings.Desolace = true;
+
+        if(needToChange.name.Contains("Tanaris"))
+            CurrentSettings.Tanaris = true;
+
+        if(needToChange.name.Contains("The Barrens"))
+            CurrentSettings.TheBarrens = true;
+
+        if(needToChange.name.Contains("Feathermoon"))
+            CurrentSettings.FeralasFeathermoon = true;
+
+        if(needToChange.name.Contains("Thalanaar"))
+            CurrentSettings.FeralasThalanaar = true;
+
+        if(needToChange.name.Contains("ro Crater"))
+            CurrentSettings.UngoroCrater = true;
+
+        if(needToChange.name.Contains("Dustwallow"))
+            CurrentSettings.DustwallowMarsh = true;
+
+        if(needToChange.name.Contains("Silithus"))
+            CurrentSettings.Silithus = true;
+
+        if(needToChange.name.Contains("Felwood"))
+            CurrentSettings.Felwood = true;
+
+        FNVQuesterFlightMaster.CurrentSettings.Save();
+        Logging.Write("[FNV_FlightMaster]: Settings saved of Flight Master " + needToChange.name);
+        return;
+    }
+
+        public static FNVQuesterFlightMaster CurrentSettings { get; set; }
+
+        public bool Save()
+        {
+            try
+            {
+                return Save(AdviserFilePathAndName("FNVQuesterFlightMaster", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNVQuesterFlightMaster =&gt; Save(): " + e);
+                return false;
+            }
+        }
+
+        public static bool Load()
+        {
+            try
+            {
+                if(File.Exists(AdviserFilePathAndName("FNVQuesterFlightMaster", ObjectManager.Me.Name + "." + Usefuls.RealmName)))
+                {
+                    CurrentSettings = Load&lt;FNVQuesterFlightMaster&gt;(AdviserFilePathAndName("FNVQuesterFlightMaster", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+                    return true;
+                }
+
+                FNVQuesterFlightMaster.CurrentSettings = new FNVQuesterFlightMaster();
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNVQuesterFlightMaster =&gt; Load(): " + e);
+            }
+            return false;
+        }
+
+
+        //FlightMaster
+        //Eastern Kingdoms
+        public bool Stormwind { get; set; }
+        public bool Westfall { get; set; }
+        public bool RedridgeMountains { get; set; }
+        public bool Duskwood { get; set; }
+        public bool StranglethornValley { get; set; }
+        public bool Ironforge { get; set; }
+        public bool BurningSteppes { get; set; }
+        public bool BlastedLands { get; set; }
+        public bool SearingGorge { get; set; }
+        public bool LochModan { get; set; }
+        public bool Wetlands { get; set; }
+        public bool ArathiHighlands { get; set; }
+        public bool HillsbradFoothills { get; set; }
+        public bool WesternPlaguelands { get; set; }
+        public bool EasternPlaguelands { get; set; }
+        public bool TheHinterlands { get; set; }
+
+        //Kalimdor
+
+        public bool Ashenvale { get; set; }
+        public bool Azshara { get; set; }
+        public bool Darkshore { get; set; }
+        public bool Teldrassil { get; set; }
+        public bool Desolace { get; set; }
+        public bool DustwallowMarsh { get; set; }
+        public bool Felwood { get; set; }
+        public bool FeralasFeathermoon { get; set; }
+        public bool FeralasThalanaar { get; set; }
+        public bool Moonglade { get; set; }
+        public bool Silithus { get; set; }
+        public bool StonetalonMountains { get; set; }
+        public bool Tanaris { get; set; }
+        public bool TheBarrens { get; set; }
+        public bool UngoroCrater { get; set; }
+        public bool Winterspring { get; set; }
+
+    }
+
+public class Boat
+{
+    private static bool _boatTaken = false;
+
+    public static void menethilToAuberdine()
+    {
+
+        // Settings:
+        
+        var zeppelinEntryId = 176310; // Zeppelin/Ship EntryId
+                                      // From
+        var fromZeppelinWaitPosition = new Vector3(-3709.475, -575.0988, 0); // Position where Zeppelin/Ship waits players (from)
+        var fromPlayerWaitPosition = new Vector3(-3727.4, -581.3, 6.2); // Position where the player waits Zeppelin/Ship (from)
+        var fromPlayerInZeppelinPosition = new Vector3(-3713.333, -571.7416, 6.098111); // Position where the player waits in the Zeppelin/Ship (from)
+                                                                                        // To
+        var toZeppelinWaitPosition = new Vector3(6406.216, 823.0809, 0); // Position where Zeppelin/Ship waits players (to)
+        var toPlayerLeavePosition = new Vector3(6461.408, 806.1595, 6.770809); // Position to go out the Zeppelin/Ship (to)
+                                                                               //Pos1
+        var enterPos1 = new Vector3(-3724.827, -581.0698, 6.191196);
+        //Pos2
+        var enterPos2 = new Vector3(-3723.727, -580.3727, 6.184784);
+        _boatTaken = false;
+
+        if(!_boatTaken)
+        {
+            // Change WRobot settings:
+            Logging.Write("[FNV_Quester]: Taking boat from Menethil to Auberdine");
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+            wManager.wManagerSetting.CurrentSetting.Repair = false;
+            wManager.wManagerSetting.CurrentSetting.Selling = false;
+
+            // Code:
+            if(!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+                return;
+
+            while(Usefuls.ContinentId != (int)ContinentId.Kalimdor)
+            {
+                if(!ObjectManager.Me.InTransport)
+                {
+                    if(GoToTask.ToPosition(fromPlayerWaitPosition))
+                    {
+                        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+                        if(zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+                        {
+
+                            MovementManager.MoveTo(enterPos1);
+                            if(GoToTask.ToPosition(enterPos1))
+                                MovementManager.MoveTo(enterPos2);
+
+                            Lua.LuaDoString("ClearTarget()");
+
+                            //wManager.Wow.Helpers.MovementManager.Face(new Vector3(-3713.333, -571.7416, 6.098111));
+
+                            MovementManager.MoveTo(fromPlayerInZeppelinPosition);
+                        }
+                    }
+                }
+            }
+            while(Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+            {
+                if(ObjectManager.Me.InTransport)
+                {
+                    var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+                    if(zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+                    {
+                        MovementManager.MoveTo(toPlayerLeavePosition);
+                        break;
+                    }
+                }
+            }
+
+            Logging.Write("[FNV_Quester]: Boat taken from Menethil to Auberdine");
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
+            wManager.wManagerSetting.CurrentSetting.Repair = true;
+            wManager.wManagerSetting.CurrentSetting.Selling = true;
+            _boatTaken = true;
+        }
+        return;
+
+
+    }
+
+
+}
+   
+
+
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

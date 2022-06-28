@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Stormheim 16 ---" />
+	<QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+	<QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.Lua.LuaDoString&lt;bool&gt;(@&quot;&#xD;&#xA;local achievementID = 10668;&#xD;&#xA;local indexCriteria = 16;&#xD;&#xA;local id, name, points, completedA, month, day, year, description, flagsA, icon, rewardText, isGuild, wasEarnedByMe, earnedBy = GetAchievementInfo(achievementID);&#xD;&#xA;if completedA then return completedA end&#xD;&#xA;local criteriaString, criteriaType, completed, quantity, reqQuantity, charName, flags, assetID, quantityString, criteriaID, eligible = GetAchievementCriteriaInfo(achievementID, indexCriteria);&#xD;&#xA;return completed;&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="Stormheim16" />
+    <QuestsSorted Action="RunLuaCode" NameClass="RunMacroText(&quot;/use item:141605&quot;)" />
+    <QuestsSorted Action="Wait" NameClass="10000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="createdby\Legion\Suramar\Suramar1.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Stormheim16</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="4025.321" Y="1352.5" Z="0.5263799" />
+          <Vector3 X="4035.05" Y="1345.663" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4043.778" Y="1338.391" Z="-1.849366" Type="Swimming" />
+          <Vector3 X="4052.979" Y="1331.764" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4062.348" Y="1325.282" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4071.684" Y="1318.822" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4081.004" Y="1312.372" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4090.367" Y="1305.891" Z="-1.849331" Type="Swimming" />
+          <Vector3 X="4099.69" Y="1299.432" Z="-1.849501" Type="Swimming" />
+          <Vector3 X="4109.037" Y="1292.949" Z="-1.849383" Type="Swimming" />
+          <Vector3 X="4118.359" Y="1286.479" Z="-1.849339" Type="Swimming" />
+          <Vector3 X="4127.686" Y="1280.009" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4137.031" Y="1273.536" Z="-1.849332" Type="Swimming" />
+          <Vector3 X="4146.361" Y="1267.07" Z="-1.849327" Type="Swimming" />
+          <Vector3 X="4155.712" Y="1260.587" Z="-1.849369" Type="Swimming" />
+          <Vector3 X="4165.021" Y="1254.127" Z="-1.849315" Type="Swimming" />
+          <Vector3 X="4174.326" Y="1247.682" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4183.661" Y="1241.202" Z="-1.849343" Type="Swimming" />
+          <Vector3 X="4192.995" Y="1234.735" Z="-1.849391" Type="Swimming" />
+          <Vector3 X="4202.351" Y="1228.258" Z="-1.849367" Type="Swimming" />
+          <Vector3 X="4211.677" Y="1221.803" Z="-1.849357" Type="Swimming" />
+          <Vector3 X="4221.002" Y="1215.343" Z="-1.849365" Type="Swimming" />
+          <Vector3 X="4230.38" Y="1208.853" Z="-1.849381" Type="Swimming" />
+          <Vector3 X="4239.702" Y="1202.396" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4249.054" Y="1195.925" Z="-1.849329" Type="Swimming" />
+          <Vector3 X="4258.428" Y="1189.439" Z="-1.849353" Type="Swimming" />
+          <Vector3 X="4267.787" Y="1182.964" Z="-1.849338" Type="Swimming" />
+          <Vector3 X="4276.957" Y="1176.319" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4286.152" Y="1169.659" Z="-1.849336" Type="Swimming" />
+          <Vector3 X="4295.35" Y="1163.001" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4304.578" Y="1156.317" Z="-1.848313" Type="Swimming" />
+          <Vector3 X="4312.461" Y="1148.163" Z="-1.849323" Type="Swimming" />
+          <Vector3 X="4320.632" Y="1140.267" Z="-1.849357" Type="Swimming" />
+          <Vector3 X="4328.773" Y="1132.406" Z="-1.849411" Type="Swimming" />
+          <Vector3 X="4336.804" Y="1124.422" Z="-1.849475" Type="Swimming" />
+          <Vector3 X="4339.3" Y="1113.388" Z="-1.849557" Type="Swimming" />
+          <Vector3 X="4341.384" Y="1102.231" Z="-1.849557" Type="Swimming" />
+          <Vector3 X="4343.469" Y="1091.071" Z="-1.849577" Type="Swimming" />
+          <Vector3 X="4345.558" Y="1079.864" Z="-1.849319" Type="Swimming" />
+          <Vector3 X="4345.671" Y="1068.541" Z="-1.850335" Type="Swimming" />
+          <Vector3 X="4345.204" Y="1057.187" Z="-1.850313" Type="Swimming" />
+          <Vector3 X="4344.735" Y="1045.888" Z="-1.850313" Type="Swimming" />
+          <Vector3 X="4344.271" Y="1034.523" Z="-1.849313" Type="Swimming" />
+          <Vector3 X="4343.809" Y="1023.214" Z="-1.850313" Type="Swimming" />
+          <Vector3 X="4342.674" Y="1011.938" Z="-1.849325" Type="Swimming" />
+          <Vector3 X="4337.943" Y="1001.657" Z="-1.849416" Type="Swimming" />
+          <Vector3 X="4333.819" Y="991.0609" Z="-1.849406" Type="Swimming" />
+          <Vector3 X="4330.271" Y="980.2789" Z="-1.849491" Type="Swimming" />
+          <Vector3 X="4327.409" Y="969.2809" Z="-1.849332" Type="Swimming" />
+          <Vector3 X="4325.529" Y="961.7089" Z="-1.91763" Type="Swimming" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>0</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

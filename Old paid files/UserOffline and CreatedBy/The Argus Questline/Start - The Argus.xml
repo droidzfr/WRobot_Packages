@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.HarvestHerbs = false;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.HarvestMinerals = false;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="None" NameClass="wManager.wManagerSetting.CurrentSetting.UseFlyingMount = false" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(47221)" />
+    <QuestsSorted Action="MessageBox" NameClass="                            Please complete quest&#xD;&#xA;                [The Hand of Fate] &amp; [Two If By Sea]&#xD;&#xA;                            before starting profile!" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Dalaran&quot;" />
+    <QuestsSorted Action="Pulse" NameClass="toVindikaar" />
+    <QuestsSorted Action="Pulse" NameClass="console" />
+    <QuestsSorted Action="MessageBox" NameClass="             Pls bring me back to the Last Quest and Start me again!" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(48199)" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Start The Argus _ Part 1 ---" />
+    <QuestsSorted Action="LoadProfile" NameClass="createdby\Legion\The Argus\Part 1.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(48081)" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Start The Argus _ Part 2 ---" />
+    <QuestsSorted Action="LoadProfile" NameClass="createdby\Legion\The Argus\Part 2.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(46818)" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Start The Argus _ Part 3 ---" />
+    <QuestsSorted Action="LoadProfile" NameClass="createdby\Legion\The Argus\Part 3.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>to Vindikaar</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-828.72" Y="4371.78" Z="738.6367" />
+          <Vector3 X="-832.4802" Y="4369.515" Z="738.6149" />
+          <Vector3 X="-835.7386" Y="4366.957" Z="738.8417" />
+          <Vector3 X="-838.6664" Y="4363.893" Z="741.8617" />
+          <Vector3 X="-840.2683" Y="4360.076" Z="744.7433" />
+          <Vector3 X="-840.4033" Y="4355.93" Z="745.1763" />
+          <Vector3 X="-838.7351" Y="4352.116" Z="745.1591" />
+          <Vector3 X="-835.7058" Y="4349.395" Z="745.5842" />
+          <Vector3 X="-832.0997" Y="4347.379" Z="745.2497" />
+          <Vector3 X="-828.4971" Y="4345.292" Z="745.2497" />
+          <Vector3 X="-824.8486" Y="4343.052" Z="745.2497" />
+          <Vector3 X="-821.6102" Y="4340.416" Z="745.2497" />
+          <Vector3 X="-819.5268" Y="4336.998" Z="745.2062" />
+          <Vector3 X="-818.8734" Y="4332.795" Z="744.8482" />
+          <Vector3 X="-818.9175" Y="4328.618" Z="744.8723" />
+          <Vector3 X="-819.7784" Y="4324.525" Z="744.9663" />
+          <Vector3 X="-821.4218" Y="4320.771" Z="745.2166" />
+          <Vector3 X="-823.3337" Y="4317.014" Z="744.7853" />
+          <Vector3 X="-825.4305" Y="4313.471" Z="744.9263" />
+          <Vector3 X="-827.5738" Y="4309.871" Z="745.0513" />
+          <Vector3 X="-829.747" Y="4306.221" Z="745.5757" />
+          <Vector3 X="-831.8989" Y="4302.607" Z="746.2842" />
+          <Vector3 X="-834.0336" Y="4299.022" Z="746.2794" />
+          <Vector3 X="-836.1641" Y="4295.443" Z="746.2764" />
+          <Vector3 X="-838.2946" Y="4291.865" Z="746.2719" />
+          <Vector3 X="-840.4257" Y="4288.191" Z="746.2686" />
+          <Vector3 X="-842.3939" Y="4284.4" Z="746.2657" />
+          <Vector3 X="-844.0416" Y="4280.777" Z="746.2642" />
+          <Vector3 X="-845.9584" Y="4276.969" Z="746.2645" />
+          <Vector3 X="-847.9113" Y="4273.272" Z="746.2669" />
+          <Vector3 X="-850.2999" Y="4268.061" Z="746.2719" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return (ObjectManager.Me.Position.DistanceTo2D(new Vector3(-851.1796f, 4267.23f, 746.2733f)) &lt; 8);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>console</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+		var p = new Vector3(-851.1796f, 4267.23f, 746.2733f);
+		GoToTask.ToPositionAndIntecractWithNpc(p, 121014);
+	Thread.Sleep(15000);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return (ObjectManager.Me.Position.DistanceTo2D(new Vector3(-851.1796f, 4267.23f, 746.2733f)) &lt; 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script />
+  <OffMeshConnections />
+</EasyQuestProfile>

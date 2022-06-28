@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="Logging.Write(&quot;This is version 1&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="try&#xD;&#xA;{&#xD;&#xA;    string onlineFile = &quot;https://tdefaultorandomb.000webhostapp.com/TestFile.xml&quot;;&#xD;&#xA;    string currentFile =  System.Windows.Forms.Application.StartupPath + @&quot;\Profiles\Quester\&quot; + wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;&#xD;&#xA;    Logging.Write(&quot;Set online and current file&quot;);&#xD;&#xA;&#xD;&#xA;    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);&#xD;&#xA;    var onlineFileContent = new System.Net.WebClient {Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);&#xD;&#xA;&#xD;&#xA;    Logging.Write(&quot;Trying to read content of current and online file&quot;);&#xD;&#xA;&#xD;&#xA;    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))&#xD;&#xA;    {&#xD;&#xA;        Logging.Write(&quot;Check difference&quot;);&#xD;&#xA;        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option &quot;Short file&quot;&#xD;&#xA;        {&#xD;&#xA;            if (currentFileContent != onlineFileContent) // if new update&#xD;&#xA;            {&#xD;&#xA;                robotManager.Helpful.Logging.Write(&quot;New version found, try to update file&quot;);&#xD;&#xA;                System.IO.File.WriteAllText(currentFile, onlineFileContent); // replace user file by online file&#xD;&#xA;                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;catch (System.Exception e)&#xD;&#xA;{&#xD;&#xA;    robotManager.Helpful.Logging.WriteError(&quot;Auto update: &quot; + e);﻿&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="2" />
+    <QuestsSorted Action="Wait" NameClass="2" />
+    <QuestsSorted Action="Wait" NameClass="2" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests />
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

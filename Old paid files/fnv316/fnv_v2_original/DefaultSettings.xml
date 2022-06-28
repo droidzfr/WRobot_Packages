@@ -1,0 +1,1733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DetectNodesStuck = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.CanAttackUnitsAlreadyInFight = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AvoidBlacklistedZonesPathFinder = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackElite = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.Repair = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellGray = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellGreen = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.Selling = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellWhite = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.MinFreeBagSlotsToGoToTown = 4;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.SearchRadius = 100;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.MaxUnitsNear = 5;&#xD;&#xA;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.WallDistancePathFinder = 2;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AddToNpcDb = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.BlackListIfNotCompletePath = false;&#xD;&#xA;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.NpcScanAuctioneer = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.NpcScanMailboxes = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.NpcScanRepair = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.NpcScanVendor = false;&#xD;&#xA;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.HarvestHerbs = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.HarvestMinerals = false;&#xD;&#xA;&#xD;&#xA;" />
+    <QuestsSorted Action="RunCode" NameClass=" wManager.wManagerSetting.CurrentSetting.Save();&#xD;&#xA;Thread.Sleep(100);&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Saving settings...&quot;); &#xD;&#xA;Thread.Sleep(500);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.Save();" />
+    <QuestsSorted Action="RunCode" NameClass="&#xD;&#xA;&#xD;&#xA;if(ObjectManager.Me.WowClass == WoWClass.Warlock)&#xD;&#xA;{&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkName = &quot;Refreshing Spring Water&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodName = &quot;Tough Hunk of Bread&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodIsSpell = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkPercent = 35;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodPercent = 35;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.RestingMana = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Using default food / drink settings for Warlock&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(ObjectManager.Me.WowClass == WoWClass.Warrior)&#xD;&#xA;{&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkAmount = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodAmount = 40;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkName = &quot;&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodName = &quot;Tough Hunk of Bread&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodIsSpell = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkMaxPercent = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkPercent = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodPercent = 65;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.RestingMana = false;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Using default food / drink settings for Warrior&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;DEFAULT_CHAT_FRAME:AddMessage('[FNV_Quester]: Make sure to set up some kind of range pull, for &gt; level 10 zones')&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(ObjectManager.Me.WowClass == WoWClass.Rogue)&#xD;&#xA;{&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkAmount = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodAmount = 40;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkName = &quot;&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodName = &quot;Tough Hunk of Bread&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodIsSpell = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkMaxPercent = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkPercent = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodPercent = 65;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.RestingMana = false;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Using default food / drink settings for Rogue&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;DEFAULT_CHAT_FRAME:AddMessage('[FNV_Quester]: Make sure to set up some kind of range pull, for &gt; level 10 zones')&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(ObjectManager.Me.WowClass == WoWClass.Mage)&#xD;&#xA;{&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkName = &quot;Refreshing Spring Water&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodName = &quot;Tough Hunk of Bread&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodIsSpell = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkPercent = 50;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodPercent = 65;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.RestingMana = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Using default food / drink settings for Mage&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(ObjectManager.Me.WowClass == WoWClass.Druid)&#xD;&#xA;{&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodAmount = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkName = &quot;Refreshing Spring Water&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodName = &quot;Healing Touch&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodIsSpell = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodMaxPercent = 50;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkPercent = 35;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodPercent = 15;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.RestingMana = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Using default food / drink settings for Druid&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(ObjectManager.Me.WowClass == WoWClass.Paladin)&#xD;&#xA;{&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodAmount = 0;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkName = &quot;Refreshing Spring Water&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodName = &quot;Holy Light&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodIsSpell = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodMaxPercent = 50;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkPercent = 35;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodPercent = 15;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.RestingMana = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Using default food / drink settings for Paladin&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(ObjectManager.Me.WowClass == WoWClass.Hunter)&#xD;&#xA;{&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodAmount = 20;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkName = &quot;Refreshing Spring Water&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodName = &quot;Tough Hunk of Bread&quot;;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodIsSpell = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodMaxPercent = 95;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DrinkPercent = 35;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FoodPercent = 65;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.RestingMana = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Using default food / drink settings for Hunter&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;DEFAULT_CHAT_FRAME:AddMessage('[FNV_Quester]: Do not forget that wRobot counts empty bag slots of ammo bags as free bag space!')&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Forms.UserControlTabGeneralSettings.ReloadGeneralSettings();&#xD;&#xA;&#xD;&#xA;FNVSettings.Initialize();&#xD;&#xA;FNVSettings.CurrentSettings.launcher = true;&#xD;&#xA;FNVSettings.Dispose();" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="LoadProfile" NameClass="FNV_V2\#0 START_FNVLauncher_V2.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests />
+  <Script>using robotManager.Helpful;
+using robotManager.Products;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using wManager.Events;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.ComponentModel;
+using System.Threading.Tasks;
+
+//FlightMaster
+public class FlightMaster
+{
+
+    private int priority;
+
+    public FlightMaster(int priority)
+    {
+        this.priority = priority;
+    }
+
+    public static void main(String[] args)
+    {
+        FlightMaster temp = new FlightMaster(1);
+        Logging.Write("Stuff");
+        
+
+       // temp.startFlightMaster();
+    }
+
+    public static int timer = 0;
+    public static Vector3 myPositionAtStart = new Vector3(0, 0, 0);
+    public static bool _deleteOldPath = false;
+    public static bool _isLaunched ;
+    static bool longMoveState = false;
+    static Vector3 checkDistanceToDestination;
+    private static int travelDistance = 1250;
+    private static float saveDistance;
+    public static Vector3 destinationVector = new Vector3(0, 0, 0);
+
+    //public static MovementEvents.MovementCancelableHandler MovementEventsOnOnMovementPulse { get; private set; }
+
+    // public static List&lt;FlightMasterDB&gt; FML = fillDB();
+
+    public void startFlightMaster()
+    {
+        Logging.Write("[FNV_Quester]: Flight Master initialized");
+        _isLaunched = true;
+        FNVSettings.Load();
+        
+        //flightMasterLoop();
+    }
+
+    public void start()
+    {
+        //Logging.Write("Subscribing to event");
+       // SubscribeToEvent();
+       // watchForEvents();
+    }
+
+    public void stop()
+    {
+        //Logging.Write("Unsubscribing to event");
+        //UnSubscribeEvents();
+    }
+
+    public static void disposeFlightMaster()
+    {
+        _isLaunched = false;
+        FNVSettings.CurrentSettings.Save();
+        //clearOldPath();
+        //_deleteOldPath = true;
+        //UnSubscribeEvents();
+        //MovementEvents.OnMovementPulse -= new MovementEvents.MovementCancelableHandler(FlightMaster.MovementEventsOnOnMovementPulse);
+        //Logging.Write("[FNV_Quester]: Flight Master disposed");
+    }
+
+    public static void disposeFlightMaster(int wert)
+    {
+        _isLaunched = false;
+        if(wert == 1)
+        {
+            Logging.Write("Flight Master stopped, dead");
+        }
+        else
+        {
+            Logging.Write("Flight Master stopped, combat");
+        }
+    }
+
+
+    private void SubscribeToEvent()
+    {
+         MovementEvents.OnMovementPulse += MovementEventsOnOnMovementPulse;
+    }
+
+    public void UnSubscribeEvents()
+    {
+        MovementEvents.OnMovementPulse -= MovementEventsOnOnMovementPulse;
+    }
+
+    private void watchForEvents()
+    {
+
+        EventsLuaWithArgs.OnEventsLuaWithArgs += (LuaEventsId id, List&lt;string&gt; args) =&gt;
+        {
+
+
+            if (id == wManager.Wow.Enums.LuaEventsId.PLAYER_DEAD)
+            {
+                Logging.Write("[FNV_Quester]: Player died, stop Flight Master");
+                disposeFlightMaster(1);
+            }
+            if (id == wManager.Wow.Enums.LuaEventsId.PLAYER_ENTER_COMBAT)
+            {
+                disposeFlightMaster(2);
+          		  Logging.Write("[FNV_Quester]: Player entered combat, stop Flight Master");
+            }
+          	
+
+        };
+
+    }
+
+
+    private void MovementEventsOnOnMovementPulse(List&lt;Vector3&gt; path, CancelEventArgs cancelEventArgs)
+    {
+        if(timer &lt; 1)
+        {
+            //Logging.Write("Enter MovementEventsOnOnMovementPulse");
+            checkDistanceToDestination = path.Last&lt;Vector3&gt;();
+            longMove(path.Last&lt;Vector3&gt;());
+            destinationVector = path.Last&lt;Vector3&gt;();
+            if(ObjectManager.Me.Position.DistanceTo(destinationVector) &gt; 1000 &amp;&amp; !_isLaunched)
+                startFlightMaster();
+        }
+        else
+        {
+            Logging.Write("[FNV_Quester]: Taxi in Pause");
+        }
+    }
+
+    public bool longMove(Vector3 destination)
+    {
+        saveDistance = new Vector3(destination).DistanceTo(ObjectManager.Me.Position);
+        //Logging.Write("[FNV_Quester]: Distance to destination " + saveDistance);
+        if(new Vector3(destination).DistanceTo(ObjectManager.Me.Position) &lt; travelDistance)
+        {
+            longMoveState = false;
+            return false;
+        }
+        else
+        {
+            longMoveState = true;
+            return true;
+        }
+    }
+
+
+    /*
+    public static void flightMasterLoop()
+    {
+
+        myPositionAtStart = ObjectManager.Me.Position;
+        //Logging.Write("[FNV_Quester]: Current position " + myPositionAtStart);
+        while(Products.IsStarted &amp;&amp; _isLaunched)
+        {
+            try
+            {
+                if(!Products.InPause &amp;&amp; longMoveState)
+                {
+                    Logging.Write("[FNV_Quester]: Long move detected, checking own Taxi DB to find a better path");
+
+                    FlightMasterDB from = getClosestFlightMasterFrom();
+                    FlightMasterDB to = getClosestFlightMasterTo();
+
+                    if(!to.name.Contains("null") &amp;&amp; !from.name.Contains("null") &amp;&amp; !from.Equals(to) &amp;&amp; from.position.DistanceTo(ObjectManager.Me.Position) + to.position.DistanceTo(destinationVector) &lt;= saveDistance)
+                    {
+                        Logging.Write("[FNV_Quester]: Shorter path detected, taking Taxi from " + from.name + " to " + to.name);
+                        takeTaxi(from.name, to.name);
+
+                        disposeFlightMaster();
+                    }
+                    else
+                    {
+                        Logging.Write("[FNV_Quester]: No shorter path available, skip flying");
+                        disposeFlightMaster();
+
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Logging.Write("[FNV_Quester]: Error " + e);
+            }
+
+            //Logging.Write("Pause flight master scan for 10 seconds");
+            disposeFlightMaster();
+            //Thread.Sleep(10000);
+        }
+    }
+    */
+
+    public static FlightMasterDB getClosestFlightMasterFrom()
+    {
+        List&lt;FlightMasterDB&gt; FMLnfmd = fillDB();
+        float tempDistance = 99999;
+        FlightMasterDB returnObject = new FlightMasterDB("null", 0, new Vector3(0, 0, 0), false);
+        //Logging.Write("returnObject " + returnObject.name);
+
+        foreach(var a in FMLnfmd)
+        {
+            //Logging.Write("A : " + a.name);
+            if(a.alreadyDiscovered &amp;&amp; a.position.DistanceTo(ObjectManager.Me.Position) &lt; tempDistance &amp;&amp; (a.continent == checkContinent()))
+            {
+                tempDistance = a.position.DistanceTo(ObjectManager.Me.Position);
+                returnObject = a;
+            }
+        }
+        //Logging.Write("returnObject " + returnObject.name);
+        return returnObject;
+    }
+
+    public static FlightMasterDB getClosestFlightMasterTo()
+    {
+        List&lt;FlightMasterDB&gt; FMLgcfmt = fillDB();
+        float tempDistance = 99999;
+        FlightMasterDB returnObject = new FlightMasterDB("null", 0, new Vector3(0, 0, 0), false);
+        //Logging.Write("returnObject " + returnObject.name);
+
+        foreach(var a in FMLgcfmt)
+        {
+            //Logging.Write("A : " + a.name);
+            if(a.alreadyDiscovered &amp;&amp; a.position.DistanceTo(destinationVector) &lt; tempDistance &amp;&amp; (a.continent == checkContinent()))
+            {
+                tempDistance = a.position.DistanceTo(destinationVector);
+                returnObject = a;
+            }
+        }
+        //Logging.Write("returnObject " + returnObject.name);
+        return returnObject;
+    }
+
+    public static bool checkContinent()
+    {
+        if(Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+        {
+            //Logging.Write("[FNV_Quester]: Currently located in Kalimdor");
+            return true;
+        }
+        else
+        {
+            //Logging.Write("[FNV_Quester]: Currently located in Eastern Kingdoms");
+            return false;
+        }
+        
+    }
+
+    public static void waitFlying()
+    {
+        //Logging.Write("Disable movement during flying");
+        //MovementManager.StopMove();
+        /*
+        //Disable movement
+        if(ObjectManager.Me.IsOnTaxi)
+        {
+            Logging.Write("[APF]: Stopping movement");
+
+            wManager.Events.MovementEvents.OnMovementPulse += (points, cancelable) =&gt;
+            {
+                cancelable.Cancel = true;
+            };
+            wManager.Events.MovementEvents.OnMoveToPulse += (point, cancelable) =&gt;
+            {
+                cancelable.Cancel = true;
+            };
+
+            wManager.Wow.Helpers.Fight.StopFight();
+            Lua.LuaDoString("ClearTarget()");
+
+            Thread.Sleep(Usefuls.Latency + 2500);
+        }
+        */
+
+
+
+
+        while(ObjectManager.Me.IsOnTaxi)
+        {
+            Logging.Write("[FNV_Quester]: On taxi, waiting");
+            Thread.Sleep(30000);
+        }
+
+
+
+      /*
+        //Reenable movement
+        if(!ObjectManager.Me.IsOnTaxi)
+        {
+            wManager.Events.MovementEvents.OnMovementPulse += (points, cancelable) =&gt;
+            {
+                cancelable.Cancel = false;
+            };
+            wManager.Events.MovementEvents.OnMoveToPulse += (point, cancelable) =&gt;
+            {
+                cancelable.Cancel = false;
+            };
+        }
+        */
+        Logging.Write("[FNV_Quester]: Arrived at destination Flight Master, finished waiting");
+    }
+
+    public static List&lt;FlightMasterDB&gt; fillDB()
+    {
+        //True = Kalimdor ; False = Eastern Kingdoms
+        List&lt;FlightMasterDB&gt; FMListe = new List&lt;FlightMasterDB&gt;();
+        FlightMasterDB Stormwind = new FlightMasterDB("Stormwind", 352, new Vector3(-8835.76f, 490.084f, 109.6157f), false);
+        FMListe.Add(Stormwind);
+        FlightMasterDB ArathiHighlands = new FlightMasterDB("Arathi Highlands", 2835, new Vector3(-1240.03f, -2513.96f, 21.92969f), false);
+        FMListe.Add(ArathiHighlands);
+        FlightMasterDB Ashenvale = new FlightMasterDB("Ashenvale", 4267, new Vector3(-7224.87f, -3738.21f, 8.401313f), true);
+        FMListe.Add(Ashenvale);
+        FlightMasterDB Darkshore = new FlightMasterDB("Darkshore", 3841, new Vector3(6343.2f, 561.651f, 15.79876f), true);
+        FMListe.Add(Darkshore);
+        FlightMasterDB Stranglethorn = new FlightMasterDB("Stranglethorn", 2859, new Vector3(-14477.9f, 464.101f, 36.38163f), false);
+        FMListe.Add(Stranglethorn);
+        FlightMasterDB Duskwood = new FlightMasterDB("Duskwood", 2409, new Vector3(-10513.8f, -1258.79f, 41.43174f), false);
+        FMListe.Add(Duskwood);
+        FlightMasterDB FeralasFeathermoon = new FlightMasterDB("Feralas, Feathermoon", 8019, new Vector3(-4370.5f, 3340f, 12f), true);
+        FMListe.Add(FeralasFeathermoon);
+        FlightMasterDB FeralasThalanaar = new FlightMasterDB("Feralas, Thalanaar", 4319, new Vector3(-4491f, -781f, -40f), true);
+        FMListe.Add(FeralasThalanaar);
+        FlightMasterDB Tanaris = new FlightMasterDB("Tanaris", 7823, new Vector3(-7224.9f, -3738.2f, 8.4f), true);
+        FMListe.Add(Tanaris);
+        FlightMasterDB Hinterlands = new FlightMasterDB("The Hinterlands", 8018, new Vector3(282.1f, -2001.3f, 194.1f), false);
+        FMListe.Add(Hinterlands);
+        FlightMasterDB Ironforge = new FlightMasterDB("Ironforge", 1573, new Vector3(-4821.13f, -1152.4f, 502.2116f), false);
+        FMListe.Add(Ironforge);
+        FlightMasterDB Menethil = new FlightMasterDB("Wetlands", 1571, new Vector3(-3793.2f, -782.052f, 9.014864f), false);
+        FMListe.Add(Menethil);
+        FlightMasterDB TheBarrens = new FlightMasterDB("The Barrens", 16227, new Vector3(-898.246f, -3769.65f, 11.71021f), true);
+        FMListe.Add(TheBarrens);
+        FlightMasterDB Redridge = new FlightMasterDB("Redridge Mountains", 931, new Vector3(-9435.8f, -2234.79f, 69.43174f), false);
+        FMListe.Add(Redridge);
+        FlightMasterDB Teldrassil = new FlightMasterDB("Teldrassil", 3838, new Vector3(8640.58f, 841.118f, 23.26363f), true);
+        FMListe.Add(Teldrassil);
+        FlightMasterDB Southshore = new FlightMasterDB("Hillsbrad Foothiils", 2432, new Vector3(-715.146f, -512.134f, 26.54455f), false);
+        FMListe.Add(Southshore);
+        FlightMasterDB Stonetalon = new FlightMasterDB("Stonetalon Mountains", 4407, new Vector3(2682.83f, 1466.45f, 233.6483f), true);
+        FMListe.Add(Stonetalon);
+        FlightMasterDB Thelsamar = new FlightMasterDB("Loch Modan", 1572, new Vector3(-5424.85f, -2929.87f, 347.5623f), false);
+        FMListe.Add(Thelsamar);
+        FlightMasterDB Theramore = new FlightMasterDB("Dustwallow Marsh", 4321, new Vector3(-3828.88f, -4517.51f, 10.66067f), true);
+        FMListe.Add(Theramore);
+        //Probably false coords Theramore or Western Pleagues
+        FlightMasterDB WesternP = new FlightMasterDB("Western Pleaguelands", 12596, new Vector3(-3828.88f, -4517.51f, 10.66067f), false);
+        FMListe.Add(WesternP);
+        FlightMasterDB Westfall = new FlightMasterDB("Westfall", 523, new Vector3(-10628.8f, 1037.79f, 34.43174f), false);
+        FMListe.Add(Westfall);
+        return FMListe;
+    }
+
+    public static bool validFlight(String from, String to)
+    {
+        bool von = false;
+        bool zu = false;
+        List&lt;FlightMasterDB&gt; FMLvf = fillDB();
+
+        for(int i = 0; i &lt; FMLvf.Count; i++)
+        {
+            if(FMLvf[i].name.Contains(from))
+            {
+                von = FMLvf[i].continent;
+            }
+            if(FMLvf[i].name.Contains(to))
+            {
+                zu = FMLvf[i].continent;
+            }
+        }
+        return von != zu;
+    }
+
+    public static bool discoveredTaxiNodes(String from, String to)
+    {
+
+    //Logging.Write("Enter discoveredTaxiNodes");
+        List&lt;FlightMasterDB&gt; FMLDTN = fillDB();
+        //Logging.Write("Test 0: " + FMLDTN.Count);
+
+        foreach(var ele in FMLDTN)
+        {
+            if(ele.name.Contains(from))
+            {
+            //Logging.Write("Test 1");
+                if(!ele.alreadyDiscovered)
+                {
+                    Logging.Write("[FNV_Quester]: Taxi node from " + ele.name + " has not been discovered so far. Abort taking taxi.");
+                    return false;
+                }
+            }
+        }
+
+        foreach(var ele in FMLDTN)
+        {
+            //Logging.Write("Test 2");
+            if(ele.name.Contains(to))
+            {
+                if(!ele.alreadyDiscovered)
+                {
+                    Logging.Write("[FNV_Quester]: Taxi node to " + ele.name + " has not been discovered so far. Abort taking taxi.");
+                    return false;
+                }
+            }
+        }
+        //Logging.Write("Test 3");
+        return true;
+    }
+
+    public static void takeTaxi(String from, String to)
+    {
+
+        List&lt;FlightMasterDB&gt; FMLtt = fillDB();
+        bool canProceed = true;
+        try
+        {
+            //List&lt;FlightMasterDB&gt; 
+            FMLtt = fillDB();
+        }
+        catch(Exception e)
+        {
+            Logging.Write("Error: " + e);
+        }
+
+        //Logging.Write("Enter take taxi");
+
+        Vector3 myPos = ObjectManager.Me.Position;
+
+        if(Usefuls.MapZoneName.Contains(to))
+        {
+            canProceed = false;
+            Logging.Write("[FNV_Quester]: Already in the zone we are going to travel to. Skip flying.");
+        }
+        /*
+        if(!discoveredTaxiNodes(from, to))
+            canProceed = false;
+        
+        if(canProceed)
+        {
+            foreach(var temp in FMLtt)
+            {
+                if(temp.name.Contains(from) &amp;&amp; temp.position.DistanceTo(myPos) &gt; 1000)
+                {
+                    Logging.Write("[FNV_Quester]: Distance to Flight Master " + temp.position.DistanceTo(myPos) + ", &gt; 1000. Skip flying.");
+                    canProceed = false;
+                }
+            }
+        }
+        */
+
+        if(canProceed)
+        {
+
+            if(validFlight(from, to))
+            {
+                Logging.Write("[FNV_Quester]: Unable to fly between Kalimdor and Eastern Kingdoms");
+            }
+
+            var position = new Vector3();
+            int npcEntryId = 0;
+
+            for(int i = 0; i &lt; FMLtt.Count; i++)
+            {
+                if(FMLtt[i].name.Contains(from))
+                {
+                    position = FMLtt[i].position;
+                    npcEntryId = FMLtt[i].NPCId;
+                    FMLtt[i].name.Contains(from);
+                }
+            }
+
+
+            if(!ObjectManager.Me.IsOnTaxi)
+            {
+                wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+
+                while(!wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId) &amp;&amp; !Fight.InFight)
+                {
+                    //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;
+                    wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+                    wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId);
+                }
+                if(wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))
+                {
+                    while(!ObjectManager.Me.IsOnTaxi)
+                    {
+                        Usefuls.SelectGossipOption(GossipOptionsType.taxi);
+
+                        int node = Lua.LuaDoString&lt;int&gt;("for i=0,30 do if string.find(TaxiNodeName(i),'" + to + "') then return i end end");
+                        Lua.LuaDoString("TakeTaxiNode(" + node + ")");
+                        Logging.Write("[FNV_Quester]: Taking Taxi from " + from + " to " + to + ".");
+                        Thread.Sleep(Usefuls.Latency + 2500);
+                    }
+                }
+            }
+            //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;
+            waitFlying();
+            return;
+        }
+        //return;
+    }
+
+    public static void discoverTaxi(String discoverName)
+    {
+        FNVSettings.Load();
+        List&lt;FlightMasterDB&gt; FMLdt = fillDB();
+
+        var position = new Vector3();
+        int npcEntryId = 0;
+        int j = 0;
+        bool alreadyDiscoveredFlightMaster = false;
+
+        for(int i = 0; i &lt; FMLdt.Count; i++)
+        {
+            if(FMLdt[i].name.Contains(discoverName))
+            {
+                if(FMLdt[i].alreadyDiscovered)
+                {
+                    Logging.Write("[FNV_Quester]: Flight Master of " + FMLdt[i].name + " already discovered. Skip it.");
+                    alreadyDiscoveredFlightMaster = true;
+                    break;
+                }
+
+                position = FMLdt[i].position;
+                npcEntryId = FMLdt[i].NPCId;
+                j = i;
+            }
+        }
+
+        if(!alreadyDiscoveredFlightMaster)
+        {
+
+            if(!ObjectManager.Me.IsOnTaxi)
+            {
+                wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+
+                while(!wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))
+                {
+                   // wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;
+                    wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+                    wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId);
+                }
+                if(wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))
+                {
+                    Usefuls.SelectGossipOption(GossipOptionsType.taxi);
+                    Thread.Sleep(Usefuls.Latency + 250);
+                    //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;
+                }
+            }
+            Logging.Write("[FNV_Quester]: Flight Master " + FMLdt[j].name + " discovered");
+            FMLdt[j].alreadyDiscovered = true;
+            FNVSettings.flightMasterSaveChanges(FMLdt[j]);
+            //wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;
+            
+        }
+        timer = 0;
+        return;
+    }
+
+    }
+
+    public class FlightMasterDB
+    {
+        public FlightMasterDB(String name, int NPCId, Vector3 position, bool continent, bool alreadyDiscovered)
+        {
+            this.name = name;
+            this.NPCId = NPCId;
+            this.position = position;
+            this.continent = continent;
+            this.alreadyDiscovered = alreadyDiscovered;
+        }
+
+        public FlightMasterDB(String name, int NPCId, Vector3 position, bool continent)
+        {
+            this.name = name;
+            this.NPCId = NPCId;
+            this.position = position;
+            this.continent = continent;
+            
+        }
+
+        public int NPCId { get; set; }
+        public Vector3 position { get; set; }
+        public String name { get; set; }
+        public bool continent { get; set; }
+        public bool alreadyDiscovered { get; set; }
+
+    }
+
+//Tram
+public class Tram
+{
+
+    //Stormwind to Ironforge
+    static Vector3 positionTramInIronforge = new Vector3(4.58065, 28.2097, 6.90526);
+    static Vector3 positionTramInStormwind = new Vector3(4.581913, 2511.531, 7.091796);
+
+    static Vector3 positionWaitTramIronforge = new Vector3(19.1, 28, -4.3);
+    static Vector3 positionOnTramIronforge = new Vector3(4.8, 28.1, -4.3);
+
+    static Vector3 positionWaitTramStormwind = new Vector3(15.3, 2510.4, -4.3);
+    static Vector3 positionOnTramStormwind = new Vector3(4.3, 2510.6, -4.3);
+
+    static Vector3 enterStormwindInside = new Vector3(67, 2490.7, -4.3);
+    static Vector3 enterIronforgeInside = new Vector3(64.5, 10.2, -4.3);
+
+    static Vector3 enterStormwindOutside = new Vector3(-8365, 536.9, 91.8);
+    static Vector3 enterIronforgeOutside = new Vector3(-4836.7, -1304.6, 501.9);
+
+    static Vector3 leavePosIronforge = new Vector3(-10.6, 30.2, -4.3);
+    static Vector3 leavePosStormwind = new Vector3(-10.6, 2510.9, -4.3);
+
+    static Vector3 playerFellDownIronforge = new Vector3(4.5, 28, -13.9);
+
+    static int[] tramEntryArray = new int[6] { 176080, 176082, 176083, 176084, 176085, 176081 };
+
+    //Ironforge to Stormwind
+    static Vector3 waitPosPlayerInStormwindToIronforge = new Vector3(-32.8, 2512.1, -4.3);
+
+    //Pos where upper Tram arrives and waits in Stormwind
+    static Vector3 waitPosTramSwTramStormwind = new Vector3(-45.4007, 2512.15, 6.90526);
+    //Pos where player waits on upper tram in Stormwind
+    static Vector3 waitPosPlayerSwTramStormwind = new Vector3(-45.20206, 2512.266, -3.562748);
+
+    static Vector3 waitPosSwTramIronforge = new Vector3(-45.399, 30.38013, 5.877773);
+
+    static Vector3 leavePosSwTramIronforge = new Vector3(-61.8, 30.3, -4.3);
+    static Vector3 waitPlayerOnTramPosSwTramIronforge = new Vector3(-34.49804, 2511.917, -4.3);
+    static Vector3 posPlayerOnTramSwToIfInIronforge = new Vector3(-20.9837, 2459.93, -4.297);
+
+    static Vector3 playerFellDownStormwind = new Vector3(-45, 2512.6, -13.9);
+
+    static bool isRestarted = false;
+    static Process[] pname = Process.GetProcessesByName(AppDomain.CurrentDomain.FriendlyName.Remove(AppDomain.CurrentDomain.FriendlyName.Length - 4));
+    static Vector3 nullVector = new Vector3(0, 0, 0);
+
+
+    public static void restartTram(String from)
+    {
+        switch(from)
+        {
+            case ("Stormwind"):
+                takeTramStormwind();
+                break;
+            case ("Ironforge"):
+                takeTramIronforge();
+                break;
+            default:
+                Logging.Write("Something failed");
+                break;
+        }
+    }
+
+    public static void end()
+    {
+        Logging.Write("[FNV_Quester]: Ending Tream");
+    }
+
+
+
+    public static void takeTramStormwind()
+    {
+        Logging.Write("[FNV_Quester]: Taking Tram from Stormwind to Ironforge");
+
+        if(!Usefuls.MapZoneName.Contains("Deep"))
+        {
+            while(!GoToTask.ToPosition(enterStormwindOutside))
+            {
+                GoToTask.ToPosition(enterStormwindOutside);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+            Logging.Write("[FNV_Quester]: Disable teleport during Tram");
+            wManager.Wow.Helpers.MovementManager.Face(new Vector3(-8353.4, 521.4, 91.8));
+
+            while(!Usefuls.MapZoneName.Contains("Deep"))
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+            }
+
+        }
+
+        if(Usefuls.MapZoneName.Contains("Deep"))
+        {
+            if(!GoToTask.ToPosition(enterStormwindInside))
+            {
+                GoToTask.ToPosition(enterStormwindInside);
+                Thread.Sleep(250);
+            }
+            while(!GoToTask.ToPosition(waitPosPlayerInStormwindToIronforge))
+            {
+                GoToTask.ToPosition(waitPosPlayerInStormwindToIronforge);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+            var tram = (WoWGameObject)null;
+
+            try
+            {
+                tram = chooseTramStormwind();
+            }
+            catch
+            {
+
+            }
+
+
+            if(tram != null &amp;&amp; ObjectManager.Me.Position.DistanceTo(tram.Position) &lt; 200 &amp;&amp; !tram.Position.Equals(nullVector))
+            {
+                Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                isRestarted = true;
+                takeTramStormwind();
+                end();
+            }
+
+            if(!isRestarted)
+            {
+
+                if(tram != null &amp;&amp; tram.Position.DistanceTo(nullVector) &gt; 1)
+                {
+                    while(tram.Position.DistanceTo(waitPosTramSwTramStormwind) &gt;= 5 || ObjectManager.Me.Position.DistanceTo(waitPosPlayerInStormwindToIronforge) &gt;= 5)
+                    {
+                        Thread.Sleep(500);
+                    }
+
+                    if(tram.Position.DistanceTo(waitPosTramSwTramStormwind) &lt; 5)
+                    {
+                        Lua.LuaDoString("ClearTarget()");
+                        wManager.Wow.Helpers.MovementManager.Face(waitPosPlayerSwTramStormwind);
+
+                        while(ObjectManager.Me.Position.DistanceTo(waitPosPlayerSwTramStormwind) &gt; 1)
+                        {
+                            wManager.Wow.Helpers.MovementManager.Face(waitPosPlayerSwTramStormwind);
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+
+                            if(ObjectManager.Me.Position.DistanceTo(playerFellDownStormwind) &lt; 4)
+                            {
+                                Logging.Write("[FNV_Quester]: Fell down, while trying to take tram. Restart...");
+                                restartTram("Stormwind");
+                            }
+                        }
+
+                        GoToTask.ToPosition(waitPosPlayerSwTramStormwind);
+                    }
+
+                    while(tram.Position.DistanceTo(waitPosSwTramIronforge) &gt; 5)
+                    {
+                        Thread.Sleep(3000);
+                    }
+
+                    if(ObjectManager.Me.HaveBuff("Stealth"))
+                    {
+                        Lua.LuaDoString("CastSpellByName('Stealth')");
+                    }
+
+                    wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 1500);
+
+                    if(ObjectManager.Me.Position.DistanceTo(posPlayerOnTramSwToIfInIronforge) &lt; 5)
+                    {
+                        wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 500);
+
+                        while(ObjectManager.Me.Position.DistanceTo(leavePosSwTramIronforge) &gt; 4)
+                        {
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+                        }
+                    }
+
+                    if(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        if(!GoToTask.ToPosition(enterIronforgeInside))
+                        {
+                            GoToTask.ToPosition(enterIronforgeInside);
+                            Thread.Sleep(250);
+                        }
+                    }
+
+                    while(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                        Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+                    }
+
+                    Logging.Write("[FNV_Quester]: Re enable teleport ");
+                    wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
+
+
+                    while(!GoToTask.ToPosition(enterIronforgeOutside))
+                    {
+                        wManager.Wow.Helpers.MovementManager.Face(enterIronforgeOutside);
+                        GoToTask.ToPosition(enterIronforgeOutside);
+                        Thread.Sleep(250);
+                    }
+
+                }
+                else if(Usefuls.MapZoneName.Contains("Tram") || Usefuls.MapZoneName.Contains("Stormwind"))
+                {
+                    Logging.Write("[FNV_Quester]: Unable to find tram, restart... .");
+                    isRestarted = true;
+                    restartTram("Stormwind");
+                }
+
+            }
+        }
+
+        isRestarted = false;
+    }
+
+    public static WoWGameObject chooseTramIronforge()
+    {
+        List&lt;WoWGameObject&gt; tramList = new List&lt;WoWGameObject&gt;();
+        var tramTemp = (WoWGameObject)null;
+
+        foreach(int ele in tramEntryArray)
+        {
+            tramTemp = null;
+            try
+            {
+                tramTemp = ObjectManager.GetWoWGameObjectByEntry(ele).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            }
+            catch
+            {
+            }
+
+            if(tramTemp != null &amp;&amp; tramTemp.IsValid &amp;&amp; !tramTemp.Equals((WoWGameObject)null) &amp;&amp; tramTemp.ToString().Contains("Subway"))
+            {
+                tramList.Add(tramTemp);
+            }
+            else
+            {
+
+            }
+        }
+
+        float distance = 0;
+        float entryDistance = 0;
+        foreach(var ele in tramList)
+        {
+            if(ObjectManager.Me.Position.DistanceTo(ele.Position) &gt;= distance)
+            {
+                distance = ObjectManager.Me.Position.DistanceTo(ele.Position);
+                entryDistance = ele.Entry;
+            }
+        }
+
+        foreach(var ele in tramList)
+        {
+            if(ele.Entry == entryDistance &amp;&amp; ele != null &amp;&amp; !ele.Position.Equals(nullVector))
+            {
+                if(ObjectManager.Me.Position.DistanceTo(ele.Position) &lt; 200)
+                {
+                    Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                    restartTram("Ironforge");
+                }
+
+                Logging.Write("[FNV_Quester]: Choosing tram id: " + ele.Entry + " with a current position of " + ele.Position);
+                return ele;
+            }
+        }
+        return null;
+    }
+
+    public static WoWGameObject chooseTramStormwind()
+    {
+        List&lt;WoWGameObject&gt; tramList = new List&lt;WoWGameObject&gt;();
+        var tramTemp = (WoWGameObject)null;
+
+        foreach(int ele in tramEntryArray)
+        {
+            tramTemp = null;
+            try
+            {
+                tramTemp = ObjectManager.GetWoWGameObjectByEntry(ele).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            }
+            catch
+            {
+            }
+
+            if(tramTemp != null &amp;&amp; tramTemp.IsValid &amp;&amp; !tramTemp.Equals((WoWGameObject)null) &amp;&amp; tramTemp.ToString().Contains("Subway"))
+            {
+                tramList.Add(tramTemp);
+            }
+            else
+            {
+
+            }
+        }
+
+        float distance = 99999;
+        float entryDistance = 0;
+        foreach(var ele in tramList)
+        {
+            if(ObjectManager.Me.Position.DistanceTo(ele.Position) &lt;= distance)
+            {
+                distance = ObjectManager.Me.Position.DistanceTo(ele.Position);
+                entryDistance = ele.Entry;
+            }
+        }
+
+        foreach(var ele in tramList)
+        {
+            if(ele.Entry == entryDistance &amp;&amp; ele != null &amp;&amp; !ele.Position.Equals(nullVector))
+            {
+                if(ObjectManager.Me.Position.DistanceTo(ele.Position) &lt; 200)
+                {
+                    Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                    restartTram("Stormwind");
+                }
+
+                Logging.Write("[FNV_Quester]: Choosing tram id: " + ele.Entry + " with a current position of " + ele.Position);
+                return ele;
+            }
+        }
+
+        return null;
+    }
+
+
+    public static void takeTramIronforge()
+    {
+        Logging.Write("[FNV_Quester]: Taking Tram from Ironforge to Stormwind");
+
+        if(!Usefuls.MapZoneName.Contains("Deep"))
+        {
+            while(!GoToTask.ToPosition(enterIronforgeOutside))
+            {
+                GoToTask.ToPosition(enterIronforgeOutside);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+            Logging.Write("[FNV_Quester]: Disable teleport during Tram");
+            wManager.Wow.Helpers.MovementManager.Face(new Vector3(-4839.4, -1320.9, 501.9));
+
+            while(!Usefuls.MapZoneName.Contains("Deep"))
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+            }
+        }
+
+        if(Usefuls.MapZoneName.Contains("Deep"))
+        {
+            if(!GoToTask.ToPosition(enterIronforgeInside))
+            {
+                GoToTask.ToPosition(enterIronforgeInside);
+                Thread.Sleep(250);
+            }
+            while(!GoToTask.ToPosition(positionWaitTramIronforge))
+            {
+                GoToTask.ToPosition(positionWaitTramIronforge);
+                Thread.Sleep(250);
+            }
+
+            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+            var tram = (WoWGameObject)null;
+
+            try
+            {
+                tram = chooseTramIronforge();
+            }
+            catch
+            {
+
+            }
+
+            if(ObjectManager.Me.Position.DistanceTo(tram.Position) &lt; 200 &amp;&amp; tram != null &amp;&amp; !tram.Position.Equals(nullVector))
+            {
+                Logging.Write("[FNV_Quester]: Bad circle, restart... .");
+                isRestarted = true;
+                restartTram("Ironforge");
+                end();
+            }
+
+            if(!isRestarted)
+            {
+
+                if(tram != null &amp;&amp; tram.Position.DistanceTo(nullVector) &gt; 1)
+                {
+
+
+                    while(tram.Position.DistanceTo(positionTramInIronforge) &gt;= 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep") &amp;&amp; !tram.Position.Equals(nullVector))
+                    {
+                        Thread.Sleep(1000);
+                    }
+
+
+                    if(tram.Position.DistanceTo(positionTramInIronforge) &lt; 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        Lua.LuaDoString("ClearTarget()");
+                        wManager.Wow.Helpers.MovementManager.Face(positionOnTramIronforge);
+
+                        while(ObjectManager.Me.Position.DistanceTo(positionOnTramIronforge) &gt; 2)
+                        {
+                            wManager.Wow.Helpers.MovementManager.Face(positionOnTramIronforge);
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+
+                            if(ObjectManager.Me.Position.DistanceTo(playerFellDownIronforge) &lt; 4)
+                            {
+                                Logging.Write("[FNV_Quester]: Fell down, while trying to take tram. Restart");
+                                restartTram("Ironforge");
+                            }
+                        }
+
+                        GoToTask.ToPosition(positionOnTramIronforge);
+                    }
+
+
+                    while(tram.Position.DistanceTo(positionTramInStormwind) &gt; 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        Thread.Sleep(3000);
+                    }
+
+                    if(ObjectManager.Me.Position.DistanceTo(positionOnTramStormwind) &lt; 5 &amp;&amp; Usefuls.MapZoneName.Contains("Deep"))
+                    {
+
+                        wManager.Wow.Helpers.Move.StrafeLeft(Move.MoveAction.PressKey, 350);
+
+                        while(ObjectManager.Me.Position.DistanceTo(leavePosStormwind) &gt; 4)
+                        {
+                            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 125);
+                            Thread.Sleep(robotManager.Helpful.Others.Random(10, 25));
+
+                        }
+
+                    }
+
+                    if(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        if(!GoToTask.ToPosition(enterStormwindInside))
+                        {
+                            GoToTask.ToPosition(enterStormwindInside);
+                            Thread.Sleep(250);
+                        }
+                    }
+
+                    while(Usefuls.MapZoneName.Contains("Deep"))
+                    {
+                        wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 250);
+                        Thread.Sleep(robotManager.Helpful.Others.Random(25, 50));
+                    }
+
+                    Logging.Write("Re enable teleport ");
+                    wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
+
+
+                    while(!GoToTask.ToPosition(enterStormwindOutside))
+                    {
+                        wManager.Wow.Helpers.MovementManager.Face(enterStormwindOutside);
+                        GoToTask.ToPosition(enterStormwindOutside);
+                        Thread.Sleep(250);
+                    }
+
+                }
+                else if(Usefuls.MapZoneName.Contains("Tram") || Usefuls.MapZoneName.Contains("Ironforge"))
+                {
+                    Logging.Write("[FNV_Quester]: Unable to find tram, restart... .");
+                    isRestarted = true;
+                    restartTram("Ironforge");
+                }
+
+            }
+        }
+        isRestarted = false;
+    }
+}
+
+    //Additional functions for quests
+    public class Quests
+    {
+        public static void abandon(string questName)
+        {
+            wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + questName + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+        }
+
+        public static bool hasFailed(string questName)
+        {
+            int temp = 0;
+            temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) local questTimer = GetQuestLogTimeLeft() return questTimer end end");
+
+            if(temp &gt; 8)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+
+
+public class ProgressSettings : Settings
+{
+    public static bool inProgress = false;
+        public static void Initialize()
+        {
+            ProgressSettings.Load();
+        }
+
+        public static void Dispose()
+        {
+            ProgressSettings.CurrentSettings.Save();
+            //isLaunched = false;
+        }
+
+        public void Settings()
+        {
+            ProgressSettings.Load();
+            ProgressSettings.CurrentSettings.ToForm();
+            ProgressSettings.CurrentSettings.Save();
+        }
+
+    public ProgressSettings()
+    {
+        this.launcher = 2;
+        this.dwarfStart = 1;
+        this.humanStart = 1;
+        this.nightelfStart = 1;
+        this.dwarfHunter = 1;
+        this.nightelfHunter = 1;
+        this.nightelfDruid = 1;
+        this.warlock = 1;
+        this.kharanos = 1;
+        this.elwynn = 1;
+        this.westfallEins = 1;
+        this.lochModanEins = 1;
+        this.darkshoreEins = 10;
+        this.westfallZwei = 1;
+        this.lochModanZwei = 1;
+        this.darkshoreZwei = 6;
+        this.westfallDrei = 1;
+        this.redridge = 1;
+        this.duskwoodEins = 1;
+        this.stonetalon = 1;
+        this.duskwoodZwei = 1;
+        this.wetlandsEins = 1;
+        this.wetlandsZwei = 1;
+    }
+    
+
+      public static ProgressSettings CurrentSettings { get; set; }
+
+        public bool Save()
+        {
+            try
+            {
+                return Save(AdviserFilePathAndName("FNV_Progress", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Progress =&gt; Save(): " + e);
+                return false;
+            }
+        }
+
+        public static bool Load()
+        {
+            try
+            {
+                if(File.Exists(AdviserFilePathAndName("FNV_Progress", ObjectManager.Me.Name + "." + Usefuls.RealmName)))
+                {
+                    CurrentSettings = Load&lt;ProgressSettings&gt;(AdviserFilePathAndName("FNV_Progress", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+                    return true;
+                }
+
+                ProgressSettings.CurrentSettings = new ProgressSettings();
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Progress =&gt; Load(): " + e);
+            }
+            return false;
+        }
+
+        public int launcher { get; set; }
+        public int dwarfStart { get; set; }
+        public int dwarfHunter { get; set; }
+        public int nightelfHunter { get; set; }
+        public int nightelfDruid { get; set; }
+        public int warlock { get; set; }
+        public int nightelfStart { get; set; }
+        public int humanStart { get; set; }
+        public int kharanos { get; set; }
+        public int elwynn { get; set; }
+        public int westfallEins { get; set; }
+        public int lochModanEins { get; set; }
+        public int darkshoreEins { get; set; }
+        public int westfallZwei { get; set; }
+        public int lochModanZwei { get; set; }
+        public int darkshoreZwei { get; set; }
+        public int westfallDrei { get; set; }
+        public int redridge { get; set; }
+        public int duskwoodEins { get; set; }
+        public int stonetalon { get; set; }
+        public int duskwoodZwei { get; set; }
+        public int wetlandsEins { get; set; }
+        public int wetlandsZwei { get; set; }
+        public int duskwoodDrei { get; set; }
+        public int hinterlandsZwei { get; set; }
+}
+
+
+/*
+    //Settings   
+    public class QuesterSettings
+    {
+        private static bool isLaunched;
+
+        public static void Initialize()
+        {
+            isLaunched = true;
+            FNVSettings.Load();
+
+            while(isLaunched &amp; Products.IsStarted)
+            {
+                Thread.Sleep(500);
+                Dispose();
+            }
+        }
+
+        public static void Dispose()
+        {
+            FNVSettings.CurrentSettings.Save();
+            //isLaunched = false;
+        }
+
+        public void Settings()
+        {
+            FNVSettings.Load();
+            FNVSettings.CurrentSettings.ToForm();
+            FNVSettings.CurrentSettings.Save();
+        }
+    }
+
+    */
+
+    [Serializable]
+    public class FNVSettings : Settings
+    {
+
+        public static bool inProgress = false;
+        public static void Initialize()
+        {
+            FNVSettings.Load();
+        }
+
+        public static void Dispose()
+        {
+            FNVSettings.CurrentSettings.Save();
+            //isLaunched = false;
+        }
+
+        public void Settings()
+        {
+            FNVSettings.Load();
+            FNVSettings.CurrentSettings.ToForm();
+            FNVSettings.CurrentSettings.Save();
+        }
+
+        public FNVSettings()
+        {
+        //Completed profiles -&gt; True == completed
+        this.launcher = false;
+        this.dwarfStart = false;
+        this.humanStart = false;
+        this.nightelfStart = false;
+        this.dwarfHunter = false;
+        this.nightelfHunter = false;
+        this.nightelfDruid = false;
+        this.warlock = false;
+        this.kharanos = false;
+        this.elwynn = false;
+        this.westfallEins = false;
+        this.lochModanEins = false;
+        this.darkshoreEins = false;
+        this.westfallZwei = false;
+        this.lochModanZwei = false;
+        this.darkshoreZwei = false;
+        this.westfallDrei = false;
+        this.redridge = false;
+        this.duskwoodEins = false;
+        this.stonetalon = false;
+        this.duskwoodZwei = false;
+        this.wetlandsEins = false;
+        this.wetlandsZwei = false;
+
+            //FlightMaster discovered
+            //Eastern Kingdoms
+            this.ArathiHighlands = false;
+            this.Wetlands = false;
+            this.WesternPlaguelands = false;
+            this.EasternPlaguelands = false;
+            this.HillsbradFoothills = false;
+            this.TheHinterlands = false;
+            this.LochModan = false;
+            this.Ironforge = false;
+            this.SearingGorge = false;
+            this.BurningSteppes = false;
+            this.RedridgeMountains = false;
+            this.Stormwind = false;
+            this.Westfall = false;
+            this.Duskwood = false;
+            this.StranglethornValley = false;
+            this.BlastedLands = false;
+
+            //Kalimdor
+
+        }
+
+    public static void flightMasterSaveChanges(FlightMasterDB needToChange)
+    {
+
+            if(needToChange.name.Contains("Arathi"))
+                CurrentSettings.ArathiHighlands = true;
+
+            if(needToChange.name.Contains("Wetlands"))
+                CurrentSettings.Wetlands = true;
+
+            if(needToChange.name.Contains("Western"))
+                CurrentSettings.WesternPlaguelands = true;
+
+            if(needToChange.name.Contains("Eastern"))
+                CurrentSettings.EasternPlaguelands = true;
+
+            if(needToChange.name.Contains("Hillsbrad"))
+                CurrentSettings.HillsbradFoothills = true;
+
+            if(needToChange.name.Contains("Hinterlands"))
+                CurrentSettings.TheHinterlands = true;
+
+            if(needToChange.name.Contains("Modan"))
+                CurrentSettings.LochModan = true;
+
+            if(needToChange.name.Contains("Ironforge"))
+                CurrentSettings.Ironforge = true;
+            
+            if(needToChange.name.Contains("Searing"))
+                CurrentSettings.SearingGorge = true;
+
+            if(needToChange.name.Contains("Burning"))
+                CurrentSettings.BurningSteppes = true;
+
+            if(needToChange.name.Contains("Redridge"))
+                CurrentSettings.RedridgeMountains = true;
+
+            if(needToChange.name.Contains("Stormwind"))
+                CurrentSettings.Stormwind = true;
+
+            if(needToChange.name.Contains("Westfall"))
+                CurrentSettings.Westfall = true;
+
+            if(needToChange.name.Contains("Duskwood"))
+                CurrentSettings.Duskwood = true;
+
+            if(needToChange.name.Contains("Stranglethorn"))
+                CurrentSettings.StranglethornValley = true;
+
+            if(needToChange.name.Contains("Blasted"))
+                CurrentSettings.BlastedLands = true;
+            
+            FNVSettings.CurrentSettings.Save();
+            Logging.Write("[FNV_Quester]: Settings saved of Flight Master " + needToChange.name);
+            return;
+    }
+
+        public static void flightMasterSaveChanges(String needToChange)
+    {
+
+            if(needToChange.Contains("Arathi"))
+                CurrentSettings.ArathiHighlands = true;
+
+            if(needToChange.Contains("Wetlands"))
+                CurrentSettings.Wetlands = true;
+
+            if(needToChange.Contains("Western"))
+                CurrentSettings.WesternPlaguelands = true;
+
+            if(needToChange.Contains("Eastern"))
+                CurrentSettings.EasternPlaguelands = true;
+
+            if(needToChange.Contains("Hillsbrad"))
+                CurrentSettings.HillsbradFoothills = true;
+
+            if(needToChange.Contains("Hinterlands"))
+                CurrentSettings.TheHinterlands = true;
+
+            if(needToChange.Contains("Modan"))
+                CurrentSettings.LochModan = true;
+
+            if(needToChange.Contains("Ironforge"))
+                CurrentSettings.Ironforge = true;
+            
+            if(needToChange.Contains("Searing"))
+                CurrentSettings.SearingGorge = true;
+
+            if(needToChange.Contains("Burning"))
+                CurrentSettings.BurningSteppes = true;
+
+            if(needToChange.Contains("Redridge"))
+                CurrentSettings.RedridgeMountains = true;
+
+            if(needToChange.Contains("Stormwind"))
+                CurrentSettings.Stormwind = true;
+
+            if(needToChange.Contains("Westfall"))
+                CurrentSettings.Westfall = true;
+
+            if(needToChange.Contains("Duskwood"))
+                CurrentSettings.Duskwood = true;
+
+            if(needToChange.Contains("Stranglethorn"))
+                CurrentSettings.StranglethornValley = true;
+
+            if(needToChange.Contains("Blasted"))
+                CurrentSettings.BlastedLands = true;
+            
+            FNVSettings.CurrentSettings.Save();
+            Logging.Write("[FNV_Quester]: Settings saved of Flight Master " + needToChange);
+            return;
+    }
+
+        public static FNVSettings CurrentSettings { get; set; }
+
+        public bool Save()
+        {
+            try
+            {
+                return Save(AdviserFilePathAndName("FNV_Quester", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Quester =&gt; Save(): " + e);
+                return false;
+            }
+        }
+
+        public static bool Load()
+        {
+            try
+            {
+                if(File.Exists(AdviserFilePathAndName("FNV_Quester", ObjectManager.Me.Name + "." + Usefuls.RealmName)))
+                {
+                    CurrentSettings = Load&lt;FNVSettings&gt;(AdviserFilePathAndName("FNV_Quester", ObjectManager.Me.Name + "." + Usefuls.RealmName));
+                    return true;
+                }
+
+                FNVSettings.CurrentSettings = new FNVSettings();
+            }
+            catch(Exception e)
+            {
+                Logging.WriteDebug("FNV_Quester =&gt; Load(): " + e);
+            }
+            return false;
+        }
+
+        //Finished profiles -&gt; True == completed
+        public bool launcher { get; set; }
+        public bool dwarfStart { get; set; }
+        public bool dwarfHunter { get; set; }
+        public bool nightelfHunter { get; set; }
+        public bool nightelfDruid { get; set; }
+        public bool warlock { get; set; }
+        public bool nightelfStart { get; set; }
+        public bool humanStart { get; set; }
+        public bool kharanos { get; set; }
+        public bool elwynn { get; set; }
+        public bool westfallEins { get; set; }
+        public bool lochModanEins { get; set; }
+        public bool darkshoreEins { get; set; }
+        public bool westfallZwei { get; set; }
+        public bool lochModanZwei { get; set; }
+        public bool darkshoreZwei { get; set; }
+        public bool westfallDrei { get; set; }
+        public bool redridge { get; set; }
+        public bool duskwoodEins { get; set; }
+        public bool stonetalon { get; set; }
+        public bool duskwoodZwei { get; set; }
+        public bool wetlandsEins { get; set; }
+        public bool wetlandsZwei { get; set; }
+        public bool duskwoodDrei { get; set; }
+        public bool hinterlandsZwei { get; set; }
+
+        public bool defaultSettings { get; set; }
+       // public bool dwarfStart { get; set; }
+       // public bool nightelfStart { get; set; }
+        //public bool humanStart { get; set; }
+      //  public bool westfallEins { get; set; }
+        public bool lochModan { get; set; }
+        public bool auberdine { get; set; }
+       // public bool westfallZwei { get; set; }
+        public bool lakeshire { get; set; }
+        public bool wetlands { get; set; }
+        public bool ashenvale { get; set; }
+        public bool thousandNeedles { get; set; }
+        public bool dustwallow { get; set; }
+        public bool badlands { get; set; }
+        public bool alterac { get; set; }
+        public bool swampOfSorrows { get; set; }
+        public bool tanaris { get; set; }
+        public bool stranglethorn { get; set; }
+        public bool hinterlandsEins { get; set; }
+        public bool feralas { get; set; }
+       // public bool hinterlandsZwei { get; set; }
+
+        //FlightMaster
+        //Eastern Kingdoms
+        public bool Stormwind { get; set; }
+        public bool Westfall { get; set; }
+        public bool RedridgeMountains { get; set; }
+        public bool Duskwood { get; set; }
+        public bool StranglethornValley { get; set; }
+        public bool Ironforge { get; set; }
+        public bool BurningSteppes { get; set; }
+        public bool BlastedLands { get; set; }
+        public bool SearingGorge { get; set; }
+        public bool LochModan { get; set; }
+        public bool Wetlands { get; set; }
+        public bool ArathiHighlands { get; set; }
+        public bool HillsbradFoothills { get; set; }
+        public bool WesternPlaguelands { get; set; }
+        public bool EasternPlaguelands { get; set; }
+        public bool TheHinterlands { get; set; }
+
+        //Kalimdor
+
+        public bool Ashenvale { get; set; }
+        public bool Azshara { get; set; }
+        public bool Darkshore { get; set; }
+        public bool Teldrassil { get; set; }
+        public bool Desolace { get; set; }
+        public bool DustwallowMarsh { get; set; }
+        public bool Felwood { get; set; }
+        public bool FeralasFeathermoon { get; set; }
+        public bool FeralasThalanaar { get; set; }
+        public bool Moonglade { get; set; }
+        public bool Silithus { get; set; }
+        public bool StonetalonMountains { get; set; }
+        public bool Tanaris { get; set; }
+        public bool TheBarrens { get; set; }
+        public bool UngoroCrater { get; set; }
+        public bool Winterspring { get; set; }
+
+    }
+
+    //Buy and check bags
+    public class bags
+    {
+        public static bool bagsStarted = false;
+
+        public static int bagsEquipped()
+        {
+            int returnValue = 0;
+            string empty = "";
+
+            for(int i = 20; i &lt;= 23; i++)
+            {
+                empty = wManager.Wow.Helpers.Lua.LuaDoString&lt;string&gt;("return GetInventoryItemLink('player', " + i + ")");
+
+                if(empty.Contains("o"))
+                    returnValue++;
+            }
+
+            return returnValue;
+        }
+
+        public static string checkMoney()
+        {
+            string returnVariableNameZ = "";
+
+            returnVariableNameZ = wManager.Wow.Helpers.Lua.LuaDoString("returnVariableNameZ = GetMoney() return returnVariableNameZ", returnVariableNameZ);
+
+            return returnVariableNameZ;
+        }
+
+        public static bool canEquip()
+        {
+            string returnVariableName = "";
+
+            returnVariableName = wManager.Wow.Helpers.Lua.LuaDoString("returnVariableName = GetInventoryItemLink('player', 23 ) return returnVariableName", returnVariableName);
+
+
+            if(returnVariableName.Equals(""))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+    }
+
+
+    //Abandon Quests
+    public class abandonQuest
+    {
+
+        public static void abandon(string questName)
+        {
+
+            string name = questName;
+
+            wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + name + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+
+        }
+
+    }
+
+
+
+    //Throw away items - by Reapler
+    public class throwAway
+    {
+        public static int GetItemQuantity(string itemName)
+        {
+            var execute =
+                "local itemCount = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "if string.find(itemLink, \"" + itemName + "\") then " +
+                                    "itemCount = itemCount + stackCount; " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; " +
+                "return itemCount; ";
+            return Lua.LuaDoString&lt;int&gt;(execute);
+        }
+
+        /// &lt;summary&gt;
+        /// Used to delete all items by name.
+        /// &lt;/summary&gt;
+        /// &lt;param name="itemName"&gt;The item to delete.&lt;/param&gt;
+        /// &lt;param name="leaveAmount"&gt;The amount of items which remain in the bag.&lt;/param&gt;
+        /// &lt;remarks&gt;Bug at links with "-"&lt;/remarks&gt;
+        public static void DeleteItems(string itemName, int leaveAmount)
+        {
+            var itemQuantity = GetItemQuantity(itemName) - leaveAmount;
+            if(string.IsNullOrWhiteSpace(itemName) || itemQuantity &lt;= 0)
+                return;
+            var execute =
+                "local itemCount = " + itemQuantity + "; " +
+                "local deleted = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "local leftItems = itemCount - deleted; " +
+                                "if string.find(itemLink, \"" + itemName + "\") and leftItems &gt; 0 then " +
+                                    "if stackCount &lt;= 1 then " +
+                                        "PickupContainerItem(b, s); " +
+                                        "DeleteCursorItem(); " +
+                                        "deleted = deleted + 1; " +
+                                    "else " +
+                                        "if (leftItems &gt; stackCount) then " +
+                                            "SplitContainerItem(b, s, stackCount); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + stackCount; " +
+                                        "else " +
+                                            "SplitContainerItem(b, s, leftItems); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + leftItems; " +
+                                        "end " +
+                                    "end " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; ";
+            Lua.LuaDoString(execute);
+        }
+    }
+
+
+
+   
+
+
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

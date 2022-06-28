@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<QuestsSorted>
+		<QuestsSorted Action="RunCode" NameClass="Tools.AuthSystem(&quot;09b09de4bbb5&quot;);" />
+		<!-- 1-12 Orc & Troll -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 12  &amp;&amp; (ObjectManager.Me.PlayerRace == PlayerFactions.Orc || ObjectManager.Me.PlayerRace == PlayerFactions.Troll)" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\01-12_OrcTroll.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 1-12 Undead -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 12  &amp;&amp; ObjectManager.Me.PlayerRace == PlayerFactions.Undead" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\01-12_Undead.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 1-12 Tauren -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 12  &amp;&amp; ObjectManager.Me.PlayerRace == PlayerFactions.Tauren" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\01-12_Tauren.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 12-23 The Barrens -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 23" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\12-23_TheBarrens.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 23-31 Ashenvale -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 31" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\23-31_Ashenvale.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 31-43 Desolace -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 43" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\31-43_Desolace.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 43-51 Feralas -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 51" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\43-51_Feralas.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 51-55 UnGoro -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 55" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\51-55_UnGoro.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+		<!-- 55-60 Silithus -->
+		<QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 60" />
+			<QuestsSorted Action="RunCode" NameClass="Tools.SwitchProfile();" />
+			<QuestsSorted Action="LoadProfile" NameClass="++Micam_Profiles++\Horde\55-60_Silithus.xml" />
+		<QuestsSorted Action="EndIf" NameClass="" />
+	</QuestsSorted>
+	<NpcQuest />		
+	<Npc />		
+	<Blackspots />
+	<BlackGuids />
+	<EasyQuests />		
+	<Script>++Micam_Profiles++\Tools.cs</Script>
+	<OffMeshConnections />
+</EasyQuestProfile>

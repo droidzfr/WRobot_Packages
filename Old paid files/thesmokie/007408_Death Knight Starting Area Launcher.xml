@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="Quester_rewards.Select();" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(12593) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12619) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12842) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12848) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12636) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12641) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12657) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12849) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12850) ||&#xD;&#xA;           !Quest.GetQuestCompleted(12670)" />
+    <QuestsSorted Action="RunCode" NameClass="Loader.RunLoader(&quot;Part 1.xml&quot;, &quot;https://raw.githubusercontent.com/TheSmokie/Death-Knight-Starting-Area-Remake/master/Part%201&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="Part 1.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(12678) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12680) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12687) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12679) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12733) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12711) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12697) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12698) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12700) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12701) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12706) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12714) ||&#xD;&#xA;          !Quest.GetQuestCompleted(12715)" />
+    <QuestsSorted Action="RunCode" NameClass="Loader.RunLoader(&quot;Part 2.xml&quot;, &quot;https://raw.githubusercontent.com/TheSmokie/Death-Knight-Starting-Area-Remake/master/Part%202&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="Part 2.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(12719) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12722) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12716) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12720) ||&#xD;&#xA;             !Quest.GetQuestCompleted(12717) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12723) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12724) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12725) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12727) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12738) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12751) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12754) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12755) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12756) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12757) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12778)" />
+    <QuestsSorted Action="RunCode" NameClass="Loader.RunLoader(&quot;Part 3.xml&quot;, &quot;https://raw.githubusercontent.com/TheSmokie/Death-Knight-Starting-Area-Remake/master/Part%203&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="Part 3.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(12779) ||&#xD;&#xA;            !Quest.GetQuestCompleted(12800) ||&#xD;&#xA;            !Quest.GetQuestCompleted(13165) ||&#xD;&#xA;            !Quest.GetQuestCompleted(13166) ||&#xD;&#xA;            !Quest.GetQuestCompleted(13188) &amp;&amp;&#xD;&#xA;            !Quest.GetQuestCompleted(13189)" />
+    <QuestsSorted Action="RunCode" NameClass="Loader.RunLoader(&quot;Part 4.xml&quot;, &quot;https://raw.githubusercontent.com/TheSmokie/Death-Knight-Starting-Area-Remake/master/Part%204&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="Part 4.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests />
+  <Script>using System.Diagnostics;
+using System.IO;
+using System.Threading;
+using Quester.Profile;
+using robotManager.Products;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using System.ComponentModel;
+
+public static class Loader
+{
+    public static void RunLoader(string filename, string link)
+    {
+        var path = System.IO.Path.Combine(robotManager.Helpful.Others.GetCurrentDirectory, "Profiles", "Quester", filename);
+        var profile2 = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(link);
+
+        File.WriteAllText(path, profile2);
+        QuestAction.LoadProfile.Equals(filename);
+        new Thread(() =&gt;
+        {
+            Thread.Sleep(3000);
+            robotManager.Helpful.Others.RemoveFile(path);
+        }).Start();
+    }
+}
+
+
+public static class Quester_rewards
+{
+    public static void Select()
+    {
+        wManager.Events.OthersEvents.OnSelectQuestRewardItem += delegate (CancelEventArgs cancelable)
+        {
+            cancelable.Cancel = true;
+            gosip();
+            Thread.Sleep(100);
+            if(Lua.LuaDoString&lt;bool&gt;("if QuestFrameRewardPanel:IsVisible() then return true else return false end"))
+                Selecter();
+        };
+    }
+
+    public static void gosip()
+    {
+        var gossip = @"
+      if ( not QuestFrameRewardPanel:IsVisible() or QuestFrameRewardPanel:IsVisible() == nil ) then
+    local gossipTable = {GetGossipActiveQuests()}
+    local numOptions = table.getn(gossipTable)/4
+    local nameIndex, completeIndex = 1, 4
+    for i=1,numOptions do
+      if gossipTable[completeIndex] == 1 then
+        SelectGossipActiveQuest(i)
+        CompleteQuest();
+      end
+    nameIndex, completeIndex = nameIndex + 4, completeIndex + 4
+    end 
+    return 
+    end";
+        Lua.LuaDoString(gossip);
+
+        
+    }
+
+    public static void Selecter()
+    { 
+        int questRewards = Lua.LuaDoString&lt;int&gt;("return GetNumQuestChoices()");
+        if (questRewards == 0)
+        {
+            Lua.LuaDoString(@"print('\124cffffcc00\124h[Reward Selector]\124h\124r: \124cffFF0000There is No Quest Reward!\124r')");
+            Lua.LuaDoString("QuestFrameCompleteQuestButton:Click();");
+            Thread.Sleep(100);
+        }
+        else
+            RunLua();
+    }
+
+    public static void RunLua()
+    {
+        Lua.LuaDoString(@"
+function Selector() 
+
+    if QuestFrameRewardPanel:IsVisible() == nil then 
+            return;
+    end
+
+  local function GetSpecTab() 
+    local highest_tab, highest, highest_name = 0, 0, ""NoTalents"";
+    for i=1, 3 do 
+        local name, _, points = GetTalentTabInfo(i);
+        if points &gt; highest then
+            highest = points;
+            highest_tab = i;
+            highest_name = name;
+        end
+    end
+    return highest_name
+  end
+
+
+  local function GetHighest(t) 
+    local highest = 0;
+    for k, v in pairs(t) do
+      if v &gt; highest then
+        highest = v;
+      end
+    end
+    return highest;
+  end 
+
+
+  Database=
+  {
+  { playerClass=""WARRIOR"", playerSpec=""Arms"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""WARRIOR"", playerSpec=""Fury"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""WARRIOR"", playerSpec=""Protection"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""WARRIOR"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 10, 1 } } },
+  { playerClass=""PRIEST"", playerSpec=""Discipline"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""PRIEST"", playerSpec=""Holy"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""PRIEST"", playerSpec=""Shadow"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""PRIEST"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""ROGUE"", playerSpec=""Assassination"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""ROGUE"", playerSpec=""Combat"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""ROGUE"", playerSpec=""Subtlety"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""ROGUE"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""MAGE"", playerSpec=""Arcane"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""MAGE"", playerSpec=""Fire"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""MAGE"", playerSpec=""Frost"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""MAGE"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""WARLOCK"", playerSpec=""Affliction"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""WARLOCK"", playerSpec=""Demonology"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""WARLOCK"", playerSpec=""Destruction"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""WARLOCK"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""PALADIN"", playerSpec=""Holy"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""PALADIN"", playerSpec=""Protection"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""PALADIN"", playerSpec=""Retribution"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""PALADIN"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""HUNTER"", playerSpec=""Beast Mastery"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, } } },
+  { playerClass=""HUNTER"", playerSpec=""Marksmanship"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""HUNTER"", playerSpec=""Survival"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""HUNTER"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""DRUID"", playerSpec=""Balance"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""DRUID"", playerSpec=""Feral Combat"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, } } },
+  { playerClass=""DRUID"", playerSpec=""Restoration"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""DRUID"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""DEATHKNIGHT"", playerSpec=""Blood"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""DEATHKNIGHT"", playerSpec=""Frost"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""DEATHKNIGHT"", playerSpec=""Unholy"", stat_priority={nil, { ""ITEM_MOD_STRENGTH_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""DEATHKNIGHT"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } },
+  { playerClass=""SHAMAN"", playerSpec=""Elemental"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""SHAMAN"", playerSpec=""Enhancement"", stat_priority={nil, { ""ITEM_MOD_AGILITY_SHORT"", ""ITEM_MOD_ATTACK_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""SHAMAN"", playerSpec=""Restoration"", stat_priority={nil, { ""ITEM_MOD_INTELLECT_SHORT"", ""ITEM_MOD_SPELL_POWER_SHORT"" }, { 2, 0.5 } } },
+  { playerClass=""SHAMAN"", playerSpec=""NoTalents"", stat_priority={nil, { ""ITEM_MOD_DAMAGE_PER_SECOND_SHORT"", ""ITEM_LEVEL"" }, { 2, 2 } } }
+  }
+
+
+  local _, playerClass, _ = UnitClass(""player"");
+  local function bestClassStats()
+    local playerSpec = GetSpecTab();
+    
+    for i=1,table.getn(Database) do
+      if Database[i][""playerClass""] == playerClass then
+        if Database[i][""playerSpec""] == playerSpec then
+          return Database[i][""stat_priority""];
+        end
+      end
+    end
+  end
+ 
+  local function BestReward() 
+    local _items = {}  
+    for i=1,GetNumQuestChoices() do 
+      local stats = {} 
+      local _itemLink = GetQuestItemLink(""choice"", i) 
+      local _itemWeight = 0 
+      local _, _, _, _itemLevel, _, _itemType, _itemSubType, _, _itemEquipLoc, _, _itemSellPrice = GetItemInfo(_itemLink)
+      _itemEquipLoc = string.gsub(_itemEquipLoc, ""INVTYPE"", ""INVSLOT"")
+      _itemEquipLoc = string.gsub(_itemEquipLoc, ""CLOAK"", ""BACK"")
+      GetItemStats(_itemLink, stats) -- Create a ""Hashmap"" of the current item.
+      table.insert(_items, {ITEM_LINK=_itemLink,
+                            ITEM_WEIGHT=_itemWeight,
+                            ITEM_TYPE=_itemType,
+                            ITEM_SUB_TYPE=_itemSubType,
+                            ITEM_LEVEL=_itemLevel,
+                            ITEM_SELL_PRICE=_itemSellPrice,
+                            ITEM_EQUIP_SLOT=_itemEquipLoc,
+                            ITEM_MOD_INTELLECT_SHORT=stats[""ITEM_MOD_INTELLECT_SHORT""],                          
+                            ITEM_MOD_SPIRIT_SHORT=stats[""ITEM_MOD_SPIRIT_SHORT""],
+                            ITEM_MOD_STAMINA_SHORT=stats[""ITEM_MOD_STAMINA_SHORT""],
+                            ITEM_MOD_STRENGTH_SHORT=stats[""ITEM_MOD_STRENGTH_SHORT""],
+                            ITEM_MOD_AGILITY_SHORT=stats[""ITEM_MOD_AGILITY_SHORT""],
+                            ITEM_MOD_SPELL_POWER_SHORT=stats[""ITEM_MOD_SPELL_POWER_SHORT""],
+                            ITEM_MOD_ATTACK_POWER_SHORT=stats[""ITEM_MOD_ATTACK_POWER_SHORT""],
+                            ITEM_MOD_DAMAGE_PER_SECOND_SHORT=stats[""ITEM_MOD_DAMAGE_PER_SECOND_SHORT""]
+                            })
+      table.wipe(stats)
+    end 
+
+
+    local possibleSkills = { ""Cloth"", ""Leather"", ""Mail"", ""Plate Mail"", ""Bows"", ""Crossbows"", ""Daggers"", ""Fist Weapons"", ""Guns"", ""Axes"", ""Maces"", ""Swords"", ""Polearms"", ""Staves"", ""Thrown"", ""Two-Handed Axes"", ""Two-Handed Maces"", ""Two-Handed Swords"", ""Wands"" }
+    local actualSkills = {}
+    for skillIndex = 1, GetNumSkillLines() do
+      local skillName, _, _, skillRank, _ = GetSkillLineInfo(skillIndex)
+      for i=1,table.getn(possibleSkills) do
+        if skillName == possibleSkills[i] then
+          if skillName == ""Maces"" then
+            table.insert(actualSkills, {""One-Handed Maces"", skillRank })
+          elseif skillName == ""Swords"" then
+            table.insert(actualSkills, {""One-Handed Swords"", skillRank })
+          elseif skillName == ""Axes"" then
+            table.insert(actualSkills, {""One-Handed Axes"", skillRank })
+          else
+            table.insert(actualSkills, {skillName, skillRank })
+          end          
+        end
+      end
+    end
+
+
+    local classStats = bestClassStats()    
+    for i=1,table.getn(_items) do
+
+      for curStat=1,table.getn(classStats[2]) do
+        local _stats_weight = 0
+        if _items[i][classStats[2][curStat]] ~= nil then
+          _stats_weight = _items[i][classStats[2][curStat]] * classStats[3][curStat]
+        end
+        _items[i][""ITEM_WEIGHT""] = _items[i][""ITEM_WEIGHT""] + _stats_weight
+      end
+
+
+      --if GetInventoryItemLink(""player"", _G[_items[i][""ITEM_EQUIP_SLOT""]]) == nil then
+       -- _items[i][""ITEM_WEIGHT""] = _items[i][""ITEM_WEIGHT""] + 100
+      -- end
+
+
+      local _type_weight = 0
+      for x=1,table.getn(actualSkills) do
+        if _items[i][""ITEM_SUB_TYPE""] == actualSkills[x][1] then
+          if playerClass == ""WARRIOR"" or playerClass == ""PALADIN"" or playerClass == ""DEATHKNIGHT"" then
+                if _items[i][""ITEM_SUB_TYPE""] == ""Plate Mail"" then _type_weight = 100
+            elseif _items[i][""ITEM_SUB_TYPE""] == ""Mail"" then _type_weight = 75
+            elseif _items[i][""ITEM_SUB_TYPE""] == ""Leather"" then _type_weight = 50
+            elseif _items[i][""ITEM_SUB_TYPE""] == ""Cloth"" then _type_weight = 25 end
+          end
+          if playerClass == ""MAGE"" or playerClass == ""PRIEST"" or playerClass == ""WARLOCK"" then
+            if _items[i][""ITEM_SUB_TYPE""] == ""Cloth"" then _type_weight = _type_weight + 100 end
+          end
+          _type_weight = _type_weight + 100 + actualSkills[x][2]
+        end
+      end
+      _items[i][""ITEM_WEIGHT""] = _items[i][""ITEM_WEIGHT""] + _type_weight
+      --
+    end
+
+
+    local _weights = {}
+    for i=1,table.getn(_items) do
+      table.insert(_weights, _items[i][""ITEM_WEIGHT""])
+    end
+
+
+    local best = GetHighest(_weights)
+    for i=1,table.getn(_items) do
+
+      if _items[i][""ITEM_WEIGHT""] == best then
+        return(i)
+      end
+    end
+
+  end  
+
+    local bestReward = BestReward()
+    local bestRewardLink = GetQuestItemLink(""choice"", BestReward())
+
+      print(""\124cffffcc00\124h[Reward Selector]\124h\124r: ""..bestRewardLink .. "" \124cff00ccff\124h Selected!\124h\124r"")
+
+    GetQuestReward(bestReward)
+  return bestReward
+  
+end  
+Selector();");
+    }
+}</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

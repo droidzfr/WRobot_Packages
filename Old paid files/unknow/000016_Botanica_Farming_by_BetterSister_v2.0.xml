@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;ResetInstances();&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SearchRadius=40;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackElite = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.MaxUnitsNear=99;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.CanAttackUnitsAlreadyInFight = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Terocone&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Dreaming Glory&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Netherbloom&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Felweed&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.NpcMailboxSearchRadius = 50;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.BlackListIfNotCompletePath = false;" />
+    <QuestsSorted Action="Pulse" NameClass="innnnnn" />
+    <QuestsSorted Action="Pulse" NameClass="farm5" />
+    <QuestsSorted Action="Pulse" NameClass="outtttt" />
+    <QuestsSorted Action="If" NameClass="Bag.GetContainerNumFreeSlots &lt; 30" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.States.ToTown.ForceToTown = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="GoToStep" NameClass="0" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots>
+    <Blackspot X="-173.493576" Y="399.376648" Z="-17.6922112" Radius="10.5" />
+    <Blackspot X="-157.656235" Y="404.1631" Z="-17.6941929" Radius="10.5" />
+    <Blackspot X="-162.592148" Y="381.4257" Z="-17.725687" Radius="19.5" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>farm</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="157.9212" Y="291.1814" Z="-4.89532" />
+          <Vector3 X="118.0354" Y="452.3965" Z="-4.872017" />
+          <Vector3 X="-5.714615" Y="572.2313" Z="-17.93773" />
+          <Vector3 X="-198.318" Y="395.3723" Z="-14.13181" />
+          <Vector3 X="68.67985" Y="392.3319" Z="-27.97715" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17993</int>
+          <int>18405</int>
+          <int>19633</int>
+          <int>18419</int>
+          <int>17994</int>
+          <int>18404</int>
+          <int>17976</int>
+          <int>19557</int>
+          <int>18422</int>
+          <int>19486</int>
+          <int>18421</int>
+          <int>18587</int>
+          <int>18420</int>
+          <int>17993</int>
+          <int>18404</int>
+          <int>18587</int>
+          <int>18420</int>
+          <int>19505</int>
+          <int>19511</int>
+          <int>19509</int>
+          <int>19508</int>
+          <int>19512</int>
+          <int>17993</int>
+          <int>17978</int>
+          <int>19843</int>
+          <int>19598</int>
+          <int>19507</int>
+          <int>19509</int>
+          <int>19508</int>
+          <int>17993</int>
+          <int>17980</int>
+          <int>17980</int>
+          <int>19865</int>
+          <int>19513</int>
+          <int>19608</int>
+          <int>17977</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == 553</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == 553 &amp;&amp; ObjectManager.GetWoWUnitHostile().Count(u =&gt; u.IsAlive &amp;&amp; u.Position.DistanceTo(new Vector3(68.15917f, 391.6762f, -27.97715f)) &lt; 10) == 0 || Usefuls.ContinentId == 530;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>innnnnn</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="3417.669" Y="1479.92" Z="182.8372" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>true</IsHotSpots>
+        <IsLoop>true</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == 530;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == 553;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>outtttt</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="161.4747" Y="391.884" Z="-36.08506" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>true</IsHotSpots>
+        <IsLoop>true</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == 553 &amp;&amp; ObjectManager.Me.Position.DistanceTo2D(new Vector3(-197.4101f, 395.9244f, -14.13181f)) &lt; 10;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == 530;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>tovendor</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="2966.553" Y="1791.269" Z="139.8162" Type="Flying" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>true</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Bag.GetContainerNumFreeSlots &lt; 30;</CanCondition>
+      <IsCompleteCondition>return ObjectManager.Me.Position.DistanceTo2D(new Vector3(2962.038f, 1793.052f, 139.1211f)) &lt; 20;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>fromvendor</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="3406.489" Y="1488.984" Z="184.129" Type="Flying" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Bag.GetContainerNumFreeSlots &gt; 30;</CanCondition>
+      <IsCompleteCondition>return ObjectManager.Me.Position.DistanceTo2D(new Vector3(3406.22f, 1489.185f, 184.1223f)) &lt; 20;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="3176.847" Y="1702.064" Z="144.9018" Type="Flying" />
+        <Vector3 X="3321.86" Y="1564.413" Z="187.1539" Type="Flying" />
+        <Vector3 X="3367.205" Y="1519.481" Z="179.5408" />
+      </Path>
+      <ContinentId>530</ContinentId>
+      <Name>to botanica</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="3350.666" Y="1537.645" Z="190.4106" Type="Flying" />
+        <Vector3 X="3325.344" Y="1568.022" Z="196.8687" Type="Flying" />
+        <Vector3 X="3216.471" Y="1717.97" Z="123.9256" Type="Flying" />
+      </Path>
+      <ContinentId>530</ContinentId>
+      <Name>from botanica</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-28.99627" Y="288.5073" Z="-1.847366" />
+        <Vector3 X="-17.16987" Y="288.1701" Z="-1.379986" />
+        <Vector3 X="-6.560368" Y="288.0787" Z="0.5344519" />
+        <Vector3 X="2.841784" Y="288.0256" Z="0.9190921" />
+        <Vector3 X="15.79906" Y="287.8879" Z="-1.464276" />
+        <Vector3 X="31.29447" Y="288.0385" Z="-5.654976" />
+      </Path>
+      <ContinentId>553</ContinentId>
+      <Name>boss1</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="149.3131" Y="297.1781" Z="-4.488267" />
+        <Vector3 X="143.3523" Y="303.4621" Z="-2.874489" />
+        <Vector3 X="138.188" Y="308.9155" Z="-1.752092" />
+        <Vector3 X="132.5171" Y="314.9313" Z="-2.006763" />
+        <Vector3 X="126.9183" Y="320.8712" Z="-3.366008" />
+        <Vector3 X="121.6704" Y="326.3561" Z="-4.923448" />
+        <Vector3 X="117.4942" Y="330.7274" Z="-4.76297" />
+      </Path>
+      <ContinentId>553</ContinentId>
+      <Name>boss2 bridge</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="117.4942" Y="330.7274" Z="-4.76297" />
+        <Vector3 X="123.7812" Y="323.5972" Z="-4.367864" />
+        <Vector3 X="129.7647" Y="317.3022" Z="-2.544246" />
+        <Vector3 X="135.0378" Y="311.8525" Z="-1.617301" />
+        <Vector3 X="142.0842" Y="304.6748" Z="-2.596555" />
+        <Vector3 X="149.3958" Y="296.8691" Z="-4.501149" />
+        <Vector3 X="155.0769" Y="291.0867" Z="-4.84268" />
+      </Path>
+      <ContinentId>553</ContinentId>
+      <Name>boss2 bridge</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="165.8841" Y="325.0786" Z="-5.419005" />
+        <Vector3 X="167.8106" Y="339.0015" Z="-6.913887" />
+        <Vector3 X="169.6156" Y="359.2558" Z="-5.535055" />
+      </Path>
+      <ContinentId>553</ContinentId>
+      <Name>boss2 to boss3 1</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="168.4283" Y="359.8898" Z="-5.523288" />
+        <Vector3 X="165.8558" Y="341.7859" Z="-6.898601" />
+        <Vector3 X="164.0526" Y="323.1715" Z="-5.418386" />
+      </Path>
+      <ContinentId>553</ContinentId>
+      <Name>boss2 to boss3 1 reverse</Name>
+    </OffMeshConnection>
+  </OffMeshConnections>
+</EasyQuestProfile>

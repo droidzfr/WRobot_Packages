@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+	<QuestsSorted Action="None" NameClass="TELEPORT HOME" />
+    <QuestsSorted Action="None" NameClass="detect if player is attacked" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.GetNumberAttackPlayer() &gt; 0" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="GoToStep" NameClass="3" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunLuaCode" NameClass="local itemName, _, _, _, _, _, _, _ = GetItemInfo(140192);&#xD;&#xA; RunMacroText(&quot;/use &quot; .. itemName);" />
+    <QuestsSorted Action="Wait" NameClass="20000" />
+    <QuestsSorted Action="None" NameClass="TELEPORT HOME ENDE" /> 
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests />
+  <OffMeshConnections>
+  </OffMeshConnections>
+</EasyQuestProfile>
