@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="/* SKIP BATTLE FOR BROKEN SHORE, DISABLE STEP TO RUN BATTLE */&#xD;&#xA;  robotManager.Helpful.Var.SetVar(&quot;SkipTheBattleforBrokenShore&quot;, true);&#xD;&#xA;" />
+    <QuestsSorted Action="WriteLog" NameClass=" --- Start Legion Intro --- " />
+    <QuestsSorted Action="If" NameClass="Quest.GetQuestCompleted(44663) || Quest.GetQuestCompleted(44184)" />
+    <QuestsSorted Action="GoToStep" NameClass="Auto Loader" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(44663) || Quest.HasQuest(44184)" />
+    <QuestsSorted Action="GoToStep" NameClass="Finish Intro" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="Pulse" NameClass="Boosted100Hearthstone" />
+    <QuestsSorted Action="Pulse" NameClass="StormwindPortalStone" />
+    <QuestsSorted Action="Pulse" NameClass="OrgrimmarPortalStone" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="TheLegionReturnsA" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="TheLegionReturnsH" />
+    <QuestsSorted Action="Pulse" NameClass="SkipLegionIntroScenario" />
+    <QuestsSorted Action="StepName" NameClass="Finish Intro" />
+    <QuestsSorted Action="Pulse" NameClass="IntheBlinkofanEye" />
+    <QuestsSorted Action="TurnIn" NameClass="IntheBlinkofanEye" />
+    <QuestsSorted Action="StepName" NameClass="Auto Loader" />
+    <QuestsSorted Action="WriteLog" NameClass=" --- Completed Legion Intro --- " />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Auto Loader.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="206109" Name="Warchief's Command Board" GameObject="true">
+      <PickUpQuests>
+        <int>43926</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="1600.99" Y="-4369.74" Z="21.0694" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="4311" Name="Holgar Stormaxe" GameObject="false">
+      <PickUpQuests>
+        <int>44281</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>43926</int>
+      </TurnInQuests>
+      <Position X="1322.116" Y="-4395.156" Z="25.75092" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="113547" Name="Stone Guard Mukar" GameObject="false">
+      <PickUpQuests>
+        <int>40518</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>44281</int>
+      </TurnInQuests>
+      <Position X="1419.352" Y="-4905.071" Z="11.34251" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="206111" Name="Hero's Call Board" GameObject="true">
+      <PickUpQuests>
+        <int>40519</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-8823.851" Y="630.5729" Z="94.136" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="107934" Name="Recruiter Lee" GameObject="false">
+      <PickUpQuests>
+        <int>42782</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>40519</int>
+      </TurnInQuests>
+      <Position X="-8495.111" Y="1078.7" Z="17.94479" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="108916" Name="Knight Dameron" GameObject="false">
+      <PickUpQuests>
+        <int>42740</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>42782</int>
+      </TurnInQuests>
+      <Position X="-8302.408" Y="1392.946" Z="4.691516" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="111109" Name="Emissary Auldbridge" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>44663</int>
+        <int>44184</int>
+      </TurnInQuests>
+      <Position X="-834.3594" Y="4399.119" Z="737.5295" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Boosted 100 (Hearthstone)</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var itemId = 6948;
+		if (!ItemsManager.HasItemById((uint)itemId))
+		{
+			Logging.Write("WARNING! Boosted Character dont have " + ItemsManager.GetNameById(itemId) );
+			return false;
+		}
+		Questing.Use(itemId);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return !Questing.Areas.InBoostedZone;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Stormwind Portal Stone</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		Questing.Use(132120);
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return !ItemsManager.HasItemById(132120) || Usefuls.ContinentId == (int)ContinentId.Azeroth;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Orgrimmar Portal Stone</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		Questing.Use(132119);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return !ItemsManager.HasItemById(132119) || Usefuls.ContinentId == (int)ContinentId.Kalimdor;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Legion Returns (A)</Name>
+      <QuestId>
+        <int>40519</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return ObjectManager.Me.IsAlliance;</CanCondition>
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Legion Returns (H)</Name>
+      <QuestId>
+        <int>43926</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return ObjectManager.Me.IsHorde;</CanCondition>
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Skip Legion Intro Scenario</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var npcPos = new Vector3(1322.269, -4395.174, 25.75724);
+		var npcID = 4311;
+		if (ObjectManager.Me.IsAlliance)
+		{
+			npcPos = new Vector3(-8495.111, 1078.7, 17.9443);
+			npcID = 107934;
+		}
+		GoToTask.ToPositionAndIntecractWithNpc(npcPos, npcID, 1);
+		Thread.Sleep(Others.Random(1500, 2500));
+		Lua.LuaDoString("GossipTitleButton3:Click();");
+		Thread.Sleep(Others.Random(1500, 2500));
+		Lua.LuaDoString("StaticPopup1Button1:Click();");
+		Thread.Sleep(Others.Random(1500, 2500));
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Usefuls.ContinentId == (int)ContinentId.Troll_Raid;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>In the Blink of an Eye</Name>
+      <QuestId>
+        <int>44663</int>
+        <int>44184</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+public sealed class IntheBlinkofanEye : QuestClass
+{
+	//44663 - nado v deadwind pass
+	//44184 - vipolnyaetsa avtomatom esli skipnut Battle For Broken Shore
+	List&lt;Vector3&gt; _path = new List&lt;Vector3&gt;()
+	{
+		new Vector3(-11086.54f, -2195.986f, 757.8527f, "None"),
+		new Vector3(-11085.4f, -2190.602f, 757.8581f, "None"),
+		new Vector3(-11083.94f, -2183.656f, 757.3376f, "None"),
+		new Vector3(-11082.88f, -2176.83f, 757.2589f, "None"),
+		new Vector3(-11082.27f, -2169.843f, 757.0441f, "None"),
+		new Vector3(-11082.06f, -2162.776f, 756.4971f, "None"),
+		new Vector3(-11081.88f, -2155.835f, 756.4297f, "None"),
+		new Vector3(-11082.1f, -2148.795f, 756.8077f, "None"),
+		new Vector3(-11078.32f, -2139.302f, 756.8254f, "None"),
+		new Vector3(-11075.2f, -2133.024f, 757.1489f, "None"),
+		new Vector3(-11073.54f, -2126.369f, 756.7359f, "None"),
+		new Vector3(-11074.87f, -2119.475f, 756.7556f, "None"),
+		new Vector3(-11080.75f, -2116.018f, 752.543f, "None"),
+		new Vector3(-11087.13f, -2113.046f, 750.2147f, "None"),
+		new Vector3(-11092.72f, -2109.123f, 750.2551f, "None"),
+		new Vector3(-11097.53f, -2104.282f, 750.2361f, "None"),
+		new Vector3(-11102.98f, -2099.65f, 749.3421f, "None"),
+		new Vector3(-11108.75f, -2095.632f, 749.2649f, "None"),
+		new Vector3(-11114.54f, -2091.632f, 749.1305f, "None"),
+		new Vector3(-11120.55f, -2088.548f, 749.1228f, "None"),
+		new Vector3(-11127.12f, -2086.414f, 749.0623f, "None"),
+		new Vector3(-11132.31f, -2081.801f, 749.0069f, "None"),
+		new Vector3(-11136.38f, -2076.115f, 749.118f, "None"),
+		new Vector3(-11139.96f, -2070.162f, 749.3221f, "None"),
+		new Vector3(-11142.04f, -2063.532f, 749.3662f, "None"),
+		new Vector3(-11138.24f, -2057.676f, 749.6129f, "None"),
+		new Vector3(-11133.79f, -2052.15f, 748.6552f, "None"),
+		new Vector3(-11129.35f, -2046.814f, 748.3256f, "None"),
+		new Vector3(-11124.91f, -2041.457f, 746.9354f, "None"),
+		new Vector3(-11120.48f, -2036.104f, 747.2314f, "None"),
+		new Vector3(-11116.1f, -2030.793f, 747.132f, "None"),
+	};
+
+	Vector3 alliancePos0 = new Vector3(-8435.844, 323.2466, 144.6225, "None");
+	Vector3 alliancePos = new Vector3(-8401.058, 330.757, 147.0138);
+	int alliancePortalId = 216350;
+
+	Vector3 hordePos0 = new Vector3(1773.681, -4311.771, 6.010299, "None");
+	Vector3 hordePos = new Vector3(1760.304, -4295.655, 7.447522, "None");
+	int hordrePortalId = 254292;
+
+	int khadgarId = 113986;
+	Vector3 khadgarDeadwindPos = new Vector3(-11112.06, -2024.847, 747.4567);
+
+	public IntheBlinkofanEye()
+	{
+		Name = "In the Blink of an Eye";
+		QuestId.Add(44663);
+		QuestId.Add(44184);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	static void Log(string text)
+	{
+		Logging.WriteDebug("[In the Blink of an Eye] " + text);
+	}
+	public override bool IsComplete()
+	{
+		//in broken isles dalaran
+		return Usefuls.AreaId == 7502 || Quest.GetQuestCompleted(44663) || Quest.GetQuestCompleted(44184);
+	}
+	public override bool Pulse()
+	{
+		if (ToDeadwindPassKhadgar())
+			return true;
+
+		if (ToAlliancePortal())
+			return true;
+
+		if (ToHordePortal())
+			return true;
+
+		return true;
+	}
+	bool ToDeadwindPassKhadgar()
+	{
+		if (Usefuls.AreaId != 41)
+			return false;
+
+		Log("path to khadgar");
+		Questing.PathFromNear(_path, true, () =&gt; Usefuls.AreaId == 41);
+		//Questing.PathClickToMove(_path, 3.5f, false, () =&gt; Usefuls.AreaId == 41);
+		var khadgar = Questing.FindUnit(khadgarId);
+		if (khadgar != null &amp;&amp; khadgar.IsValid)
+		{
+			if (TraceLine.TraceLineGo(khadgar.Position))
+			{
+				Log("found khadgar, but no direct path");
+				return true;
+			}
+			if (khadgar.GetDistance &gt; 4)
+			{
+				Log("found khadgar, move closer");
+				Questing.ClickMove(khadgar.Position);
+				return true;
+			}
+			Log("found khadgar, interact");
+			GoToTask.ToPositionAndIntecractWithNpc(khadgarDeadwindPos, khadgarId, 1);
+			Questing.CancelCutscene();
+			//1637 = (horde) cleft of shadows, 1519 = (alliance) portal room, 41 = deadwind pass
+			Questing.WaitAreaIDChange(Usefuls.AreaId);
+			return true;
+		}
+		Log("not found khadgar");
+		return true;
+	}
+
+	bool ToAlliancePortal()
+	{
+		if (!ObjectManager.Me.IsAlliance)
+			return false;
+
+		if (Usefuls.ContinentId != (int)ContinentId.Azeroth)
+		{
+			Logging.Write("Warning! Alliance character must be in Eastern Kingdoms (Stormwind)");
+			Thread.Sleep(5 * 1000);
+			return true;
+		}
+		//alliance antistuck point
+		Log("to alliance corner");
+		if (GoToTask.ToPosition(alliancePos0))
+		{
+			Log("to alliance port");
+			if (GoToTask.ToPositionAndIntecractWithGameObject(alliancePos, alliancePortalId))
+			{
+				//1637 = (horde) cleft of shadows, 1519 = (alliance) portal room, 41 = deadwind pass
+				Questing.WaitAreaIDChange(Usefuls.AreaId);
+				return true;
+			}
+		}
+		return true;
+	}
+	bool ToHordePortal()
+	{
+		if (!ObjectManager.Me.IsHorde)
+		{
+			return false;
+		}
+
+		if (Usefuls.ContinentId != (int)ContinentId.Kalimdor)
+		{
+			Thread.Sleep(5 * 1000);
+			return true;
+		}
+
+		Log("to horde corner");
+		//hord need antistuck point
+		if (GoToTask.ToPosition(hordePos0))
+		{
+			Log("to horde portal");
+			if (GoToTask.ToPositionAndIntecractWithGameObject(hordePos, hordrePortalId))
+			{
+				//1637 = (horde) cleft of shadows, 1519 = (alliance) portal room, 41 = deadwind pass
+				Questing.WaitAreaIDChange(Usefuls.AreaId);
+				return true;
+			}
+		}
+		return true;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Usefuls.AreaId == 7502 || Quest.GetQuestCompleted(44663) || Quest.GetQuestCompleted(44184);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

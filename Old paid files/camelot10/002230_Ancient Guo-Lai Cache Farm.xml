@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.Smelting = true;" />
+    <QuestsSorted Action="WriteLog" NameClass="Starting Key run." />
+    <QuestsSorted Action="Pulse" NameClass="FarmKeys" />
+    <QuestsSorted Action="WriteLog" NameClass="No keys left. (All done)" />
+    <QuestsSorted Action="Pulse" NameClass="UseHearthstone" />
+    <QuestsSorted Action="WriteLog" NameClass="Load next profile" />
+    <QuestsSorted Action="LoadProfile" NameClass="path/next profile.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc>
+    <Npc>
+      <Position X="1706.523" Y="986.8246" Z="470.926" />
+      <Entry>64058</Entry>
+      <Name>Jorunga Stonehoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Smelting</Type>
+      <ContinentId>HawaiiMainLand</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Farm Keys</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var p = new Vector3(1773.444, 1956.406, 240.3489, "None");
+		var cacheID = new List&lt;int&gt;()
+		{
+			214388,
+		};
+		if (ObjectManager.Me.Position.DistanceTo(p) &gt; 50)
+		{
+			Logging.Write("to caches hotspot");
+			GoToTask.ToPosition(p);
+			return true;
+		}
+		var cache = ObjectManager.GetNearestWoWGameObject(ObjectManager.GetWoWGameObjectByEntry(cacheID));
+		if (cache != null &amp;&amp; cache.IsValid)
+		{
+			GoToTask.ToPositionAndIntecractWithGameObject(cache.Position, cache.Entry);
+		}
+		return true;
+		/*
+		var h = new List&lt;Vector3&gt;()
+		{
+			new Vector3(1791.792, 1971.911, 240.3489),
+			new Vector3(1790.134, 1967.688, 240.3489),
+			new Vector3(1788.509, 1963.465, 240.3489),
+			new Vector3(1778.941, 1955.951, 240.3489),
+			new Vector3(1773.444, 1956.406, 240.3489),
+			new Vector3(1764.182, 1982.396, 240.3489),
+			new Vector3(1766.825, 1959.125, 240.3489),
+			new Vector3(1762.486, 1978.208, 240.3489),
+			new Vector3(1763.446, 1962.542, 240.3489),
+			new Vector3(1760.925, 1974.153, 240.3489),
+		};
+		var c = Vector3.Zero;
+		foreach (var p in h)
+		{
+			Logging.Write("&gt;&gt; " + p.DistanceTo(h[0]));
+			c += p;
+		}
+		c /= h.Count;
+		Logging.Write("C =&gt;&gt; " + c.ToStringNewVector());
+		//c = new Vector3(1774.069, 1967.184, 240.3489, "None");
+		var closest = h.OrderBy(v =&gt; v.DistanceTo(c)).FirstOrDefault();
+		Logging.Write("CLOSEST =&gt; " + closest.ToStringNewVector());
+		foreach (var p in h)
+		{
+			Logging.Write("===&gt;&gt; " + p.DistanceTo(closest));
+		}
+		//*/</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(87779) &lt; 1;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Use Hearthstone</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		ItemsManager.UseItem(6948);
+		Usefuls.WaitIsCasting();
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return !ItemsManager.HasItemById(6948) || Lua.LuaDoString&lt;int&gt;("local startTime, duration, enable = GetItemCooldown(6948); return startTime + duration - GetTime();") &gt; 0;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script />
+  <OffMeshConnections />
+</EasyQuestProfile>

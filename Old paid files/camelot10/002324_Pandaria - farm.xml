@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Pandaria farm: rares, ore, herbs ---" />
+    <QuestsSorted Action="RunCode" NameClass="//ORE&#xA;		Questing.AddHarvestBySkill(SkillLine.Mining, 209329, 209312, 221540, 221541, 209313, 209330, 209330, 221540, 221541, 209313, 209328, 221539, 209311, 221538, 209329, 209312);" />
+    <QuestsSorted Action="RunCode" NameClass="		//HERBS&#xA;		Questing.AddHarvestBySkill(SkillLine.Herbalism, 209354, 221545, 221543, 221544, 221547, 209355, 221542, 214510, 209349, 209350, 209353, 209351);&#xA;" />
+    <QuestsSorted Action="Pulse" NameClass="ValeofEternalBlossoms" />
+    <QuestsSorted Action="Pulse" NameClass="TheJadeForest" />
+    <QuestsSorted Action="Pulse" NameClass="ValleyoftheFourWinds" />
+    <QuestsSorted Action="Pulse" NameClass="KrasarangWilds" />
+    <QuestsSorted Action="Pulse" NameClass="DreadWastes" />
+    <QuestsSorted Action="Pulse" NameClass="TownlongSteppes" />
+    <QuestsSorted Action="Pulse" NameClass="KunLaiSummit" />
+    <QuestsSorted Action="Pulse" NameClass="Zandalari" />
+    <QuestsSorted Action="Pulse" NameClass="EverythingCombined" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Pandaria farm: rares, ore, herbs ---" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Vale of Eternal Blossoms</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1514.843" Y="1438.386" Z="548.3063" Type="Flying" />
+          <Vector3 X="1382.557" Y="2094.512" Z="462.9303" Type="Flying" />
+          <Vector3 X="982.8456" Y="2086.458" Z="380.2672" Type="Flying" />
+          <Vector3 X="433.9112" Y="1713.698" Z="550.0565" Type="Flying" />
+          <Vector3 X="783.7175" Y="1418.266" Z="479.7754" Type="Flying" />
+          <Vector3 X="913.6532" Y="1609.684" Z="385.7075" Type="Flying" />
+          <Vector3 X="1040.159" Y="1537.163" Z="387.2503" Type="Flying" />
+          <Vector3 X="1127.793" Y="1386.914" Z="391.0038" Type="Flying" />
+          <Vector3 X="1021.831" Y="899.5381" Z="428.9241" Type="Flying" />
+          <Vector3 X="1195.695" Y="258.2408" Z="466.4393" Type="Flying" />
+        </HotSpots>
+        <EntryTarget>
+          <int>50359</int>
+          <int>50349</int>
+          <int>50749</int>
+          <int>50840</int>
+          <int>50822</int>
+          <int>50806</int>
+          <int>50780</int>
+          <int>50336</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Jade Forest</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="2948.647" Y="-1400.401" Z="294.9902" Type="Flying" />
+          <Vector3 X="2837.173" Y="-1913.825" Z="248.4058" Type="Flying" />
+          <Vector3 X="2695.74" Y="-1991.966" Z="237.1732" Type="Flying" />
+          <Vector3 X="1851.781" Y="-1494.843" Z="246.3083" Type="Flying" />
+          <Vector3 X="1545.267" Y="-2167.611" Z="228.8535" Type="Flying" />
+          <Vector3 X="1603.313" Y="-2385.267" Z="189.9836" Type="Flying" />
+          <Vector3 X="1389.363" Y="-2471.502" Z="171.3177" Type="Flying" />
+          <Vector3 X="323.3003" Y="-2530.656" Z="82.55642" Type="Flying" />
+          <Vector3 X="66.40989" Y="-3057.619" Z="77.67432" Type="Flying" />
+          <Vector3 X="-8.734145" Y="-1558.834" Z="288.8528" Type="Flying" />
+          <Vector3 X="169.6673" Y="-1556.254" Z="153.8559" Type="Flying" />
+          <Vector3 X="378.8602" Y="-1471.469" Z="91.48844" Type="Flying" />
+          <Vector3 X="702.5309" Y="-1247.553" Z="222.448" Type="Flying" />
+          <Vector3 X="1237.264" Y="-885.96" Z="292.2157" Type="Flying" />
+        </HotSpots>
+        <EntryTarget>
+          <int>50350</int>
+          <int>50823</int>
+          <int>50750</int>
+          <int>51078</int>
+          <int>50363</int>
+          <int>50338</int>
+          <int>50808</int>
+          <int>50782</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Krasarang Wilds</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1250.255" Y="2216.562" Z="142.1492" Type="Flying" />
+          <Vector3 X="-1333.219" Y="1538.326" Z="88.17787" Type="Flying" />
+          <Vector3 X="-1028.48" Y="1090.299" Z="92.28505" Type="Flying" />
+          <Vector3 X="-1138.297" Y="424.4018" Z="93.75746" Type="Flying" />
+          <Vector3 X="-1227.156" Y="329.5927" Z="98.44538" Type="Flying" />
+          <Vector3 X="-1345.198" Y="384.8198" Z="98.44787" Type="Flying" />
+          <Vector3 X="-829.4633" Y="-200.9603" Z="163.0593" Type="Flying" />
+          <Vector3 X="-1642.247" Y="326.254" Z="56.04677" Type="Flying" />
+          <Vector3 X="-1933.739" Y="1042.789" Z="139.1954" Type="Flying" />
+          <Vector3 X="-1712.513" Y="1131.707" Z="146.0718" Type="Flying" />
+          <Vector3 X="-2891.237" Y="510.565" Z="128.8028" Type="Flying" />
+        </HotSpots>
+        <EntryTarget>
+          <int>50388</int>
+          <int>50768</int>
+          <int>50331</int>
+          <int>50816</int>
+          <int>50787</int>
+          <int>50340</int>
+          <int>50352</int>
+          <int>50830</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Valley of the Four Winds</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="587.7565" Y="-790.0881" Z="295.6797" Type="Flying" />
+          <Vector3 X="-25.31441" Y="-371.6019" Z="245.2068" Type="Flying" />
+          <Vector3 X="-151.6177" Y="-319.6286" Z="210.3508" Type="Flying" />
+          <Vector3 X="-262.905" Y="-273.0825" Z="189.4905" Type="Flying" />
+          <Vector3 X="-326.6482" Y="-205.4329" Z="178.9968" Type="Flying" />
+          <Vector3 X="-344.1263" Y="-100.4581" Z="173.6382" Type="Flying" />
+          <Vector3 X="-387.5041" Y="-3.164968" Z="174.1719" Type="Flying" />
+          <Vector3 X="-453.4562" Y="33.12829" Z="167.3023" Type="Flying" />
+          <Vector3 X="-497.8472" Y="59.30747" Z="171.1442" Type="Flying" />
+          <Vector3 X="179.7565" Y="435.6746" Z="190.7895" Type="Flying" />
+          <Vector3 X="151.6117" Y="565.8588" Z="173.6905" Type="Flying" />
+          <Vector3 X="282.5442" Y="551.6172" Z="174.0412" Type="Flying" />
+          <Vector3 X="379.3538" Y="574.928" Z="174.9527" Type="Flying" />
+          <Vector3 X="420.5485" Y="1225.34" Z="250.8003" Type="Flying" />
+          <Vector3 X="-457.3115" Y="1120.122" Z="188.0408" Type="Flying" />
+          <Vector3 X="-542.2585" Y="1213.639" Z="180.9091" Type="Flying" />
+          <Vector3 X="-483.0591" Y="1315.479" Z="182.8388" Type="Flying" />
+          <Vector3 X="-564.9369" Y="1387.44" Z="174.8205" Type="Flying" />
+          <Vector3 X="-525.8586" Y="1451.223" Z="173.8702" Type="Flying" />
+          <Vector3 X="-600.6667" Y="1436.897" Z="173.0902" Type="Flying" />
+          <Vector3 X="-1028.251" Y="1955.26" Z="188.3226" Type="Flying" />
+          <Vector3 X="-500.1342" Y="2311.939" Z="202.7495" Type="Flying" />
+          <Vector3 X="-336.4638" Y="2283.318" Z="169.842" Type="Flying" />
+          <Vector3 X="-200.0397" Y="2365.317" Z="211.2235" Type="Flying" />
+          <Vector3 X="14.31402" Y="1997.151" Z="191.8243" Type="Flying" />
+          <Vector3 X="105.3114" Y="2104.717" Z="211.4879" Type="Flying" />
+          <Vector3 X="222.9253" Y="1984.04" Z="225.0254" Type="Flying" />
+        </HotSpots>
+        <EntryTarget>
+          <int>50364</int>
+          <int>50828</int>
+          <int>50339</int>
+          <int>50351</int>
+          <int>51059</int>
+          <int>50766</int>
+          <int>50811</int>
+          <int>50783</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Dread Wastes</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="657.7228" Y="2167.972" Z="376.6584" Type="Flying" />
+          <Vector3 X="48.55601" Y="2332.038" Z="254.7456" Type="Flying" />
+          <Vector3 X="-687.9042" Y="2754.305" Z="174.1806" Type="Flying" />
+          <Vector3 X="-901.3754" Y="3181.3" Z="131.1496" Type="Flying" />
+          <Vector3 X="-982.1981" Y="3924.158" Z="38.49155" Type="Flying" />
+          <Vector3 X="-690.7366" Y="4005.941" Z="55.39201" Type="Flying" />
+          <Vector3 X="-878.7719" Y="4279.986" Z="52.25547" Type="Flying" />
+          <Vector3 X="-663.2399" Y="4336.105" Z="48.4788" Type="Flying" />
+          <Vector3 X="-128.5042" Y="3987.053" Z="272.8147" Type="Flying" />
+          <Vector3 X="295.6312" Y="4245.563" Z="310.4962" Type="Flying" />
+          <Vector3 X="368.4329" Y="4084.747" Z="303.1726" Type="Flying" />
+          <Vector3 X="633.7704" Y="4247.494" Z="315.9258" Type="Flying" />
+          <Vector3 X="404.4683" Y="4823.696" Z="85.8744" Type="Flying" />
+        </HotSpots>
+        <EntryTarget>
+          <int>50356</int>
+          <int>50347</int>
+          <int>50776</int>
+          <int>50836</int>
+          <int>50805</int>
+          <int>50739</int>
+          <int>50821</int>
+          <int>50334</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Townlong Steppes</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1217.387" Y="4236.644" Z="261.8079" Type="Flying" />
+          <Vector3 X="1352.546" Y="4256.021" Z="241.1571" Type="Flying" />
+          <Vector3 X="1494.429" Y="4719.624" Z="236.665" Type="Flying" />
+          <Vector3 X="1663.285" Y="4403.788" Z="167.018" Type="Flying" />
+          <Vector3 X="2191.362" Y="5218.891" Z="122.7503" Type="Flying" />
+          <Vector3 X="2107.963" Y="3980.651" Z="278.2454" Type="Flying" />
+          <Vector3 X="1733.848" Y="3216.493" Z="353.3757" Type="Flying" />
+          <Vector3 X="1174.141" Y="3144.026" Z="340.6454" Type="Flying" />
+          <Vector3 X="1265.176" Y="3257.19" Z="338.0539" Type="Flying" />
+          <Vector3 X="1254.656" Y="3348.934" Z="321.1872" Type="Flying" />
+          <Vector3 X="2544.736" Y="3218.463" Z="471.5569" Type="Flying" />
+          <Vector3 X="2614.278" Y="3347.291" Z="465.832" Type="Flying" />
+          <Vector3 X="2761.878" Y="3215.932" Z="458.6501" Type="Flying" />
+          <Vector3 X="3235.188" Y="3477.029" Z="537.9438" Type="Flying" />
+        </HotSpots>
+        <EntryTarget>
+          <int>50355</int>
+          <int>50333</int>
+          <int>50344</int>
+          <int>50734</int>
+          <int>50820</int>
+          <int>50791</int>
+          <int>50772</int>
+          <int>50832</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Kun-Lai Summit</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="2299.625" Y="2561.186" Z="697.9083" Type="Flying" />
+          <Vector3 X="2233.132" Y="1823.292" Z="543.5953" Type="Flying" />
+          <Vector3 X="2254.331" Y="1701.719" Z="548.4045" Type="Flying" />
+          <Vector3 X="2250.073" Y="1565.335" Z="552.5902" Type="Flying" />
+          <Vector3 X="2502.967" Y="1199.786" Z="570.8085" Type="Flying" />
+          <Vector3 X="2572.432" Y="1100.217" Z="574.6229" Type="Flying" />
+          <Vector3 X="2944.86" Y="1924.408" Z="693.859" Type="Flying" />
+          <Vector3 X="2897.061" Y="2004.798" Z="678.5262" Type="Flying" />
+          <Vector3 X="3825.989" Y="2317.478" Z="812.9855" Type="Flying" />
+          <Vector3 X="3784.063" Y="1354.188" Z="858.6343" Type="Flying" />
+          <Vector3 X="2953.236" Y="717.3741" Z="577.7369" Type="Flying" />
+          <Vector3 X="2893.479" Y="545.2249" Z="561.5767" Type="Flying" />
+          <Vector3 X="2837.159" Y="370.4405" Z="539.6037" Type="Flying" />
+          <Vector3 X="2877.114" Y="164.8474" Z="473.7203" Type="Flying" />
+          <Vector3 X="2691.663" Y="277.6704" Z="526.0124" Type="Flying" />
+          <Vector3 X="2423.991" Y="365.7735" Z="523.6732" Type="Flying" />
+          <Vector3 X="2358.283" Y="212.303" Z="516.3383" Type="Flying" />
+          <Vector3 X="2307.36" Y="497.4005" Z="524.051" Type="Flying" />
+          <Vector3 X="2158.518" Y="650.064" Z="535.6774" Type="Flying" />
+          <Vector3 X="2046.054" Y="712.1059" Z="527.418" Type="Flying" />
+          <Vector3 X="5028.48" Y="844.7478" Z="47.38589" Type="Flying" />
+          <Vector3 X="2967.01" Y="414.919" Z="569.7914" Type="Flying" />
+        </HotSpots>
+        <EntryTarget>
+          <int>50789</int>
+          <int>50341</int>
+          <int>50817</int>
+          <int>50831</int>
+          <int>50733</int>
+          <int>50332</int>
+          <int>50354</int>
+          <int>50769</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Zandalari</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget>
+          <int>69768</int>
+          <int>69769</int>
+          <int>69841</int>
+          <int>69842</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>Questing.ToVar(this, "PandariaHotspots", "PandariaTargets"); return true;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Everything Combined</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget />
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return false;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

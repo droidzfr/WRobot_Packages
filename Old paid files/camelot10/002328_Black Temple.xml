@@ -1,0 +1,2693 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="Pulse" NameClass="ToBlackTemple" />
+    <QuestsSorted Action="Pulse" NameClass="Boss1" />
+    <QuestsSorted Action="Pulse" NameClass="Boss2" />
+    <QuestsSorted Action="Pulse" NameClass="MoveToCourtyard" />
+    <QuestsSorted Action="Pulse" NameClass="MoveInsideBlackTemple" />
+    <QuestsSorted Action="RunCode" NameClass="AkamaFight.Start();" />
+    <QuestsSorted Action="Pulse" NameClass="Boss3TalkToAkama" />
+    <QuestsSorted Action="Pulse" NameClass="Boss3" />
+    <QuestsSorted Action="RunCode" NameClass="AkamaFight.Stop();" />
+    <QuestsSorted Action="Pulse" NameClass="MoveToMiddleOfBlackTemple" />
+    <QuestsSorted Action="Pulse" NameClass="Boss4" />
+    <QuestsSorted Action="Pulse" NameClass="Boss6" />
+    <QuestsSorted Action="Pulse" NameClass="Boss5" />
+    <QuestsSorted Action="Pulse" NameClass="MoveToDen" />
+    <QuestsSorted Action="Pulse" NameClass="Boss7" />
+    <QuestsSorted Action="Pulse" NameClass="MoveToGateAscend" />
+    <QuestsSorted Action="Pulse" NameClass="Boss8" />
+    <QuestsSorted Action="RunCode" NameClass="Thread.Sleep(Others.Random(2000, 3000));&#xD;&#xA;Lua.LuaDoString(&quot;for i = 1, 4 do local b = _G['GroupLootFrame'..i].GreedButton if b:IsVisible() then b:Click() StaticPopup1Button1:Click() end end&quot;);&#xA;" />
+    <QuestsSorted Action="Pulse" NameClass="OpenGateToIllidan" />
+    <QuestsSorted Action="Pulse" NameClass="Boss9" />
+    <QuestsSorted Action="WriteLog" NameClass="BLACK TEMPLE RUN COMPLETE" />
+    <QuestsSorted Action="Wait" NameClass="60000" />
+    <QuestsSorted Action="Pulse" NameClass="ToBrokenIslesDalaran" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Filler.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc>
+    <Npc>
+      <Position X="695.9255" Y="196.5966" Z="125.007" />
+      <Entry>23159</Entry>
+      <Name>Окуно</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>BlackTemple</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="695.9255" Y="196.5966" Z="125.007" />
+      <Entry>23159</Entry>
+      <Name>Окуно</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>BlackTemple</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots>
+    <Blackspot X="454.597778" Y="379.093" Z="192.775269" Radius="8" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>*Traveler</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using wManager.Wow.Class;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.Threading;
+using wManager.Wow.Bot.Tasks;
+#endif
+
+public class Traveler : QuestClass
+{
+	static Traveler()
+	{
+		ResetSettings();
+		Var.SetVar("Cameleto10Traveler", true);
+	}
+	static void Log(string message)
+	{
+		Logging.Write("[Traveler] " + message);
+	}
+	public delegate bool BooleanDelegate();
+	public static void ResetSettings()
+	{
+		var config = wManager.wManagerSetting.CurrentSetting;
+		config.CloseIfPlayerTeleported = false;
+		config.UseFlyingMount = true;
+		config.UseGroundMount = true;
+		config.UseMount = true;
+		config.IgnoreFightGoundMount = true;
+		CVar.SetCVar("autoDismount", "1");
+		CVar.SetCVar("autoDismountFlying", "1");
+		Conditions.ForceIgnoreIsAttacked = false;
+		Log("reset settings");
+	}
+
+	public static void UseHeathstone()
+	{
+		var name = SpellListManager.SpellNameInGameById(94719);
+		Lua.RunMacroText("/cast " + name);
+		Thread.Sleep(Usefuls.Latency * 2);
+		if (ObjectManager.Me.IsCast)
+		{
+			Log("Heathstoning(" + name + ")");
+			Usefuls.WaitIsCasting();
+		}
+		else if (ItemsManager.HasItemById(6948))
+		{
+			Log("Heathstoning");
+			ItemsManager.UseItem(6948);
+			Usefuls.WaitIsCasting();
+		}
+		else
+		{
+			Log("WARNING! Dont have Heathstone or The Innkeeper's Daughter");
+		}
+	}
+
+	public static void UseHeathstoneDalaran()
+	{
+		if (ItemsManager.HasItemById(140192))
+		{
+			ItemsManager.UseItem(140192);
+			Usefuls.WaitIsCasting();
+		}
+		else
+		{
+			Log("WARNING! Dont have " + ItemsManager.GetNameById(140192));
+		}
+	}
+
+
+	//VANILLA
+	public static bool InCapital
+	{
+		get
+		{
+			if (ObjectManager.Me.IsHorde)
+			{
+				if (Usefuls.ContinentId != (int)ContinentId.Kalimdor)
+					return false;
+
+				if (Usefuls.AreaId != (int)AreaId.Orgrimmar)
+					return false;
+
+				return true;
+			}
+			else if (ObjectManager.Me.IsAlliance)
+			{
+				if (Usefuls.ContinentId != (int)ContinentId.Azeroth)
+					return false;
+
+				if (Usefuls.AreaId != (int)AreaId.Stormwind)
+					return false;
+
+				return true;
+			}
+			return false;
+		}
+	}
+
+	public static bool InOrgrimmarCleftOfShadow
+	{
+		get
+		{
+			if (Usefuls.ContinentId != (int)ContinentId.Kalimdor)
+				return false;
+
+			if (Usefuls.AreaId != (int)AreaId.Orgrimmar)
+				return false;
+
+			if (ObjectManager.Me.Position.DistanceTo2D(Coords.ORGRIMMAR_CLEFT_OF_SHADOW) &gt; 100)
+				return false;
+
+			return ObjectManager.Me.Position.Z &lt; Coords.ORGRIMMAR_CLEFT_OF_SHADOW.Z;
+		}
+	}
+
+	public static void FromOrgrimmarCleftOfShadow()
+	{
+		if (InOrgrimmarCleftOfShadow)
+			Move(Paths.FROM_ORGRIMMAR_CLEFT_OF_SHADOW, true);
+	}
+
+	public static bool InStormwindWizardsSanctum
+	{
+		get
+		{
+			if (Usefuls.ContinentId != (int)ContinentId.Azeroth)
+				return false;
+
+			if (Usefuls.AreaId != (int)AreaId.Stormwind)
+				return false;
+
+			if (ObjectManager.Me.Position.DistanceTo2D(Coords.STORMWIND_WIZARDS_SANCTUM) &gt; 50)
+				return false;
+			
+			return ObjectManager.Me.Position.DistanceZ(Coords.STORMWIND_WIZARDS_SANCTUM) &lt; 10;
+		}
+	}
+
+	public static void FromStormwindWizardsSanctum()
+	{
+		MoveClick(Coords.STORMWIND_WIZARDS_SANCTUM_MOVEOUT, () =&gt; InStormwindWizardsSanctum);
+		//if (!InStormwindWizardsSanctum)
+		Move(Paths.FROM_STORMWIND_WIZARDS_SANCTUM, true);
+	}
+
+	public static void ToCapital()
+	{
+		if (InCapital)
+		{
+			if (InStormwindWizardsSanctum)
+			{
+				FromStormwindWizardsSanctum();
+			}
+			Log("im in faction capital");
+		}
+		else if (InPandariaShrine)
+		{
+			Log("im in pandaria. going to capital portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.PANDARIA_ORGRIMMAR.Use();
+			else
+				Portals.PANDARIA_STORMWIND.Use();
+		}
+		else if (InBrokenIslesDalaran)
+		{
+			Log("im in dalaran. going to capital portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.BROKENISLES_ORGRIMMAR.Use();
+			else
+				Portals.BROKENISLES_STORMWIND.Use();
+		}
+		else
+		{
+			Log("im somewhere else. heath to dalaran");
+			ToBrokenIslesDalaran();
+		}
+	}
+
+	//OUTLANDS
+	public static bool InOutlands
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.Expansion01;
+		}
+	}
+
+	public static bool InShattrath
+	{
+		get
+		{
+			if (!InOutlands)
+				return false;
+			return Usefuls.AreaId == (int)AreaId.Shattrath;
+		}
+	}
+
+	public static void ToShattrath()
+	{
+		if (InShattrath)
+		{
+			Log("im in shattrath");
+		}
+		else if (InPandariaShrine)
+		{
+			Log("im in pandaria. going to shattrath portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.PANDARIA_SHATTRATH_HORDE.Use();
+			else
+				Portals.PANDARIA_SHATTRATH_ALLIANCE.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in pandaria shrine");
+			ToPandariaShrine();
+		}
+	}
+
+	public static bool InQuelDanas
+	{
+		get
+		{
+			if (!InOutlands)
+				return false;
+
+			return Usefuls.AreaId == (int)AreaId.QuelDanas;
+		}
+	}
+
+	public static void ToQuelDanas()
+	{
+		if (InQuelDanas)
+		{
+			Log("im in Quel Danas");
+		}
+		else if (InShattrath)
+		{
+			Log("im in Shattrath. going to Quel Danas portal");
+			Portals.SHATTRATH_QUELDANAS.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in pandaria shrine");
+			ToShattrath();
+		}
+	}
+
+
+	// NORTHREND
+	public static bool InNorthrend
+	{
+		get
+		{
+			return (Usefuls.ContinentId == (int)ContinentId.Northrend);
+		}
+	}
+
+	public static bool InNorthrendDalaran
+	{
+		get
+		{
+			if (!InNorthrend)
+				return false;
+
+			return (Usefuls.AreaId == (int)AreaId.DalaranNorthrend);
+		}
+	}
+
+	public static void ToNorthrendDalaran()
+	{
+		if (InNorthrendDalaran)
+		{
+			Log("im in northrend dalaran");
+		}
+		else if (InPandariaShrine)
+		{
+			Log("im in pandaria. going to northrend dalaran portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.PANDARIA_DALARAN_NORTHREND_HORDE.Use();
+			else
+				Portals.PANDARIA_DALARAN_NORTHREND_ALLIANCE.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in pandaria shrine");
+			ToPandariaShrine();
+		}
+	}
+
+	// PANDARIA
+	public static bool InPandaria
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.HawaiiMainLand;
+		}
+	}
+
+	public static bool InPandariaShrine
+	{
+		get
+		{
+			if (!InPandaria)
+				return false;
+
+			if (ObjectManager.Me.IsHorde)
+				return Usefuls.AreaId == (int)AreaId.PandariaShrineHorde || Usefuls.AreaId == (int)AreaId.PandariaShrineHordeNear;
+			else
+				return Usefuls.AreaId == (int)AreaId.PandariaShrineAlliance || Usefuls.AreaId == (int)AreaId.PandariaShrineAllianceNear;
+		}
+	}
+
+	public static void ToPandariaShrine()
+	{
+		if (InPandariaShrine)
+		{
+			Log("im in pandaria shrine");
+		}
+		else if (InBrokenIslesDalaran)
+		{
+			Log("im in dalaran. going to pandaria portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.BROKENISLES_PANDARIA_HORDE.Use();
+			else
+				Portals.BROKENISLES_PANDARIA_ALLAINCE.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in dalaran");
+			ToBrokenIslesDalaran();
+		}
+	}
+
+	public static void ToPandaria()
+	{
+		if (!InPandaria)
+			ToPandariaShrine();
+	}
+
+
+	// LEGION
+	public static bool IsInBrokenIsles
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.Troll_Raid;
+		}
+	}
+
+	public static bool InBrokenIslesDalaran
+	{
+		get
+		{
+			if (!IsInBrokenIsles)
+				return false;
+			return (Usefuls.AreaId == (int)AreaId.DalaranBrokenIsles);
+		}
+	}
+
+	public static void ToBrokenIsles()
+	{
+		if (!IsInBrokenIsles)
+			ToBrokenIslesDalaran();
+	}
+
+	public static void ToBrokenIslesDalaran()
+	{
+		if (!InBrokenIslesDalaran)
+		{
+			Log("im not in broken isles dalaran. using dalaran heathstone");
+			UseHeathstoneDalaran();
+		}
+	}
+
+	public static class Portals
+	{
+		//neutral
+		public static PortalInfo NORTHREND_CAVERNSOFTIME = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 193604);
+		public static PortalInfo SHATTRATH_QUELDANAS = new PortalInfo(Coords.SHATTRATH, 187056);
+
+		//horde
+		public static PortalInfo ORGRIMMAR_OUTLANDS = new PortalInfo(new Vector3(1795.887, -4282.674, 7.395189, "None"), 195142);
+		public static PortalInfo ORGRIMMAR_BLASTEDLANDS = new PortalInfo(new Vector3(1777.066, -4328.517, -7.984149, "None"), 235877);
+		public static PortalInfo ORGRIMMAR_HYJAL = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207688);
+		public static PortalInfo ORGRIMMAR_VASHJIR = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207690);
+		public static PortalInfo ORGRIMMAR_DEEPHOLM = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207689);
+		public static PortalInfo ORGRIMMAR_ULDUM = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207687);
+		public static PortalInfo ORGRIMMAR_TWILIGHTHIGHLANDS = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207686);
+		public static PortalInfo ORGRIMMAR_TOLBARAD = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 206595);
+
+		public static PortalInfo PANDARIA_ORGRIMMAR = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215127);
+		public static PortalInfo PANDARIA_UNDERCITY = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215124);
+		public static PortalInfo PANDARIA_THUNDERBLUFF = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215125);
+		public static PortalInfo PANDARIA_SILVERMOON = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215126);
+		public static PortalInfo PANDARIA_SHATTRATH_HORDE = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215113);
+		public static PortalInfo PANDARIA_DALARAN_NORTHREND_HORDE = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215112);
+
+		public static PortalInfo BROKENISLES_ORGRIMMAR = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246001);
+		public static PortalInfo BROKENISLES_UNDERCITY = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246000);
+		public static PortalInfo BROKENISLES_THUNDERBLUFF = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 245999);
+		public static PortalInfo BROKENISLES_SILVERMOON = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246004);
+		public static PortalInfo BROKENISLES_PANDARIA_HORDE = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246007);
+
+		//alliance
+		public static PortalInfo STORMWIND_OUTLANDS = new PortalInfo(new Vector3(-8996.93, 860.6223, 29.6206, "None"), 195141);
+		public static PortalInfo STORMWIND_BLASTEDLANDS = new PortalInfo(new Vector3(-9002.964, 868.8864, 129.6928, "None"), 235882);
+		public static PortalInfo STORMWIND_HYJAL = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207692);
+		public static PortalInfo STORMWIND_VASHJIR = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207691);
+		public static PortalInfo STORMWIND_DEEPHOLM = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207693);
+		public static PortalInfo STORMWIND_ULDUM = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207695);
+		public static PortalInfo STORMWIND_TWILIGHTHIGHLANDS = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207694);
+		public static PortalInfo STORMWIND_TOLBARAD = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 206594);
+
+		public static PortalInfo PANDARIA_STORMWIND = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215119);
+		public static PortalInfo PANDARIA_IRONFORGE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215118);
+		public static PortalInfo PANDARIA_DARNASSUS = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215116);
+		public static PortalInfo PANDARIA_EXODAR = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215117);
+		public static PortalInfo PANDARIA_SHATTRATH_ALLIANCE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215120);
+		public static PortalInfo PANDARIA_DALARAN_NORTHREND_ALLIANCE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215121);
+
+		public static PortalInfo BROKENISLES_STORMWIND = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246002);
+		public static PortalInfo BROKENISLES_IRONFORGE = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 245998);
+		public static PortalInfo BROKENISLES_DARNASSUS = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 245997);
+		public static PortalInfo BROKENISLES_EXODAR = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246003);
+		public static PortalInfo BROKENISLES_PANDARIA_ALLAINCE = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246006);
+	}
+
+	public static class Coords
+	{
+		public static Vector3 SHATTRATH = new Vector3(-1863.39, 5430.373, -5.049042, "Flying");
+
+		public static Vector3 CATACLYSM_PORTALS_HORDE = new Vector3(2048.193, -4377.466, 102.8623, "Flying");
+		public static Vector3 CATACLYSM_PORTALS_ALLIANCE = new Vector3(-8206.709, 427.2209, 125.7481, "Flying");
+
+		public static Vector3 PANDARIA_PORTALS_HORDE = new Vector3(1729.32, 888.9265, 487.119, "None");
+		public static Vector3 PANDARIA_PORTALS_ALLIANCE = new Vector3(815.691, 182.3423, 519.6915, "None");
+
+		public static Vector3 BROKENISLES_PORTALS_HORDE = new Vector3(-714.7886, 4406.515, 727.0811, "None");
+		public static Vector3 BROKENISLES_PORTALS_ALLIANCE = new Vector3(-927.9012, 4565.281, 729.2716, "None");
+
+		public static Vector3 STORMWIND_WIZARDS_SANCTUM = new Vector3(-9002.968, 869.1647, 29.6207, "None");
+		public static Vector3 STORMWIND_WIZARDS_SANCTUM_MOVEOUT = new Vector3(-9026.567, 897.5941, 29.62126, "None");
+
+		public static Vector3 ORGRIMMAR_CLEFT_OF_SHADOW = new Vector3(1803.223, -4338.04, 52.32072, "Flying");
+
+		// instances
+		public static Vector3 BLACKTEMPLE_NEAR = new Vector3(-3632.671, 317.9774, 45.54625, "Flying");
+		public static Vector3 BLACKTEMPLE_MOVEIN = new Vector3(-3665.674, 319.7783, 34.85582, "None");
+
+		public static Vector3 FIRELANDS_NEAR = new Vector3(4009.115, -2989.421, 1054.373, "Flying");
+		public static Vector3 FIRELANDS_MOVEIN = new Vector3(3977.269, -2917.31, 1002.547, "None");
+		public static Vector3 FIRELANDS_MOVEOUT = new Vector3(-574.0074, 333.0068, 115.484, "None");
+		public static Vector3 FIRELANDS_NEAR_EXIT = new Vector3(-551.6964, 321.0503, 115.4774, "None");
+
+		public static Vector3 SUNWELLPLATEAU_NEAR = new Vector3(12561.39, -6774.708, 15.09085, "None");
+		public static Vector3 SUNWELLPLATEAU_MOVEIN = new Vector3(12542.34, -6777.375, 14.99986, "None");
+	}
+
+	public static class Instances
+	{
+		public static bool InBlackTemple
+		{
+			get
+			{
+				return Usefuls.ContinentId == (int)ContinentId.BlackTemple;
+			}
+		}
+
+		public static void ToBlackTemple()
+		{
+			if (InBlackTemple)
+			{
+				Log("Im in Black Temple");
+			}
+			else if (NearBlackTemple)
+			{
+				Log("Im near Black Temple, going inside");
+				GoToTask.ToPosition(Coords.BLACKTEMPLE_MOVEIN);
+			}
+			else
+			{
+				ToBlackTempleNear();
+			}
+		}
+
+		public static bool NearBlackTemple
+		{
+			get
+			{
+				if (InBlackTemple)
+					return true;
+				if (!InOutlands)
+					return false;
+
+				return ObjectManager.Me.Position.DistanceTo2D(Coords.BLACKTEMPLE_NEAR) &lt; 500;
+			}
+		}
+
+		public static void ToBlackTempleNear()
+		{
+			uint teleportMedalion = 32757;  //http://www.wowhead.com/item=32757/blessed-medallion-of-karabor
+			if (InBlackTemple || NearBlackTemple)
+			{
+				Log("Im in Black Temple or near");
+			}
+			else if (ItemsManager.HasItemById(teleportMedalion))
+			{
+				Log("Equipping teleport item");
+				ItemsManager.EquipItemByName(ItemsManager.GetNameById(teleportMedalion));
+				Thread.Sleep(35 * 1000);
+				Log("Teleporting to Black Temple");
+				ItemsManager.UseItem(teleportMedalion);
+				Usefuls.WaitIsCasting();
+			}
+			else if (InOutlands)
+			{
+				Log("Im in Outlands. Moving near Black Temple");
+				GoToTask.ToPosition(Coords.BLACKTEMPLE_NEAR);
+			}
+			else
+			{
+				Log("Im in somewhere else. Go to Shattrath");
+				ToShattrath();
+				Thread.Sleep(10 * 1000);
+				ToBlackTempleNear();
+			}
+		}
+
+		// sunwell
+		public static bool InSunwell
+		{
+			get
+			{
+				return Usefuls.ContinentId == (int)ContinentId.SunwellPlateau;
+			}
+		}
+
+		public static void ToSunwell()
+		{
+			if (InSunwell)
+			{
+				Log("Im in Sunwell");
+			}
+			else if (InQuelDanas)
+			{
+				Log("Im in Quel Danas, goin to sunwell");
+				GoToTask.ToPosition(Coords.SUNWELLPLATEAU_MOVEIN);
+			}
+			else
+			{
+				ToQuelDanas();
+			}
+		}
+
+		public static bool InFirelands
+		{
+			get
+			{
+				return Usefuls.ContinentId == (int)ContinentId.Firelands1;
+			}
+		}
+		public static bool InFirelandsNear
+		{
+			get
+			{
+				if (Usefuls.ContinentId != (int)ContinentId.Kalimdor)
+					return false;
+
+				return ObjectManager.Me.Position.DistanceTo2D(Coords.FIRELANDS_NEAR) &lt; 100;
+			}
+		}
+
+		public static bool InFirelandsFlyingDistance
+		{
+			get
+			{
+				if (Usefuls.ContinentId != (int)ContinentId.Kalimdor)
+					return false;
+
+				return ObjectManager.Me.Position.DistanceTo2D(Coords.FIRELANDS_NEAR) &lt; 1800;
+			}
+		}
+
+		public static void ToFirelandsNear()
+		{
+			if (InFirelandsNear)
+			{
+				Log("im near firelands");
+			}
+			else if (InFirelands)
+			{
+				Log("im in firelands. move out");
+				if (GoToTask.ToPosition(Coords.FIRELANDS_NEAR_EXIT))
+				{
+					MoveClick(Coords.FIRELANDS_MOVEOUT, () =&gt; InFirelands);
+				}
+			}
+			else if (InFirelandsFlyingDistance)
+			{
+				Log("im in flying distance to firelands. fly");
+				MountTask.Mount(true, MountTask.MountCapacity.Fly);
+				Usefuls.WaitIsCasting();
+				LongMove.LongMoveGo(Coords.FIRELANDS_NEAR);
+			}
+			else if (InStormwindWizardsSanctum)
+			{
+				Log("in stormwind wizards sanctum. moveout");
+				FromStormwindWizardsSanctum();
+			}
+			else if (InOrgrimmarCleftOfShadow)
+			{
+				Log("in orgrimmar cleft of shadows. moveout");
+				FromOrgrimmarCleftOfShadow();
+			}
+			else if (InCapital)
+			{
+				Log("im in capital. use port to hyjal");
+				if (ObjectManager.Me.IsHorde)
+				{
+					Portals.ORGRIMMAR_HYJAL.Use();
+				}
+				else if (ObjectManager.Me.IsAlliance)
+				{
+					Portals.STORMWIND_HYJAL.Use();
+				}
+			}
+
+			else
+			{
+				Log("im somewhere esle. travel to capital");
+				ToCapital();
+			}
+		}
+		public static void ToFirelands()
+		{
+			if (InFirelands)
+			{
+				Log("im in firelands");
+			}
+			else if (InFirelandsNear)
+			{
+				Log("in near firelands. move in");
+				if (GoToTask.ToPosition(Coords.FIRELANDS_NEAR))
+				{
+					MoveClick(Coords.FIRELANDS_MOVEIN, () =&gt; !InFirelands);
+				}
+			}
+			else
+			{
+				Log("im too far from firelands entrace. start travel");
+				ToFirelandsNear();
+			}
+		}
+
+	}
+
+	public enum AreaId
+	{
+		Stormwind = 1519,
+		Orgrimmar = 1637,
+		QuelDanas = 4080,
+		Shattrath = 3703,
+		DalaranNorthrend = 4395,
+		DalaranBrokenIsles = 7502,
+		PandariaShrineAlliance = 6553, //alliance PandariaShrineOfSevenStars
+		PandariaShrineAllianceNear = 6142,
+		PandariaShrineHorde = 6141, //horde PandariaShrineOfTwoMoons
+		PandariaShrineHordeNear = 6554,
+	}
+
+	public class PortalInfo
+	{
+		public Vector3 position;
+		public int objectId;
+		public PortalInfo(Vector3 pos, int id)
+		{
+			position = pos;
+			objectId = id;
+		}
+
+		public void Use()
+		{
+			GoToTask.ToPosition(position);
+			MountTask.DismountMount();
+			GoToTask.ToPositionAndIntecractWithGameObject(position, objectId);
+		}
+	}
+
+	public static void FindEntrancePoint(Vector3 p1, Vector3 p2, float distance = 10f)
+	{
+		var delta = new Vector3(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+		delta *= distance;
+		var p3 = p2 + delta;
+		Logging.Write("ENTRANCE POINT CALCULATED: " + p3.ToStringNewVector());
+	}
+
+	public static void Move(List&lt;Vector3&gt; path, bool ignoreFight = false)
+	{
+		var oldIgnore = Conditions.ForceIgnoreIsAttacked;
+		if (ignoreFight)
+			Conditions.ForceIgnoreIsAttacked = true;
+
+		MovementManager.Go(path);
+		while (MovementManager.InMovement &amp;&amp; Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause &amp;&amp; !Conditions.IsAttackedAndCannotIgnore)
+		{
+			Thread.Sleep(1000);
+		}
+		MovementManager.StopMove();
+		if (ignoreFight)
+			Conditions.ForceIgnoreIsAttacked = oldIgnore;
+	}
+
+	public static void MoveClick(Vector3 p, BooleanDelegate condition)
+	{
+		while (condition() &amp;&amp; Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause &amp;&amp; !Conditions.IsAttackedAndCannotIgnore)
+		{
+			ClickToMove.CGPlayer_C__ClickToMove(p.X, p.Y, p.Z, MemoryRobot.Int128.Zero(), (int)ClickToMoveType.Move, 0.5f);
+			Thread.Sleep(Others.Random(500, 1000));
+		}
+	}
+
+	public static class Paths
+	{
+		public static List&lt;Vector3&gt; FROM_STORMWIND_WIZARDS_SANCTUM = new List&lt;Vector3&gt;()
+		{
+			/*
+			new Vector3(-9001.922f, 865.5825f, 29.6207f, "None"),
+			new Vector3(-9005.982f, 871.1793f, 29.6207f, "None"),
+			new Vector3(-9008.735f, 874.5976f, 29.6207f, "None"),
+			new Vector3(-9011.387f, 877.7703f, 29.6207f, "None"),
+			new Vector3(-9014.041f, 881.1155f, 29.6207f, "None"),
+			new Vector3(-9016.631f, 884.5637f, 29.6207f, "None"),
+			new Vector3(-9019.104f, 887.9193f, 29.6207f, "None"),
+			new Vector3(-9026.567, 897.5941, 29.62126, "None"),
+			//*/
+			new Vector3(-9014.817f, 873.1132f, 148.616f, "None"),
+			new Vector3(-9010.438f, 867.6962f, 146.6526f, "None"),
+			new Vector3(-9006.62f, 866.3571f, 144.4889f, "None"),
+			new Vector3(-9002.92f, 868.4304f, 142.4687f, "None"),
+			new Vector3(-9001.925f, 872.3652f, 140.3814f, "None"),
+			new Vector3(-9003.929f, 876.0081f, 138.1437f, "None"),
+			new Vector3(-9007.757f, 877.5584f, 135.8545f, "None"),
+			new Vector3(-9011.72f, 876.3581f, 133.723f, "None"),
+			new Vector3(-9013.243f, 872.8591f, 131.9229f, "None"),
+			new Vector3(-9011.952f, 868.4532f, 129.693f, "None"),
+			new Vector3(-9008.784f, 866.3384f, 129.693f, "None"),
+			new Vector3(-9004.449f, 866.1371f, 129.693f, "None"),
+			new Vector3(-9000.804f, 863.9247f, 129.7348f, "None"),
+			new Vector3(-8997.371f, 861.7692f, 128.6832f, "None"),
+			new Vector3(-8993.456f, 859.9705f, 127.2438f, "None"),
+		};
+
+		public static List&lt;Vector3&gt; FROM_ORGRIMMAR_CLEFT_OF_SHADOW = new List&lt;Vector3&gt;() {
+			new Vector3(1798.946f, -4328.533f, 6.080236f, "Flying"),
+			new Vector3(1795.875f, -4326.814f, 4.42988f, "Flying"),
+			new Vector3(1788.084f, -4323.274f, 4.315794f, "Flying"),
+			new Vector3(1780.843f, -4319.252f, 7.231764f, "Flying"),
+			new Vector3(1773.653f, -4314.912f, 10.35413f, "Flying"),
+			new Vector3(1766.67f, -4310.563f, 13.17553f, "Flying"),
+			new Vector3(1759.578f, -4306.144f, 15.76818f, "Flying"),
+			new Vector3(1752.618f, -4301.647f, 18.10365f, "Flying"),
+			new Vector3(1745.847f, -4296.484f, 20.44409f, "Flying"),
+			new Vector3(1740.664f, -4290.052f, 22.76319f, "Flying"),
+			new Vector3(1737.333f, -4282.413f, 25.06974f, "Flying"),
+			new Vector3(1737.57f, -4273.992f, 27.55037f, "Flying"),
+			new Vector3(1741.313f, -4266.48f, 30.38848f, "Flying"),
+			new Vector3(1746.693f, -4260.58f, 33.45964f, "Flying"),
+			new Vector3(1752.511f, -4254.991f, 36.44896f, "Flying"),
+			new Vector3(1759.369f, -4249.647f, 38.80262f, "Flying"),
+			new Vector3(1766.323f, -4245.21f, 41.20506f, "Flying"),
+			new Vector3(1773.845f, -4241.246f, 43.55302f, "Flying"),
+			new Vector3(1781.69f, -4238.302f, 45.98756f, "Flying"),
+			new Vector3(1789.658f, -4236.031f, 48.74838f, "Flying"),
+			new Vector3(1797.713f, -4234.384f, 51.27284f, "Flying"),
+			new Vector3(1806.21f, -4234.676f, 53.8224f, "Flying"),
+			new Vector3(1814.394f, -4236.033f, 57.01455f, "Flying"),
+			new Vector3(1822.626f, -4237.836f, 59.20106f, "Flying"),
+			new Vector3(1830.885f, -4239.79f, 61.1441f, "Flying"),
+			new Vector3(1838.647f, -4242.108f, 64.10677f, "Flying"),
+			new Vector3(1846.689f, -4244.944f, 66.61571f, "Flying"),
+			new Vector3(1854.57f, -4247.742f, 69.00578f, "Flying"),
+			new Vector3(1860.569f, -4249.872f, 74.85528f, "Flying"),
+			new Vector3(1865.012f, -4251.451f, 81.6699f, "Flying"),
+		};
+
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>*Instancer</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class Instancer
+{
+	static Instancer()
+	{
+	}
+
+	//796 - black temple
+	//789 - sunwell
+	static List&lt;string&gt; _cache = new List&lt;string&gt;();
+	static List&lt;MapInfo&gt; _maps = new List&lt;MapInfo&gt;();
+	static robotManager.Helpful.Timer _timer = new robotManager.Helpful.Timer();
+
+	public static bool Found(int mobId, float distance = 150)
+	{
+		var mobEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(mobId));
+		if (mobEntry != null &amp;&amp; mobEntry.IsAlive &amp;&amp; mobEntry.IsValid)
+		{
+			if (mobEntry.Position.DistanceTo2D(ObjectManager.Me.Position) &lt; distance)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static bool Alive(int instanceMapId, int bossNum)
+	{
+		return !Killed(instanceMapId, bossNum);
+	}
+
+	public static bool Killed(int instanceMapId, int bossNum)
+	{
+		UpdateInstanceKills();
+		var mapName = GetMapName(instanceMapId);
+		if (string.IsNullOrEmpty(mapName))
+			return false;
+
+		var bossName = mapName + bossNum;
+		if (_cache.Contains(bossName))
+			return true;
+
+		return false;
+	}
+
+	static string GetMapName(int mapId)
+	{
+		foreach (var map in _maps)
+		{
+			if (map.id == mapId)
+				return map.name;
+		}
+		var mapName = FindMapName(mapId);
+		if (string.IsNullOrEmpty(mapName))
+			return "";
+
+		_maps.Add( new MapInfo(mapId, mapName) );
+		return mapName;
+	}
+
+	static string FindMapName(int mapId)
+	{
+		var luaCode = @"
+local mapname = GetMapNameByID({0});
+if (not mapname) then
+	return '';
+end
+return mapname;
+";
+		string toRun = string.Format(luaCode, mapId);
+		string mapName = Lua.LuaDoString&lt;string&gt;(toRun);
+		Log("find map name for mapId=" + mapId + " result=" + mapName);
+		return mapName;
+	}
+
+	static void UpdateInstanceKills()
+	{
+		if (!_timer.IsReady)
+			return;
+
+		_timer.Reset(30 * 1000);
+		_cache = new List&lt;string&gt;();
+
+		var luaCode = @"
+RequestRaidInfo()
+local killList = '';
+local n = GetNumSavedInstances()
+for k=1,n do
+	local name, id, reset, difficulty, locked, extended, instanceIDMostSig, isRaid, maxPlayers, difficultyName, numEncounters, encounterProgress = GetSavedInstanceInfo(k)
+    if (locked and encounterProgress &gt; 0) then
+		for i = 1, numEncounters do
+			local bossName, text, isKilled = GetSavedInstanceEncounterInfo(k, i)
+			if (isKilled) then
+				killList = killList .. name .. i .. '#LUASEPARATOR#';
+			end
+		end
+	end
+end
+return killList;
+		";
+
+		string toRun = string.Format(luaCode.Replace("#LUASEPARATOR#", Lua.ListSeparator));
+		var killList = Lua.LuaDoString&lt;List&lt;string&gt;&gt;(toRun);
+		_cache = killList;
+		_cache.RemoveAll(str =&gt; string.IsNullOrEmpty(str));
+		Log("kill list updated. count=" + _cache.Count + " " + string.Join(",", _cache));
+	}
+
+	static void Log(string message)
+	{
+		Logging.WriteDebug("[Instancer] " + message);
+	}
+
+	static void InstancerError(string message)
+	{
+		Logging.WriteError("[Instancer] " + message);
+	}
+
+	public class MapInfo
+	{
+		public string name;
+		public int id;
+
+		public MapInfo(int mapId, string mapName)
+		{
+			id = mapId;
+			name = mapName;
+		}
+
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Black Temple</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class BlackTemple : QuestClass
+{
+	public BlackTemple()
+	{
+		Name = "Black Temple";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+		ResetSettings();
+	}
+	static void Log(string text)
+	{
+		Logging.Write("[Black Temple] " + text);
+	}
+
+	public static bool TeleportNPC(int gossip = 1)
+	{
+		if (ObjectManager.Me.Position.DistanceTo(Positions.TeleportNPC) &gt; 100)
+			return false;
+
+		return GoToTask.ToPositionAndIntecractWithNpc(Positions.TeleportNPC, 23411, gossip);
+	}
+
+	public static bool NotNeedGateAscend
+	{
+		get
+		{
+			return ObjectManager.Me.Position.Z &gt; Positions.GateAscendMin.Z;
+		}
+	}
+
+	public static void ToGateAscend()
+	{
+		if (NotNeedGateAscend)
+			return;
+
+		if (NotNeedDen)
+		{
+			Log("to gate ascend");
+			GoToTask.ToPosition(Positions.GateAscend);
+		}
+		ToDen();
+	}
+
+	public static bool NotNeedDen
+	{
+		get
+		{
+			return ObjectManager.Me.Position.Z &gt; Positions.DenMin.Z;
+		}
+	}
+
+	public static void ToDen()
+	{
+		if (NotNeedDen)
+			return;
+
+		if (NotNeedEntrance)
+		{
+			Log("to den");
+			GoToTask.ToPosition(Positions.Den);
+		}
+		ToEntrance();
+	}
+
+	public static bool InAkamaRoom
+	{
+		get
+		{
+			return ObjectManager.Me.Position.DistanceTo(Positions.AkamaRoom) &lt; 110;
+		}
+	}
+
+	public static bool InMiddle
+	{
+		get
+		{
+			return ObjectManager.Me.Position.DistanceTo(Positions.Middle) &lt; 50;
+		}
+	}
+
+	public static void ToMiddle()
+	{
+		if (InMiddle)
+			return;
+
+		if (NotNeedEntrance)
+		{
+			Log("to middle");
+			GoToTask.ToPosition(Positions.Middle);
+			return;
+		}
+		ToEntrance();
+	}
+
+	public static bool NotNeedEntrance
+	{
+		get
+		{
+			var my = ObjectManager.Me.Position;
+			return my.Y &lt; Positions.Entrance.Y || my.DistanceTo(Positions.Entrance) &lt; 5;
+		}
+	}
+
+	public static void ToEntrance()
+	{
+		if (NotNeedEntrance)
+			return;
+
+		if (NotNeedCourtyYard)
+		{
+			Log("to entrance");
+			GoToTask.ToPosition(Positions.Entrance);
+			return;
+		}
+		ToCourtyYard();
+	}
+
+	public static void ToCourtyYard()
+	{
+		if (NotNeedCourtyYard)
+			return;
+
+		Log("to courtyyard");
+		GoToTask.ToPosition(Positions.Courtyard);
+	}
+
+	public static bool NotNeedCourtyYard
+	{
+		get
+		{
+			var my = ObjectManager.Me.Position;
+			return my.Y &lt; Positions.CourtyardMin.Y || my.DistanceTo(Positions.Courtyard) &lt; 50;
+		}
+	}
+
+
+	public static class Positions
+	{
+		public static Vector3 TeleportNPC = new Vector3(203.4694, 998.5256, -64.42239, "None");
+		public static Vector3 Entrance = new Vector3(696.0784, 523.8063, 112.6282, "None");
+		public static Vector3 CourtyardMin = new Vector3(700.0808, 678.7253, 73.283, "None");
+		public static Vector3 Courtyard = new Vector3(698.7828, 659.6076, 74.95506, "None");
+		public static Vector3 AkamaRoom = new Vector3(484.5069, 400.2975, 112.7837, "None");
+		public static Vector3 Middle = new Vector3(703.0953, 260.8766, 125.1624, "None");
+		public static Vector3 DenMin = new Vector3(815.8054, 480.6039, 190.7205, "None");
+		public static Vector3 Den = new Vector3(816.8186, 471.6519, 192.7513, "None");
+		public static Vector3 GateAscendMin = new Vector3(549.706, 207.7086, 267.3205, "None");
+		public static Vector3 GateAscend = new Vector3(549.5768, 223.7964, 271.9176, "None");
+	}
+
+	public static void ResetSettings()
+	{
+		wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+		wManager.wManagerSetting.CurrentSetting.LootMobs = true;
+		wManager.wManagerSetting.CurrentSetting.LootChests = true;
+		wManager.wManagerSetting.CurrentSetting.UseMail = false;
+		wManager.wManagerSetting.CurrentSetting.SellGray = true;
+		wManager.wManagerSetting.CurrentSetting.SellGreen = false;
+		wManager.wManagerSetting.CurrentSetting.SellWhite = false;
+		wManager.wManagerSetting.CurrentSetting.SellBlue = false;
+		wManager.wManagerSetting.CurrentSetting.Repair = true;
+		wManager.wManagerSetting.CurrentSetting.Selling = true;
+		wManager.wManagerSetting.CurrentSetting.UseMammoth = true;
+		wManager.wManagerSetting.CurrentSetting.AvoidBlacklistedZonesPathFinder = true;
+		wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+		wManager.wManagerSetting.CurrentSetting.MaxUnitsNear = 99;
+		wManager.wManagerSetting.CurrentSetting.CanAttackUnitsAlreadyInFight = true;
+		wManager.wManagerSetting.CurrentSetting.AttackElite = true;
+		wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = false;
+		wManager.wManagerSetting.CurrentSetting.SearchRadius = 100;
+		wManager.wManagerSetting.CurrentSetting.SkinNinja = false;
+		wManager.wManagerSetting.CurrentSetting.SkinMobs = false;
+		wManager.wManagerSetting.CurrentSetting.HarvestHerbs = false;
+		wManager.wManagerSetting.CurrentSetting.HarvestMinerals = false;
+		wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;
+		wManager.wManagerSetting.CurrentSetting.UseFlyingMount = true;
+		wManager.wManagerSetting.CurrentSetting.UseGroundMount = true;
+		wManager.wManagerSetting.CurrentSetting.UseMount = true;
+		wManager.wManagerSetting.CurrentSetting.IgnoreFightGoundMount = false;
+		wManager.wManagerSetting.CurrentSetting.SkipInOutDoors = false;
+		wManager.wManagerSetting.CurrentSetting.RandomJumping = true;
+		wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true; //default wrobot
+		wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUseOnlyIfNear = false; //default wrobot
+		wManager.wManagerSetting.CurrentSetting.FlightMasterDiscoverRange = 150f; //default wrobot
+		wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiDistance = 1000f; //default wrobot
+		wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 0; //ignore players near quest items
+		wManager.wManagerSetting.CurrentSetting.SecurityPauseBotIfNerbyPlayer = false;
+		wManager.wManagerSetting.CurrentSetting.SecurityPauseBotIfNerbyPlayerRadius = 0;
+		wManager.wManagerSetting.CurrentSetting.BlackListIfNotCompletePath = true;
+		wManager.wManagerSetting.CurrentSetting.AvoidWallWithRays = true;
+		wManager.wManagerSetting.CurrentSetting.IgnoreCombatWithPet = true;
+		wManager.wManagerSetting.CurrentSetting.AssignTalents = true;
+		wManager.Wow.Helpers.CVar.SetCVar("autoDismount", "1");
+		wManager.Wow.Helpers.CVar.SetCVar("autoDismountFlying", "1");
+		wManager.Wow.Helpers.CVar.SetCVar("autoLootDefault", "1");
+		wManager.Wow.Helpers.CVar.SetCVar("autounshift", "1");
+		wManager.Wow.Helpers.Lua.LuaDoString("SetAutoDeclineGuildInvites(true)");
+		wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;
+		wManager.wManagerSetting.CurrentSetting.FoodPercent = 35;
+		wManager.wManagerSetting.CurrentSetting.DrinkPercent = 35;
+		wManager.wManagerSetting.CurrentSetting.NpcMailboxSearchRadius = 1000;
+		//wManager.wManagerSetting.CurrentSetting.CalcuCombatRange = true;
+
+		if (wManager.Wow.Bot.Tasks.FishingTask.IsLaunched)
+			wManager.Wow.Bot.Tasks.FishingTask.StopLoopFish();
+
+		if (wManager.Wow.ObjectManager.ObjectManager.Me.PlayerUsingVehicle)
+			wManager.Wow.Helpers.Usefuls.EjectVehicle();
+
+		Log("reset settings");
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>ToBlackTemple</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Traveler.Instances.ToBlackTemple();
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return !Traveler.Instances.InBlackTemple;</CanCondition>
+      <IsCompleteCondition>return Traveler.Instances.InBlackTemple;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="434.943" Y="739.2537" Z="14.98662" />
+        </HotSpots>
+        <EntryTarget>
+          <int>22887</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 1);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 1);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 2</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="702.1411" Y="650.7153" Z="74.96609" />
+        </HotSpots>
+        <EntryTarget>
+          <int>22898</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 2);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 2);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move To Courtyard</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MoveToCourtyard : QuestClass
+{
+	public MoveToCourtyard()
+	{
+		Name = "Move To Courtyard";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool Pulse()
+	{
+		BlackTemple.ToCourtyYard();
+		return true;
+	}
+
+	public override bool IsComplete()
+	{
+		return BlackTemple.NotNeedCourtyYard;
+	}
+
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move Inside Black Temple</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MoveInsideBlackTemple : QuestClass
+{
+	public MoveInsideBlackTemple()
+	{
+		Name = "Move Inside Black Temple";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool Pulse()
+	{
+		BlackTemple.ToEntrance();
+		return true;
+	}
+
+	public override bool IsComplete()
+	{
+		return BlackTemple.NotNeedEntrance;
+	}
+
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 3 Talk To Akama</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="547.5399" Y="400.1875" Z="112.7837" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro />
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>23191</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 3);</CanCondition>
+      <IsCompleteCondition>return Instancer.Found(23215) || Instancer.Killed(796, 3);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Akama Fight</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class AkamaFight : QuestClass
+{
+	static List&lt;int&gt; _npcAdds = new List&lt;int&gt;() {
+		23421,
+		23215,
+	};
+
+	public AkamaFight()
+	{
+		Name = "Akama Fight";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	static void Log(string text)
+	{
+		Logging.WriteDebug("[Akama Fight] " + text);
+	}
+
+	public static void Start()
+	{
+		Stop();
+		wManager.Events.FightEvents.OnFightLoop += FightLoop;
+		Log("start");
+	}
+
+	static void FightLoop(WoWUnit unit, System.ComponentModel.CancelEventArgs cancelable)
+	{
+		var shadeOfAkama = ObjectManager.GetObjectWoWUnit().FirstOrDefault( u=&gt; u != null &amp;&amp; u.IsValid &amp;&amp; u.IsAlive &amp;&amp; u.IsAttackable &amp;&amp; u.Entry ==22841);
+		if (shadeOfAkama != null &amp;&amp; shadeOfAkama.IsValid)
+		{
+			cancelable.Cancel = true;
+			Interact.InteractGameObject(shadeOfAkama.GetBaseAddress);
+			Fight.StartFight(shadeOfAkama.Guid);
+			Log("attack shade of akama");
+			return;
+		}
+		var add = ObjectManager.GetObjectWoWUnit().FirstOrDefault(u =&gt; u != null &amp;&amp; u.IsValid &amp;&amp; u.IsAlive &amp;&amp; u.IsAttackable &amp;&amp; _npcAdds.Contains(u.Entry));
+		if (add != null &amp;&amp; add.IsValid &amp;&amp; add.IsAttackable &amp;&amp; add.IsAlive)
+		{
+			cancelable.Cancel = true;
+			Interact.InteractGameObject(add.GetBaseAddress);
+			Fight.StartFight(add.Guid);
+			Log("attack caster");
+			return;
+		}
+	}
+
+	public static void Stop()
+	{
+		wManager.Events.FightEvents.OnFightLoop -= FightLoop;
+		Log("stop");
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 3</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="512.4877" Y="400.8283" Z="112.784" />
+          <Vector3 X="448.9181" Y="395.1039" Z="118.538" />
+          <Vector3 X="475.8504" Y="388.2382" Z="115.7788" />
+        </HotSpots>
+        <EntryTarget>
+          <int>23421</int>
+          <int>23215</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 3);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 3);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move To Middle Of Black Temple</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MoveToMiddleOfBlackTemple : QuestClass
+{
+	public MoveToMiddleOfBlackTemple()
+	{
+		Name = "Move To Middle Of Black Temple";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool Pulse()
+	{
+		BlackTemple.ToMiddle();
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return BlackTemple.InMiddle || !BlackTemple.InAkamaRoom;
+	}
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 4</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="606.6405" Y="402.1733" Z="187.0896" />
+        </HotSpots>
+        <EntryTarget>
+          <int>22871</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 4);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 4);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 6</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="505.0546" Y="154.7419" Z="94.94203" />
+          <Vector3 X="495.5099" Y="187.1271" Z="94.46966" />
+        </HotSpots>
+        <EntryTarget>
+          <int>23418</int>
+          <int>23419</int>
+          <int>23420</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 6);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 6);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 5</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="744.3016" Y="277.0768" Z="63.75596" />
+        </HotSpots>
+        <EntryTarget>
+          <int>22948</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 5);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 5);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move To Den</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MoveToDen : QuestClass
+{
+	public MoveToDen()
+	{
+		Name = "Move To Den";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool Pulse()
+	{
+		BlackTemple.ToDen();
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return BlackTemple.NotNeedDen;
+	}
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 7</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="945.3135" Y="149.0778" Z="197.0749" />
+        </HotSpots>
+        <EntryTarget>
+          <int>22947</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 7);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 7);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Move To Gate Ascend</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MoveToGateAscend : QuestClass
+{
+	public MoveToGateAscend()
+	{
+		Name = "Move To Gate Ascend";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool Pulse()
+	{
+		BlackTemple.ToGateAscend();
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return BlackTemple.NotNeedGateAscend;
+	}
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 8</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="697.4955" Y="310.6508" Z="277.4431" />
+        </HotSpots>
+        <EntryTarget>
+          <int>22951</int>
+          <int>22949</int>
+          <int>22950</int>
+          <int>22952</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 8);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 8);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Open Gate To Illidan</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class OpenGateToIllidan : QuestClass
+{
+	static Vector3 _akamaPos1 = new Vector3(660.7899, 310.9437, 271.6878, "None");
+	static Vector3 _akamaPos2 = new Vector3(748.5206, 236.6311, 352.9962, "None");
+	static Vector3 _akamaPos3 = new Vector3(745.225, 304.946, 352.9961, "None");
+	static Vector3 _ilidanPos = new Vector3(705.7319, 304.9877, 353.8416, "None");
+	static int _akamaID = 23089;
+	static int _illidanID = 22917;
+	static int _flameOfAzzinothID = 22997;
+	List&lt;int&gt;  _mobs = new List&lt;int&gt;()
+	{
+		_illidanID,
+		_flameOfAzzinothID,
+	};
+	public OpenGateToIllidan()
+	{
+		Name = "Open Gate To Illidan";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	static void Log(string text)
+	{
+		Logging.Write("[Illidan Gate] " + text);
+	}
+	WoWUnit Akama()
+	{
+		return ObjectManager.GetObjectWoWUnit().FirstOrDefault(u =&gt; u.Entry == _akamaID);
+	}
+	WoWUnit Illidan()
+	{
+		return ObjectManager.GetObjectWoWUnit().FirstOrDefault(u =&gt; u != null &amp;&amp; u.Entry == _illidanID &amp;&amp; u.IsAlive &amp;&amp; u.IsAttackable);
+	}
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+	public override bool IsComplete()
+	{
+		/*
+		var akama = Akama();
+		if (akama != null &amp;&amp; akama.IsValid &amp;&amp; akama.IsAlive &amp;&amp; akama.Position.DistanceTo2D(_akamaPos3) &lt; 10)
+			return true;
+		//*/
+
+		return Instancer.Killed(796, 9) || Illidan() != null;
+	}
+	public override bool Pulse()
+	{
+		var akama = Akama();
+		if (akama == null || !akama.IsValid)
+			return true;
+
+		var mob = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(_mobs));
+		if (mob != null &amp;&amp; mob.IsValid &amp;&amp; mob.IsAlive &amp;&amp; mob.IsAttackable)
+		{
+			Log("attack Illidan or flame");
+			Fight.StartFight(mob.Guid);
+			return true;
+		}
+		GoToTask.ToPositionAndIntecractWithNpc(akama.Position, akama.Entry, 1);
+		return true;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool CanConditions()
+	{
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 9);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 9);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Boss 9</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="673.0098" Y="304.2927" Z="353.1922" />
+        </HotSpots>
+        <EntryTarget>
+          <int>22917</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return Instancer.Alive(796, 9);</CanCondition>
+      <IsCompleteCondition>return Instancer.Killed(796, 9);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>To Broken Isles Dalaran</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Traveler.ToBrokenIslesDalaran();
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return !Traveler.InBrokenIslesDalaran;</CanCondition>
+      <IsCompleteCondition>return Traveler.InBrokenIslesDalaran;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script />
+  <OffMeshConnections>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="435.7065" Y="739.7376" Z="15.01548" />
+        <Vector3 X="435.9598" Y="756.1995" Z="11.70322" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss1 out</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="435.9598" Y="756.1995" Z="11.70322" />
+        <Vector3 X="435.2792" Y="741.3367" Z="15.10971" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss1 in</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="541.8424" Y="928.6929" Z="57.09344" />
+        <Vector3 X="571.5541" Y="929.1307" Z="61.81062" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss2 in</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="571.5541" Y="929.1307" Z="61.81062" />
+        <Vector3 X="542.6962" Y="931.1069" Z="57.4379" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss 2 out</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="571.5973" Y="400.8522" Z="112.7754" />
+        <Vector3 X="554.9866" Y="400.9568" Z="112.7837" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss3 in</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="553.346" Y="400.6607" Z="112.7837" />
+        <Vector3 X="575.5084" Y="400.2979" Z="112.7681" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss 3 out</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="702.0239" Y="551.7646" Z="112.6283" />
+        <Vector3 X="699.8546" Y="536.3417" Z="112.6284" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss3 in0</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="699.8546" Y="536.3417" Z="112.6284" />
+        <Vector3 X="703.2983" Y="549.0769" Z="112.6284" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>boss3 out0</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="462.1672" Y="424.4297" Z="192.7712" />
+        <Vector3 X="527.3096" Y="399.5529" Z="193.1993" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>to Gorefiend</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="527.3096" Y="399.5529" Z="193.1993" />
+        <Vector3 X="458.2724" Y="425.0638" Z="192.7661" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>from Gorefiend</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="811.8329" Y="392.2999" Z="112.741" />
+        <Vector3 X="872.8048" Y="392.8871" Z="112.7682" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>to upper</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="872.8048" Y="392.8871" Z="112.7682" />
+        <Vector3 X="808.3305" Y="394.3493" Z="112.7378" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>from upper</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="567.164" Y="305.7347" Z="271.9782" />
+        <Vector3 X="642.876" Y="305.8194" Z="271.6877" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>to gate</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="642.876" Y="305.8194" Z="271.6877" />
+        <Vector3 X="561.5739" Y="305.2558" Z="271.7881" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>from gate</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="914.2183" Y="149.1129" Z="192.8353" />
+        <Vector3 X="838.6949" Y="149.2568" Z="201.3685" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>to gate ascend</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="838.6949" Y="149.2568" Z="201.3685" />
+        <Vector3 X="916.4409" Y="149.9434" Z="192.8283" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>from gate ascend</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="760.0621" Y="303.7052" Z="312.2941" />
+        <Vector3 X="790.1622" Y="302.2913" Z="319.7599" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>to illidan</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="790.1622" Y="302.2913" Z="319.7599" />
+        <Vector3 X="755.0694" Y="301.7446" Z="312.1817" />
+      </Path>
+      <ContinentId>564</ContinentId>
+      <Name>from illidan</Name>
+    </OffMeshConnection>
+  </OffMeshConnections>
+</EasyQuestProfile>

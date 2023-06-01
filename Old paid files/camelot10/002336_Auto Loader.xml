@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="Pulse" NameClass="UnitingtheIsles" />
+    <QuestsSorted Action="TurnIn" NameClass="UnitingtheIsles" />
+    <QuestsSorted Action="RunCode" NameClass="Logging.WriteDebug(&quot;Legion world quests auto loader: current ingame map=&quot; + WorldQuest.MapId.CurrentIngame);" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.Azsuna == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Azsuna" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Azsuna.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.Valsharah == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Val'sharah" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Val'sharah.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.Highmountain == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Highmountain" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Highmountain.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.Stormheim == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Stormheim" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Stormheim.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.Suramar == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Suramar" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Suramar.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.BrokenShore == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Broken Shore" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Broken Shore.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.Krokuun == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Krokuun" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Krokuun.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.AntoranWastes == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Antoran Wastes" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Antoran Wastes.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WorldQuest.MapId.MacAree == WorldQuest.MapId.CurrentIngame" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Mac'Aree" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Mac'Aree.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="/* DEFAULT PROFILE TO START */" />
+    <QuestsSorted Action="WriteLog" NameClass="Legion world quests auto loader: Dalaran" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\[110] Dalaran.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="90417" Name="Archmage Khadgar" GameObject="false">
+      <PickUpQuests>
+        <int>43341</int>
+        <int>45727</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>43341</int>
+        <int>45727</int>
+      </TurnInQuests>
+      <Position X="-848.4618" Y="4638.848" Z="749.5473" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Uniting the Isles</Name>
+      <QuestId>
+        <int>43341</int>
+        <int>45727</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>ItemsManager.UseItem(140192);
+Usefuls.WaitIsCasting();
+Thread.Sleep(5000);
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Usefuls.ContinentId == (int)ContinentId.Troll_Raid &amp;&amp; Usefuls.AreaId == 7502;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\WorldQuest.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

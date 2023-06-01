@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="=== Start Lunar Festival ===" />
+    <QuestsSorted Action="If" NameClass="/* Kalimdor */ !Quest.GetQuestCompleted(29741)" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Events\Lunar Festival - Kalimdor.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="/* Eastern Kingdoms */ !Quest.GetQuestCompleted(8645)" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Events\Lunar Festival - Eastern Kingdoms.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="=== Complete Lunar Festival ===" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests />
+  <Script>camelot10\Libs\Questing.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

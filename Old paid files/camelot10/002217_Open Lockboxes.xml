@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Open Lockboxes ---" />
+    <QuestsSorted Action="Pulse" NameClass="OpenLockboxes" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.States.ToTown.ForceToTown = true;" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Lockboxes ---" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc>
+    <Npc>
+      <Position X="-814.3958" Y="4398.908" Z="739.3494" Type="Flying" />
+      <Entry>92489</Entry>
+      <Name>Мей Франкис</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Troll_Raid</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-851.383" Y="4386.28" Z="738.2209" Type="Flying" />
+      <Entry>241967</Entry>
+      <Name>Почтовый ящик</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <ContinentId>Troll_Raid</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Open Lockboxes</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class OpenLockboxes : QuestClass
+{
+	List&lt;int&gt; _lockboxes = new List&lt;int&gt;()
+	{
+			68729, //Elementium Lockbox
+	};
+	Spell _pickLock = new Spell("Pick Lock");
+	int _attachments = -1;
+
+	public OpenLockboxes()
+	{
+		Name = "Open Lockboxes";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+		ChangeSettings();
+	}
+	protected void Log(string text)
+	{
+		Logging.Write("[Lockboxer] "+ text);
+	}
+
+	public override bool Pulse()
+	{
+		var lockbox = Lockbox();
+		if (lockbox != null &amp;&amp; _pickLock.KnownSpell &amp;&amp; _pickLock.IsSpellUsable &amp;&amp; Bag.GetContainerNumFreeSlots &gt; 3)
+		{
+			Log("open " + lockbox.Name);
+			_pickLock.Launch();
+			Thread.Sleep(Usefuls.Latency * 2);
+			ItemsManager.UseItem((uint)lockbox.Entry);
+			Usefuls.WaitIsCasting();
+			ItemsManager.UseItem((uint)lockbox.Entry);
+			return true;
+		}
+		if (_attachments &lt; 0)
+		{
+			if (MailBox())
+			{
+				_attachments = Mail.GetNumAttachments();
+				Log("attachments: " + _attachments);
+			}
+			return true;
+		}
+		if (Bag.GetContainerNumFreeSlots &gt; 12 &amp;&amp; _attachments &gt; 0)
+		{
+			if (MailBox())
+			{
+				Log("get attachments ");
+				Mail.OpenAllAttachments(60 * 1000);
+				Thread.Sleep(Others.Random(1000, 2000));
+				_attachments = Mail.GetNumAttachments();
+			}
+			return true;
+		}
+		if (Bag.GetContainerNumFreeSlots &lt; 3)
+		{
+			Log("sell items");
+			wManager.Wow.Bot.States.ToTown.ForceToTown = true;
+			return true;
+		}
+		Log("nothing");
+		return true;
+	}
+
+	bool MailBox()
+	{
+		Npc mailbox = NpcDB.GetNpcNearby(Npc.NpcType.Mailbox);
+		if (mailbox != null &amp;&amp; mailbox.IsValid())
+		{
+			if (GoToTask.ToPositionAndIntecractWith(mailbox))
+			{
+				/*
+				Thread.Sleep(Others.Random(500, 1000));
+				Lua.LuaDoString("MailFrameTab1:Click();");
+				Thread.Sleep(Others.Random(200, 400));
+				var isInbox = Lua.LuaDoString&lt;bool&gt;("return InboxFrame:IsVisible()");
+				Log("inbox = " + isInbox);
+				if (isInbox)
+				//*/
+				if (Mail.MailFrameIsShown())
+				{
+					return true;
+				}
+			}
+		}
+		Log("cannot find mailbox");
+		return false;
+	}
+
+	WoWItem Lockbox()
+	{
+		return Bag.GetBagItem().Where(i =&gt; _lockboxes.Contains(i.Entry)).FirstOrDefault();
+	}
+
+	public override bool IsComplete()
+	{
+		return Lockbox() == null &amp;&amp; _attachments == 0;
+	}
+
+	public override bool HasQuest()
+	{
+		return true;
+	}
+
+	void ChangeSettings()
+	{
+		wManager.wManagerSetting.CurrentSetting.MaxUnitsNear = 999;
+		wManager.wManagerSetting.CurrentSetting.FoodPercent = 35;
+		wManager.wManagerSetting.CurrentSetting.DrinkPercent = 35;
+		wManager.wManagerSetting.CurrentSetting.SkinMobs = false;
+		wManager.wManagerSetting.CurrentSetting.SkinNinja = false;
+		wManager.wManagerSetting.CurrentSetting.LootChests = true;
+		wManager.wManagerSetting.CurrentSetting.LootMobs = true;
+		wManager.wManagerSetting.CurrentSetting.SearchRadius = 70f;
+		wManager.wManagerSetting.CurrentSetting.MailGray = false;
+		wManager.wManagerSetting.CurrentSetting.MailWhite = false;
+		wManager.wManagerSetting.CurrentSetting.MailGreen = false;
+		wManager.wManagerSetting.CurrentSetting.MailBlue = false;
+		wManager.wManagerSetting.CurrentSetting.MailPurple = false;
+		wManager.wManagerSetting.CurrentSetting.SellGray = true;
+		wManager.wManagerSetting.CurrentSetting.SellWhite = true;
+		wManager.wManagerSetting.CurrentSetting.SellGreen = true;
+		wManager.wManagerSetting.CurrentSetting.SellBlue = true;
+		wManager.wManagerSetting.CurrentSetting.SellPurple = true;
+		wManager.wManagerSetting.CurrentSetting.MinFreeBagSlotsToGoToTown = 4;
+		wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(ItemsManager.GetNameById(6948)); //Hearthstone
+		wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(ItemsManager.GetNameById(110560)); //Garrison Hearthstone
+		wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(ItemsManager.GetNameById(110560)); //Garrison Hearthstone
+		wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(ItemsManager.GetNameById(140192)); //Dalaran Hearthstone
+		wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(ItemsManager.GetNameById(58488)); //Potion of Treasure Finding
+		wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(ItemsManager.GetNameById(109167)); //Findle's Loot-A-Rang
+		foreach (var lockboxID in _lockboxes)
+		{
+			wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(ItemsManager.GetNameById(lockboxID));
+		}
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>
