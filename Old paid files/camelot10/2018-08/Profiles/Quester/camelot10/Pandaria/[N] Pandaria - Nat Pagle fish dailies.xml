@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Pandaria Nat Pagle fish dailies start ---" />
+    <QuestsSorted Action="Pulse" NameClass="PandariaRequirements" />
+    <QuestsSorted Action="Pulse" NameClass="ToPandariaNatPagleFishingQuests" />
+    <QuestsSorted Action="Pulse" NameClass="SpinefishAlpha" />
+    <QuestsSorted Action="Pulse" NameClass="FlyingTigerGourami" />
+    <QuestsSorted Action="Pulse" NameClass="MimicOctopus" />
+    <QuestsSorted Action="TurnIn" NameClass="SpinefishAlpha" />
+    <QuestsSorted Action="TurnIn" NameClass="MimicOctopus" />
+    <QuestsSorted Action="TurnIn" NameClass="FlyingTigerGourami" />
+    <QuestsSorted Action="Pulse" NameClass="ToDalaran" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Pandaria Nat Pagle fish dailies complete ---" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="63721" Name="Nat Pagle" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>31444</int>
+        <int>31446</int>
+        <int>31443</int>
+      </TurnInQuests>
+      <Position X="-1470.55" Y="-259.8472" Z="0.1111361" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>*Pandaria Requirements</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class PandariaRequirements : QuestClass
+{
+	uint _pandariaFlyingSpell = 115913; // http://www.wowhead.com/spell=115913/wisdom-of-the-four-winds
+	uint _dalaranHeathstone = 140192; // http://www.wowhead.com/item=140192/dalaran-hearthstone
+	bool _halt = false;
+	bool _complete = false;
+
+	public PandariaRequirements()
+	{
+		Name = "Pandaria Requirements";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+		ResetSettings();
+	}
+	public override bool CanConditions()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return _complete;
+	}
+
+	public override bool Pulse()
+	{
+		if (_halt)
+			return true;
+
+		if (string.IsNullOrEmpty(wManager.wManagerSetting.CurrentSetting.FlyingMountName))
+		{
+			_halt = true;
+			Logging.Write("WARRNING! Setup 'Flying mount name' in wrobot settings. Profile halt");
+			return true;
+		}
+		if (string.IsNullOrEmpty(wManager.wManagerSetting.CurrentSetting.GroundMountName))
+		{
+			_halt = true;
+			Logging.Write("WARRNING! Setup 'Ground mount name' in wrobot settings. Profile halt");
+			return true;
+		}
+		if (!ItemsManager.HasItemById(_dalaranHeathstone))
+		{
+			_halt = true;
+			Logging.Write("WARRNING! You need item 'Dalaran Hearthstone'. Profile halt");
+			return true;
+		}
+		if (ObjectManager.Me.Level &lt; 90)
+		{
+			_halt = true;
+			Logging.Write("WARRNING! You need 90 level to fly in Pandaria. Profile halt");
+			return true;
+		}
+
+		_complete = true;
+		return true;
+	}
+
+	static void ResetSettings()
+	{
+		wManager.wManagerSetting.CurrentSetting.LootMobs = true;
+		wManager.wManagerSetting.CurrentSetting.SkinNinja = false;
+		wManager.wManagerSetting.CurrentSetting.SkinMobs = false;
+		wManager.wManagerSetting.CurrentSetting.HarvestHerbs = false;
+		wManager.wManagerSetting.CurrentSetting.HarvestMinerals = false;
+		wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>*Traveler</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using wManager.Wow.Class;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.Threading;
+using wManager.Wow.Bot.Tasks;
+#endif
+
+public class Traveler : QuestClass
+{
+	static Traveler()
+	{
+		ResetSettings();
+		Var.SetVar("Cameleto10Tester", true);
+	}
+	static void Log(string message)
+	{
+		Logging.Write("[Traveler] " + message);
+	}
+	public static void ResetSettings()
+	{
+		var config = wManager.wManagerSetting.CurrentSetting;
+		config.CloseIfPlayerTeleported = false;
+		config.UseFlyingMount = true;
+		config.UseGroundMount = true;
+		config.UseMount = true;
+		config.IgnoreFightGoundMount = true;
+		CVar.SetCVar("autoDismount", "1");
+		CVar.SetCVar("autoDismountFlying", "1");
+		Conditions.ForceIgnoreIsAttacked = false;
+		Log("reset settings");
+	}
+
+	public static void UseHeathstone()
+	{
+		var name = SpellListManager.SpellNameInGameById(94719);
+		Lua.RunMacroText("/cast " + name);
+		Thread.Sleep(Usefuls.Latency * 2);
+		if (ObjectManager.Me.IsCast)
+		{
+			Log("Heathstoning(" + name + ")");
+			Usefuls.WaitIsCasting();
+		}
+		else if (ItemsManager.HasItemById(6948))
+		{
+			Log("Heathstoning");
+			ItemsManager.UseItem(6948);
+			Usefuls.WaitIsCasting();
+		}
+		else
+		{
+			Log("WARNING! Dont have Heathstone or The Innkeeper's Daughter");
+		}
+	}
+
+	public static void UseHeathstoneDalaran()
+	{
+		if (ItemsManager.HasItemById(140192))
+		{
+			ItemsManager.UseItem(140192);
+			Usefuls.WaitIsCasting();
+		}
+	}
+
+	//OUTLANDS
+	public static bool InOutlands
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.Expansion01;
+		}
+	}
+
+	public static bool InShattrath
+	{
+		get
+		{
+			if (!InOutlands)
+				return false;
+			return Usefuls.AreaId == (int)AreaId.Shattrath;
+		}
+	}
+
+	public static void ToShattrath()
+	{
+		if (InShattrath)
+		{
+			Log("im in shattrath");
+		}
+		else if (InPandariaShrine)
+		{
+			Log("im in pandaria. going to shattrath portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.PANDARIA_SHATTRATH_HORDE.Use();
+			else
+				Portals.PANDARIA_SHATTRATH_ALLIANCE.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in pandaria shrine");
+			ToPandariaShrine();
+		}
+	}
+
+	public static bool InQuelDanas
+	{
+		get
+		{
+			if (!InOutlands)
+				return false;
+
+			return Usefuls.AreaId == (int)AreaId.QuelDanas;
+		}
+	}
+
+	public static void ToQuelDanas()
+	{
+		if (InQuelDanas)
+		{
+			Log("im in Quel Danas");
+		}
+		else if (InShattrath)
+		{
+			Log("im in Shattrath. going to Quel Danas portal");
+			Portals.SHATTRATH_QUELDANAS.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in pandaria shrine");
+			ToShattrath();
+		}
+	}
+
+
+	// NORTHREND
+	public static bool InNorthrend
+	{
+		get
+		{
+			return (Usefuls.ContinentId == (int)ContinentId.Northrend);
+		}
+	}
+
+	public static bool InNorthrendDalaran
+	{
+		get
+		{
+			if (!InNorthrend)
+				return false;
+
+			return (Usefuls.AreaId == (int)AreaId.DalaranNorthrend);
+		}
+	}
+
+	public static void ToNorthrendDalaran()
+	{
+		if (InNorthrendDalaran)
+		{
+			Log("im in northrend dalaran");
+		}
+		else if (InPandariaShrine)
+		{
+			Log("im in pandaria. going to northrend dalaran portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.PANDARIA_DALARAN_NORTHREND_HORDE.Use();
+			else
+				Portals.PANDARIA_DALARAN_NORTHREND_ALLIANCE.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in pandaria shrine");
+			ToPandariaShrine();
+		}
+	}
+
+	// PANDARIA
+	public static bool InPandaria
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.HawaiiMainLand;
+		}
+	}
+
+	public static bool InPandariaShrine
+	{
+		get
+		{
+			if (!InPandaria)
+				return false;
+
+			if (ObjectManager.Me.IsHorde)
+				return Usefuls.AreaId == (int)AreaId.PandariaShrineHorde || Usefuls.AreaId == (int)AreaId.PandariaShrineHordeNear;
+			else
+				return Usefuls.AreaId == (int)AreaId.PandariaShrineAlliance || Usefuls.AreaId == (int)AreaId.PandariaShrineAllianceNear;
+		}
+	}
+
+	public static void ToPandariaShrine()
+	{
+		if (InPandariaShrine)
+		{
+			Log("im in pandaria shrine");
+		}
+		else if (InBrokenIslesDalaran)
+		{
+			Log("im in dalaran. going to pandaria portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.BROKENISLES_PANDARIA_HORDE.Use();
+			else
+				Portals.BROKENISLES_PANDARIA_ALLAINCE.Use();
+		}
+		else
+		{
+			Log("im somewhere else. need to get in dalaran");
+			ToBrokenIslesDalaran();
+		}
+	}
+
+	public static void ToPandaria()
+	{
+		if (!InPandaria)
+			ToPandariaShrine();
+	}
+
+
+	// LEGION
+	public static bool IsInBrokenIsles
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.Troll_Raid;
+		}
+	}
+
+	public static bool InBrokenIslesDalaran
+	{
+		get
+		{
+			if (!IsInBrokenIsles)
+				return false;
+			return (Usefuls.AreaId == (int)AreaId.DalaranBrokenIsles);
+		}
+	}
+
+	public static void ToBrokenIsles()
+	{
+		if (!IsInBrokenIsles)
+			ToBrokenIslesDalaran();
+	}
+
+	public static void ToBrokenIslesDalaran()
+	{
+		if (!InBrokenIslesDalaran)
+		{
+			Log("im not in broken isles dalaran. using dalaran heathstone");
+			UseHeathstoneDalaran();
+		}
+	}
+
+	public static class Portals
+	{
+		//neutral
+		public static PortalInfo NORTHREND_CAVERNSOFTIME = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 193604);
+		public static PortalInfo SHATTRATH_QUELDANAS = new PortalInfo(Coords.SHATTRATH, 187056);
+
+		//horde
+		public static PortalInfo ORGRIMMAR_OUTLANDS = new PortalInfo(new Vector3(1795.887, -4282.674, 7.395189, "None"), 195142);
+		public static PortalInfo ORGRIMMAR_BLASTEDLANDS = new PortalInfo(new Vector3(1777.066, -4328.517, -7.984149, "None"), 235877);
+		public static PortalInfo ORGRIMMAR_HYJAL = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207688);
+		public static PortalInfo ORGRIMMAR_VASHJIR = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207690);
+		public static PortalInfo ORGRIMMAR_DEEPHOLM = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207689);
+		public static PortalInfo ORGRIMMAR_ULDUM = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207687);
+		public static PortalInfo ORGRIMMAR_TWILIGHTHIGHLANDS = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207686);
+		public static PortalInfo ORGRIMMAR_TOLBARAD = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 206595);
+
+		public static PortalInfo PANDARIA_ORGRIMMAR = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215127);
+		public static PortalInfo PANDARIA_UNDERCITY = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215124);
+		public static PortalInfo PANDARIA_THUNDERBLUFF = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215125);
+		public static PortalInfo PANDARIA_SILVERMOON = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215126);
+		public static PortalInfo PANDARIA_SHATTRATH_HORDE = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215113);
+		public static PortalInfo PANDARIA_DALARAN_NORTHREND_HORDE = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215112);
+
+		public static PortalInfo BROKENISLES_ORGRIMMAR = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246001);
+		public static PortalInfo BROKENISLES_UNDERCITY = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246000);
+		public static PortalInfo BROKENISLES_THUNDERBLUFF = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 245999);
+		public static PortalInfo BROKENISLES_SILVERMOON = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246004);
+		public static PortalInfo BROKENISLES_PANDARIA_HORDE = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246007);
+
+		//alliance
+		public static PortalInfo STORMWIND_OUTLANDS = new PortalInfo(new Vector3(-8996.93, 860.6223, 29.6206, "None"), 195141);
+		public static PortalInfo STORMWIND_BLASTEDLANDS = new PortalInfo(new Vector3(-9002.964, 868.8864, 129.6928, "None"), 235882);
+		public static PortalInfo STORMWIND_HYJAL = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207692);
+		public static PortalInfo STORMWIND_VASHJIR = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207691);
+		public static PortalInfo STORMWIND_DEEPHOLM = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207693);
+		public static PortalInfo STORMWIND_ULDUM = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207695);
+		public static PortalInfo STORMWIND_TWILIGHTHIGHLANDS = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207694);
+		public static PortalInfo STORMWIND_TOLBARAD = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 206594);
+
+		public static PortalInfo PANDARIA_STORMWIND = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215119);
+		public static PortalInfo PANDARIA_IRONFORGE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215118);
+		public static PortalInfo PANDARIA_DARNASSUS = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215116);
+		public static PortalInfo PANDARIA_EXODAR = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215117);
+		public static PortalInfo PANDARIA_SHATTRATH_ALLIANCE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215120);
+		public static PortalInfo PANDARIA_DALARAN_NORTHREND_ALLIANCE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215121);
+
+		public static PortalInfo BROKENISLES_STORMWIND = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246002);
+		public static PortalInfo BROKENISLES_IRONFORGE = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 245998);
+		public static PortalInfo BROKENISLES_DARNASSUS = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 245997);
+		public static PortalInfo BROKENISLES_EXODAR = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246003);
+		public static PortalInfo BROKENISLES_PANDARIA_ALLAINCE = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246006);
+	}
+
+	public static class Coords
+	{
+		public static Vector3 SHATTRATH = new Vector3(-1863.39, 5430.373, -5.049042, "Flying");
+
+		public static Vector3 CATACLYSM_PORTALS_HORDE = new Vector3(2048.193, -4377.466, 102.8623, "Flying");
+		public static Vector3 CATACLYSM_PORTALS_ALLIANCE = new Vector3(-8206.709, 427.2209, 125.7481, "Flying");
+
+		public static Vector3 PANDARIA_PORTALS_HORDE = new Vector3(1729.32, 888.9265, 487.119, "None");
+		public static Vector3 PANDARIA_PORTALS_ALLIANCE = new Vector3(815.691, 182.3423, 519.6915, "None");
+
+		public static Vector3 BROKENISLES_PORTALS_HORDE = new Vector3(-714.7886, 4406.515, 727.0811, "None");
+		public static Vector3 BROKENISLES_PORTALS_ALLIANCE = new Vector3(-927.9012, 4565.281, 729.2716, "None");
+
+		// instances
+		public static Vector3 BLACKTEMPLE_NEAR = new Vector3(-3632.671, 317.9774, 45.54625, "Flying");
+		public static Vector3 BLACKTEMPLE_MOVEIN = new Vector3(-3665.674, 319.7783, 34.85582, "None");
+
+		public static Vector3 FIRELANDS_NEAR = new Vector3(4053.186, -2945.826, 1081.849, "Flying");
+
+		public static Vector3 SUNWELLPLATEAU_NEAR = new Vector3(12561.39, -6774.708, 15.09085, "None");
+		public static Vector3 SUNWELLPLATEAU_MOVEIN = new Vector3(12542.34, -6777.375, 14.99986, "None");
+	}
+
+	public static class Instances
+	{
+		public static bool InBlackTemple
+		{
+			get
+			{
+				return Usefuls.ContinentId == (int)ContinentId.BlackTemple;
+			}
+		}
+
+		public static void ToBlackTemple()
+		{
+			if (InBlackTemple)
+			{
+				Log("Im in Black Temple");
+			}
+			else if (NearBlackTemple)
+			{
+				Log("Im near Black Temple, going inside");
+				GoToTask.ToPosition(Coords.BLACKTEMPLE_MOVEIN);
+			}
+			else
+			{
+				ToBlackTempleNear();
+			}
+		}
+
+		public static bool NearBlackTemple
+		{
+			get
+			{
+				if (InBlackTemple)
+					return true;
+				if (!InOutlands)
+					return false;
+
+				return ObjectManager.Me.Position.DistanceTo2D(Coords.BLACKTEMPLE_NEAR) &lt; 500;
+			}
+		}
+
+		public static void ToBlackTempleNear()
+		{
+			uint teleportMedalion = 32757;  //http://www.wowhead.com/item=32757/blessed-medallion-of-karabor
+			if (InBlackTemple || NearBlackTemple)
+			{
+				Log("Im in Black Temple or near");
+			}
+			else if (ItemsManager.HasItemById(teleportMedalion))
+			{
+				Log("Equipping teleport item");
+				ItemsManager.EquipItemByName(ItemsManager.GetNameById(teleportMedalion));
+				Thread.Sleep(35 * 1000);
+				Log("Teleporting to Black Temple");
+				ItemsManager.UseItem(teleportMedalion);
+				Usefuls.WaitIsCasting();
+			}
+			else if (InOutlands)
+			{
+				Log("Im in Outlands. Moving near Black Temple");
+				GoToTask.ToPosition(Coords.BLACKTEMPLE_NEAR);
+			}
+			else
+			{
+				Log("Im in somewhere else. Go to Shattrath");
+				ToShattrath();
+				Thread.Sleep(10 * 1000);
+				ToBlackTempleNear();
+			}
+		}
+
+		// sunwell
+		public static bool InSunwell
+		{
+			get
+			{
+				return Usefuls.ContinentId == (int)ContinentId.SunwellPlateau;
+			}
+		}
+
+		public static void ToSunwell()
+		{
+			if (InSunwell)
+			{
+				Log("Im in Sunwell");
+			}
+			else if (InQuelDanas)
+			{
+				Log("Im in Quel Danas, goin to sunwell");
+				GoToTask.ToPosition(Coords.SUNWELLPLATEAU_MOVEIN);
+			}
+			else
+			{
+				ToQuelDanas();
+			}
+		}
+
+	}
+
+	public enum AreaId
+	{
+		QuelDanas = 4080,
+		Shattrath = 3703,
+		DalaranNorthrend = 4395,
+		DalaranBrokenIsles = 7502,
+		PandariaShrineAlliance = 6553, //alliance PandariaShrineOfSevenStars
+		PandariaShrineAllianceNear = 6142,
+		PandariaShrineHorde = 6141, //horde PandariaShrineOfTwoMoons
+		PandariaShrineHordeNear = 6554,
+	}
+
+	public class PortalInfo
+	{
+		public Vector3 position;
+		public int objectId;
+		public PortalInfo(Vector3 pos, int id)
+		{
+			position = pos;
+			objectId = id;
+		}
+
+		public void Use()
+		{
+			GoToTask.ToPosition(position);
+			MountTask.DismountMount();
+			GoToTask.ToPositionAndIntecractWithGameObject(position, objectId);
+		}
+	}
+
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>*To Pandaria (Nat Pagle Fishing Quests)</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class ToPandariaNatPagleFishingQuests : QuestClass
+{
+	public ToPandariaNatPagleFishingQuests()
+	{
+		Name = "To Pandaria (Nat Pagle Fishing Quests)";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Traveler.InPandaria || (Quest.GetQuestCompleted(31444) &amp;&amp; Quest.GetQuestCompleted(31443) &amp;&amp; Quest.GetQuestCompleted(31446));
+	}
+
+	public override bool Pulse()
+	{
+		Traveler.ToPandariaShrine();
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return !Traveler.InPandaria;</CanCondition>
+      <IsCompleteCondition>return Traveler.InPandaria;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>*To Dalaran</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class ToDalaran : QuestClass
+{
+	public ToDalaran()
+	{
+		Name = "To Dalaran";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool CanConditions()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Traveler.InBrokenIslesDalaran;
+	}
+	public override bool Pulse()
+	{
+        Traveler.ToBrokenIslesDalaran();
+		return true;
+	}
+}
+
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return !Traveler.InBrokenIslesDalaran;</CanCondition>
+      <IsCompleteCondition>return Traveler.InBrokenIslesDalaran;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Spinefish Alpha</Name>
+      <QuestId>
+        <int>31444</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class SpinefishAlpha : QuestClass
+{
+	public class FishPosition
+	{
+		public Vector3 position;
+		public float rotation;
+		public FishPosition()
+		{
+		}
+		public FishPosition(Vector3 pos, float rot)
+		{
+			position = pos;
+			rotation = rot;
+		}
+		public override string ToString()
+		{
+			return "(fish position:" + position + " rotation:" + rotation + ")";
+		}
+	}
+
+	protected robotManager.Helpful.Timer _fishTimer = new robotManager.Helpful.Timer(2 * 60 * 1000);
+	protected uint _fishItemId;
+	protected FishPosition _fishPosition;
+	protected List&lt;FishPosition&gt; _fishPositions = new List&lt;FishPosition&gt;();
+
+	public SpinefishAlpha()
+	{
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+		Name = "Spinefish Alpha";
+		QuestId.Clear();
+		QuestId.Add(31444); // http://www.wowhead.com/quest=31444/spinefish-alpha
+		_fishItemId = 86544; // http://www.wowhead.com/item=86544/spinefish-alpha
+		_fishPositions.Clear();
+		_fishPositions.AddRange(new List&lt;FishPosition&gt;() {
+			//dread wastes
+			new FishPosition()
+			{
+				position = new Vector3(-671.9691, 2700.678, 130.4669, "None"),
+				rotation = 5.520089f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-685.0076, 2695.602, 130.2923, "None"),
+				rotation = 4.196694f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-685.0076, 2695.602, 130.2923, "None"),
+				rotation = 4.196694f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-685.5217, 2705.659, 130.7682, "None"),
+				rotation = 2.76727f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-676.8174, 2713.346, 131.4664, "None"),
+				rotation = 2.229272f,
+			},
+			/* OLD, bad for gnomes/goblins
+			new FishPosition()
+			{
+				position = new Vector3(-567.0565, 2660.124, 128.9933, "None"),
+				rotation = 3.190917f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-562.5029, 2641.042, 129.067, "None"),
+				rotation = 3.132016f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-562.5029, 2641.042, 129.067, "None"),
+				rotation = 3.132016f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-573.5767, 2595.086, 129.7601, "None"),
+				rotation = 2.071724f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-587.7048, 2584.389, 129.9481, "None"),
+				rotation = 2.326978f,
+			},
+			//*/
+		});
+		ChangeFishPosition();
+	}
+
+	public override bool CanConditions()
+	{
+		return ItemsManager.GetItemCountById(_fishItemId) &lt; 1 || !IsCompleted();
+	}
+	public override bool IsComplete()
+	{
+		var result = ItemsManager.GetItemCountById(_fishItemId) &gt; 0 || base.IsCompleted();
+		if (result)
+			Stop();
+
+		return result;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		var result = base.IsCompleted();
+		if (result)
+			Stop();
+
+		return result;
+	}
+	protected bool ChangeFishPosition()
+	{
+		int antiLoop = 10;
+		FishPosition newFishPosition = new FishPosition();
+		do
+		{
+			newFishPosition = _fishPositions[Others.Random(0, _fishPositions.Count - 1)];
+		}
+		while (antiLoop-- &gt; 0 &amp;&amp; _fishPosition !=null &amp;&amp; _fishPosition.position.DistanceTo(newFishPosition.position) &lt; 1);
+		_fishPosition = newFishPosition;
+		Stop();
+		Log("fish position changed to " + _fishPosition +" antiloop="+antiLoop+"");
+		return true;
+	}
+	protected bool Stop()
+	{
+		if (!FishingTask.IsLaunched)
+			return false;
+
+		Log("stop fishing");
+		FishingTask.StopLoopFish();
+		return true;
+	}
+	public override bool Pulse()
+	{
+		if (_fishTimer.IsReady)
+		{
+			Log("fish timer out. change");
+			ChangeFishPosition();
+			_fishTimer.Reset();
+		}
+		if (!FishingTask.IsLaunched)
+		{
+			if (ObjectManager.Me.Position.DistanceTo2D(_fishPosition.position) &gt; 50)
+			{
+				Log("long move to " + _fishPosition);
+				MountTask.Mount(true, MountTask.MountCapacity.Fly);
+				Thread.Sleep(1 * 1000);
+				LongMove.LongMoveGo(_fishPosition.position);
+				Thread.Sleep(1 * 1000);
+				return true;
+			}
+			Log("go " + _fishPosition);
+			if (GoToTask.ToPosition(_fishPosition.position, 1.5f))
+			{
+				MountTask.DismountMount();
+				ObjectManager.Me.Rotation = _fishPosition.rotation;
+				Move.Forward(Move.MoveAction.PressKey, 100);
+				Thread.Sleep(Others.Random(300,600));
+				if (ObjectManager.Me.IsSwimming)
+				{
+					Move.Backward(Move.MoveAction.PressKey, 200);
+					Thread.Sleep(Others.Random(300, 600));
+				}
+				FishingTask.LoopFish();
+			}
+		}
+		return true;
+	}
+
+	protected void Log(string text)
+	{
+		Logging.WriteDebug("[" + Name + "] " + text);
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return ItemsManager.GetItemCountById(86544) &lt; 1;</CanCondition>
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(86544) &gt; 0 || Quest.GetQuestCompleted(31444); //spinefish</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Flying Tiger Gourami</Name>
+      <QuestId>
+        <int>31443</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class FlyingTigerGourami : SpinefishAlpha
+{
+	public FlyingTigerGourami()
+	{
+		Name = "Flying Tiger Gourami";
+		QuestId.Clear();
+		QuestId.Add(31443); // http://www.wowhead.com/quest=31443/flying-tiger-gourami
+		_fishItemId = 86542; // http://www.wowhead.com/item=86542/flying-tiger-gourami
+		_fishPositions.Clear();
+		_fishPositions.AddRange(new List&lt;FishPosition&gt;() {
+			// krasarang
+			new FishPosition()
+			{
+				position = new Vector3(-761.9477, 10.5488, 20.52944, "None"),
+				rotation = 3.75777f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-764.6094, 14.85548, 19.42341, "None"),
+				rotation = 3.337582f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-764.6089, 19.67009, 19.17969, "None"),
+				rotation = 2.882051f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-759.0572, 23.43333, 18.81775, "None"),
+				rotation = 1.821763f,
+			},
+			/* OLD, BAD FOR GNOME/GOBLIN
+			new FishPosition()
+			{
+				position = new Vector3(-833.3654, -15.66563, 17.80098, "None"),
+				rotation = 0.2615609f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-829.8018, -26.75317, 17.6317, "None"),
+				rotation = 6.070773f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-829.8018, -26.75317, 17.6317, "None"),
+				rotation = 6.070773f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-836.5469, -1.110856, 17.60079, "None"),
+				rotation = 0.7261026f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-839.4684, 12.08524, 17.93837, "None"),
+				rotation = 0.7221756f,
+			},
+			//*/
+		});
+		ChangeFishPosition();
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return ItemsManager.GetItemCountById(86542) &lt; 1;</CanCondition>
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(86542) &gt; 0 || Quest.GetQuestCompleted(31443); //gourami</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mimic Octopus</Name>
+      <QuestId>
+        <int>31446</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MimicOctopus: SpinefishAlpha
+{
+	public MimicOctopus()
+	{
+		Name = "Mimic Octopus";
+		QuestId.Clear();
+		QuestId.Add(31446); // http://www.wowhead.com/quest=31446/mimic-octopus
+		_fishItemId = 86545; // http://www.wowhead.com/item=86545/mimic-octopus
+		_fishPositions.Clear();
+		_fishPositions.AddRange(new List&lt;FishPosition&gt;() {
+			// krasarang
+			new FishPosition()
+			{
+				position = new Vector3(-1376.478, -467.7908, 0.5202734, "None"),
+				rotation = 0.5291066f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-1374.863, -477.5613, 0.8457891, "None"),
+				rotation = 0.7804293f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-1370.674, -486.8062, 0.7011302, "None"),
+				rotation = 0.5958666f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-1374.191, -494.6226, 0.08716098, "None"),
+				rotation = 5.547806f,
+			},
+			new FishPosition()
+			{
+				position = new Vector3(-1383.545, -504.1714, 0.6874987, "None"),
+				rotation = 5.127619f,
+			},
+		});
+		ChangeFishPosition();
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return ItemsManager.GetItemCountById(86545) &lt; 1;</CanCondition>
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(86545) &gt; 0 || Quest.GetQuestCompleted(31446); //octopus</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script />
+  <OffMeshConnections />
+</EasyQuestProfile>

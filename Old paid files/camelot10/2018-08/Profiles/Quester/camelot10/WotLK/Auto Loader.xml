@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- WotLK Auto Loader start ---" />
+    <QuestsSorted Action="If" NameClass="Usefuls.ContinentId != (int)ContinentId.Northrend" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\WotLK\To Northrend.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &gt;= 68 &amp;&amp; ObjectManager.Me.Level &lt; 80" />
+    <QuestsSorted Action="LoadProfile" NameClass="Eeny\Eeny_Horde_68-80_Quester_V2.1.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="WARNING! Seems like autoloader can't find profile for this character. Try something manualy." />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests />
+  <Script />
+  <OffMeshConnections />
+</EasyQuestProfile>

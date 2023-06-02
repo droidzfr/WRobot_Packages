@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<FightClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FightClassGeneralSettings>
+    <FightClassName>Druid Restoration (camelot10)</FightClassName>
+    <Range>39</Range>
+    <AdditionalCode>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+
+//public class FightclassDruidRestoration
+namespace DruidRestoration
+{
+	public class Main : ICustomClass
+	{
+		#region ICustomClass
+		public float Range { get; set; }
+		public void Dispose() { }
+		public void Initialize() { }
+		public void ShowConfiguration() { }
+		#endregion ICustomClass
+#endif
+		#region DRUID / RESTORATION
+
+		static string _lastLog = string.Empty;
+		static void Log(string text)
+		{
+			//if (string.Equals(text, _lastLog)) return;
+
+			_lastLog = text;
+			Logging.Write("[Druid Restor] " + text);
+		}
+		float _rangeReal = -1;
+		float RangeReal
+		{
+			get
+			{
+				if (_rangeReal &lt; 0)
+				{
+					_rangeReal = Range;
+					if (ObjectManager.Me.HaveBuff(197632)) //Balance Affinity
+						_rangeReal += 5;
+				}
+				return _rangeReal;
+			}
+		}
+		public delegate bool WoWUnitDelegate(WoWUnit unit);
+		static bool TargetParty(WoWUnitDelegate condition)
+		{
+			var guids = Party.GetPartyGUIDHomeAndInstance();
+			//sort by range?
+			var count = guids.Count;
+			for (int i =0; i &lt; count; i++)
+			{
+				var guid = guids[i];
+				if (guid.IsZero()) continue;
+				if (guid == ObjectManager.Me.Guid) continue;
+				if (guid == ObjectManager.Target.Guid) continue;
+
+				WoWObject objectByGuid = ObjectManager.GetObjectByGuid(guid);
+				if (!objectByGuid.IsValid) continue;
+				WoWUnit member = null;
+				if (objectByGuid.Type == wManager.Wow.Enums.WoWObjectType.Unit)
+					member = new WoWUnit(objectByGuid.GetBaseAddress);
+				else if (objectByGuid.Type == wManager.Wow.Enums.WoWObjectType.Player)
+					member = new WoWPlayer(objectByGuid.GetBaseAddress);
+				else continue;
+				if (!condition(member)) continue;
+
+				ObjectManager.Me.Target = guid;
+				Log("targeted=" + member.Name);
+				return true;
+			}
+			return false;
+		}
+		static bool TargetHP(int hp, uint needBuffID = 0)
+		{
+			if (needBuffID &gt; 0)
+				return TargetParty(u =&gt; u.HealthPercent &lt;= hp &amp;&amp; !u.HaveBuff(needBuffID));
+			return TargetParty(u =&gt; u.HealthPercent &lt;= hp);
+		}
+		static bool TargetHP(int hp, string needBuff)
+		{
+			return TargetParty(u =&gt; u.HealthPercent &lt;= hp &amp;&amp; !u.HaveBuff(needBuff));
+		}
+
+		int CountFriendsBelowHP(float range, int hpMin)
+		{
+			var targ = ObjectManager.Target;
+			if (targ == null || !targ.IsValid)
+				return 0;
+
+			var partyNear = Party.GetPartyHomeAndInstance().Count(u =&gt; u.IsValid &amp;&amp; u.HealthPercent &lt;= hpMin &amp;&amp; u.Position.DistanceTo(targ.Position) &lt;= range);
+			return partyNear;
+		}
+		#endregion DRUID / RESTORATION
+
+#if VISUAL_STUDIO
+	}
+}
+#endif</AdditionalCode>
+  </FightClassGeneralSettings>
+  <FightClassSpells>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>TargetHP(90)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Efflorescence</SpellName>
+      <Priority>3</Priority>
+      <CombatOnly>false</CombatOnly>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <Timer>25000</Timer>
+      <AOESpell>true</AOESpell>
+      <AOESpellMePos>true</AOESpellMePos>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>TargetHP(90, "Lifebloom")</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Lifebloom</SpellName>
+      <Priority>2</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <Timer>15000</Timer>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>TargetHP(80)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Cenarion Ward</SpellName>
+      <Priority>1</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+  </FightClassSpells>
+</FightClass>

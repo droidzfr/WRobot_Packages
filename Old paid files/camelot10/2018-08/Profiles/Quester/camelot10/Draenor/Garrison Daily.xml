@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Garrison daily routine ---" />
+    <QuestsSorted Action="If" NameClass="/* Garrison Hearthstone */ !ItemsManager.HasItemById(110560)" />
+    <QuestsSorted Action="WriteLog" NameClass="You need 'Garrison Hearthstone' to run this profile" />
+    <QuestsSorted Action="GoToStep" NameClass="Next" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="Pulse" NameClass="ToGarrison" />
+    <QuestsSorted Action="Pulse" NameClass="DoGarrisonCache" />
+    <QuestsSorted Action="Pulse" NameClass="DoGarrisonGarden" />
+    <QuestsSorted Action="Pulse" NameClass="DoGarrisonMine" />
+    <QuestsSorted Action="Pulse" NameClass="DoGarrisonAlchemy" />
+    <QuestsSorted Action="Pulse" NameClass="DoGarrisonBarn" />
+    <QuestsSorted Action="Pulse" NameClass="DoGarrisonTailoring" />
+    <QuestsSorted Action="None" NameClass="DoTradingPost" />
+    <QuestsSorted Action="StepName" NameClass="Next" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Garrison daily routine ---" />
+    <QuestsSorted Action="None" NameClass="camelot10\Filler.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc>
+    <Npc>
+      <Position X="5626.828" Y="4629.681" Z="139.3042" Type="Flying" />
+      <Entry>76872</Entry>
+      <Name>Supplymaster Eri (Horde3)</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>FWHordeGarrisonLevel2</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="5626.828" Y="4629.681" Z="139.3042" Type="Flying" />
+      <Entry>76872</Entry>
+      <Name>Supplymaster Eri (Horde3)</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>FWHordeGarrisonLevel2</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="5582.095" Y="4571.708" Z="136.4818" Type="Flying" />
+      <Entry>231710</Entry>
+      <Name>Mailbox (Horde3)</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <ContinentId>FWHordeGarrisonLevel2</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>To Garrison</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		GarrisonHelper.ToGarrison();
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return GarrisonHelper.InGarrison;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Do Garrison Cache</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class DoGarrisonCache : GarrisonHelper.GarrisonQuest
+{
+	public DoGarrisonCache()
+	{
+		Name = "Garrison Cache";
+		HotSpots.Add(GarrisonHelper.Positions.Center);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.ResourcesCache);
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Do Garrison Garden</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class DoGarrisonGarden : GarrisonHelper.GarrisonQuest
+{
+	public DoGarrisonGarden()
+	{
+		Name = "Garrison Garden";
+		HotSpots.Add(GarrisonHelper.Positions.Garden);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.HerbNodes);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.WorkOrdersGarden);
+		_workers.Add(85783);//horde
+		_workers.Add(85783);//alliance
+	}
+	public override bool CanWorkOrder()
+	{
+		return ItemsManager.GetItemCountByIdLUA(GarrisonHelper.ItemID.DraenicSeeds) &gt;= 5;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Do Garrison Mine</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class DoGarrisonMine : GarrisonHelper.GarrisonQuest
+{
+	public DoGarrisonMine()
+	{
+		Name = "Garrison Mine";
+		HotSpots.Add(GarrisonHelper.Positions.Mine);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.OreDeposits);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.WorkOrdersMine);
+		_workers.Add(81688);//horde
+		_workers.Add(81688);//alliance
+	}
+	public override bool InArea()
+	{
+		if (ObjectManager.Me.IsIndoors)
+		{
+			//http://www.wowhead.com/spell=176061/preserved-mining-pick
+			if (!ObjectManager.Me.HaveBuff(176061) &amp;&amp; ItemsManager.HasItemById(GarrisonHelper.ItemID.PreservedMiningPick))
+			{
+				ItemsManager.UseItem(GarrisonHelper.ItemID.PreservedMiningPick);
+			}
+			//http://www.wowhead.com/spell=176049/miners-coffee
+			if (ObjectManager.Me.BuffStack(176049) &lt; 3 &amp;&amp; ItemsManager.HasItemById(GarrisonHelper.ItemID.MinersCoffee))
+			{
+				ItemsManager.UseItem(GarrisonHelper.ItemID.MinersCoffee);
+			}
+		}
+		return GarrisonHelper.InMine;
+	}
+	public override bool CanWorkOrder()
+	{
+		return ItemsManager.GetItemCountByIdLUA(GarrisonHelper.ItemID.DraenicStone) &gt;= 5;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Do Garrison Alchemy</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class DoGarrisonAlchemy : GarrisonHelper.GarrisonQuest
+{
+	public DoGarrisonAlchemy()
+	{
+		Name = "Garrison Alchem";
+		HotSpots.Add(GarrisonHelper.Positions.Center);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.WorkOrdersAlchemy);
+		_workers.Add(79814);//horde
+		_workers.Add(79814);//alliance
+	}
+	public override bool CanWorkOrder()
+	{
+		return ItemsManager.GetItemCountByIdLUA(GarrisonHelper.ItemID.Frostweed) &gt;= 5;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Do Garrison Tailoring</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class DoGarrisonTailoring : GarrisonHelper.GarrisonQuest
+{
+	public DoGarrisonTailoring()
+	{
+		Name = "Garrison Tailoring";
+		HotSpots.Add(GarrisonHelper.Positions.Center);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.WorkOrdersTailoring);
+		_workers.Add(79863);//horde
+		_workers.Add(79863);//alliance
+	}
+	public override bool CanWorkOrder()
+	{
+		return ItemsManager.GetItemCountByIdLUA(GarrisonHelper.ItemID.SumptuousFur) &gt;= 5;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Do Trading Post</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class DoTradingPost : GarrisonHelper.GarrisonQuest
+{
+	public DoTradingPost()
+	{
+		Name = "Garrison Trading Post";
+		HotSpots.Add(GarrisonHelper.Positions.Center);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.WorkOrdersTradingPost);
+		_workers.Add(87118);//horde
+		_workers.Add(87118);//alliance
+	}
+	public override bool CanWorkOrder()
+	{
+		return GarrisonHelper.Resources &gt;= 20;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Do Garrison Barn</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class DoGarrisonBarn : GarrisonHelper.GarrisonQuest
+{
+	public DoGarrisonBarn()
+	{
+		Name = "Garrison Barn";
+		HotSpots.Add(GarrisonHelper.Positions.Center);
+		EntryIdObjects.AddRange(GarrisonHelper.ObjectID.WorkOrdersBarn);
+		_workers.Add(85048);//horde
+		_workers.Add(85048);//alliance
+	}
+	public override bool CreateWorkOrders()
+	{
+		var npc = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(_workers));
+		if (npc != null &amp;&amp; npc.IsValid)
+		{
+			GoToTask.ToPositionAndIntecractWithNpc(npc.Position, npc.Entry);
+			Thread.Sleep(Usefuls.Latency * 2);
+			for (int i = 10; i &gt; 0; i--)
+			{
+				if (SelectGossip(i))
+				{
+					_complete = true;
+					return true;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+	bool SelectGossip(int number)
+	{
+		var gui = "GossipTitleButton" + number;
+		if (Lua.LuaDoString&lt;bool&gt;("return " + gui + " and " + gui + ":IsVisible()"))
+		{
+			Thread.Sleep(Usefuls.Latency * 2);
+			Lua.LuaDoString(gui + ":Click();");
+			return true;
+		}
+		return false;
+	}
+	public override bool CanWorkOrder()
+	{
+		foreach (var cageID in GarrisonHelper.ItemID.CagesForBarn)
+		{
+			if (ItemsManager.GetItemCountByIdLUA(cageID) &gt; 0)
+				return true;
+		}
+		return false;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Farm Garrison Cages</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>
+public sealed class FarmGarrisonCages : QuestClass
+{
+    public FarmGarrisonCages() // Don't forget to use good classe name
+    {
+		Name = "Farm Garrison Cages";
+		
+        QuestId.Add (0); // Add quest id (replace 0 by quest id)
+
+        Step.AddRange(new[] { 0, 0, 0, 0, 0 }); // Objective required count
+		
+		// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)
+    }
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Prepare Invasion</Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Invasion</Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Sell, Mail, Bank, Guildbank</Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs
+camelot10\Libs\GarrisonHelper.cs
+camelot10\Libs\Traveler.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

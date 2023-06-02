@@ -1,0 +1,1786 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Stormheim. Start: Greymane's Gambit ---" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="Stormheim" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.IsHorde" />
+    <QuestsSorted Action="PickUp" NameClass="TheWarchiefBeckons" />
+    <QuestsSorted Action="Pulse" NameClass="TheWarchiefBeckons" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleetStart" />
+    <QuestsSorted Action="TurnIn" NameClass="TheWarchiefBeckons" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="MakingtheRounds" />
+    <QuestsSorted Action="RunCode" NameClass="/* ABANDON &quot;The Splintered Fleet&quot; */&#xA;if (Questing.Scenario.Stage == 0 &amp;&amp; !Quest.IsObjectiveComplete(1, 39801))&#xA;{&#xA; Questing.Abandon(39801);&#xA; Thread.Sleep(3 * 1000);&#xA;}&#xA;" />
+    <QuestsSorted Action="PickUp" NameClass="TheSplinteredFleet" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleet" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleet1" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleet2" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleet3" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleet4" />
+    <QuestsSorted Action="RunCode" NameClass="StormheimQuests.Subzone.Skyfire.StartMoveFix();" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleet5" />
+    <QuestsSorted Action="Pulse" NameClass="TheSplinteredFleet6" />
+    <QuestsSorted Action="RunCode" NameClass="StormheimQuests.Subzone.Skyfire.StopMoveFix();" />
+    <QuestsSorted Action="TurnIn" NameClass="TheSplinteredFleet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.IsAlliance" />
+    <QuestsSorted Action="PickUp" NameClass="ARoyalSummons" />
+    <QuestsSorted Action="Pulse" NameClass="ARoyalSummons" />
+    <QuestsSorted Action="RunCode" NameClass="StormheimQuests.Subzone.SkyfireStormwind.StartMoveFix();" />
+    <QuestsSorted Action="Pulse" NameClass="GreymanesGambitStart" />
+    <QuestsSorted Action="RunCode" NameClass="Questing.DisableMount();" />
+    <QuestsSorted Action="TurnIn" NameClass="ARoyalSummons" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="MakingtheRoundsA" />
+    <QuestsSorted Action="RunCode" NameClass="/* ABANDON &quot;Greymane's Gambit&quot; */&#xD;&#xA;if (Questing.Scenario.Stage == 0 &amp;&amp; !Quest.IsObjectiveComplete(1, 39800))&#xD;&#xA;{&#xD;&#xA; Questing.Abandon(39800);&#xD;&#xA; Thread.Sleep(3 * 1000);&#xD;&#xA;}" />
+    <QuestsSorted Action="PickUp" NameClass="GreymanesGambit" />
+    <QuestsSorted Action="Pulse" NameClass="GreymanesGambit" />
+    <QuestsSorted Action="Pulse" NameClass="GreymanesGambit1" />
+    <QuestsSorted Action="RunCode" NameClass="StormheimQuests.Subzone.SkyfireStormwind.StopMoveFix();" />
+    <QuestsSorted Action="RunCode" NameClass="Questing.ResetSettings();" />
+    <QuestsSorted Action="TurnIn" NameClass="GreymanesGambit" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Stormheim. Complete: Greymane's Gambit ---" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Stormheim\[N] Stormheim 2.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="96683" Name="Nathanos Blightcaller" GameObject="false">
+      <PickUpQuests>
+        <int>38307</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>39864</int>
+        <int>44701</int>
+      </TurnInQuests>
+      <Position X="-840.5087" Y="4633.81" Z="749.415" />
+    </NPCQuest>
+    <NPCQuest Id="96683" Name="Nathanos Blightcaller" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>38307</int>
+      </TurnInQuests>
+      <Position X="1493.664" Y="-5206.232" Z="10.71481" />
+    </NPCQuest>
+    <NPCQuest Id="96686" Name="Lady Sylvanas Windrunner" GameObject="false">
+      <PickUpQuests>
+        <int>39698</int>
+        <int>39801</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>39698</int>
+      </TurnInQuests>
+      <Position X="1496.027" Y="-5207.587" Z="11.05676" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="91473" Name="Dread-Rider Cullen" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>39801</int>
+      </TurnInQuests>
+      <Position X="4110.878" Y="2940.145" Z="27.33371" />
+    </NPCQuest>
+    <NPCQuest Id="96644" Name="Sky Admiral Rogers" GameObject="false">
+      <PickUpQuests>
+        <int>38035</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>39735</int>
+        <int>44700</int>
+      </TurnInQuests>
+      <Position X="-840.5087" Y="4633.81" Z="749.4137" />
+    </NPCQuest>
+    <NPCQuest Id="96644" Name="Sky Admiral Rogers" GameObject="false">
+      <PickUpQuests>
+        <int>38206</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>38035</int>
+      </TurnInQuests>
+      <Position X="-8491.159" Y="1394.033" Z="196.3758" />
+    </NPCQuest>
+    <NPCQuest Id="96663" Name="Genn Greymane" GameObject="false">
+      <PickUpQuests>
+        <int>39800</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>38206</int>
+      </TurnInQuests>
+      <Position X="-8587.878" Y="1398.61" Z="196.5786" />
+    </NPCQuest>
+    <NPCQuest Id="90749" Name="Sky Admiral Rogers" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>39800</int>
+      </TurnInQuests>
+      <Position X="3203.195" Y="3077.215" Z="440.2123" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots>
+    <Blackspot X="2209.372" Y="2498.197" Z="476.4171" Radius="2.582875" />
+    <Blackspot X="3194.205" Y="1519.958" Z="180.8758" Radius="2.5" />
+    <Blackspot X="2812.58" Y="470.262" Z="30.08834" Radius="9.716625" />
+    <Blackspot X="3554.136" Y="1821.913" Z="-1.564122" Radius="10.37248" />
+    <Blackspot X="2961.701" Y="1310.435" Z="179.9783" Radius="4" />
+    <Blackspot X="2954.222" Y="2059.799" Z="202.8698" Radius="4.695892" />
+    <Blackspot X="2976.85" Y="2060.289" Z="202.1232" Radius="4.360055" />
+    <Blackspot X="2982.539" Y="2057.829" Z="201.5432" Radius="4.243678" />
+    <Blackspot X="4241.628" Y="2159.299" Z="161.6568" Radius="3.974987" />
+    <Blackspot X="4226.039" Y="2173.704" Z="166.3942" Radius="4.699438" />
+    <Blackspot X="3668.105" Y="1802.17" Z="0.266252" Radius="2" />
+    <Blackspot X="3248.776" Y="3142.261" Z="526.1411" Radius="5" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Stormheim</Name>
+      <QuestId>
+        <int>39864</int>
+        <int>44701</int>
+        <int>39735</int>
+        <int>44700</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>LegionQuests.UseDalaranHeathstone();
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return LegionQuests.InDalaran;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Warchief Beckons</Name>
+      <QuestId>
+        <int>38307</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-842.558" Y="4629.118" Z="749.6411" />
+        </HotSpots>
+        <EntryIdTarget />
+        <ItemId>128692</ItemId>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Making the Rounds</Name>
+      <QuestId>
+        <int>39698</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MakingtheRounds : QuestClass
+{
+	List&lt;Vector3&gt; pathToOjective1 = new List&lt;Vector3&gt;()
+	{
+		new Vector3(1495.771f, -5205.609f, 11.06327f, "None"),
+		new Vector3(1494.568f, -5210.394f, 10.86251f, "None"),
+		new Vector3(1491.672f, -5212.896f, 10.66992f, "None"),
+		new Vector3(1487.57f, -5213.162f, 6.864116f, "None"),
+		new Vector3(1483.922f, -5211.179f, 5.257293f, "None"),
+		new Vector3(1481.169f, -5208.208f, 5.264183f, "None"),
+		new Vector3(1478.36f, -5205.054f, 5.306828f, "None"),
+		new Vector3(1475.073f, -5202.823f, 6.002764f, "None"),
+		new Vector3(1470.96f, -5203.221f, 10.35738f, "None"),
+		new Vector3(1467.73f, -5205.735f, 10.59391f, "None"),
+		new Vector3(1464.411f, -5208.017f, 11.3694f, "None"),
+		new Vector3(1461.222, -5208.477, 13.53175, "None"),
+	};
+	List&lt;Vector3&gt; pathToOjective2 = new List&lt;Vector3&gt;()
+	{
+		new Vector3(1461.487f, -5208.323f, 13.5181f, "None"),
+		new Vector3(1466.401f, -5206.597f, 10.84641f, "None"),
+		new Vector3(1469.263f, -5203.914f, 10.51402f, "None"),
+		new Vector3(1473.381f, -5202.526f, 7.788452f, "None"),
+		new Vector3(1477.206f, -5204.021f, 5.319003f, "None"),
+		new Vector3(1480.612f, -5206.226f, 5.267483f, "None"),
+	};
+	List&lt;Vector3&gt; pathToOjective3 = new List&lt;Vector3&gt;()
+	{
+		new Vector3(1479.869f, -5205.803f, 5.269166f, "None"),
+		new Vector3(1483.877f, -5210.702f, 5.256219f, "None"),
+		new Vector3(1487.019f, -5213.316f, 6.295483f, "None"),
+		new Vector3(1491.081f, -5213.6f, 10.50683f, "None"),
+		new Vector3(1495.116f, -5212.984f, 10.83803f, "None"),
+		new Vector3(1499.303f, -5212.443f, 11.44647f, "None"),
+	};
+	public MakingtheRounds()
+	{
+		Name = "Making the Rounds";
+		QuestId.Add(39698);
+		Step.AddRange(new[] { 1, 1, 1 });
+	}
+	public override bool Pulse()
+	{
+		if (!Questing.ObjectiveComplete(this, 1))
+		{
+			var p1 = pathToOjective1[pathToOjective1.Count-1];
+			if (ObjectManager.Me.Position.DistanceTo(p1) &gt; 5)
+			{
+				Questing.PathFromNear(pathToOjective1);
+				return true;
+			}
+			Questing.Gather(p1, 247491, 8);
+			return true;
+		}
+		if (!Questing.ObjectiveComplete(this, 2))
+		{
+			var p2 = pathToOjective2[pathToOjective2.Count - 1];
+			if (ObjectManager.Me.Position.DistanceTo(p2) &gt; 5)
+			{
+				Questing.PathFromNear(pathToOjective2);
+				return true;
+			}
+			if (Questing.ExtraButton())
+			{
+				Questing.UseExtraButton();
+			}
+			return true;
+		}
+		if (!Questing.ObjectiveComplete(this, 3))
+		{
+			var p3 = pathToOjective3[pathToOjective3.Count - 1];
+			if (ObjectManager.Me.Position.DistanceTo(p3) &gt; 5)
+			{
+				Questing.PathFromNear(pathToOjective3);
+				return true;
+			}
+			return true;
+		}
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet (Start)</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (LegionQuests.InDalaran)
+		{
+			var p1 = new Vector3(-830.9566, 4655.491, 749.6113);
+			Questing.Gather(p1, 244571, 5);
+			return true;
+		}
+		LegionQuests.UseDalaranHeathstone();
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.Complete(this) || Questing.Scenario.Stage != 0 || (Usefuls.ContinentId == (int)ContinentId.Kalimdor &amp;&amp; ObjectManager.Me.Position.DistanceTo(new Vector3(1499.171, -5213.979, 11.37253, "None")) &lt; 100);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+public class TheSplinteredFleet : QuestClass
+{
+	Vector3 _ship1Center = new Vector3(4627.929f, 2854.189f, 7.82251f, "None");
+	Vector3 _ship2Center = new Vector3(4839.465, 3011.401, 7.851587, "None");
+	Vector3 _ship3Center = new Vector3(4710.981, 3011.647, 7.855794, "None");
+	Vector3 _ship4Center = new Vector3(4729.352, 2936.701, 7.845579, "None");
+	public TheSplinteredFleet()
+	{
+		Name = "The Splintered Fleet";
+		QuestId.Add(39801);
+		Step.AddRange(new[] { 1 });
+	}
+	public override bool Pulse()
+	{
+		Questing.CancelCutscene();
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Questing.ObjectiveComplete(this, 1) || Questing.Scenario.Stage != 0;
+	}
+	public override bool HasQuest()
+	{
+		return base.HasQuest();
+	}
+	public override bool IsCompleted()
+	{
+		if (Questing.Has(this))
+		{
+			return false;
+		}
+
+		return base.IsCompleted();
+	}
+	protected bool InShip1
+	{
+		get
+		{
+			return (ObjectManager.Me.Position.DistanceTo2D(_ship1Center) &lt; 75);
+		}
+	}
+	protected bool InShip2
+	{
+		get
+		{
+			return (ObjectManager.Me.Position.DistanceTo2D(_ship2Center) &lt; 75);
+		}
+	}
+	protected bool InShip3
+	{
+		get
+		{
+			return (ObjectManager.Me.Position.DistanceTo2D(_ship3Center) &lt; 50);
+		}
+	}
+	protected bool InShip4
+	{
+		get
+		{
+			return (ObjectManager.Me.Position.DistanceTo2D(_ship4Center) &lt; 50);
+		}
+	}
+	protected bool InShip5
+	{
+		get
+		{
+			//var theSkyfireId = 241630;
+			var skyfire = Questing.FindObject(241630);
+			if (skyfire == null || !skyfire.IsValid)
+			{
+				return false;
+			}
+			return (ObjectManager.Me.Position.DistanceTo2D(skyfire.Position) &lt; 100);
+		}
+	}
+	protected static void Log(string text)
+	{
+		Logging.Write("[The Splintered Fleet] " + text);
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet 1</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+public class TheSplinteredFleet1 : TheSplinteredFleet
+{
+	public override bool Pulse()
+	{
+		var p = new Vector3(4627.929f, 2854.189f, 7.82251f, "None");
+		GoToTask.ToPositionAndIntecractWithNpc(p, 94419, 1);
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Scenario.Stage != 1;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.Scenario.Stage != 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet 2</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class TheSplinteredFleet2 : TheSplinteredFleet
+{
+	List&lt;int&gt; _mobsShip2 = new List&lt;int&gt;()
+	{
+		94737, //mage
+	};
+	List&lt;int&gt; _mobsShip2Catapult = new List&lt;int&gt;()
+	{
+		94576, //gryphon
+	};
+	public override bool Pulse()
+	{
+		if (InShip2)
+		{
+			if (ObjectManager.Me.PlayerUsingVehicle)
+			{
+				var gryphon = Questing.FindUnit(_mobsShip2Catapult);
+				if (gryphon != null &amp;&amp; gryphon.IsValid)
+				{
+					Log("found target=" + gryphon.Name + " dist=" + gryphon.GetDistance);
+					Interact.InteractGameObject(gryphon.GetBaseAddress, true, false, true);
+					Questing.Vehicle.Aim(gryphon, 0.5f, -10);
+					//Thread.Sleep(Usefuls.Latency * 2);
+					Questing.VehicleButton(1);
+					//Thread.Sleep(Usefuls.Latency * 2);
+				}
+				return true;
+			}
+			var mob = Questing.FindUnit(_mobsShip2);
+			if (mob != null &amp;&amp; mob.IsValid &amp;&amp; mob.IsAlive &amp;&amp; mob.IsAttackable)
+			{
+				Log("attack " + mob.Name);
+				Questing.Attack(mob);
+				return true;
+			}
+			Log("mount catapult");
+			var p = new Vector3(4822.589f, 2999.643f, 16.10074f, "None");
+			GoToTask.ToPositionAndIntecractWithNpc(p, 94550, 1); //catapult
+			Log("mounted catapult");
+			return true;
+		}
+
+		//flying to ship2
+		if (ObjectManager.Me.PlayerUsingVehicle)
+			return true;
+
+		if (InShip1)
+		{
+			Log("in ship1, fly to ship2");
+			var p = new Vector3(4627.929f, 2854.189f, 7.82251f, "None");
+			GoToTask.ToPositionAndIntecractWithNpc(p, 94436, 1);
+		}
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Scenario.Stage != 2;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.Scenario.Stage != 2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet 3</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class TheSplinteredFleet3 : TheSplinteredFleet
+{
+	List&lt;int&gt; _mobsShip3 = new List&lt;int&gt;()
+	{
+		94812, //paratrooper
+		94809, //capitan
+	};
+	public override bool Pulse()
+	{
+		//flying
+		if (ObjectManager.Me.PlayerUsingVehicle)
+			return true;
+
+		if (InShip3)
+		{
+			var mob = Questing.FindUnit(_mobsShip3);
+			if (mob != null &amp;&amp; mob.IsValid &amp;&amp; mob.IsAlive &amp;&amp; mob.IsAttackable)
+			{
+				Questing.Attack(mob);
+			}
+			return true;
+		}
+
+		if (InShip2)
+		{
+			var p = new Vector3(4847.536f, 3024.294f, 13.68751f, "None");
+			GoToTask.ToPositionAndIntecractWithNpc(p, 95316, 1); //bat
+		}
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Scenario.Stage != 3;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet 4</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class TheSplinteredFleet4 : TheSplinteredFleet
+{
+	List&lt;int&gt; _mobsShip4 = new List&lt;int&gt;()
+	{
+		94820, //worgen
+		94822, //huntress
+	};
+	public override bool Pulse()
+	{
+		if (ObjectManager.Me.PlayerUsingVehicle)
+			return true;
+
+		if (InShip4)
+		{
+			var mob = Questing.FindUnit(_mobsShip4);
+			if (mob != null &amp;&amp; mob.IsValid &amp;&amp; mob.IsAlive &amp;&amp; mob.IsAttackable)
+			{
+				Questing.Attack(mob);
+			}
+			return true;
+		}
+
+		if (InShip3)
+		{
+			var p = new Vector3(4728.907, 3013.009, 13.8701, "None");
+			GoToTask.ToPositionAndIntecractWithNpc(p, 95316, 1);
+		}
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Scenario.Stage != 4;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet 5</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class TheSplinteredFleet5 : TheSplinteredFleet
+{
+	static bool MessageShown = false;
+
+	public override bool Pulse()
+	{
+		if (ObjectManager.Me.IsFalling)
+			return true;
+
+		if (InShip5)
+		{
+			if (!MessageShown)
+			{
+				Logging.Write("ATTENTION! Bot unable to fight and move in vehicles like 'Skyfire'. Please complete last two steps manualy. Profile will continue automaticaly");
+				MessageShown = true;
+			}
+			PauseBotUntilComplete();
+			return true;
+		}
+		if (ObjectManager.Me.PlayerUsingVehicle)
+			return true;
+
+		if (InShip4)
+		{
+			var p = new Vector3(4729.154, 2929.965, 7.847762, "None");
+			GoToTask.ToPositionAndIntecractWithNpc(p, 95316, 1);
+		}
+		return true;
+	}
+	void PauseBotUntilComplete()
+	{
+		Thread t = new Thread(() =&gt;
+		{
+			robotManager.Products.Products.InPause = true;
+			while (robotManager.Products.Products.IsStarted)
+			{
+				Thread.Sleep(500);
+				if (!Conditions.InGameAndConnectedAndProductStarted)
+					continue;
+
+				Questing.AntiAFK();
+				if (!Questing.Has(this))
+				{
+					Log("pause abort");
+					break;
+				}
+				if (IsComplete())
+				{
+					Log("pause complete");
+					robotManager.Products.Products.InPause = false;
+					break;
+				}
+			}
+		});
+		t.Start();
+	}
+	WoWGameObject Fire()
+	{
+		var myPos = ObjectManager.Me.Position;
+		var fire = ObjectManager.GetWoWGameObjectByEntry(243244)
+			.OrderBy(f =&gt;
+			   {
+				   var globalP = f.Position;// GetWorldPosition(f);
+				   var dist = globalP.DistanceTo2D(myPos) + globalP.DistanceZ(myPos) * 10;
+				   return dist;
+			   }
+			)
+			.FirstOrDefault();
+		if (fire != null &amp;&amp; fire.IsValid)
+		{
+			return fire;
+		}
+		return null;
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Scenario.Stage != 5;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Splintered Fleet 6</Name>
+      <QuestId>
+        <int>39801</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class TheSplinteredFleet6 : TheSplinteredFleet
+{
+	static bool MessageShown = false;
+
+	public override bool Pulse()
+	{
+		if (ObjectManager.Me.IsFalling)
+			return true;
+
+		if (InShip5)
+		{
+			if (!MessageShown)
+			{
+				Logging.Write("ATTENTION! Bot unable to fight and move in vehicles like 'Skyfire'. Please complete last two steps manualy. Profile will continue automaticaly");
+				MessageShown = true;
+			}
+			PauseBotUntilComplete();
+			return true;
+		}
+		if (ObjectManager.Me.PlayerUsingVehicle)
+			return true;
+
+		if (InShip4)
+		{
+			var p = new Vector3(4729.154, 2929.965, 7.847762, "None");
+			GoToTask.ToPositionAndIntecractWithNpc(p, 95316, 1);
+		}
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		//return Questing.Scenario.Stage != 6;
+		return !StormheimQuests.Subzone.TheMawofNashal.Inside;
+	}
+	void PauseBotUntilComplete()
+	{
+		Thread t = new Thread(() =&gt;
+		{
+			robotManager.Products.Products.InPause = true;
+			while (robotManager.Products.Products.IsStarted)
+			{
+				Thread.Sleep(500);
+				if (!Conditions.InGameAndConnectedAndProductStarted)
+					continue;
+
+				Questing.AntiAFK();
+				if (!Questing.Has(this))
+				{
+					Log("pause abort");
+					break;
+				}
+				if (IsComplete())
+				{
+					Log("pause complete");
+					robotManager.Products.Products.InPause = false;
+					break;
+				}
+			}
+		});
+		t.Start();
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Royal Summons</Name>
+      <QuestId>
+        <int>38035</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-842.15" Y="4631.422" Z="749.6125" />
+        </HotSpots>
+        <EntryIdTarget />
+        <ItemId>128687</ItemId>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Making the Rounds (A)</Name>
+      <QuestId>
+        <int>38206</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class MakingtheRoundsA : QuestClass
+{
+	List&lt;Vector3&gt; _skyfirePath = new List&lt;Vector3&gt;()
+	{
+		new Vector3(-8488.512f, 1392.745f, 196.3482f, "None"),
+		new Vector3(-8488.897f, 1400.134f, 196.3773f, "None"),
+		new Vector3(-8496.14f, 1401.894f, 194.206f, "None"),
+		new Vector3(-8503.464f, 1401.451f, 193.5155f, "None"),
+		new Vector3(-8510.139f, 1401.284f, 193.6275f, "None"),
+		new Vector3(-8518.261f, 1400.961f, 194.138f, "None"),
+		new Vector3(-8526.304f, 1400.707f, 194.7737f, "None"),
+		new Vector3(-8531.372f, 1400.424f, 197.851f, "None"),
+		new Vector3(-8536.636f, 1400.151f, 198.2967f, "None"),
+		new Vector3(-8544.723f, 1399.732f, 193.7249f, "None"),
+		new Vector3(-8550.176f, 1397.16f, 193.6101f, "None"),
+		new Vector3(-8556.25f, 1391.873f, 193.5458f, "None"),
+		new Vector3(-8563.056f, 1387.677f, 193.5933f, "None"),
+		new Vector3(-8570.591f, 1389.861f, 196.5218f, "None"),
+		new Vector3(-8577.555f, 1393.929f, 196.5279f, "None"),
+		new Vector3(-8584.715f, 1397.669f, 196.4466f, "None"),
+	};
+
+	public MakingtheRoundsA()
+	{
+		Name = "Making the Rounds (A)";
+		QuestId.Add(38206);
+		Step.AddRange(new[] { 1, 1, 1 });
+	}
+	void Log(string text)
+	{
+		Logging.Write("[" + Name + "] " + text);
+	}
+	public override bool Pulse()
+	{
+		var myPos = ObjectManager.Me.Position;
+		if (!Questing.ObjectiveComplete(this, 1))
+		{
+			Log("interact #1");
+			var p1 = new Vector3(-8534.451, 1400.251, 198.6206);
+			GoToTask.ToPositionAndIntecractWithNpc(p1, 110898, 1);
+			return true;
+		}
+		if (!Questing.ObjectiveComplete(this, 2))
+		{
+			var p2 =new Vector3(-8548.114, 1399.016, 193.6293);
+			GoToTask.ToPosition(p2);
+			Questing.UseExtraButton();
+			return true;
+		}
+		if (!Questing.ObjectiveComplete(this, 3))
+		{
+			var p3 = new Vector3(-8584.947, 1399.771, 196.4226);
+			GoToTask.ToPosition(p3);
+			return true;
+		}
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Greymane's Gambit (Start)</Name>
+      <QuestId>
+        <int>39800</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (LegionQuests.InDalaran)
+		{
+			var p1 = new Vector3(-830.9566, 4655.491, 749.6113);
+			Questing.Gather(p1, 244567, 5);
+			return true;
+		}
+		LegionQuests.UseDalaranHeathstone();
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.Complete(this) || Questing.Scenario.Stage != 0 || (Usefuls.ContinentId == (int)ContinentId.Azeroth &amp;&amp; ObjectManager.Me.Position.DistanceTo(new Vector3(-8489.563, 1397.037, 196.3791, "None")) &lt; 100);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Greymane's Gambit</Name>
+      <QuestId>
+        <int>39800</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class GreymanesGambit : QuestClass
+{
+	public GreymanesGambit()
+	{
+		Name = "Greymane's Gambit";
+		QuestId.Add(39800);
+		Step.AddRange(new[] { 1 });
+	}
+	public override bool Pulse()
+	{
+		Questing.CancelCutscene();
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return Questing.ObjectiveComplete(this, 1) || Questing.Scenario.Stage != 0;
+	}
+	public override bool HasQuest()
+	{
+		return base.HasQuest();
+	}
+	public override bool IsCompleted()
+	{
+		if (Questing.Has(this))
+		{
+			return false;
+		}
+
+		return base.IsCompleted();
+	}
+	protected void Log(string text)
+	{
+		Logging.Write("["+Name+"] " + text);
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Greymane's Gambit 1</Name>
+      <QuestId>
+        <int>39800</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class GreymanesGambit1 : GreymanesGambit
+{
+	static bool MessageShown = false;
+
+	public override bool Pulse()
+	{
+		if (!MessageShown)
+		{
+			Logging.Write("ATTENTION! Bot unable to fight and move in vehicles like 'Skyfire'. Please complete scenario manualy. Profile will continue automaticaly");
+			PauseBotUntilComplete();
+			MessageShown = true;
+		}
+		Questing.AntiAFK();
+		return true;
+	}
+	void PauseBotUntilComplete()
+	{
+		Thread t = new Thread(() =&gt;
+		{
+			robotManager.Products.Products.InPause = true;
+			while (robotManager.Products.Products.IsStarted)
+			{
+				Thread.Sleep(500);
+				if (!Conditions.InGameAndConnectedAndProductStarted)
+					continue;
+
+				Questing.AntiAFK();
+				if (!Questing.Has(this))
+				{
+					Log("pause abort");
+					break;
+				}
+				if (IsComplete())
+				{
+					Log("pause complete");
+					robotManager.Products.Products.InPause = false;
+					break;
+				}
+			}
+		});
+		t.Start();
+	}
+	public override bool IsComplete()
+	{
+		//return Questing.Scenario.Stage != 6;
+		return !StormheimQuests.Subzone.TheMawofNashal.Inside;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs
+camelot10\Libs\LegionQuests.cs
+camelot10\Libs\StormheimQuests.cs</Script>
+  <OffMeshConnections>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4731.673" Y="3030.086" Z="22.07894" />
+        <Vector3 X="4721.383" Y="3024.817" Z="13.8067" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #3 (stairs 1 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4721.383" Y="3024.817" Z="13.8067" />
+        <Vector3 X="4731.271" Y="3030.004" Z="22.02494" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #3 (stairs 1 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4724.998" Y="3010.915" Z="13.28464" />
+        <Vector3 X="4715.926" Y="3006.847" Z="7.85361" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #3 (stairs 2 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4715.926" Y="3006.847" Z="7.85361" />
+        <Vector3 X="4724.922" Y="3011.842" Z="13.33551" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #3 (stairs 2 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4705.504" Y="3014.894" Z="7.919216" />
+        <Vector3 X="4697.777" Y="3009.414" Z="13.12881" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #3 (stairs 3 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4697.777" Y="3009.414" Z="13.12881" />
+        <Vector3 X="4706.02" Y="3014.935" Z="7.883115" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #3 (stairs 3 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4750.229" Y="2951.595" Z="22.11838" />
+        <Vector3 X="4738.196" Y="2947.113" Z="13.63107" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #4 (stairs 1 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4738.196" Y="2947.113" Z="13.63107" />
+        <Vector3 X="4749.819" Y="2951.502" Z="22.04762" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #4 (stairs 1 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4741.292" Y="2934.146" Z="13.37385" />
+        <Vector3 X="4730.413" Y="2930.765" Z="7.851334" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #4 (stairs 2 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4731.35" Y="2930.598" Z="7.855585" />
+        <Vector3 X="4740.863" Y="2934.365" Z="13.34397" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #4 (stairs 2 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4721.58" Y="2940.771" Z="7.931766" />
+        <Vector3 X="4712.25" Y="2936.914" Z="13.28479" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #4 (stairs 3 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4712.25" Y="2936.914" Z="13.28479" />
+        <Vector3 X="4721.941" Y="2940.851" Z="7.903398" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #4 (stairs 3 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4615.702" Y="2663.684" Z="141.7407" />
+        <Vector3 X="4605.105" Y="2665.339" Z="141.7152" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #5 (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4605.105" Y="2665.339" Z="141.7152" />
+        <Vector3 X="4615.879" Y="2663.362" Z="141.7415" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #5 (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4650.731" Y="2868.729" Z="22.07199" />
+        <Vector3 X="4638.376" Y="2867.888" Z="13.64937" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #1 (stairs 1 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4638.376" Y="2867.888" Z="13.64937" />
+        <Vector3 X="4650.942" Y="2868.551" Z="22.09427" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #1 (stairs 1 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4636.308" Y="2854.378" Z="13.2801" />
+        <Vector3 X="4626.112" Y="2854.245" Z="7.850197" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #1 (stairs 2 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4626.112" Y="2854.245" Z="7.850197" />
+        <Vector3 X="4637.542" Y="2855.219" Z="13.38396" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #1 (stairs 2 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4620.006" Y="2866.019" Z="7.973465" />
+        <Vector3 X="4611.338" Y="2865.33" Z="13.15183" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #1 (stairs 3 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4611.338" Y="2865.33" Z="13.15183" />
+        <Vector3 X="4620.95" Y="2866.43" Z="7.899019" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #1 (stairs 3 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4857.943" Y="3031.907" Z="22.20416" />
+        <Vector3 X="4847.129" Y="3023.791" Z="13.59471" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #2 (stairs 1 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4847.129" Y="3023.791" Z="13.59471" />
+        <Vector3 X="4857.326" Y="3031.18" Z="22.02816" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #2 (stairs 1 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4852.958" Y="3012.619" Z="13.347" />
+        <Vector3 X="4844.078" Y="3006.818" Z="7.852978" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #2 (stairs 2 down)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4844.078" Y="3006.818" Z="7.852978" />
+        <Vector3 X="4852.359" Y="3012.364" Z="13.30286" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #2 (stairs 2 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4831.937" Y="3012.569" Z="7.929391" />
+        <Vector3 X="4825.819" Y="3007.971" Z="13.12708" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #2 (stairs 3 up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="4825.819" Y="3007.971" Z="13.12708" />
+        <Vector3 X="4833.284" Y="3013.642" Z="7.902915" />
+      </Path>
+      <ContinentId>1475</ContinentId>
+      <Name>ship #2 (stairs 3 down)</Name>
+    </OffMeshConnection>
+  </OffMeshConnections>
+</EasyQuestProfile>

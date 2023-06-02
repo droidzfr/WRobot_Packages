@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<FightClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FightClassGeneralSettings>
+    <FightClassName>DemonHunter Havoc (camelot10)</FightClassName>
+    <FramePerSecond>25</FramePerSecond>
+  </FightClassGeneralSettings>
+  <FightClassSpells>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Soul Carver</SpellName>
+      <Priority>41</Priority>
+      <CheckIfKnow>false</CheckIfKnow>
+      <DescriptionSpell>#Vengeance Artifact</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>70</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Fel Devastation</SpellName>
+      <Priority>40</Priority>
+      <DescriptionSpell>#Vengeance Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Pain</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>80</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Soul Cleave</SpellName>
+      <Priority>39</Priority>
+      <DescriptionSpell>#Vengeance</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Immolation Aura</SpellName>
+      <Priority>38</Priority>
+      <DescriptionSpell>#Vengeance</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>1</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>DemonicFury</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>60</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Felblade</SpellName>
+      <Priority>37</Priority>
+      <DescriptionSpell>@Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Fel Eruption</SpellName>
+      <Priority>36</Priority>
+      <DescriptionSpell>#Vengeance Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Spirit Bomb</SpellName>
+      <Priority>35</Priority>
+      <DescriptionSpell>#Vengeance Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Me.HaveBuff(203753)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Shear</SpellName>
+      <Priority>34</Priority>
+      <DescriptionSpell>#Vengeance Talent, if 'Blade Turning' proc</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Metamorphosis</SpellName>
+      <Priority>33</Priority>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <AOESpell>true</AOESpell>
+      <DescriptionSpell>@Demon Hunter</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Nemesis</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Nemesis</SpellName>
+      <Priority>32</Priority>
+      <DescriptionSpell>*Havoc Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Pain</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>BiggerOrEqual</Type>
+            <Value>60</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Fracture</SpellName>
+      <Priority>31</Priority>
+      <DescriptionSpell>#Vengeance Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Darkness</SpellName>
+      <Priority>30</Priority>
+      <DescriptionSpell>*Havoc</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Sigil of Flame</SpellName>
+      <Priority>29</Priority>
+      <Timer>20000</Timer>
+      <AOESpell>true</AOESpell>
+      <DescriptionSpell>#Vengeance</DescriptionSpell>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>!ObjectManager.Me.HaveBuff(209426)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Blur</SpellName>
+      <Priority>28</Priority>
+      <DescriptionSpell>*Demon Hunter, if no Darkness</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>5</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Infernal Strike</SpellName>
+      <Priority>27</Priority>
+      <Timer>10000</Timer>
+      <AOESpell>true</AOESpell>
+      <DescriptionSpell>#Vengeance</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNear</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>3</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Chaos Nova</SpellName>
+      <Priority>26</Priority>
+      <DescriptionSpell>*Demon Hunter</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Shear</SpellName>
+      <Priority>25</Priority>
+      <DescriptionSpell>#Vengeance</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Fel Rush</SpellName>
+      <Priority>24</Priority>
+      <AddToSettings>true</AddToSettings>
+      <DescriptionSpell>*Havoc</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Fiery Brand</SpellName>
+      <Priority>23</Priority>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>#Vengeance</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Vengeful Retreat</SpellName>
+      <Priority>22</Priority>
+      <AddToSettings>true</AddToSettings>
+      <DescriptionSpell>*Havoc</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetInCast</ContionType>
+          <Param xsi:type="FightClassConditionBool">
+            <Value>true</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>10 &gt; (new System.Random()).Next(0, 100)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Empower Wards</SpellName>
+      <Priority>21</Priority>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>#Vengeance, 10% chance per tick on cast</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Fel Barrage</SpellName>
+      <Priority>20</Priority>
+      <DescriptionSpell>*Havoc Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNear</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>5</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Sigil of Misery</SpellName>
+      <Priority>19</Priority>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <Timer>40000</Timer>
+      <AOESpell>true</AOESpell>
+      <DescriptionSpell>#Vengeance, fear if 5+ enemies</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Fury of the Illidari</SpellName>
+      <Priority>18</Priority>
+      <CheckIfKnow>false</CheckIfKnow>
+      <DescriptionSpell>*Havoc Artifact</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Soul Barrier</SpellName>
+      <Priority>17</Priority>
+      <DescriptionSpell>#Vengeance Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Fel Eruption</SpellName>
+      <Priority>16</Priority>
+      <DescriptionSpell>*Havoc Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Demon Spikes</SpellName>
+      <Priority>15</Priority>
+      <DescriptionSpell>#Vengeance</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNearTarget</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>2</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Eye Beam</SpellName>
+      <Priority>14</Priority>
+      <DescriptionSpell>*Havoc</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Demon Spikes</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Demonic Infusion</SpellName>
+      <Priority>13</Priority>
+      <DescriptionSpell>#Vengeance Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Death Sweep</SpellName>
+      <Priority>12</Priority>
+      <DescriptionSpell>*replaces 'Blade Dance' when 'Metamorphosis'</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNear</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>3</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Chaos Nova</SpellName>
+      <Priority>11</Priority>
+      <DescriptionSpell>#Demon Hunter</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Annihilation</SpellName>
+      <Priority>10</Priority>
+      <DescriptionSpell>*replaces 'Chaos Strike' when 'Metamorphosis'</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Target.IsCast &amp;&amp; ObjectManager.Target.CanInterruptCasting &amp;&amp; ObjectManager.Target.CastingTimeLeft &lt; 1000</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Consume Magic</SpellName>
+      <Priority>9</Priority>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>@Demon Hunter, break cast</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Target.IsCast &amp;&amp; ObjectManager.Target.CanInterruptCasting &amp;&amp; ObjectManager.Target.CastingTimeLeft &lt; 1000</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Sigil of Silence</SpellName>
+      <Priority>8</Priority>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <Timer>30000</Timer>
+      <AOESpell>true</AOESpell>
+      <DescriptionSpell>#Vengeance, break cast</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Chaos Blades</SpellName>
+      <Priority>7</Priority>
+      <DescriptionSpell>*Havoc Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>1</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Throw Glaive</SpellName>
+      <Priority>6</Priority>
+      <DescriptionSpell>@Demon Hunter</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetFleeing</ContionType>
+          <Param xsi:type="FightClassConditionBool">
+            <Value>true</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Sigil of Chains</SpellName>
+      <Timer>40000</Timer>
+      <AOESpell>true</AOESpell>
+      <DescriptionSpell>#Vengeance Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Blade Dance</SpellName>
+      <Priority>4</Priority>
+      <DescriptionSpell>*Demon Hunter</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Chaos Strike</SpellName>
+      <Priority>3</Priority>
+      <DescriptionSpell>*Havoc</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>!ObjectManager.Me.HaveBuff(203555)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Demon's Bite</SpellName>
+      <Priority>2</Priority>
+      <DescriptionSpell>*if no Demon Blades</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Demon Blades</SpellName>
+      <Priority>1</Priority>
+      <DescriptionSpell>*Havoc Talent, replaces 'Demon's Bite'</DescriptionSpell>
+    </FightClassSpell>
+  </FightClassSpells>
+</FightClass>

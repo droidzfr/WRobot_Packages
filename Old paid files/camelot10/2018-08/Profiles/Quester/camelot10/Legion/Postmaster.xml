@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="start postmaster" />
+    <QuestsSorted Action="Pulse" NameClass="FarmLostMail" />
+    <QuestsSorted Action="WriteLog" NameClass="complete postmaster" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Farm Lost Mail</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class FarmLostMail : QuestGathererClass
+{
+	List&lt;Vector3&gt; _hotspots = new List&lt;Vector3&gt;()
+	{
+		new Vector3(-785.1392, 4465.636, 734.9108, "None"),
+		new Vector3(-849.1155, 4557.334, 727.9933, "None"),
+		new Vector3(-907.3842, 4507.355, 732.1827, "None"),
+		new Vector3(-957.5012, 4507.96, 733.653, "None"),
+		new Vector3(-908.4365, 4454.97, 735.8443, "None"),
+		new Vector3(-851.0237, 4388.279, 738.3578, "None"),
+	};
+	static internal robotManager.Helpful.Timer _timer = new robotManager.Helpful.Timer();
+	static int _index = 0;
+	public FarmLostMail()
+	{
+		Name = "Farm Lost Mail";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0 });
+		HotSpots.Add(_hotspots[_index]);
+		EntryIdObjects.Add(247797);
+	}
+	public override bool Pulse()
+	{
+		if (_timer.IsReady)
+		{
+			var secs = Others.Random(90, 360);
+			_timer.Reset(secs * 1000);
+			_index += 1;
+			if (_index &lt; 0 || _index &gt;= _hotspots.Count)
+				_index = 0;
+
+			//var p = _hotspots[Others.Random(0, _hotspots.Count - 1)];
+			var p = _hotspots[_index];
+			HotSpots.Clear();
+			HotSpots.Add(p);
+			Logging.Write("timer expired. new timer=" + secs + " #="+_index+" p=" + p.ToStringNewVector());
+		}
+		Questing.GatherInteractKill(HotSpots, EntryIdObjects.ToArray());
+		return true;
+		//return base.Pulse();
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return false;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs
+
+camelot10\Libs\LegionQuests.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

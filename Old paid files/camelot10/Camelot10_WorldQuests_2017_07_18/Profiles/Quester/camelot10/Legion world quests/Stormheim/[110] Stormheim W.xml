@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="// Map ID = Stormheim  //  &#xD;&#xA;robotManager.Helpful.Var.SetVar(&quot;WorldQuestCurrentMapId&quot;, 1017);" />
+    <QuestsSorted Action="WriteLog" NameClass="Stormheim (W)-NW-N-NE-C-E-SE-S-SW profile start" />
+    <QuestsSorted Action="Pulse" NameClass="TravelToStormheim" />
+    <QuestsSorted Action="None" NameClass=" === W === " />
+    <QuestsSorted Action="Pulse" NameClass="FelwortHerbalism" />
+    <QuestsSorted Action="Pulse" NameClass="ShockAbsorber" />
+    <QuestsSorted Action="RunCode" NameClass="//  Shock Absorber - restore settings  //  &#xD;&#xA;  wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;&#xD;&#xA;  wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;&#xD;&#xA;  wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;&#xD;&#xA;" />
+    <QuestsSorted Action="Pulse" NameClass="FlightMastersWhistle" />
+    <QuestsSorted Action="None" NameClass=" === NW === " />
+    <QuestsSorted Action="WriteLog" NameClass="Stormheim (W)-NW-N-NE-C-E-SE-S-SW profile complete. Loading next profile." />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\Stormheim\[110] Stormheim NW.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="106904" Name="Вальдемар Искатель Бурь" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>42234</int>
+        <int>41344</int>
+      </TurnInQuests>
+      <Position X="3189.058" Y="1536.941" Z="182.54" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots>
+    <Blackspot X="2704.30273" Y="2504.59668" Z="207.4832" Radius="25" />
+    <Blackspot X="2694.31885" Y="2499.59766" Z="218.321411" Radius="15" />
+    <Blackspot X="3352.49438" Y="3179.28857" Z="531.659546" Radius="25" />
+    <Blackspot X="3334.417" Y="3156.15576" Z="531.9532" Radius="25" />
+    <Blackspot X="2694.0752" Y="2525.20532" Z="219.919571" Radius="30" />
+    <Blackspot X="2720.08618" Y="2473.40234" Z="217.852249" Radius="22" />
+    <Blackspot X="2834.21338" Y="454.2541" Z="23.1511517" Radius="15" />
+    <Blackspot X="2962.244" Y="1314.07446" Z="180.003189" Radius="17" />
+    <Blackspot X="3194.7666" Y="1520.59363" Z="181.773941" Radius="6" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>+FlightMastersWhistle</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>//FLIGHT MASTERS WHISTLE START
+public sealed class FlightMastersWhistle : wManager.Wow.Class.QuestClass
+{
+	uint whistleId = 141605;
+
+	public FlightMastersWhistle()
+	{
+		Name = "+FlightMastersWhistle";
+		QuestId.AddRange(new[] { 0 });
+		Step = new System.Collections.Generic.List&lt;int&gt; { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		StepAutoDetect = new[] { false, false, false, false, false, false, false, false, false, false };
+		PickUpQuestOnItem = false;
+		PickUpQuestOnItemID = 0;
+		GossipOptionItem = 1;
+		WoWClass = wManager.Wow.Enums.WoWClass.None;
+		MinLevel = 0;
+		MaxLevel = 999;
+		RequiredQuest = 0;
+	}
+
+	public override bool CanConditions()
+	{
+		return WorldQuest.Whistle.Can();
+	}
+
+	public override bool IsComplete()
+	{
+		return !WorldQuest.Whistle.Can();
+	}
+
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+
+	public override bool HasQuest()
+	{
+		return CanConditions();
+	}
+
+	public override bool Pulse()
+	{
+		WorldQuest.Whistle.Use();
+		return true;
+	}
+
+}
+//FLIGHT MASTERS WHISTLE END</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>		var timeLeft = wManager.Wow.Helpers.Lua.LuaDoString&lt;double&gt;("local startTime, duration, enable = GetItemCooldown(" + 141605 + "); return startTime + duration - GetTime();");
+		return !ObjectManager.Me.IsIndoors &amp;&amp; timeLeft &lt;= 0;</CanCondition>
+      <IsCompleteCondition>		var timeLeft = wManager.Wow.Helpers.Lua.LuaDoString&lt;double&gt;("local startTime, duration, enable = GetItemCooldown(" + 141605 + "); return startTime + duration - GetTime();");
+		return ObjectManager.Me.IsIndoors || timeLeft &gt; 0;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>+Stormheim Helper</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>//STORMHEIM HELPER START
+public sealed class StormheimHelper : wManager.Wow.Class.QuestClass
+{
+	public class GalebrokenPath
+	{
+		static robotManager.Helpful.Vector3 centerPositon = new robotManager.Helpful.Vector3(2037.128, 2403.265, 481.1568, "None");
+		static robotManager.Helpful.Vector3 hookPositionStart = new robotManager.Helpful.Vector3(2160.899, 2427.52, 481.8189, "None");
+		static robotManager.Helpful.Vector3 hookPositionEnd = new robotManager.Helpful.Vector3(2127.559, 2410.447, 479.3398, "None");
+
+		static int hordeNpcId = 108685;
+		static robotManager.Helpful.Vector3 hordeNpcPosition = new robotManager.Helpful.Vector3(2874.881, 2441.083, 241.8241, "None");
+
+		static int allianceNpcId = 105490;
+		static robotManager.Helpful.Vector3 allianceNpcPosition = new robotManager.Helpful.Vector3(2700.873, 2864.009, 309.7664, "None");
+
+		static int requiredQuestId = 38624; //http://www.wowhead.com/quest=38624/cry-thunder
+
+		public static float InnerRadius = 240f;
+
+		public static bool Go()
+		{
+			if (wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(hookPositionStart) &lt; 10)
+			{
+				return true;
+			}
+
+			if (wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(hookPositionStart) &lt; StormheimHelper.GalebrokenPath.InnerRadius)
+			{
+				if (wManager.Wow.Bot.Tasks.GoToTask.ToPosition(hookPositionStart))
+				{
+					return true;
+				}
+			}
+
+			//Vethir can taxi us there
+			if (wManager.Wow.Helpers.Quest.GetQuestCompleted(requiredQuestId))
+			{
+				int npc;
+				robotManager.Helpful.Vector3 pos;
+				if (wManager.Wow.ObjectManager.ObjectManager.Me.IsHorde)
+				{
+					npc = hordeNpcId;
+					pos = hordeNpcPosition;
+				}
+				else
+				{
+					npc = allianceNpcId;
+					pos = allianceNpcPosition;
+				}
+				if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(pos, npc, 1))
+				{
+					System.Threading.Thread.Sleep(70 * 1000);
+					return true;
+				}
+			}
+			//need to move with harpoon
+			else
+			{
+				var startPos = new robotManager.Helpful.Vector3(2204.92, 2243.411, 364.963, "None");
+				var hookPos = new robotManager.Helpful.Vector3(2213.38, 2290.102, 373.8101, "None");
+				if (wManager.Wow.Bot.Tasks.GoToTask.ToPosition(startPos))
+				{
+					if (Harpoon.UseNear(hookPos, 5))
+					{
+						if (wManager.Wow.Bot.Tasks.GoToTask.ToPosition(hookPositionStart))
+							return true;
+					}
+				}
+				/*
+				//var startInHrydshal = new Vector3(2329.413, 2358.473, 273.595, "None");
+				var startInHrydshal = new robotManager.Helpful.Vector3(2343.085, 2367.05, 316.582, "None");
+				var hookPos = new robotManager.Helpful.Vector3(2299.911, 2343.661, 311.7311, "None");
+				var pathEnd = new robotManager.Helpful.Vector3(2240.73, 2344.808, 378.2418, "None");
+
+				if (wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(startInHrydshal) &gt; 100 &amp;&amp; !Hrydshal.IsIn())
+				{
+					Hrydshal.Go();
+				}
+
+				if (wManager.Wow.Bot.Tasks.GoToTask.ToPosition(startInHrydshal))
+				{
+					if (Harpoon.UseNear(hookPos, 5))
+					{
+						if (wManager.Wow.Bot.Tasks.GoToTask.ToPosition(hookPositionStart))
+							return true;
+					}
+				}
+				//*/
+			}
+			return false;
+		}
+	}
+
+	public class Hrydshal
+	{
+		public static robotManager.Helpful.Vector3 Center = new robotManager.Helpful.Vector3(2540.157, 2513.805, 246.5028, "None");
+		public static robotManager.Helpful.Vector3 Start = new robotManager.Helpful.Vector3(2673.813, 2408.071, 222.0235, "None");
+		public static float InnerRadius = 170f;
+		public static float OuterRaidus = 300f;
+
+		public static bool IsIn()
+		{
+			return (wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(Center) &lt; InnerRadius);
+		}
+
+		public static bool IsNear()
+		{
+			return (wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(Center) &lt; OuterRaidus);
+		}
+
+		public static bool Go()
+		{
+			if (IsIn())
+				return true;
+
+			if (IsNear() &amp;&amp; Harpoon.GetNear(5) != null)
+			{
+				wManager.Wow.Bot.Tasks.GoToTask.ToPosition(Center);
+			}
+
+			if (wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(Start) &gt; Harpoon.HookMaxDist)
+			{
+				wManager.Wow.Bot.Tasks.GoToTask.ToPosition(Start);
+			}
+
+			if (IsNear() &amp;&amp; Harpoon.GetNear() != null)
+			{
+				if (Harpoon.UseNear())
+					wManager.Wow.Bot.Tasks.GoToTask.ToPosition(Center);
+			}
+			return false;
+		}
+	}
+
+	#region HARPOON
+	public class Harpoon
+	{
+		const uint harpoonId = 138111;
+		const int harpoonQuestId = 39775;
+		public const float HookMaxDist = 55;//40;
+		const float hookMinDist = 5;
+		static readonly System.Collections.Generic.List&lt;int&gt; hooksPointsId = new System.Collections.Generic.List&lt;int&gt;() {
+			91975,
+			91983,
+			92072,
+			92017,
+		};
+
+		public static void Get()
+		{
+			//do quest to get harpoon
+		}
+
+		public static bool Can()
+		{
+			return wManager.Wow.Helpers.Quest.GetQuestCompleted(harpoonQuestId) || wManager.Wow.Helpers.ItemsManager.HasItemById(harpoonId);
+		}
+
+		public static bool UseNear(float radius = HookMaxDist)
+		{
+			if (!Can())
+				return false;
+
+			return UseNear(wManager.Wow.ObjectManager.ObjectManager.Me.Position, radius);
+		}
+
+		public static bool UseNear(robotManager.Helpful.Vector3 position, float radius = hookMinDist)
+		{
+			if (!Can())
+				return false;
+
+			var hookPoint = GetNear(position, radius);
+			if (hookPoint != null)
+				robotManager.Helpful.Logging.Write("HOOK @&gt; " + hookPoint + " result=" + (wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(hookPoint.Position) &lt; HookMaxDist) + " dist="+ wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(hookPoint.Position) + " ");
+
+			if (hookPoint != null &amp;&amp; wManager.Wow.ObjectManager.ObjectManager.Me.Position.DistanceTo(hookPoint.Position) &lt; HookMaxDist)
+			{
+				wManager.Wow.Helpers.Interact.InteractGameObject(hookPoint.GetBaseAddress);
+				System.Threading.Thread.Sleep(10 * 1000);
+				return true;
+			}
+			return false;
+		}
+
+		public static wManager.Wow.ObjectManager.WoWUnit GetNear(float radius = HookMaxDist)
+		{
+			return GetNear(wManager.Wow.ObjectManager.ObjectManager.Me.Position, radius);
+		}
+
+		public static wManager.Wow.ObjectManager.WoWUnit GetNear(robotManager.Helpful.Vector3 position, float radius = hookMinDist)
+		{
+			var hookPoints = wManager.Wow.ObjectManager.ObjectManager.GetWoWUnitByEntry(hooksPointsId);
+			hookPoints.Sort((a, b) =&gt; {
+				if (a.Position.DistanceTo(position) &gt; b.Position.DistanceTo(position))
+					return 1;
+				else
+					return -1;
+			});
+			foreach (var hookPoint in hookPoints)
+			{
+				if (hookPoint != null &amp;&amp; hookPoint.IsValid &amp;&amp; position.DistanceTo(hookPoint.Position) &lt; radius)
+				{
+					return hookPoint;
+				}
+			}
+			return null;
+		}
+
+	}
+	#endregion HARPOON
+
+}
+//STORMHEIM HELPER END</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>+Travel To Stormheim</Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return WorldQuest.Travel.ToZone(WorldQuest.MapId.Stormheim);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Felwort (Herbalism)</Name>
+      <QuestId>
+        <int>41519</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="3272.957" Y="2900.157" Z="469.4504" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>248007</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return WorldQuest.CanHerbalism(41519);</CanCondition>
+      <IsCompleteCondition>return WorldQuest.CompleteHerbalism(41519);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Shock Absorber</Name>
+      <QuestId>
+        <int>42178</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var campPosition = new Vector3(3101.362, 3304.595, 544.6773, "None");
+		var maxDist = 50;
+		var lightingBallNpcId = 110705;
+		var mobsId = new List&lt;int&gt;() {
+			110667,
+			90903,
+		};
+		wManager.wManagerSetting.CurrentSetting.DontStartFighting = true;
+		wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;
+		wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
+
+		if (ObjectManager.Me.Position.DistanceTo(campPosition) &gt; maxDist)
+		{
+			//Logging.Write("go to quest area");
+			GoToTask.ToPosition(campPosition);
+		}
+
+		var ballEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(lightingBallNpcId));
+		if (ballEntry != null &amp;&amp; ballEntry.IsValid) // &amp;&amp; !ballEntry.IsIndoors)
+		{
+			//Logging.Write("found ball");
+			var result = false;
+			var path = PathFinder.FindPath(ballEntry.Position, out result);
+			if (result)
+				WorldQuest.MovePath(path);
+
+			return true;
+		}
+
+		var mobEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(mobsId));
+		if (mobEntry != null &amp;&amp; mobEntry.IsAlive &amp;&amp; mobEntry.IsAttackable &amp;&amp; mobEntry.IsValid &amp;&amp; mobEntry.Position.DistanceTo(campPosition) &lt; maxDist &amp;&amp; !mobEntry.IsIndoors)
+		{
+			//Logging.Write("found dragon");
+			var result = false;
+			var path = PathFinder.FindPath(mobEntry.Position, out result);
+			if (result)
+				WorldQuest.MovePath(path);
+
+			wManager.wManagerSetting.AddBlackList(mobEntry.Guid, 1 * 60 * 1000);
+			return true;
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>100</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return WorldQuest.Can(42178);</CanCondition>
+      <IsCompleteCondition>return WorldQuest.Complete(42178);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\WorldQuest.cs</Script>
+  <OffMeshConnections>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="3262.105" Y="2831.464" Z="463.9675" />
+        <Vector3 X="3265.645" Y="2839.29" Z="465.7156" />
+        <Vector3 X="3269.116" Y="2844.943" Z="469.2736" />
+        <Vector3 X="3267.815" Y="2850.226" Z="471.5387" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Felwort (up)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="3267.815" Y="2850.226" Z="471.5387" />
+        <Vector3 X="3264.718" Y="2835.888" Z="465.073" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Felwort (down)</Name>
+    </OffMeshConnection>
+  </OffMeshConnections>
+</EasyQuestProfile>

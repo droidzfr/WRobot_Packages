@@ -1,0 +1,1244 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Suramar. Ancient mana cap raise ---" />
+    <QuestsSorted Action="Pulse" NameClass="KeldanathsManaflask" />
+    <QuestsSorted Action="Pulse" NameClass="VolatileLeylineCrystal" />
+    <QuestsSorted Action="Pulse" NameClass="InfiniteStone" />
+    <QuestsSorted Action="Pulse" NameClass="EnchantedBurialUrn" />
+    <QuestsSorted Action="Pulse" NameClass="KyrtossResearchNotes" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Suramar. Ancient mana cap raise ---" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Suramar. Kyrtos side quests ---" />
+    <QuestsSorted Action="PickUp" NameClass="ADifferentSource" />
+    <QuestsSorted Action="Pulse" NameClass="ADifferentSource" />
+    <QuestsSorted Action="TurnIn" NameClass="ADifferentSource" />
+    <QuestsSorted Action="PickUp" NameClass="TheRoadtoFel" />
+    <QuestsSorted Action="Pulse" NameClass="TheRoadtoFel" />
+    <QuestsSorted Action="TurnIn" NameClass="TheRoadtoFel" />
+    <QuestsSorted Action="PickUp" NameClass="DiscoveryRequiresExperimentation" />
+    <QuestsSorted Action="Pulse" NameClass="DiscoveryRequiresExperimentation" />
+    <QuestsSorted Action="TurnIn" NameClass="DiscoveryRequiresExperimentation" />
+    <QuestsSorted Action="PickUp" NameClass="OneSmallStepforMagic" />
+    <QuestsSorted Action="Pulse" NameClass="OneSmallStepforMagic" />
+    <QuestsSorted Action="TurnIn" NameClass="OneSmallStepforMagic" />
+    <QuestsSorted Action="PickUp" NameClass="PowerGetThePower" />
+    <QuestsSorted Action="Pulse" NameClass="PowerGetThePower" />
+    <QuestsSorted Action="TurnIn" NameClass="PowerGetThePower" />
+    <QuestsSorted Action="PickUp" NameClass="FelBentforLeather" />
+    <QuestsSorted Action="Pulse" NameClass="FelBentforLeather" />
+    <QuestsSorted Action="TurnIn" NameClass="FelBentforLeather" />
+    <QuestsSorted Action="PickUp" NameClass="TheBlackTome" />
+    <QuestsSorted Action="Pulse" NameClass="TheBlackTome" />
+    <QuestsSorted Action="TurnIn" NameClass="TheBlackTome" />
+    <QuestsSorted Action="PickUp" NameClass="TheBiggerTheyAreTheHarderTheyFel" />
+    <QuestsSorted Action="Pulse" NameClass="TheBiggerTheyAreTheHarderTheyFel" />
+    <QuestsSorted Action="TurnIn" NameClass="TheBiggerTheyAreTheHarderTheyFel" />
+    <QuestsSorted Action="PickUp" NameClass="TheBiggerTheyAreTheHarderTheyFelObj2" />
+    <QuestsSorted Action="Pulse" NameClass="TheBiggerTheyAreTheHarderTheyFelObj2" />
+    <QuestsSorted Action="TurnIn" NameClass="TheBiggerTheyAreTheHarderTheyFelObj2" />
+    <QuestsSorted Action="PickUp" NameClass="FeedThalyssra" />
+    <QuestsSorted Action="Pulse" NameClass="FeedThalyssra" />
+    <QuestsSorted Action="TurnIn" NameClass="FeedThalyssra" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Suramar. Kyrtos side quests ---" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="101076" Name="Kyrtos" GameObject="false">
+      <PickUpQuests>
+        <int>40625</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>40625</int>
+      </TurnInQuests>
+      <Position X="822.9246" Y="5171.735" Z="37.39098" />
+    </NPCQuest>
+    <NPCQuest Id="97140" Name="First Arcanist Thalyssra" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>42366</int>
+      </TurnInQuests>
+      <Position X="1713.716" Y="4632.986" Z="124.0057" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots>
+    <Blackspot X="2548.57739" Y="4688.786" Z="159.075226" Radius="10" />
+    <Blackspot X="933.7734" Y="2356.29761" Z="-87.59098" Radius="50" />
+    <Blackspot X="1471.63782" Y="3450.56787" Z="133.229813" Radius="4" />
+    <Blackspot X="1100.80652" Y="3436.78564" Z="20.7389011" Radius="7" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Kel'danath's Manaflask</Name>
+      <QuestId>
+        <int>42842</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		//Kel'danath's Manaflask
+		//return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(136269);
+		ItemsManager.UseItem(136269);
+		var p = new Vector3(1429.733, 5468.991, 79.20701);
+		Questing.Gather(p, 248407);
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(136269);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Volatile Leyline Crystal</Name>
+      <QuestId>
+        <int>43988</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		ItemsManager.UseItem(140328);
+		var p = new Vector3(2197.311, 5471.879, -26.0712);
+		Questing.Gather(p, 254009);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(140328);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Infinite Stone</Name>
+      <QuestId>
+        <int>43989</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		//Infinite Stone
+		//return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(140329);
+		ItemsManager.UseItem(140329);
+		var p = new Vector3(2997.546, 4684.34, 421.9285, "None");
+		Questing.Gather(p, 254023);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(140329);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Enchanted Burial Urn</Name>
+      <QuestId>
+        <int>43986</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		//Enchanted Burial Urn
+		//return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(140326);
+		ItemsManager.UseItem(140326);
+		var p = new Vector3(2304.84, 4162.628, 295.1306);
+		Questing.Gather(p, 254006);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(140326);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Kyrtos's Research Notes</Name>
+      <QuestId>
+        <int>43987</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		//Kyrtos's Research Notes
+		//return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(140327);
+		ItemsManager.UseItem(140327);
+		var p = new Vector3(827.1096, 5172.174, 37.62635);
+		Questing.Gather(p, 254008);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.CompleteForced(this) &amp;&amp; !ItemsManager.HasItemById(140327);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Different Source</Name>
+      <QuestId>
+        <int>40625</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(1061.532, 4838.262, 48.87019, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		106339,
+		// gameobjects
+		
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Road to Fel</Name>
+      <QuestId>
+        <int>40657</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(1150.476, 5041.843, 55.46038, "None"),
+		new Vector3(1165.258, 5064.041, 57.98023, "None"),
+		new Vector3(1173.309, 5075.817, 59.43672, "None"),
+		new Vector3(1160.561, 5105.488, 54.88836, "None"),
+		new Vector3(1214.356, 5072.44, 57.49994, "None"),
+		new Vector3(1212.383, 5012.999, 60.06921, "None"),
+		new Vector3(1212.583, 4993.714, 61.34126, "None"),
+		new Vector3(1120.864, 5025.856, 48.88821, "None"),
+		new Vector3(1051.935, 5048, 56.57342, "None"),
+		new Vector3(1037.799, 5045.745, 57.62487, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		101868,
+		101900,
+		99581,
+		// gameobjects
+		246527,
+		246525,
+		245940,
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Discovery Requires Experimentation</Name>
+      <QuestId>
+        <int>40683</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(1152.625, 5099.319, 55.64335, "None"),
+		new Vector3(1140.962, 5022.608, 50.20489, "None"),
+		new Vector3(993.2739, 5043.655, 46.8466, "None"),
+		new Vector3(934.6355, 4964.549, 36.50888, "None"),
+		new Vector3(1077.573, 4997.816, 51.20631, "None"),
+		new Vector3(1190.335, 5082.237, 56.2614, "None"),
+		new Vector3(1262.794, 5054.822, 59.65614, "None"),
+		new Vector3(1273.506, 5035.577, 60.13729, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		101868,
+		101900,
+		110805,
+		// gameobjects
+		
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>One Small Step for Magic</Name>
+      <QuestId>
+        <int>40694</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(824.7556, 5177.471, 37.47013, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		101256,
+		// gameobjects
+		
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Power! Get The Power!</Name>
+      <QuestId>
+        <int>40642</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(900.9245, 4890.379, 35.20785, "None"),
+		new Vector3(939.6802, 4787.806, 34.70784, "None"),
+		new Vector3(985.6987, 4831.219, 34.84304, "None"),
+		new Vector3(997.9547, 4969.808, 37.08115, "None"),
+		new Vector3(1070.979, 5080.447, 56.46736, "None"),
+		new Vector3(1051.495, 5111.136, 57.12608, "None"),
+		new Vector3(1052.087, 5146.599, 57.94203, "None"),
+		new Vector3(1150.549, 5063.545, 57.7581, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		99581,
+		99762,
+		106339,
+		101878,
+		// gameobjects
+		
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @item</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Fel Bent for Leather</Name>
+      <QuestId>
+        <int>40919</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(1015.606, 5060.437, 56.59392, "None"),
+		new Vector3(1085.076, 5056.729, 63.44452, "None"),
+		new Vector3(1088.312, 5061.348, 63.47643, "None"),
+		new Vector3(1092.202, 5072.13, 57.31444, "None"),
+		new Vector3(1115.224, 5087.571, 59.47006, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		101900,
+		// gameobjects
+		
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @item</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Black Tome</Name>
+      <QuestId>
+        <int>40713</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(377.8018, 5009.312, -87.91322, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		101434,
+		// gameobjects
+		
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @item</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Bigger They Are, The Harder They Fel</Name>
+      <QuestId>
+        <int>42366</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(676.2872, 4840.796, -131.4818, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		
+		// gameobjects
+		
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#1 @monster</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Bigger They Are, The Harder They Fel_Obj2</Name>
+      <QuestId>
+        <int>42366</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+	var hotspots = new List&lt;Vector3&gt;()
+	{
+		// hotspots
+		new Vector3(1692.111, 4661.761, 127.1757, "None")
+	};
+	var ids = new List&lt;int&gt;()
+	{
+		// units
+		
+		// gameobjects
+		258774,
+	};
+	// pulse
+	Questing.GatherInteractKill(hotspots, ids);
+	return true
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 2);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment>#2 @monster</Comment>
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Feed Thalyssra</Name>
+      <QuestId>
+        <int>43994</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs
+camelot10\Libs\LegionQuests.cs
+camelot10\Libs\SuramarQuests.cs</Script>
+  <OffMeshConnections>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1661.307" Y="4730.729" Z="139.0839" />
+        <Vector3 X="1689.717" Y="4705.849" Z="139.1034" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Shal'Aran (to)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1689.717" Y="4705.849" Z="139.1034" />
+        <Vector3 X="1656.397" Y="4737.617" Z="138.5215" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Shal'Aran (from)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="370.3669" Y="3995.767" Z="3.232583" />
+        <Vector3 X="375.5971" Y="4001.226" Z="3.232583" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>"Lunar Crescent Inn" (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="375.5971" Y="4001.226" Z="3.232583" />
+        <Vector3 X="370.0779" Y="3994.427" Z="3.232583" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>"Lunar Crescent Inn" (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="3183.896" Y="5051.228" Z="623.2034" />
+        <Vector3 X="3186.716" Y="5043.049" Z="624.4409" />
+      </Path>
+      <ContinentId>1632</ContinentId>
+      <Name>Arcway - Forgotten Library - Bridge (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="3186.716" Y="5043.049" Z="624.4409" />
+        <Vector3 X="3183.49" Y="5049.872" Z="623.2037" />
+      </Path>
+      <ContinentId>1632</ContinentId>
+      <Name>Arcway - Forgotten Library - Bridge (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="777.5532" Y="2434.678" Z="-70.36706" />
+        <Vector3 X="800.0676" Y="2419.069" Z="-78.05019" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Azuregale Hollow Entrance (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="800.0676" Y="2419.069" Z="-78.05019" />
+        <Vector3 X="777.9282" Y="2435.253" Z="-70.35561" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Azuregale Hollow Entrance (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="780.2022" Y="2431.905" Z="-70.87849" />
+        <Vector3 X="824.1611" Y="2399.971" Z="-84.30511" Type="Swimming" />
+        <Vector3 X="866.8925" Y="2362.27" Z="-100.2372" Type="Swimming" />
+        <Vector3 X="884.4763" Y="2348.146" Z="-111.3692" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Azuregale Hollow Entrance (out) 2</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="884.4763" Y="2348.146" Z="-111.3692" />
+        <Vector3 X="860.0535" Y="2370.611" Z="-94.31791" Type="Swimming" />
+        <Vector3 X="805.2901" Y="2413.948" Z="-75.65697" Type="Swimming" />
+        <Vector3 X="779.3083" Y="2434.172" Z="-70.61993" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Azuregale Hollow Entrance (in) 2</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1228.809" Y="2356.51" Z="-118.4416" />
+        <Vector3 X="1214.97" Y="2369.986" Z="-127.7525" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Fjolrik ship (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1214.97" Y="2369.986" Z="-127.7525" />
+        <Vector3 X="1227.416" Y="2357.776" Z="-118.7924" />
+        <Vector3 X="1229.088" Y="2355.86" Z="-118.3373" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Fjolrik ship (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="300.6558" Y="3984.701" Z="3.394535" />
+        <Vector3 X="324.1237" Y="3968.803" Z="1.388647" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Waning Crescent house1 (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="321.3569" Y="3970.059" Z="1.388184" />
+        <Vector3 X="300.6558" Y="3984.701" Z="3.394535" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Waning Crescent house1 (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="462.6949" Y="4001.721" Z="1.388601" />
+        <Vector3 X="479.2101" Y="3993.31" Z="3.233775" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Waning Crescent house2 (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="479.2101" Y="3993.31" Z="3.233775" />
+        <Vector3 X="460.4027" Y="4003.336" Z="1.388338" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Waning Crescent house2 (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="745.9352" Y="4194.463" Z="3.247429" />
+        <Vector3 X="744.045" Y="4202.367" Z="3.578355" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Karina House (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="744.045" Y="4202.367" Z="3.578355" />
+        <Vector3 X="745.9542" Y="4194.624" Z="3.24895" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Karina House (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1200.444" Y="4339.46" Z="113.0719" />
+        <Vector3 X="1200.003" Y="4360.489" Z="113.845" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Smuggler House (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1200.003" Y="4360.489" Z="113.845" />
+        <Vector3 X="1200.536" Y="4338.101" Z="113.0722" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Smuggler House (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1103.377" Y="2955.855" Z="5.175496" />
+        <Vector3 X="1096.307" Y="2988.111" Z="6.418837" />
+        <Vector3 X="1097.736" Y="3002.804" Z="4.433165" />
+        <Vector3 X="1123.795" Y="3009.84" Z="6.866055" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Thalyssra House (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1123.798" Y="3009.815" Z="6.866393" />
+        <Vector3 X="1097.638" Y="3003.657" Z="4.433114" />
+        <Vector3 X="1098.091" Y="2977.997" Z="6.198203" />
+        <Vector3 X="1103.841" Y="2957.17" Z="5.199821" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Thalyssra House (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="2259.967" Y="3771.401" Z="276.4618" />
+        <Vector3 X="2280.171" Y="3785.253" Z="284.8095" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Talanor Cave 1 (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="2280.171" Y="3785.253" Z="284.8095" />
+        <Vector3 X="2259.423" Y="3771.606" Z="276.4615" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Talanor Cave 1 (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="2189.485" Y="3911.378" Z="286.6633" />
+        <Vector3 X="2198.814" Y="3895.289" Z="287.3176" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Talanor Cave 1 (in) 2</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="2198.814" Y="3895.289" Z="287.3176" />
+        <Vector3 X="2190.884" Y="3909.688" Z="287.0456" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Talanor Cave 1 (out) 2</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="759.9714" Y="4605.509" Z="-202.6913" />
+        <Vector3 X="782.6619" Y="4623.507" Z="-194.5298" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Felmaw Cavern stairs (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="782.6619" Y="4623.507" Z="-194.5298" />
+        <Vector3 X="759.2083" Y="4609.342" Z="-202.6777" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Felmaw Cavern stairs (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1372.943" Y="3792.144" Z="21.01335" />
+        <Vector3 X="1367.015" Y="3789.31" Z="22.44536" />
+        <Vector3 X="1367.051" Y="3796.209" Z="21.29264" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Zoo pool (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1367.051" Y="3796.209" Z="21.29264" />
+        <Vector3 X="1366.427" Y="3789.618" Z="22.71866" />
+        <Vector3 X="1371.792" Y="3790.501" Z="21.01085" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Zoo pool (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1386.863" Y="3267.175" Z="132.8779" />
+        <Vector3 X="1402.693" Y="3252.984" Z="134.7887" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Vineyard House 1 (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1402.693" Y="3252.984" Z="134.7887" />
+        <Vector3 X="1386.46" Y="3267.241" Z="132.8782" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Vineyard House 1 (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="367.7869" Y="4025.194" Z="1.388182" />
+        <Vector3 X="345.2891" Y="3999.273" Z="1.388182" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Starcaller Retreat (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="345.2891" Y="3999.273" Z="1.388182" />
+        <Vector3 X="371.2329" Y="4028.76" Z="1.388182" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Starcaller Retreat (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="692.9704" Y="4167.604" Z="30.18477" />
+        <Vector3 X="692.3604" Y="4173.207" Z="31.42611" />
+        <Vector3 X="691.9481" Y="4176.977" Z="32.56837" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Artisan's Gallery House Roof (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="691.9481" Y="4176.977" Z="32.56837" />
+        <Vector3 X="692.4041" Y="4172.804" Z="31.43437" />
+        <Vector3 X="692.7368" Y="4169.733" Z="30.17963" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Artisan's Gallery House Roof (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1007.456" Y="3380.534" Z="19.83865" />
+        <Vector3 X="1016.718" Y="3391.553" Z="21.23942" />
+        <Vector3 X="1021.703" Y="3397.605" Z="21.60796" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name> Midnight Court House1 (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1022.521" Y="3398.175" Z="21.74504" />
+        <Vector3 X="1016.487" Y="3390.639" Z="21.22635" />
+        <Vector3 X="1007.218" Y="3381.012" Z="19.83896" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name> Midnight Court House1 (out)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="566.5464" Y="4495.045" Z="-127.9884" />
+        <Vector3 X="580.4133" Y="4496.794" Z="-131.7903" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Fel Breach Stairs (in)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="580.4133" Y="4496.794" Z="-131.7903" />
+        <Vector3 X="565.5433" Y="4494.28" Z="-127.6069" />
+      </Path>
+      <ContinentId>1220</ContinentId>
+      <Name>Fel Breach Stairs (out)</Name>
+    </OffMeshConnection>
+  </OffMeshConnections>
+</EasyQuestProfile>

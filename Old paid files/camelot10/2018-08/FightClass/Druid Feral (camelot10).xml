@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<FightClass xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FightClassGeneralSettings>
+    <FightClassName>Druid Feral (camelot10)</FightClassName>
+    <FramePerSecond>25</FramePerSecond>
+    <AdditionalCode>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+
+public class FightclassDruid
+{
+#endif
+	#region COMMON
+	public static bool IsCastAndCanInterrupt { get { return ObjectManager.Target.IsValid &amp;&amp; ObjectManager.Target.IsCast &amp;&amp; ObjectManager.Target.CanInterruptCasting; } }
+	public static bool IsCastAndCanInterruptAndEndCast { get { return IsCastAndCanInterrupt &amp;&amp; ObjectManager.Target.CastingTimeLeft &lt; 1000; } }
+	public static bool Enabled
+	{
+		get
+		{
+			if (Conditions.ForceIgnoreIsAttacked)
+				return false;
+
+			if (wManager.Wow.Bot.Tasks.FishingTask.IsLaunched)
+				return false;
+
+			if (ObjectManager.Me.IsCast)
+				return false;
+
+			if (ObjectManager.Pet.UnitFlags.HasFlag(UnitFlags.Possessed))
+				return false;
+
+			return true;
+		}
+	}
+	#endregion COMMON
+
+	#region FERAL
+	public static bool NeedCatForm
+	{
+		get
+		{
+			return Enabled &amp;&amp; !ObjectManager.Me.HaveBuff(768);
+		}
+	}
+
+
+	static uint PredatorySwiftnessID = 69369;
+	static string PredatorySwiftness = string.Empty;
+	public static bool IsRegrowthInstant
+	{
+		get
+		{
+			if (string.IsNullOrEmpty(PredatorySwiftness))
+				PredatorySwiftness = SpellListManager.SpellNameInGameById(PredatorySwiftnessID);
+
+			if (SpellManager.HaveBuffLua(PredatorySwiftness))
+				return true;
+
+			return ObjectManager.Me.HaveBuff(PredatorySwiftnessID);
+		}
+	}
+	#endregion FERAL
+
+#if VISUAL_STUDIO
+}
+#endif</AdditionalCode>
+  </FightClassGeneralSettings>
+  <FightClassSpells>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>IsRegrowthInstant</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Regrowth</SpellName>
+      <Priority>29</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <DescriptionSpell>Predatory Swiftness</DescriptionSpell>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>NeedCatForm</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Cat Form</SpellName>
+      <Priority>28</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>20</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>8</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>War Stomp</SpellName>
+      <Priority>27</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <DescriptionSpell>Racial, Tauren</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>10</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Berserking</SpellName>
+      <Priority>26</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Troll</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Target.IsCast &amp;&amp; ObjectManager.Target.CanInterruptCasting &amp;&amp; ObjectManager.Target.CastingTimeLeft &lt; 1000</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>/* Cat Form */ ObjectManager.Me.HaveBuff(768)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Skull Bash</SpellName>
+      <Priority>25</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>45</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Survival Instincts</SpellName>
+      <Priority>24</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>6500</Timer>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Renewal</SpellName>
+      <Priority>23</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <DescriptionSpell>Talent</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Swiftmend</SpellName>
+      <Priority>22</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <DescriptionSpell>Talent 'Restoration Affinity'</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>20</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Target.IsValid &amp;&amp; ObjectManager.Target.MyCharacterInFrontHim</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Displacer Beast</SpellName>
+      <Priority>21</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>25</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Wild Charge</SpellName>
+      <Priority>20</Priority>
+      <CombatOnly>false</CombatOnly>
+      <DescriptionSpell>Talent</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>/* Rake Stun */ !ObjectManager.Me.TargetObject.HaveBuff(163505)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Mighty Bash</SpellName>
+      <Priority>19</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNearTarget</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>3</Number>
+            <Type>Bigger</Type>
+            <Radius>12</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Mass Entanglement</SpellName>
+      <Priority>18</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNear</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>3</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Typhoon</SpellName>
+      <Priority>17</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>12</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>1</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Elune's Guidance</SpellName>
+      <Priority>16</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <DescriptionSpell>Talent</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>Enabled</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Prowl</SpellName>
+      <Priority>15</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>12</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Berserk</SpellName>
+      <Priority>14</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <CanMoveDuringCast>Yes</CanMoveDuringCast>
+      <CastOnSelf>true</CastOnSelf>
+      <WaitDuringCasting>false</WaitDuringCasting>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>12</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Incarnation: King of the Jungle</SpellName>
+      <Priority>13</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <DescriptionSpell>Talent</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Energy</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>12</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Prowl</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Tiger's Fury</SpellName>
+      <Priority>12</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>/* Rake */ !ObjectManager.Me.TargetObject.HaveBuff(155722)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Rake</SpellName>
+      <Priority>11</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>3</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Ashamane's Frenzy</SpellName>
+      <Priority>10</Priority>
+      <DescriptionSpell>Artifact</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>4</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Savage Roar</SpellName>
+      <Priority>9</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetFleeing</ContionType>
+          <Param xsi:type="FightClassConditionBool">
+            <Value>true</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Maim</SpellName>
+      <Priority>8</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Sabertooth</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Rip</Name>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>BiggerOrEqual</Type>
+            <Value>5</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Rip</SpellName>
+      <Priority>7</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>BiggerOrEqual</Type>
+            <Value>5</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Ferocious Bite</SpellName>
+      <Priority>6</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNearTarget</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>2</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Brutal Slash</SpellName>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNearTarget</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>2</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Thrash</SpellName>
+      <Priority>4</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNearTarget</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>1</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>5</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>MeLevel</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>BiggerOrEqual</Type>
+            <Value>32</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Swipe</SpellName>
+      <Priority>3</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Lunar Inspiration</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>5</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetBuffCastedByMe</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Moonfire</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Moonfire</SpellName>
+      <Priority>2</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>5</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Shred</SpellName>
+      <Priority>1</Priority>
+    </FightClassSpell>
+  </FightClassSpells>
+</FightClass>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<FightClass xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FightClassGeneralSettings>
+    <FightClassName>Rogue Assassination (camelot10)</FightClassName>
+  </FightClassGeneralSettings>
+  <FightClassSpells>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Sinister Strike</SpellName>
+      <Priority>3</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>4</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Eviscerate</SpellName>
+      <Priority>2</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Stealth</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Stealth</SpellName>
+      <Priority>1</Priority>
+      <CombatOnly>false</CombatOnly>
+      <Timer>10</Timer>
+    </FightClassSpell>
+  </FightClassSpells>
+</FightClass>

@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="// Map ID = Highmountain  //  &#xD;&#xA;robotManager.Helpful.Var.SetVar(&quot;WorldQuestCurrentMapId&quot;, 1024);" />
+    <QuestsSorted Action="WriteLog" NameClass="Highmountain W-(NE)-N-NW-SW-C-S-E-SE profile start" />
+    <QuestsSorted Action="Pulse" NameClass="TravelToHighmountain" />
+    <QuestsSorted Action="None" NameClass=" === NE === " />
+    <QuestsSorted Action="Pulse" NameClass="ADarkTideRaid" />
+    <QuestsSorted Action="Pulse" NameClass="CrabbyCrunchies" />
+    <QuestsSorted Action="Pulse" NameClass="BrinyWaters" />
+    <QuestsSorted Action="Pulse" NameClass="GettinTuffer" />
+    <QuestsSorted Action="Pulse" NameClass="Enigmatic" />
+    <QuestsSorted Action="Pulse" NameClass="FlightMastersWhistle" />
+    <QuestsSorted Action="None" NameClass=" === N === " />
+    <QuestsSorted Action="WriteLog" NameClass="Highmountain W-(NE)-N-NW-SW-C-S-E-SE profile complete. Loading next profile." />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion world quests\Highmountain\[110] Highmountain N.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="106902" Name="Ранза Серое Перо" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>42233</int>
+      </TurnInQuests>
+      <Position X="4112.049" Y="4445.559" Z="768.3419" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots>
+    <Blackspot X="5613.4" Y="3585.03" Z="236.862839" Radius="50" />
+    <Blackspot X="4546.696" Y="3889.54028" Z="749.4648" Radius="35" />
+    <Blackspot X="4325.32373" Y="3813.26367" Z="866.516" Radius="45" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>+FlightMastersWhistle</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>//FLIGHT MASTERS WHISTLE START
+public sealed class FlightMastersWhistle : wManager.Wow.Class.QuestClass
+{
+	uint whistleId = 141605;
+
+	public FlightMastersWhistle()
+	{
+		Name = "+FlightMastersWhistle";
+		QuestId.AddRange(new[] { 0 });
+		Step = new System.Collections.Generic.List&lt;int&gt; { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		StepAutoDetect = new[] { false, false, false, false, false, false, false, false, false, false };
+		PickUpQuestOnItem = false;
+		PickUpQuestOnItemID = 0;
+		GossipOptionItem = 1;
+		WoWClass = wManager.Wow.Enums.WoWClass.None;
+		MinLevel = 0;
+		MaxLevel = 999;
+		RequiredQuest = 0;
+	}
+
+	public override bool CanConditions()
+	{
+		return WorldQuest.Whistle.Can();
+	}
+
+	public override bool IsComplete()
+	{
+		return !WorldQuest.Whistle.Can();
+	}
+
+	public override bool IsCompleted()
+	{
+		return IsComplete();
+	}
+
+	public override bool HasQuest()
+	{
+		return CanConditions();
+	}
+
+	public override bool Pulse()
+	{
+		WorldQuest.Whistle.Use();
+		return true;
+	}
+
+}
+//FLIGHT MASTERS WHISTLE END</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>		var timeLeft = wManager.Wow.Helpers.Lua.LuaDoString&lt;double&gt;("local startTime, duration, enable = GetItemCooldown(" + 141605 + "); return startTime + duration - GetTime();");
+		return !ObjectManager.Me.IsIndoors &amp;&amp; timeLeft &lt;= 0;</CanCondition>
+      <IsCompleteCondition>		var timeLeft = wManager.Wow.Helpers.Lua.LuaDoString&lt;double&gt;("local startTime, duration, enable = GetItemCooldown(" + 141605 + "); return startTime + duration - GetTime();");
+		return ObjectManager.Me.IsIndoors || timeLeft &gt; 0;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>+Travel To Highmountain</Name>
+      <QuestId />
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return WorldQuest.Travel.ToZone(WorldQuest.MapId.Highmountain);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Dark Tide (Raid)</Name>
+      <QuestId>
+        <int>43985</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var campPosition = new Vector3(6564.545, 4250.907, 1.01946, "None");
+		var mobs = new List&lt;int&gt;() { 99929 }; //Flotsam
+		WorldQuest.TryKillRaid(campPosition, mobs);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return WorldQuest.CanRaid(43985);</CanCondition>
+      <IsCompleteCondition>return WorldQuest.CompleteRaid(43985);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Briny Waters</Name>
+      <QuestId>
+        <int>41706</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class BrinyWaters : WorldQuest.Murky
+{
+	List&lt;int&gt; _mobs = new List&lt;int&gt;() {
+			104590,
+			104582,
+			104589,
+	};
+	List&lt;Vector3&gt; _path = new List&lt;Vector3&gt;() {
+			new Vector3(6459.298f, 4105.578f, 4.059322f, "None"),
+			new Vector3(6457.126f, 4093.148f, 3.709408f, "None"),
+			new Vector3(6450.879f, 4085.17f, 4.122041f, "None"),
+			new Vector3(6442.903f, 4072.751f, 3.10059f, "None"),
+			new Vector3(6437.41f, 4064.251f, 1.737799f, "None"),
+			new Vector3(6432.578f, 4055.363f, 0.4869056f, "None"),
+			new Vector3(6426.846f, 4041.611f, -0.2240043f, "None"),
+			new Vector3(6416.061f, 4031.514f, 1.153371f, "None"),
+			new Vector3(6402.552f, 4025.537f, 1.979118f, "None"),
+			new Vector3(6393.006f, 4022.088f, 1.506598f, "None"),
+	};
+
+	public BrinyWaters()
+	{
+		Name = "Briny Waters";
+		QuestId.Add(41706);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		if (TryBecomeMurky())
+			return true;
+
+		if (TryCombat())
+			return true;
+
+		TryFind(_mobs, _path);
+		return true;
+	}
+
+	bool TryBecomeMurky()
+	{
+		if (ObjectManager.Me.PlayerUsingVehicle)
+			return false;
+
+		var startPosition = new Vector3(6451.684, 4096.81, 4.407095, "None");
+		GoToTask.ToPosition(startPosition);
+		return true;
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>25</ObjectiveCount1>
+      <ObjectiveCount2>17</ObjectiveCount2>
+      <ObjectiveCount3>13</ObjectiveCount3>
+      <ObjectiveCount4>1</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return WorldQuest.Can(41706);</CanCondition>
+      <IsCompleteCondition>return WorldQuest.Complete(41706);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Crabby Crunchies</Name>
+      <QuestId>
+        <int>41699</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class CrabbyCrunchies : WorldQuest.Murky
+{
+	List&lt;int&gt; _mobs = new List&lt;int&gt;() {
+			104585, // http://www.wowhead.com/npc=104585/brinescuttle-crab
+	};
+	List&lt;Vector3&gt; _path = new List&lt;Vector3&gt;() {
+		new Vector3(6459.298f, 4105.578f, 4.059322f, "None"),
+		new Vector3(6457.126f, 4093.148f, 3.709408f, "None"),
+		new Vector3(6450.879f, 4085.17f, 4.122041f, "None"),
+		new Vector3(6442.903f, 4072.751f, 3.10059f, "None"),
+		new Vector3(6437.41f, 4064.251f, 1.737799f, "None"),
+		new Vector3(6432.578f, 4055.363f, 0.4869056f, "None"),
+		new Vector3(6426.846f, 4041.611f, -0.2240043f, "None"),
+		new Vector3(6416.061f, 4031.514f, 1.153371f, "None"),
+		new Vector3(6402.552f, 4025.537f, 1.979118f, "None"),
+		new Vector3(6393.006f, 4022.088f, 1.506598f, "None"),
+	};
+
+	public CrabbyCrunchies()
+	{
+		Name = "Crabby Crunchies";
+		QuestId.Add(41699);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		if (TryBecomeMurky())
+			return true;
+
+		if (TryCombat())
+			return true;
+
+		TryFind(_mobs, _path);
+		return true;
+	}
+
+	bool TryBecomeMurky()
+	{
+		if (ObjectManager.Me.PlayerUsingVehicle)
+			return false;
+
+		var startPosition = new Vector3(6451.684, 4096.81, 4.407095, "None");
+		GoToTask.ToPosition(startPosition);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>100</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return WorldQuest.Can(41699);</CanCondition>
+      <IsCompleteCondition>return WorldQuest.Complete(41699);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Enigmatic</Name>
+      <QuestId>
+        <int>43767</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var questId = 43767;
+		uint puzzleBoxBuffId = 219247;
+		var puzzleBoxId = 110811;
+		var startPosition = new Vector3(6077.177, 3575.487, -0.4649726, "None");
+		if (!Quest.HasQuest(questId))
+		{
+			GoToTask.ToPosition(startPosition);
+			return true;
+		}
+		if (!ObjectManager.Me.HaveBuff(puzzleBoxBuffId))
+		{
+			if (GoToTask.ToPositionAndIntecractWithNpc(startPosition, puzzleBoxId))
+			{
+				Thread.Sleep(10 * 1000);
+			}
+			return true;
+		}
+
+		var tile = wManager.Wow.ObjectManager.ObjectManager.GetObjectWoWAreaTrigger()
+			.Where(u =&gt; u != null &amp;&amp; u.IsValid &amp;&amp; (u.SpellID == 219246 || u.SpellID == 219262))
+			.OrderBy(u =&gt; u.Position.DistanceTo(wManager.Wow.ObjectManager.ObjectManager.Me.Position))
+			.FirstOrDefault();
+		if (tile != null)
+		{
+			var loc = tile.Position;
+			if (loc.DistanceTo(ObjectManager.Me.Position) &gt; 1.5)
+			{
+				MovementManager.MoveTo(loc);
+				Thread.Sleep(1 * 1000);
+			}
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>3</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return WorldQuest.Can(43767);</CanCondition>
+      <IsCompleteCondition>return WorldQuest.Complete(43767);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Gettin' Tuffer</Name>
+      <QuestId>
+        <int>41701</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var questId = 41701;
+		var startPosition = new Vector3(6451.684, 4096.81, 4.407095, "None");
+		var maxDist = 5;
+		if (!Quest.HasQuest(questId) || !ObjectManager.Me.PlayerUsingVehicle)
+		{
+			//Logging.Write("go to quest loca");
+			GoToTask.ToPosition(startPosition);
+			return true;
+		}
+
+		//combat
+		var target = ObjectManager.Me.TargetObject;
+		if (target != null &amp;&amp; target.IsAlive &amp;&amp; target.IsAttackable &amp;&amp; target.IsValid)
+		{
+			var dist = ObjectManager.Me.Position.DistanceTo(target.Position);
+			if (dist &gt; maxDist)
+			{
+				//Logging.Write("victim found. move closer");
+				var wp = wManager.Wow.Helpers.PathFinder.FindPath(target.Position);
+				wManager.Wow.Helpers.MovementManager.Go(wp);
+				return true;
+			}
+			else //melee
+			{
+				//Logging.Write("victim attack");
+				MovementManager.Face(ObjectManager.Target);
+				wManager.Wow.Helpers.Lua.RunMacroText("/click [overridebar][vehicleui][possessbar,@vehicle,exists]OverrideActionBarButton1");
+				Thread.Sleep(Others.Random(1500, 3000));
+			}
+			return true;
+		}
+
+
+		if (!WorldQuest.Complete(questId, 1))
+		{
+			var mobs = new List&lt;int&gt;() {
+				104598, //Tufferfish
+			};
+			var mobEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(mobs));
+			if (mobEntry != null &amp;&amp; mobEntry.IsAlive &amp;&amp; mobEntry.IsAttackable &amp;&amp; mobEntry.IsValid)
+			{
+				//Logging.Write("fish target");
+				MovementManager.StopMove();
+				Interact.InteractGameObject(mobEntry.GetBaseAddress);
+				Thread.Sleep(Usefuls.Latency + 150);
+				return true;
+			}
+		}
+
+		if (!WorldQuest.Complete(questId, 2))
+		{
+			var weeds = new List&lt;int&gt;() {
+				104599, //slimeweed
+			};
+			var weedEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(weeds));
+			if (weedEntry != null &amp;&amp; weedEntry.IsValid)
+			{
+				//Logging.Write("found weed");
+				var weedPath = PathFinder.FindPath(weedEntry.Position);
+				WorldQuest.MovePath(weedPath);
+				//Logging.Write("weed done");
+				MovementManager.StopMove();
+				Thread.Sleep(Usefuls.Latency + 150);
+				return true;
+			}
+		}
+
+		if (!WorldQuest.Complete(questId, 3))
+		{
+			var mobCampPosition = new Vector3(6339.312, 3953.006, 1.738515, "None");
+			var weedPath = PathFinder.FindPath(mobCampPosition);
+			WorldQuest.MovePath(weedPath);
+			var mobs = new List&lt;int&gt;() {
+				104597, //Brineclaw
+			};
+			var mobEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(mobs));
+			if (mobEntry != null &amp;&amp; mobEntry.IsAlive &amp;&amp; mobEntry.IsAttackable &amp;&amp; mobEntry.IsValid)
+			{
+				//Logging.Write("boss target");
+				MovementManager.StopMove();
+				Interact.InteractGameObject(mobEntry.GetBaseAddress);
+				Thread.Sleep(Usefuls.Latency + 150);
+				return true;
+			}
+		}
+
+		//patrol
+		var path = new List&lt;Vector3&gt;() {
+			new Vector3(6459.298f, 4105.578f, 4.059322f, "None"),
+			new Vector3(6457.126f, 4093.148f, 3.709408f, "None"),
+			new Vector3(6450.879f, 4085.17f, 4.122041f, "None"),
+			new Vector3(6442.903f, 4072.751f, 3.10059f, "None"),
+			new Vector3(6437.41f, 4064.251f, 1.737799f, "None"),
+			new Vector3(6432.578f, 4055.363f, 0.4869056f, "None"),
+			new Vector3(6426.846f, 4041.611f, -0.2240043f, "None"),
+			new Vector3(6416.061f, 4031.514f, 1.153371f, "None"),
+			new Vector3(6402.552f, 4025.537f, 1.979118f, "None"),
+			new Vector3(6393.006f, 4022.088f, 1.506598f, "None"),
+		};
+		//Logging.Write("patroling");
+		MovementManager.GoLoop(path);
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>5</ObjectiveCount2>
+      <ObjectiveCount3>5</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return WorldQuest.Can(41701);</CanCondition>
+      <IsCompleteCondition>return WorldQuest.Complete(41701);</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\WorldQuest.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

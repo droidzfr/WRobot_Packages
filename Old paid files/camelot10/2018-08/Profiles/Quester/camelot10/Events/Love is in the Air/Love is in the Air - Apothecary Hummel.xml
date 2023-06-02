@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Love is in the Air - Apothecary Hummel ---" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="WorldEventDungeonHummel" />
+    <QuestsSorted Action="RunLuaCode" NameClass="ReloadUI()" />
+    <QuestsSorted Action="WriteLog" NameClass="=== Complete Love is in the Air - Apothecary Hummel ===" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>World Event Dungeon - Hummel</Name>
+      <QuestId>
+        <int>25485</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class WorldEventDungeonHummel : QuestClass
+{
+	static int questID = 25485;
+	static int dungeonID = 288;
+	static string dugeonSaveKey = "Camelot10ApothecaryHummelKilled";
+	public WorldEventDungeonHummel()
+	{
+		Name = "World Event Dungeon - Hummel";
+		QuestId.Add(questID);
+		Step.AddRange(new[] { 0 });
+		Var.VarDictionary.Remove(dugeonSaveKey);
+	}
+	static string lastLog = string.Empty;
+	static void Log(string text)
+	{
+		if (string.Equals(text, lastLog))
+			return;
+
+		lastLog = text;
+		Logging.Write("[Apothecary Hummel] " + text);
+	}
+	static bool InInstance
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.Shadowfang;
+		}
+	}
+	static bool IsKilled
+	{
+		get
+		{
+			return Var.GetVar&lt;bool&gt;(dugeonSaveKey);
+		}
+		set
+		{
+			Var.SetVar(dugeonSaveKey, value);
+		}
+	}
+	static bool _fightFixed = false;
+	static bool FightFixed
+	{
+		get
+		{
+			return _fightFixed;
+		}
+		set
+		{
+			if (_fightFixed == value)
+				return;
+
+			robotManager.Events.ProductEvents.OnProductStopping -= OnProductStop;
+			wManager.Events.FightEvents.OnFightStart -= OnFightLoop;
+			_fightFixed = value;
+			Log("fight fixed=" + _fightFixed);
+			if (_fightFixed)
+			{
+				robotManager.Events.ProductEvents.OnProductStopping += OnProductStop;
+				wManager.Events.FightEvents.OnFightLoop += OnFightLoop;
+			}
+		}
+	}
+	static void OnFightLoop(WoWUnit unit, System.ComponentModel.CancelEventArgs cancelable)
+	{
+		var targ = ObjectManager.Target;
+		if (targ != null &amp;&amp; targ.IsValid &amp;&amp; targ.IsAttackable &amp;&amp; targ.IsAlive)
+			return;
+
+		if (AttackAny())
+		{
+			Thread.Sleep(Usefuls.Latency * 2);
+			Log("fight loop fixed to=" + ObjectManager.Target.Name);
+			cancelable.Cancel = true;
+		}
+	}
+	static void OnProductStop(string productName)
+	{
+		FightFixed = false;
+	}
+	public override bool Pulse()
+	{
+		if (InInstance)
+		{
+			//if (!FightFixed) Thread.Sleep(5 * 1000);
+
+			FightFixed = true;
+			if (IsKilled)
+			{
+				wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+				var lootables = ObjectManager.GetObjectWoWUnit().Where(u =&gt; u != null &amp;&amp; u.IsValid &amp;&amp; u.IsLootable).ToList();
+				if (lootables != null &amp;&amp; lootables.Count &gt; 0)
+				{
+					Log("looting");
+					LootingTask.Pulse(lootables);
+					return true;
+				}
+				Log("inside instance, boss killed. leave party");
+				Lua.LuaDoString("LeaveParty()");
+				Thread.Sleep(10 * 1000);
+				return true;
+			}
+			if (AttackAny())
+				return true;
+
+			var p = new Vector3(-208.0903, 2217.389, 79.76363);
+			Log("interact");
+			GoToTask.ToPositionAndIntecractWithNpc(p, 36296, 1);
+			return true;
+		}
+		if (Lua.LuaDoString&lt;bool&gt;(lua))
+		{
+			Log("joined instance queue");
+		}
+		else
+		{
+			Log("leave instance queue (wrong instance)");
+		}
+		Thread.Sleep(2 * 1000);
+		return true;
+	}
+	static bool AttackAny()
+	{
+		var hummel = ObjectManager.GetObjectWoWUnit().Where(u =&gt; u.Entry == 36296).FirstOrDefault();
+		var frye = ObjectManager.GetObjectWoWUnit().Where(u =&gt; u.Entry == 36272).FirstOrDefault();
+		var baxter = ObjectManager.GetObjectWoWUnit().Where(u =&gt; u.Entry == 36565).FirstOrDefault();
+		IsKilled = hummel != null &amp;&amp; hummel.IsDead &amp;&amp; frye != null &amp;&amp; frye.IsDead &amp;&amp; baxter != null &amp;&amp; baxter.IsDead;
+		if (Attack(hummel))
+			return true;
+
+		if (Attack(frye))
+			return true;
+
+		if (Attack(baxter))
+			return true;
+
+		return false;
+	}
+	static bool Attack(WoWUnit mob)
+	{
+		if (mob != null &amp;&amp; mob.IsValid &amp;&amp; mob.IsAlive &amp;&amp; mob.IsAttackable)
+		{
+			Log("attack " + mob.Name);
+			Interact.InteractGameObject(mob.GetBaseAddress, true, false, true);
+			Interact.InteractGameObject(mob.GetBaseAddress, true);
+			Fight.StartFight(mob.Guid, false, true, false, false);
+			return true;
+		}
+		return false;
+	}
+	static string lua = @"
+AcceptProposal()
+local needDungeonID = 288
+local queuedList = GetLFGQueuedList(LE_LFG_CATEGORY_LFD)
+for queuedDungeonID, isQueued in pairs(queuedList) do
+	if (queuedDungeonID &gt; 0 and needDungeonID &gt; 0 and needDungeonID ~= queuedDungeonID) then
+		LeaveLFG(LE_LFG_CATEGORY_LFD)
+		ClearAllLFGDungeons(LE_LFG_CATEGORY_LFD)
+		return false
+	end
+	return true
+end
+--LeaveLFG(LE_LFG_CATEGORY_LFD)
+ClearAllLFGDungeons(LE_LFG_CATEGORY_LFD)
+local isLeader, isTank, isHealer, isDPS = GetLFGRoles()
+if (not isTank and not isHealer and not isDPS) then
+	SetLFGRoles(false, false, false, true) --dps
+end
+SetLFGDungeon(LE_LFG_CATEGORY_LFD, needDungeonID)
+JoinLFG(LE_LFG_CATEGORY_LFD)
+return true
+";
+	public override bool IsComplete()
+	{
+		return IsKilled &amp;&amp; !InInstance;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<FightClass xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FightClassGeneralSettings>
+    <FightClassName>Rogue Outlaw (camelot10)</FightClassName>
+    <FramePerSecond>25</FramePerSecond>
+    <AdditionalCode>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+
+public class FightclassRogue
+{
+#endif
+	#region COMMON
+	public static bool IsCastAndCanInterrupt { get { return ObjectManager.Target.IsValid &amp;&amp; ObjectManager.Target.IsCast &amp;&amp; ObjectManager.Target.CanInterruptCasting; } }
+	public static bool IsCastAndCanInterruptAndEndCast { get { return IsCastAndCanInterrupt &amp;&amp; ObjectManager.Target.CastingTimeLeft &lt; 1000; } }
+
+	static robotManager.Helpful.Timer CheckGUIDTimer = new robotManager.Helpful.Timer(30 * 1000);
+	static MemoryRobot.Int128 CheckGUIDLast = MemoryRobot.Int128.Zero();
+	//wait 30s until start using ranged attacks (in case if char cannot reach target in stealth)
+	public static bool NeedRanged
+	{
+		get
+		{
+			var targ = ObjectManager.Target;
+			if (targ == null || !targ.IsValid)
+				return false;
+
+			var guid = targ.Guid;
+			if (CheckGUIDLast != guid)
+			{
+				CheckGUIDLast = guid;
+				CheckGUIDTimer.Reset();
+				return false;
+			}
+			return CheckGUIDTimer.IsReady;
+		}
+	}
+	#endregion COMMON
+
+	#region ROGUE
+	public static bool NeedStealth
+	{
+		get
+		{
+			if (Conditions.ForceIgnoreIsAttacked)
+				return false;
+
+			if (wManager.Wow.Bot.Tasks.FishingTask.IsLaunched)
+				return false;
+
+			if (ObjectManager.Me.IsCast)
+				return false;
+
+			if (ObjectManager.Me.PlayerUsingVehicle)
+				return false;
+
+			if (ObjectManager.Pet.UnitFlags.HasFlag(UnitFlags.Possessed))
+				return false;
+
+			return true;
+		}
+	}
+	public static int ComboPointsMax { get { return ObjectManager.Me.HaveBuff(193531) ? 6 : 5; } }
+	public static bool IsComboPointsMax { get { return ObjectManager.Me.ComboPoint &gt;= ComboPointsMax; } }
+
+	static List&lt;uint&gt; RollTheBonesBuffsID = new List&lt;uint&gt;()
+	{
+		193359, // http://www.wowhead.com/spell=193359/true-bearing
+		193357, // http://www.wowhead.com/spell=193357/shark-infested-waters
+		199603, // http://www.wowhead.com/spell=199603/jolly-roger
+		193358, // http://www.wowhead.com/spell=193358/grand-melee
+		193356, // http://www.wowhead.com/spell=193356/broadsides
+		199600, // http://www.wowhead.com/spell=199600/buried-treasure
+	};
+	public static int RollTheBonesBuffs
+	{
+		get
+		{
+
+			return ObjectManager.Me.GetBuffs(RollTheBonesBuffsID).Count;
+			/*
+			//return ObjectManager.Me.HaveBuff(RollTheBonesBuffsID) ? 2 : 0;
+			//* wrobot bugged. sometimes dont find buffs
+			var allBuffs = ObjectManager.Me.GetAllBuff().Select(b =&gt; b.SpellId).ToList();
+			return allBuffs.Intersect(RollTheBonesBuffsID).Count();
+			//*/
+		}
+	}
+	public static bool NeedRollTheBonesBuff
+	{
+		get
+		{
+			if (ObjectManager.Me.HaveBuff(5171))
+				return false;
+
+			//http://www.wowhead.com/spell=238139/loaded-dice
+			if (ObjectManager.Me.HaveBuff(238139))
+				return true;
+
+			return RollTheBonesBuffs &lt; 2;
+		}
+	}
+	#endregion ROGUE
+
+#if VISUAL_STUDIO
+}
+#endif</AdditionalCode>
+  </FightClassGeneralSettings>
+  <FightClassSpells>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>!ObjectManager.Me.PlayerControlled</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Will of the Forsaken</SpellName>
+      <Priority>34</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Undead</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>20</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>8</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>War Stomp</SpellName>
+      <Priority>33</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Tauren</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Stoneform</SpellName>
+      <Priority>32</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Dwarf</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetHealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Bigger</Type>
+            <Value>5</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Rocket Barrage</SpellName>
+      <Priority>31</Priority>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Goblin</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Quaking Palm</SpellName>
+      <Priority>30</Priority>
+      <AddToSettings>true</AddToSettings>
+      <DescriptionSpell>Racial, Pandaren</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Gift of the Naaru</SpellName>
+      <Priority>29</Priority>
+      <CheckIfSpellUsable>false</CheckIfSpellUsable>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Draenei</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Me.IsStunned</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Every Man for Himself</SpellName>
+      <Priority>28</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Human</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Me.Rooted</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Escape Artist</SpellName>
+      <Priority>27</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Gnome</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Blood Fury</SpellName>
+      <Priority>26</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Orc</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Berserking</SpellName>
+      <Priority>25</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <DescriptionSpell>Racial, Troll</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Target.IsCast &amp;&amp; ObjectManager.Target.CanInterruptCasting &amp;&amp; ObjectManager.Target.CastingTimeLeft &lt; 1000</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>TargetDistance</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>8</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Arcane Torrent</SpellName>
+      <Priority>24</Priority>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <DescriptionSpell>Racial, Blood Elf</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>20</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Vanish</SpellName>
+      <Priority>23</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>NeedStealth</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Stealth</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Stealth</SpellName>
+      <Priority>22</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+      <Timer>7000</Timer>
+      <CastOnSelf>true</CastOnSelf>
+      <CastOn>player</CastOn>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>70</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>!wManager.Wow.Bot.Tasks.FishingTask.IsLaunched</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Crimson Vial</SpellName>
+      <Priority>21</Priority>
+      <CombatOnly>false</CombatOnly>
+      <CheckSpellDistance>false</CheckSpellDistance>
+      <CheckIfView>false</CheckIfView>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Riposte</SpellName>
+      <Priority>20</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>HealthPercent</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>Smaller</Type>
+            <Value>50</Value>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Target.IsCast &amp;&amp; ObjectManager.Target.CastingTimeLeft &lt; 1000</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Cloak of Shadows</SpellName>
+      <Priority>19</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Stealth</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Cheap Shot</SpellName>
+      <Priority>18</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>IsCastAndCanInterruptAndEndCast</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Kick</SpellName>
+      <Priority>17</Priority>
+      <DescriptionSpell>Interrupt</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>IsCastAndCanInterruptAndEndCast</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Gouge</SpellName>
+      <Priority>16</Priority>
+      <DescriptionSpell>Interrupt</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNear</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>1</Number>
+            <Type>Bigger</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Blade Flurry</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Blade Flurry</SpellName>
+      <Priority>15</Priority>
+      <DescriptionSpell>On</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>Buff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Blade Flurry</Name>
+            <Need>true</Need>
+          </Param>
+        </FightClassCondition>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNear</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>1</Number>
+            <Type>SmallerOrEqual</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Blade Flurry</SpellName>
+      <Priority>14</Priority>
+      <DescriptionSpell>Off</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>ObjectManager.Me.HaveBuff("Opportunity") || NeedRanged</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Pistol Shot</SpellName>
+      <Priority>13</Priority>
+      <Timer>3000</Timer>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>IsComboPointsMax &amp;&amp; !ObjectManager.Me.HaveBuff(5171)</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Slice and Dice</SpellName>
+      <Priority>12</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>IsComboPointsMax &amp;&amp; NeedRollTheBonesBuff</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Roll the Bones</SpellName>
+      <Priority>11</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>ComboPoint</ContionType>
+          <Param xsi:type="FightClassConditionNumber">
+            <Type>SmallerOrEqual</Type>
+            <Value>1</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Marked for Death</SpellName>
+      <Priority>10</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Killing Spree</SpellName>
+      <Priority>9</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>UnitAttackPlayerNearTarget</ContionType>
+          <Param xsi:type="FightClassConditionUnitNear">
+            <Number>2</Number>
+            <Type>BiggerOrEqual</Type>
+            <Radius>8</Radius>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Cannonball Barrage</SpellName>
+      <Priority>8</Priority>
+      <AOESpell>true</AOESpell>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>TargetBuff</ContionType>
+          <Param xsi:type="FightClassConditionStringBool">
+            <Name>Ghostly Strike</Name>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Ghostly Strike</SpellName>
+      <Priority>7</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Curse of the Dreadblades</SpellName>
+      <Priority>6</Priority>
+      <DescriptionSpell>Artifact</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Adrenaline Rush</SpellName>
+      <AddToSettings>true</AddToSettings>
+      <AddToSettingsActiveByDefault>true</AddToSettingsActiveByDefault>
+      <WaitDuringCasting>false</WaitDuringCasting>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Between the Eyes</SpellName>
+      <Priority>4</Priority>
+      <AddToSettings>true</AddToSettings>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>IsComboPointsMax</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Death from Above</SpellName>
+      <Priority>3</Priority>
+      <DescriptionSpell>Talent</DescriptionSpell>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions>
+        <FightClassCondition>
+          <ContionType>CSharpCode</ContionType>
+          <Param xsi:type="FightClassConditionString">
+            <Value>IsComboPointsMax</Value>
+          </Param>
+        </FightClassCondition>
+      </FightClassConditions>
+      <SpellName>Run Through</SpellName>
+      <Priority>2</Priority>
+    </FightClassSpell>
+    <FightClassSpell>
+      <FightClassConditions />
+      <SpellName>Saber Slash</SpellName>
+      <Priority>1</Priority>
+    </FightClassSpell>
+  </FightClassSpells>
+</FightClass>

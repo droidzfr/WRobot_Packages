@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="While" NameClass="!ObjectManager.Me.IsInParty" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="RunLuaCode" NameClass="RunMacroText(&quot;/invite Дивиняша&quot;);&#xD;&#xA;RunMacroText(&quot;/invite Велисандрита&quot;);&#xD;&#xA;StaticPopup1Button1:Click();&#xD;&#xA;AcceptGroup();&#xD;&#xA;" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Auto Loader.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests />
+  <Script />
+  <OffMeshConnections />
+</EasyQuestProfile>

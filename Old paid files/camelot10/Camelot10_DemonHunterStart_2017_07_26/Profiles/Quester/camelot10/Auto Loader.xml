@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="None" NameClass="--- Demon Hunter Start ---" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.DemonHunter &amp;&amp; ((ObjectManager.Me.IsAlliance &amp;&amp; !Quest.GetQuestCompleted(44473)) || (ObjectManager.Me.IsHorde &amp;&amp; !Quest.GetQuestCompleted(41002)))" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Demon Hunter\[N] Demon Hunter. 0 - Mardum.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="--- Death Knight Start ---" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.DeathKnight &amp;&amp; ((ObjectManager.Me.IsAlliance &amp;&amp; !Quest.GetQuestCompleted(13188)) || (ObjectManager.Me.IsHorde &amp;&amp; !Quest.GetQuestCompleted(13189)))" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\WotLK\[N] Death Knight start.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="--- Legion ---" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &gt;= 100 &amp;&amp; Lua.LuaDoString&lt;uint&gt;(&quot;return GetAccountExpansionLevel();&quot;) &gt;= 6" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Auto Loader.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="WARNING! Seems like autoloader can't find profile for this character. Try something manualy." />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests />
+  <Script />
+  <OffMeshConnections />
+</EasyQuestProfile>

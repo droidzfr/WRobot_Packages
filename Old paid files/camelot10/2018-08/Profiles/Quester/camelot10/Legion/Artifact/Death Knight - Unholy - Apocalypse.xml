@@ -1,0 +1,1237 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Death Knight - Unholy - Apocalypse ---" />
+    <QuestsSorted Action="Pulse" NameClass="MawoftheDamned2ndOr3rdPickUp" />
+    <QuestsSorted Action="Pulse" NameClass="MawoftheDamned2ndOr3rdTurnIn" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamnedPrepare" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned0" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned1" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned2" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned3" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned4" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned5" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned6" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned7" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned8" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned9" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamned10" />
+    <QuestsSorted Action="Pulse" NameClass="TheDeadandtheDamnedEnd" />
+    <QuestsSorted Action="Pulse" NameClass="LichKingPortal" />
+    <QuestsSorted Action="TurnIn" NameClass="TheDeadandtheDamned0" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Death Knight - Blood - Maw of the Damned ---" />
+    <QuestsSorted Action="None" NameClass="---  Artifact is Not Complete ---" />
+    <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(39757)" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Class Hall\[N] Death Knight.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="93437" Name="Highlord Darion Mograine" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>40740</int>
+      </TurnInQuests>
+      <Position X="-1507.17" Y="1048.095" Z="260.4034" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>*Apocalypse (2nd Or 3rd) Pick Up</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO2015
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class Apocalypse2ndOr3rdPickUp : QuestClass
+{
+	static protected int questIdMain = 40740; // http://www.wowhead.com/quest=40740/the-dead-and-the-damned - maw of the damned quest
+	static protected int questIdWeapon1 = 39757; // http://www.wowhead.com/quest=39757/keeping-your-edge first weapon quest
+	static protected int questIdWeapon2 = 43962; // http://www.wowhead.com/quest=43962/blades-of-destiny second weapon quest
+	static protected int questIdWeapon3 = 44401; // http://www.wowhead.com/quest=44401/a-weapon-for-every-occasion third weapon quest
+
+	protected Vector3 _npcPos = new Vector3(-1537.278, 1016.035, 313.6463);
+	protected int _npcId = 109788;
+	protected bool _complete = false;
+
+	public Apocalypse2ndOr3rdPickUp()
+	{
+		Name = "*Apocalypse (2nd Or 3rd) Pick Up";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool CanConditions()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+	public override bool IsComplete()
+	{
+		return _complete;
+	}
+
+	public override bool Pulse()
+	{
+		//IsQuestCompleted(39757) &amp; amp; &amp;amp; NeedsQuest(40740) &amp; amp; &amp;amp; NeedsQuest(43962, 44401)
+		if (Questing.Complete(questIdWeapon1) &amp;&amp; Questing.Need(questIdMain) &amp;&amp; Questing.Need(questIdWeapon2, questIdWeapon3))
+		{
+			if (GoToTask.ToPositionAndIntecractWithNpc(_npcPos, _npcId))
+			{
+				Thread.Sleep(2 * 1000);
+				Lua.LuaDoString("QuestFrameAcceptButton:Click();");
+				Thread.Sleep(2 * 1000);
+				Lua.LuaDoString("if QuestChoiceFrameOption2.OptionButton:IsVisible() then QuestChoiceFrameOption2.OptionButton:Click() else QuestChoiceFrameOption1.OptionButton:Click() end");
+				Thread.Sleep(2 * 1000);
+				Lua.LuaDoString("StaticPopup1Button2:Click();");
+				Thread.Sleep(2 * 1000);
+			}
+		}
+		_complete = true;
+		return true;
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>*Maw of the Damned (2nd Or 3rd) TurnIn</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class MawoftheDamned2ndOr3rdTurnIn : MawoftheDamned2ndOr3rdPickUp
+{
+	public MawoftheDamned2ndOr3rdTurnIn()
+	{
+		Name = "*Maw of the Damned (2nd Or 3rd) Turn In";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		if (Questing.Done(questIdWeapon2, questIdWeapon3))
+		{
+			if (GoToTask.ToPositionAndIntecractWithNpc(_npcPos, _npcId))
+			{
+				Thread.Sleep(2 * 1000);
+				Lua.LuaDoString("GossipTitleButton1:Click();");
+				Thread.Sleep(2 * 1000);
+				Lua.LuaDoString("QuestFrameCompleteQuestButton:Click();");
+				Thread.Sleep(2 * 1000);
+			}
+		}
+		_complete = true;
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>DK Test</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public sealed class DKTest : QuestClass
+{
+	public DKTest()
+	{
+		Name = "DK Test";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool HasQuest()
+	{
+		return true;
+	}
+
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+
+	public override bool Pulse()
+	{
+		Vector3 _endPoint2 = new Vector3(288.8437, 1673.418, -66.42319);
+
+		GoToTask.ToPosition(_endPoint2);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned (Prepare)</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public sealed class TheDeadandtheDamnedPrepare : QuestClass
+{
+	public TheDeadandtheDamnedPrepare()
+	{
+		Name = "The Dead and the Damned (Prepare)";
+		QuestId.Add(40740);
+	}
+
+	public override bool Pulse()
+	{
+		var npcId = 244556;
+		var npcPos = new Vector3(-1454.17, 1170.668, 275.2434);
+		GoToTask.ToPositionAndIntecractWithNpc(npcPos, npcId);
+		return true;
+	}
+
+	public override bool IsComplete()
+	{
+		return !ObjectManager.Me.HaveBuff(213170); //Class Hall
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>var r= RequiredQuest == -1; if (r) RequiredQuest = 0; return r;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 0</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned0 : QuestClass
+{
+	protected static uint MawoftheDamnedId = 128402;
+	protected int _Stage = 0;
+
+	public TheDeadandtheDamned0()
+	{
+		_Stage = 0;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	protected void Log(string text)
+	{
+		Logging.Write("[" + Name +"] " + text);
+	}
+
+	public override bool IsComplete()
+	{
+		return ItemsManager.HasItemById(MawoftheDamnedId) || Questing.Scenario.Stage != _Stage;
+	}
+
+	public override bool Pulse()
+	{
+		if (ObjectManager.Me.IsOnTaxi)
+		{
+			Log("on taxi");
+			Thread.Sleep(3 * 1000);
+			return true;
+		}
+		if (Usefuls.AreaId != 7543)
+		{
+			Log("take taxi");
+			var npcId = 102403;
+			var npcPos = new Vector3(-846.1805, 4269.471, 746.2685);
+			GoToTask.ToPositionAndIntecractWithNpc(npcPos, npcId);
+			return true;
+		}
+		var pos1 = new Vector3(-831.0263, 3676.253, 26.44035);
+		var pos2 = new Vector3(-820.9525, 3686.912, 27.03755);
+		Log("go near port");
+		if (GoToTask.ToPosition(pos1))
+		{
+			Log("go thru port");
+			GoToTask.ToPosition(pos2);
+		}
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 1</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned1 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned1()
+	{
+		_Stage = 1;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		var mobId = 102362;
+		var mobPos = new Vector3(296.9983, 1924.648, -30.88714);
+		Log("kill");
+		GoToTask.ToPosition(mobPos);
+		//GoToTask.ToPositionAndIntecractWithNpc(mobPos, mobId);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 2</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned2 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned2()
+	{
+		_Stage = 2;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		var pos = new Vector3(282.214, 1862.272, - 11.51741);
+		Log("go");
+		GoToTask.ToPosition(pos);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 3</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned3 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned3()
+	{
+		_Stage = 3;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		var pos = new Vector3(267.6883, 1857.164, -12.0887, "None");
+		if (GoToTask.ToPosition(pos))
+		{
+			Log("camp");
+			MountTask.DismountMount();
+		}
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 4</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned4 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned4()
+	{
+		_Stage = 4;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		var pos = new Vector3(288.8437, 1673.418, -66.42319);
+		Log("go");
+		GoToTask.ToPosition(pos);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 5</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned5 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned5()
+	{
+		_Stage = 5;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	List&lt;Vector3&gt; _hotspots = new List&lt;Vector3&gt;() {
+		new Vector3(375.0486, 1582.425, -83.69869),
+	};
+	List&lt;int&gt; _mobs = new List&lt;int&gt;() {
+		102304,
+		102245,
+	};
+
+	public override bool Pulse()
+	{
+		var legionKeystone = ObjectManager.GetObjectWoWUnit().FirstOrDefault(u =&gt; u.IsValid &amp;&amp; u.Entry == 102955);
+		if (legionKeystone != null)
+		{
+			Log("use keystone");
+			GoToTask.ToPositionAndIntecractWithNpc(legionKeystone.Position, legionKeystone.Entry);
+		}
+		else
+		{
+			Log("grind");
+			Questing.Grind(_mobs, _hotspots);
+		}
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 6</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned6 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned6()
+	{
+		_Stage = 6;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		var pos = new Vector3(286.526, 1674.392, -64.94347);
+		var allianceNpcId = 102560;
+		var hordeNpcId = 102561;
+		if (ObjectManager.Me.IsAlliance)
+		{
+			Log("npc alliance");
+			GoToTask.ToPositionAndIntecractWithNpc(pos, allianceNpcId);
+		}
+		if (ObjectManager.Me.IsHorde)
+		{
+			Log("npc horde");
+			GoToTask.ToPositionAndIntecractWithNpc(pos, hordeNpcId);
+		}
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 7</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned7 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned7()
+	{
+		_Stage = 7;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	List&lt;Vector3&gt; _hotspots = new List&lt;Vector3&gt;() {
+		new Vector3(196.3298, 1523.698, -32.13142),
+	};
+	Vector3 _waypoint = new Vector3(230.3884, 1610.06, -54.4818, "None");
+	List&lt;int&gt; _mobs = new List&lt;int&gt;() {
+		102861,
+		102549,
+		102244,
+		102241,
+	};
+
+	public override bool Pulse()
+	{
+		if (ObjectManager.Me.Position.Y &gt; _waypoint.Y + 5)
+		{
+			Log("to waypoint");
+			GoToTask.ToPosition(_waypoint);
+		}
+		else
+		{
+			Log("grind");
+			Questing.Grind(_mobs, _hotspots, u =&gt; u.Position.DistanceTo(_hotspots[0]) &lt; 50);
+		}
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 8</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned8 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned8()
+	{
+		_Stage = 8;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		var pos = new Vector3(181.5407, 1347.315, -56.43446, "None");
+		GoToTask.ToPosition(pos);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 9</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned9 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned9()
+	{
+		_Stage = 9;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	List&lt;Vector3&gt; _hotspots = new List&lt;Vector3&gt;() {
+		new Vector3(182.4045, 1296.993, -59.08212),
+	};
+	List&lt;int&gt; _mobs = new List&lt;int&gt;() {
+		101778,
+	};
+
+	public override bool Pulse()
+	{
+		Log("grind");
+		Questing.Grind(_mobs, _hotspots);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned 10</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamned10 : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamned10()
+	{
+		_Stage = 10;
+		Name = "The Dead and the Damned " + _Stage;
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool Pulse()
+	{
+		var mawPos = new Vector3(179.9306, 1309.724, -57.21556);
+		var mawId = 247566;
+		Log("take maw");
+		if (GoToTask.ToPositionAndIntecractWithGameObject(mawPos, mawId))
+		{
+			Thread.Sleep(500);
+			Lua.LuaDoString("LootButton1:Click();"); //Extra code in case the IW doesn't loot.
+			Thread.Sleep(10 * 1000); //small cinematic
+		}
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Dead and the Damned (End)</Name>
+      <QuestId>
+        <int>40740</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public class TheDeadandtheDamnedEnd : TheDeadandtheDamned0
+{
+	public TheDeadandtheDamnedEnd()
+	{
+		Name = "The Dead and the Damned (End)";
+		QuestId.Add(40740);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool IsComplete()
+	{
+		return Usefuls.ContinentId != (int)ContinentId.Artifact_PortalWorldAcqusition;
+	}
+
+	public override bool Pulse()
+	{
+		var gatePos = new Vector3(173.9392, 1325.568, -59.08218);
+		var gateId = 102959;
+		Log("gate");
+		GoToTask.ToPositionAndIntecractWithNpc(gatePos, gateId);
+		return true;
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Lich King Portal</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public sealed class LichKingPortal : QuestClass
+{
+
+	public LichKingPortal()
+	{
+		Name = "Lich King Portal";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+	public override bool IsComplete()
+	{
+		return Usefuls.ContinentId != (int)ContinentId.DeathKnightArtifactArea;
+	}
+	public override bool Pulse()
+	{
+		var gatePos = new Vector3(429.6103, -2123.808, 864.858, "None");
+		var gateId = 242469;
+		GoToTask.ToPositionAndIntecractWithGameObject(gatePos, gateId);
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

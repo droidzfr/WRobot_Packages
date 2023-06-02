@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="Pulse" NameClass="BrawlersGuildRandomFight" />
+    <QuestsSorted Action="Pulse" NameClass="MakeBrawlersBetQuick" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Make Brawler's Bet Quick</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var	p = new Vector3(2005.981, -4745.512, 86.77558, "None");
+		GoToTask.ToPosition(p);
+		var npc = ObjectManager.GetObjectWoWUnit().Where(u =&gt; u.IsValid &amp;&amp; u.Entry == 68372).FirstOrDefault();
+		if (npc.IsValid)
+		{
+			Interact.InteractGameObject(npc.GetBaseAddress, true, false);
+			Thread.Sleep(500);
+			Quest.SelectGossipOption(1);
+		}
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return false;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Brawler's Guild Random Fight</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class BrawlersGuildRandomFight : QuestClass
+{
+	public BrawlersGuildRandomFight()
+	{
+		Name = "Brawler's Guild Random Fight";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	void Log(string text)
+	{
+		Logging.Write("[" + Name + "] " + text);
+	}
+	public override bool Pulse()
+	{
+		//In the Arena (Fight): ID=132633
+		if (ObjectManager.Me.HaveBuff(132633))
+		{
+			var hostile = ObjectManager.GetWoWUnitHostile().FirstOrDefault();
+			if (hostile != null &amp;&amp; hostile.IsValid)
+			{
+				Interact.InteractGameObject(hostile.GetBaseAddress);
+				Fight.StartFight(hostile.Guid);
+			}
+			return true;
+		}
+		//queue
+		if (!ObjectManager.Me.HaveBuff(132639))
+		{
+			var grunt = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(67267));
+			if (grunt.HaveBuff(230033) || ItemsManager.HasItemById(142319))
+			{
+				GoToTask.ToPositionAndIntecractWithNpc(grunt.Position, grunt.Entry, 1);
+				return true;
+			}
+			var pV = new Vector3(1988.76, -4770.585, 86.77611, "None");
+			Questing.Buy(pV, 115797, 142319);
+			return true;
+		}
+		else
+		{
+			var p = new Vector3(2005.981, -4745.512, 86.77558, "None");
+			GoToTask.ToPosition(p);
+			var npc = ObjectManager.GetObjectWoWUnit().Where(u =&gt; u.IsValid &amp;&amp; u.Entry == 68372).FirstOrDefault();
+			if (npc.IsValid &amp;&amp; npc.HaveBuff(230029))
+			{
+				Interact.InteractGameObject(npc.GetBaseAddress, true, false);
+				Thread.Sleep(500);
+				Quest.SelectGossipOption(1);
+			}
+			else if (ItemsManager.HasItemById(142318))
+			{
+				GoToTask.ToPositionAndIntecractWithNpc(p, 68424, 1);
+			}
+			else
+			{
+				var pV = new Vector3(1988.76, -4770.585, 86.77611, "None");
+				Questing.Buy(pV, 115797, 142318);
+			}
+		}
+		return true;
+	}
+	public override bool IsComplete()
+	{
+		return false;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

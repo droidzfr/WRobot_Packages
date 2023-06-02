@@ -1,0 +1,1696 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Demon Hunter Order Hall ---" />
+    <QuestsSorted Action="If" NameClass="!DemonHunterClassHall.Can" />
+    <QuestsSorted Action="WriteLog" NameClass="Warning! This profile only for Demon Hunter." />
+    <QuestsSorted Action="GoToStep" NameClass="Next" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="/* HOOK NPC LIST */  LegionQuests.ClearKaynIfAltriusChoosed();" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="CalloftheIllidari" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="ThePowertoSurvive" />
+    <QuestsSorted Action="If" NameClass="DemonHunterClassHall.NeedHavocFirst" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Artifact\Demon Hunter - Havoc - Twinblades of the Deceiver.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="DemonHunterClassHall.NeedVengeanceFirst" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Artifact\Demon Hunter - Vengeance - Aldrachi Warblades.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="-- START INTRODUCTORY CLASS HALL QUESTS ---" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="EternalVigil" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="SecuringtheWay" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="ReturntoMardum" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="UnbridledPower" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="SpoilsofVictory" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="CursedForgeoftheNathrezim" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="TheHuntersGaze" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="TimeisoftheEssence" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="DirectOurWrath" />
+    <QuestsSorted Action="None" NameClass="--- END INTRODUCTORY CLASS HALL QUESTS ---" />
+    <QuestsSorted Action="Pulse" NameClass="FirstZoneQuestingDemonHunter" />
+    <QuestsSorted Action="If" NameClass="LegionQuests.DoAny" />
+    <QuestsSorted Action="GoToStep" NameClass="Next" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="--- START CLASS HALL TUTORIALS ---" />
+    <QuestsSorted Action="PickUp" NameClass="ReturntotheFelHammer" />
+    <QuestsSorted Action="Pulse" NameClass="DemonHunterClassHall" />
+    <QuestsSorted Action="TurnIn" NameClass="ReturntotheFelHammer" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="RiseChampions" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="ThingsGaardounNeeds" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="BrokenWarriors" />
+    <QuestsSorted Action="PickUp" NameClass="LoramusIsThatYou" />
+    <QuestsSorted Action="Pulse" NameClass="LoramusIsThatYou" />
+    <QuestsSorted Action="Pulse" NameClass="LoramusIsThatYouTurnIn" />
+    <QuestsSorted Action="None" NameClass="--- END CLASS HALL TUTORIALS ---" />
+    <QuestsSorted Action="None" NameClass="--- SECOND ARTIFACT ---" />
+    <QuestsSorted Action="If" NameClass="DemonHunterClassHall.NeedArtifactHavoc" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Artifact\Demon Hunter - Havoc - Twinblades of the Deceiver.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="DemonHunterClassHall.NeedArtifactVengeance" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Artifact\Demon Hunter - Vengeance - Aldrachi Warblades.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="--- END SECOND ARTIFACT ---" />
+    <QuestsSorted Action="If" NameClass="/* Loramus, Is That You? */ Questing.NotComplete(42681)" />
+    <QuestsSorted Action="GoToStep" NameClass="Next" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="DemonicImprovements" />
+    <QuestsSorted Action="PickUp" NameClass="AdditionalAccoutrements" />
+    <QuestsSorted Action="Pulse" NameClass="AdditionalAccoutrements" />
+    <QuestsSorted Action="Pulse" NameClass="AdditionalAccoutrementsTurnIn" />
+    <QuestsSorted Action="StepName" NameClass="Next" />
+    <QuestsSorted Action="Pulse" NameClass="ZoneQuestingDemonHunter" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Demon Hunter Order Hall ---" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Auto Loader.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="0" Name="--- INTRO ---" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests />
+      <Position X="0" Y="0" Z="0" />
+    </NPCQuest>
+    <NPCQuest Id="99343" Name="Kor'vas Bloodthorn" GameObject="false">
+      <PickUpQuests>
+        <int>39261</int>
+        <int>39047</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-837.9918" Y="4393.446" Z="737.7322" />
+    </NPCQuest>
+    <NPCQuest Id="99247" Name="Kayn Sunfury" GameObject="false">
+      <PickUpQuests>
+        <int>40814</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>39261</int>
+        <int>40814</int>
+      </TurnInQuests>
+      <Position X="-852.2726" Y="4256.074" Z="746.2854" />
+    </NPCQuest>
+    <NPCQuest Id="99254" Name="Altruis the Sufferer" GameObject="false">
+      <PickUpQuests>
+        <int>40816</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>39047</int>
+        <int>40816</int>
+      </TurnInQuests>
+      <Position X="-852.2726" Y="4256.074" Z="746.2854" />
+    </NPCQuest>
+    <NPCQuest Id="102799" Name="Kor'vas Bloodthorn" GameObject="false">
+      <PickUpQuests>
+        <int>42869</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-835.9692" Y="4265.4" Z="746.2537" />
+    </NPCQuest>
+    <NPCQuest Id="109196" Name="Jace Darkweaver" GameObject="false">
+      <PickUpQuests>
+        <int>42872</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>42869</int>
+        <int>42872</int>
+      </TurnInQuests>
+      <Position X="-945.4254" Y="4090.016" Z="648.2668" />
+    </NPCQuest>
+    <NPCQuest Id="109295" Name="Matron Mother Malevolence" GameObject="false">
+      <PickUpQuests>
+        <int>41221</int>
+        <int>41033</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-948.3802" Y="4091.924" Z="650.8849" />
+    </NPCQuest>
+    <NPCQuest Id="95240" Name="Kayn Sunfury" GameObject="false">
+      <PickUpQuests>
+        <int>41037</int>
+        <int>41062</int>
+        <int>41069</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>41221</int>
+        <int>41037</int>
+        <int>41067</int>
+        <int>41069</int>
+      </TurnInQuests>
+      <Position X="1524.675" Y="1417.736" Z="243.8365" />
+    </NPCQuest>
+    <NPCQuest Id="95237" Name="Altruis the Sufferer" GameObject="false">
+      <PickUpQuests>
+        <int>41060</int>
+        <int>41070</int>
+        <int>41099</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>41033</int>
+        <int>41060</int>
+        <int>41096</int>
+        <int>41099</int>
+      </TurnInQuests>
+      <Position X="1524.675" Y="1417.736" Z="243.8365" />
+    </NPCQuest>
+    <NPCQuest Id="103025" Name="Battlelord Gaardoun" GameObject="false">
+      <PickUpQuests>
+        <int>41064</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>41062</int>
+        <int>41070</int>
+        <int>41064</int>
+      </TurnInQuests>
+      <Position X="1584.427" Y="1409.263" Z="218.027" />
+    </NPCQuest>
+    <NPCQuest Id="95238" Name="Allari the Souleater" GameObject="false">
+      <PickUpQuests>
+        <int>41066</int>
+        <int>41067</int>
+        <int>41096</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>41066</int>
+      </TurnInQuests>
+      <Position X="1568.799" Y="1410.712" Z="217.7683" />
+    </NPCQuest>
+    <NPCQuest Id="0" Name="--- TUTORIAL ---" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests />
+      <Position X="0" Y="0" Z="0" />
+    </NPCQuest>
+    <NPCQuest Id="112666" Name="Asha Ravensong" GameObject="false">
+      <PickUpQuests>
+        <int>42666</int>
+        <int>44087</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-831.6334" Y="4392.391" Z="737.7273" />
+    </NPCQuest>
+    <NPCQuest Id="103025" Name="Battlelord Gaardoun" GameObject="false">
+      <PickUpQuests>
+        <int>42670</int>
+        <int>42671</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>42666</int>
+        <int>44087</int>
+      </TurnInQuests>
+      <Position X="1584.427" Y="1409.263" Z="218.027" />
+    </NPCQuest>
+    <NPCQuest Id="103761" Name="Kor'vas Bloodthorn" GameObject="false">
+      <PickUpQuests>
+        <int>42677</int>
+        <int>44161</int>
+        <int>42679</int>
+        <int>42681</int>
+        <int>42683</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>42670</int>
+        <int>42671</int>
+        <int>42677</int>
+        <int>44161</int>
+        <int>42679</int>
+        <int>42681</int>
+        <int>42682</int>
+      </TurnInQuests>
+      <Position X="1551.464" Y="1410.891" Z="237.1088" />
+    </NPCQuest>
+    <NPCQuest Id="98632" Name="Matron Mother Malevolence" GameObject="false">
+      <PickUpQuests>
+        <int>42682</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>42683</int>
+      </TurnInQuests>
+      <Position X="1575.938" Y="1408.193" Z="237.1088" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots>
+    <Blackspot X="-846.1047" Y="4469.138" Z="735.8798" Radius="10" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Call of the Illidari</Name>
+      <QuestId>
+        <int>39047</int>
+        <int>39261</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Power to Survive</Name>
+      <QuestId>
+        <int>40814</int>
+        <int>40816</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var npcPos = new Vector3(-852.2726, 4256.074, 746.2852, "None");
+		var npcs = new List&lt;int&gt;() {
+			99247, // http://www.wowhead.com/npc=99247/kayn-sunfury
+			99254, // http://www.wowhead.com/npc=99254/altruis-the-sufferer
+		};
+
+		if (GoToTask.ToPosition(npcPos))
+		{
+			var npc = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(npcs));
+			if (npc != null &amp;&amp; npc.IsValid)
+			{
+				if (GoToTask.ToPositionAndIntecractWithNpc(npc.Position, npc.Entry, 1))
+				{
+					//no choice frame
+					if (!Lua.LuaDoString&lt;bool&gt;("return QuestChoiceFrame:IsVisible();"))
+						return true;
+
+					Thread.Sleep(1 * 1000);
+					Thread.Sleep(1000);
+					if (ObjectManager.Me.GetSpecialization == WowSpecializations.DemonHunter_Havoc)
+					{
+						Lua.LuaDoString("QuestChoiceFrameOption1.OptionButton:Click()");
+					}
+					else if (ObjectManager.Me.GetSpecialization == WowSpecializations.DemonHunter_Vengeance)
+					{
+						Lua.LuaDoString("QuestChoiceFrameOption2.OptionButton:Click()");
+					}
+					Thread.Sleep(1000);
+					Lua.LuaDoString("StaticPopup1Button1:Click();");
+					Thread.Sleep(1000);
+				}
+			}
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Eternal Vigil</Name>
+      <QuestId>
+        <int>42869</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class EternalVigil : QuestClass
+{
+	public EternalVigil()
+	{
+		Name = "Eternal Vigil";
+		QuestId.Add(42869);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool IsComplete()
+	{
+		return DemonHunterClassHall.InIllidaryRedoubt || Questing.ObjectiveComplete(this);
+	}
+
+	public override bool Pulse()
+	{
+		if (!DemonHunterClassHall.InIllidaryRedoubt)
+			DemonHunterClassHall.ToIllidaryRedoubt();
+
+		return true;
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Securing the Way</Name>
+      <QuestId>
+        <int>42872</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (!DemonHunterClassHall.InIllidaryRedoubt)
+		{
+			DemonHunterClassHall.ToIllidaryRedoubt();
+			return true;
+		}
+
+		if (!Questing.ObjectiveComplete(this, 1))
+		{
+			var pos = new Vector3(-947.1196, 4082.127, 648.2457, "None");
+			if (GoToTask.ToPosition(pos))
+			{
+				if (Questing.ExtraButton())
+				{
+					Thread.Sleep(1000);
+					Lua.LuaDoString("ExtraActionButton1:Click();");
+					Thread.Sleep(3000);
+				}
+			}
+			return true;
+		}
+		else if (!Questing.ObjectiveComplete(this, 2))
+		{
+			GoToTask.ToPositionAndIntecractWithNpc(DemonHunterClassHall.IllidaryRedoubtCenter, 109273);
+			return true;
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Return to Mardum</Name>
+      <QuestId>
+        <int>41221</int>
+        <int>41033</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-959.4995" Y="4069.605" Z="648.1467" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>251286</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Unbridled Power</Name>
+      <QuestId>
+        <int>41037</int>
+        <int>41060</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (!DemonHunterClassHall.InClassHall)
+		{
+			DemonHunterClassHall.ToClassHall();
+			return true;
+		}
+		var pos = new Vector3(1525.86, 1412.325, 244.0414, "None");
+		if (Questing.Gather(pos, 246881, 8))
+		{
+			Thread.Sleep(10 * 1000);
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Spoils of Victory</Name>
+      <QuestId>
+        <int>41062</int>
+        <int>41070</int>
+      </QuestId>
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1561.389" Y="1425.25" Z="237.1088" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro />
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>98650</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Cursed Forge of the Nathrezim</Name>
+      <QuestId>
+        <int>41064</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (!DemonHunterClassHall.InClassHall)
+		{
+			DemonHunterClassHall.ToClassHall();
+			return true;
+		}
+		var pos = new Vector3(1628.301, 1414.396, 208.9254);
+		if (GoToTask.ToPositionAndIntecractWithGameObject(pos, 250244))
+		{
+			Thread.Sleep(3 * 1000);
+			if (Lua.LuaDoString&lt;bool&gt;("return ArtifactFrame.ForgeBadgeFrame:IsVisible();"))
+			{
+				if (ItemsManager.HasItemById(127829)) // http://www.wowhead.com/item=127829/twinblades-of-the-deceiver
+				{
+					Lua.LuaDoString("C_ArtifactUI.AddPower(1330);");
+				}
+				if (ItemsManager.HasItemById(128832)) // http://www.wowhead.com/item=128832/aldrachi-warblades
+				{
+					Lua.LuaDoString("C_ArtifactUI.AddPower(1328);");
+				}
+			}
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Hunter's Gaze</Name>
+      <QuestId>
+        <int>41066</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (!DemonHunterClassHall.InClassHall)
+		{
+			DemonHunterClassHall.ToClassHall();
+			return true;
+		}
+		var pos = new Vector3(1565.804, 1413.443, 217.7835);
+		if (Questing.Gather(pos, 250257, 8))
+		{
+			if (Questing.Gossip(1))
+			{
+				//CANNOT CANCEL. NEED TO WAIT
+				Thread.Sleep(40 * 1000);
+			}
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Time is of the Essence</Name>
+      <QuestId>
+        <int>41067</int>
+        <int>41096</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Direct Our Wrath</Name>
+      <QuestId>
+        <int>41069</int>
+        <int>41099</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (!DemonHunterClassHall.InClassHall)
+		{
+			DemonHunterClassHall.ToClassHall();
+			return true;
+		}
+		DemonHunterClassHall.UseTable();
+		//TODO:: make zone choose?
+		return LegionQuests.StartTableQuests(LegionQuests.AZSUNA_START);</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>First Zone Questing (DemonHunter)</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class FirstZoneQuestingDemonHunter : QuestClass
+{
+	public FirstZoneQuestingDemonHunter()
+	{
+		Name = "First Zone Questing (DemonHunter)";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool HasQuest()
+	{
+		return LegionQuests.NeedAzsuna;
+	}
+	public override bool IsComplete()
+	{
+		return LegionQuests.DoAzsuna || !LegionQuests.NeedAzsuna;
+	}
+	public override bool Pulse()
+	{
+		DemonHunterClassHall.UseTable();
+		//LegionQuests.StartTableQuests(LegionQuests.AZSUNA_START);
+		LegionQuests.StartTableQuests(LegionQuests.STORMHEIM_START_ALLIANCE, LegionQuests.STORMHEIM_START_HORDE);
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Return to the Fel Hammer</Name>
+      <QuestId>
+        <int>42666</int>
+        <int>44087</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return LegionQuests.InDalaran &amp;&amp; ObjectManager.Me.Level &gt;= 101 &amp;&amp; !Questing.Recieved(42670, 42671);</CanCondition>
+      <IsCompleteCondition>return LegionQuests.InClassHall;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Rise, Champions</Name>
+      <QuestId>
+        <int>42670</int>
+        <int>42671</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var kaynOrAltrius = new List&lt;int&gt;() {
+			108572, //Kayn
+			108571, //Altrius
+		};
+		if (!Questing.ObjectiveComplete(this, 1))
+		{
+			var p = new Vector3(1551.054, 1413.816, 237.1085);
+			if (GoToTask.ToPosition(p))
+			{
+				var npc = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(kaynOrAltrius));
+				if (npc != null &amp;&amp; npc.IsValid)
+				{
+					if (GoToTask.ToPositionAndIntecractWithNpc(p, npc.Entry, 1))
+					{
+						if (Questing.Gossip(1))
+						{
+							Quest.CompleteQuest();
+						}
+					}
+				}
+			}
+		}
+		else if (!Questing.ObjectiveComplete(this, 2))
+		{
+			var p = new Vector3(1602.951, 1423.806, 243.475);
+			if (GoToTask.ToPositionAndIntecractWithNpc(p, 108326))
+			{
+				Quest.CompleteQuest();
+			}
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1) &amp;&amp; Questing.ObjectiveComplete(this, 2);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Things Gaardoun Needs</Name>
+      <QuestId>
+        <int>42677</int>
+        <int>44161</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		DemonHunterClassHall.UseTable();
+		Thread.Sleep(Others.Random(1500, 2000));
+		LegionQuests.Mission.Open();
+		var missionID = 1389; //altrius
+		var followerID = 498; //altrius follower
+		if (LegionQuests.ChoosedKayn)
+		{
+			missionID = 953;
+			followerID = 595;
+		}
+		if (!LegionQuests.Mission.InProgress(missionID))
+		{
+			LegionQuests.Mission.Do(missionID, followerID);
+		}
+		if (!LegionQuests.Mission.Complete(missionID))
+		{
+			Thread.Sleep(1000);
+			return true;
+		}
+		LegionQuests.Mission.CloseCompleteReport();
+		LegionQuests.Mission.MissionBonusRoll(missionID);
+		LegionQuests.Mission.Close();
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Broken Warriors</Name>
+      <QuestId>
+        <int>42679</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		DemonHunterClassHall.GatherAndTrainAshtongueWarriors();
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Loramus, Is That You?</Name>
+      <QuestId>
+        <int>42681</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class LoramusIsThatYou : QuestClass
+{
+	public static int MissionID = 954;
+
+	public LoramusIsThatYou()
+	{
+		Name = "Loramus, Is That You?";
+		QuestId.Add(42681);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+
+	public override bool IsComplete()
+	{
+		return Questing.Complete(this) || LegionQuests.Mission.InProgress(MissionID);
+	}
+
+	public override bool Pulse()
+	{
+		DemonHunterClassHall.UseTable();
+		LegionQuests.Mission.Open();
+		if (LegionQuests.ChoosedKayn)
+		{
+			LegionQuests.Mission.Do(MissionID, new int[] { 595, 722, 665 });
+		}
+		else
+		{
+			LegionQuests.Mission.Do(MissionID, new int[] { 498, 722, 665 });
+		}
+		LegionQuests.Mission.Close();
+		return true;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return !LegionQuests.Mission.InProgress(954);</CanCondition>
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Loramus, Is That You? (Turn In)</Name>
+      <QuestId>
+        <int>42681</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class LoramusIsThatYouTurnIn : QuestClass
+{
+	public LoramusIsThatYouTurnIn()
+	{
+		Name = "Loramus, Is That You? (Turn In)";
+		QuestId.Add(42681);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool HasQuest()
+	{
+		return LegionQuests.Mission.Done(LoramusIsThatYou.MissionID);
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Complete(this);
+	}
+	public override bool Pulse()
+	{
+		DemonHunterClassHall.UseTable();
+		LegionQuests.Mission.Open();
+		LegionQuests.Mission.CloseCompleteReport();
+		LegionQuests.Mission.MissionBonusRoll(LoramusIsThatYou.MissionID);
+		LegionQuests.Mission.Close();
+		if (Questing.ObjectiveComplete(this, 1))
+		{
+			return TurnIn();
+		}
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>+To Dalaran</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>DemonHunterClassHall.ToDalaran();
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return LegionQuests.InDalaran;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Demonic Improvements</Name>
+      <QuestId>
+        <int>42683</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		if (!DemonHunterClassHall.InClassHall)
+		{
+			DemonHunterClassHall.ToClassHall();
+			return true;
+		}
+		var p = new Vector3(1541.236, 1426.747, 218.0267);
+
+		if (!Questing.ObjectiveComplete(this, 1))
+		{
+			if (GoToTask.ToPositionAndIntecractWithNpc(p, 110599, 1))
+			{
+				Thread.Sleep(30 * 1000);
+				return true;
+			}
+		}
+		else if (!Questing.ObjectiveComplete(this, 2))
+		{
+			if (GoToTask.ToPositionAndIntecractWithNpc(p, 108527, 1))
+			{
+				Thread.Sleep(Others.Random(1000, 2000));
+				Lua.LuaDoString("C_Garrison.ResearchTalent(413);");
+			}
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ObjectiveComplete(this, 1) &amp;&amp; Questing.ObjectiveComplete(this, 2);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Additional Accoutrements</Name>
+      <QuestId>
+        <int>42682</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class AdditionalAccoutrements : QuestClass
+{
+	public static int MissionID = 1155;
+	public AdditionalAccoutrements()
+	{
+		Name = "Additional Accoutrements";
+		QuestId.Add(42682);
+		Step.AddRange(new[] { 1, 0, 0, 0, 0 });
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Complete(this) || LegionQuests.Mission.InProgress(MissionID);
+	}
+
+	public override bool Pulse()
+	{
+		DemonHunterClassHall.UseTable();
+		LegionQuests.Mission.Open();
+		if (LegionQuests.ChoosedKayn)
+		{
+			LegionQuests.Mission.Do(MissionID, new int[] { 595, 722, 665 });
+		}
+		else
+		{
+			LegionQuests.Mission.Do(MissionID, new int[] { 498, 722, 665 });
+		}
+		LegionQuests.Mission.Close();
+		return true;
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Additional Accoutrements (Turn In)</Name>
+      <QuestId>
+        <int>42682</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class AdditionalAccoutrementsTurnIn : QuestClass
+{
+	public AdditionalAccoutrementsTurnIn()
+	{
+		Name = "Additional Accoutrements (Turn In)";
+		QuestId.Add(42682);
+		Step.AddRange(new[] { 0, 0, 0, 0, 0 });
+	}
+	public override bool HasQuest()
+	{
+		return LegionQuests.Mission.Done(AdditionalAccoutrements.MissionID);
+	}
+	public override bool IsComplete()
+	{
+		return Questing.Complete(this);
+	}
+	public override bool Pulse()
+	{
+		DemonHunterClassHall.UseTable();
+		LegionQuests.Mission.Open();
+		LegionQuests.Mission.CloseCompleteReport();
+		LegionQuests.Mission.MissionBonusRoll(AdditionalAccoutrements.MissionID);
+		LegionQuests.Mission.Close();
+		if (Questing.ObjectiveComplete(this, 1))
+		{
+			return TurnIn();
+		}
+		return true;
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Zone Questing (Demon Hunter)</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public sealed class ZoneQuestingDemonHunter : LegionQuests.StartZoneQuesting
+{
+	public ZoneQuestingDemonHunter()
+	{
+		Name = "Zone Questing (Demon Hunter)";
+	}
+
+	public override bool ToDalaran()
+	{
+		return DemonHunterClassHall.ToDalaran();
+	}
+
+	public override bool UseTable()
+	{
+		return DemonHunterClassHall.UseTable();
+	}
+
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs
+camelot10\Libs\LegionQuests.cs
+camelot10\Libs\DemonHunterClassHall.cs
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

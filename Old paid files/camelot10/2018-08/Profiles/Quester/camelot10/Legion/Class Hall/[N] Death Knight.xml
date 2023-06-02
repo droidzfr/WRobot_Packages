@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Start Death Knight Order Hall ---" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass != WoWClass.DeathKnight" />
+    <QuestsSorted Action="WriteLog" NameClass="Warning! This profile only for Death Knight." />
+    <QuestsSorted Action="GoToStep" NameClass="Auto Loader" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="TheCallToWar" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="APactofNecessity" />
+    <QuestsSorted Action="None" NameClass="--- First Artifact ---" />
+    <QuestsSorted Action="If" NameClass="WowSpecializations.DeathKnight_Blood == ObjectManager.Me.GetSpecialization &amp;&amp; !Quest.GetQuestCompleted(39757) &amp;&amp; !Quest.GetQuestCompleted(40740)" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Artifact\Death Knight - Blood - Maw of the Damned.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WowSpecializations.DeathKnight_Frost == ObjectManager.Me.GetSpecialization &amp;&amp; !Quest.GetQuestCompleted(39757) &amp;&amp; !Quest.GetQuestCompleted(38990)" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Artifact\Death Knight - Frost - Blades of the Fallen Prince.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="WowSpecializations.DeathKnight_Unholy == ObjectManager.Me.GetSpecialization &amp;&amp; !Quest.GetQuestCompleted(39757) &amp;&amp; !Quest.GetQuestCompleted(40935)" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Artifact\Death Knight - Unholy - Apocalypse.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="None" NameClass="--- End First Artifact ---" />
+    <QuestsSorted Action="StepName" NameClass="Auto Loader" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Complete Death Knight Order Hall ---" />
+    <QuestsSorted Action="None" NameClass="camelot10\Legion\Auto Loader.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="101441" Name="Герцог Ланкрал" GameObject="false">
+      <PickUpQuests>
+        <int>40715</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>40714</int>
+        <int>40715</int>
+      </TurnInQuests>
+      <Position X="-840.5833" Y="4271.512" Z="746.262" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>The Call To War</Name>
+      <QuestId>
+        <int>40714</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Pact of Necessity</Name>
+      <QuestId>
+        <int>40715</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		var npcPos = new Vector3(-840.5833, 4271.512, 746.262);
+		var npcId = 101441;
+		if (GoToTask.ToPositionAndIntecractWithNpc(npcPos, npcId, 1))
+		{
+			//no choice frame
+			if (!Lua.LuaDoString&lt;bool&gt;("return QuestChoiceFrame:IsVisible();"))
+				return true;
+
+			Thread.Sleep(1000);
+			if (ObjectManager.Me.GetSpecialization == WowSpecializations.DeathKnight_Blood)
+			{
+				Lua.LuaDoString("QuestChoiceFrameOption1.OptionButton:Click()");
+			}
+			else if (ObjectManager.Me.GetSpecialization == WowSpecializations.DeathKnight_Frost)
+			{
+				Lua.LuaDoString("QuestChoiceFrameOption2.OptionButton:Click()");
+			}
+			else if (ObjectManager.Me.GetSpecialization == WowSpecializations.DeathKnight_Unholy)
+			{
+				Lua.LuaDoString("QuestChoiceFrameOption3.OptionButton:Click()");
+			}
+			Thread.Sleep(1000);
+			Lua.LuaDoString("StaticPopup1Button1:Click();");
+			Thread.Sleep(1000);
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+</EasyQuestProfile>

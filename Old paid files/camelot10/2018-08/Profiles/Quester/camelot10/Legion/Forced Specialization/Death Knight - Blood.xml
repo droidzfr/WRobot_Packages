@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="		/* Set Blood Death Knight */&#xD;&#xA;		if (ObjectManager.Me.WowClass == wManager.Wow.Enums.WoWClass.DeathKnight)&#xD;&#xA;		{&#xD;&#xA;			int forcedSpec = 1; //1 blood, 2 frost, 3 unholy&#xD;&#xA;			robotManager.Helpful.Var.SetVar(&quot;ForcedSpecialization&quot;, new int[8]{ forcedSpec, 2, 1, 1, 2, 3, 1, 3 }); //based on zygor&#xD;&#xA;			var specName = Lua.LuaDoString&lt;string&gt;(string.Format(&quot;return select(2, GetSpecializationInfo({0})) or 'None'&quot;, forcedSpec));&#xD;&#xA;			Logging.Write(&quot;Forced specialization set to &quot; + specName);&#xD;&#xA;		}" />
+    <QuestsSorted Action="LoadProfile" NameClass="camelot10\Legion\Auto Loader.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests />
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

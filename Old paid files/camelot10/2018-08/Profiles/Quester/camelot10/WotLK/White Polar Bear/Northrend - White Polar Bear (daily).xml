@@ -1,0 +1,1137 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="Pulse" NameClass="ToNorthrend" />
+    <QuestsSorted Action="PickUp" NameClass="AllDailies" />
+    <QuestsSorted Action="Pulse" NameClass="BacktothePit" />
+    <QuestsSorted Action="Pulse" NameClass="DefendingYourTitle" />
+    <QuestsSorted Action="Pulse" NameClass="TheAberrationsMustDie" />
+    <QuestsSorted Action="Pulse" NameClass="MaintainingDisciplineMoveIn" />
+    <QuestsSorted Action="Pulse" NameClass="MaintainingDiscipline" />
+    <QuestsSorted Action="Pulse" NameClass="MaintainingDisciplineMoveOut" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.UseFlyingMount = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.UseGroundMount = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.UseMount = true;&#xD;&#xA;Conditions.ForceIgnoreIsAttacked = false;&#xD;&#xA;Usefuls.EjectVehicle();" />
+    <QuestsSorted Action="TurnIn" NameClass="AllDailies" />
+    <QuestsSorted Action="WriteLog" NameClass="Brunhilldar dailies complete" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="29796" Name="Гретта Судья" GameObject="false">
+      <PickUpQuests>
+        <int>13424</int>
+        <int>13423</int>
+        <int>13422</int>
+        <int>13425</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>13424</int>
+        <int>13423</int>
+        <int>13422</int>
+        <int>13425</int>
+      </TurnInQuests>
+      <Position X="7088.281" Y="-1777.093" Z="821.2864" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>_Traveler</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>using robotManager.Helpful;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using wManager.Wow.Class;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.Threading;
+using wManager.Wow.Bot.Tasks;
+
+public class Traveler : QuestClass
+{
+	public static void UseHeathstone()
+	{
+		var name = SpellListManager.SpellNameInGameById(94719);
+		Lua.RunMacroText("/cast " + name);
+		Thread.Sleep(Usefuls.Latency * 2);
+		if (ObjectManager.Me.IsCast)
+		{
+			TravelLog("Heathstoning(" + name + ")");
+			Usefuls.WaitIsCasting();
+		}
+		else if (ItemsManager.HasItemById(6948))
+		{
+			TravelLog("Heathstoning");
+			ItemsManager.UseItem(6948);
+			Usefuls.WaitIsCasting();
+		}
+		else
+		{
+			TravelError("Dont have Heathstone or The Innkeeper's Daughter");
+		}
+	}
+
+	public static void UseHeathstoneDalaran()
+	{
+		if (ItemsManager.HasItemById(140192))
+		{
+			ItemsManager.UseItem(140192);
+			Usefuls.WaitIsCasting();
+		}
+	}
+
+	//OUTLANDS
+	public static bool InOutlands
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.Expansion01;
+		}
+	}
+
+	public static bool InShattrath
+	{
+		get
+		{
+			if (!InOutlands)
+				return false;
+			return Usefuls.AreaId == (int)AreaId.Shattrath;
+		}
+	}
+
+	public static void ToShattrath()
+	{
+		if (InShattrath)
+		{
+			TravelLog("im in shattrath");
+		}
+		else if (InPandariaShrine)
+		{
+			TravelLog("im in pandaria. going to shattrath portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.PANDARIA_SHATTRATH_HORDE.Use();
+			else
+				Portals.PANDARIA_SHATTRATH_ALLIANCE.Use();
+		}
+		else
+		{
+			TravelLog("im somewhere else. need to get in pandaria shrine");
+			ToPandariaShrine();
+		}
+	}
+
+	public static bool InQuelDanas
+	{
+		get
+		{
+			if (!InOutlands)
+				return false;
+
+			return Usefuls.AreaId == (int)AreaId.QuelDanas;
+		}
+	}
+
+	public static void ToQuelDanas()
+	{
+		if (InQuelDanas)
+		{
+			TravelLog("im in Quel Danas");
+		}
+		else if (InShattrath)
+		{
+			TravelLog("im in Shattrath. going to Quel Danas portal");
+			Portals.SHATTRATH_QUELDANAS.Use();
+		}
+		else
+		{
+			TravelLog("im somewhere else. need to get in pandaria shrine");
+			ToShattrath();
+		}
+	}
+
+
+	// NORTHREND
+	public static bool InNorthrend
+	{
+		get
+		{
+			return (Usefuls.ContinentId == (int)ContinentId.Northrend);
+		}
+	}
+
+	public static bool InNorthrendDalaran
+	{
+		get
+		{
+			if (!InNorthrend)
+				return false;
+
+			return (Usefuls.AreaId == (int)AreaId.DalaranNorthrend);
+		}
+	}
+
+	public static void ToNorthrendDalaran()
+	{
+		if (InNorthrendDalaran)
+		{
+			TravelLog("im in northrend dalaran");
+		}
+		else if (InPandariaShrine)
+		{
+			TravelLog("im in pandaria. going to northrend dalaran portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.PANDARIA_DALARAN_NORTHREND_HORDE.Use();
+			else
+				Portals.PANDARIA_DALARAN_NORTHREND_ALLIANCE.Use();
+		}
+		else
+		{
+			TravelLog("im somewhere else. need to get in pandaria shrine");
+			ToPandariaShrine();
+		}
+	}
+
+	// PANDARIA
+	public static bool InPandaria
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.HawaiiMainLand;
+		}
+	}
+
+	public static bool InPandariaShrine
+	{
+		get
+		{
+			if (!InPandaria)
+				return false;
+
+			if (ObjectManager.Me.IsHorde)
+				return Usefuls.AreaId == (int)AreaId.PandariaShrineHorde || Usefuls.AreaId == (int) AreaId.PandariaShrineHordeNear;
+			else
+				return Usefuls.AreaId == (int)AreaId.PandariaShrineAlliance || Usefuls.AreaId == (int) AreaId.PandariaShrineAllianceNear;
+		}
+	}
+
+	public static void ToPandariaShrine()
+	{
+		if (InPandariaShrine)
+		{
+			TravelLog("im in pandaria shrine");
+		}
+		else if (InBrokenIslesDalaran)
+		{
+			TravelLog("im in dalaran. going to pandaria portal");
+			if (ObjectManager.Me.IsHorde)
+				Portals.BROKENISLES_PANDARIA_HORDE.Use();
+			else
+				Portals.BROKENISLES_PANDARIA_ALLAINCE.Use();
+		}
+		else
+		{
+			TravelLog("im somewhere else. need to get in dalaran");
+			ToBrokenIslesDalaran();
+		}
+	}
+
+	public static void ToPandaria()
+	{
+		if (!InPandaria)
+			ToPandariaShrine();
+	}
+
+
+	// LEGION
+	public static bool IsInBrokenIsles
+	{
+		get
+		{
+			return Usefuls.ContinentId == (int)ContinentId.Troll_Raid;
+		}
+	}
+
+	public static bool InBrokenIslesDalaran
+	{
+		get
+		{
+			if (!IsInBrokenIsles)
+				return false;
+			return (Usefuls.AreaId == (int)AreaId.DalaranBrokenIsles);
+		}
+	}
+
+	public static void ToBrokenIsles()
+	{
+		if (!IsInBrokenIsles)
+			ToBrokenIslesDalaran();
+	}
+
+	public static void ToBrokenIslesDalaran()
+	{
+		if (!InBrokenIslesDalaran)
+		{
+			TravelLog("im not in broken isles dalaran. using dalaran heathstone");
+			UseHeathstoneDalaran();
+		}
+	}
+
+	public static class Portals
+	{
+		//neutral
+		public static PortalInfo NORTHREND_CAVERNSOFTIME = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 193604);
+		public static PortalInfo SHATTRATH_QUELDANAS = new PortalInfo(Coords.SHATTRATH, 187056);
+
+		//horde
+		public static PortalInfo ORGRIMMAR_OUTLANDS = new PortalInfo(new Vector3(1795.887, -4282.674, 7.395189, "None"), 195142);
+		public static PortalInfo ORGRIMMAR_BLASTEDLANDS = new PortalInfo(new Vector3(1777.066, -4328.517, -7.984149, "None"), 235877);
+		public static PortalInfo ORGRIMMAR_HYJAL = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207688);
+		public static PortalInfo ORGRIMMAR_VASHJIR = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207690);
+		public static PortalInfo ORGRIMMAR_DEEPHOLM = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207689);
+		public static PortalInfo ORGRIMMAR_ULDUM = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207687);
+		public static PortalInfo ORGRIMMAR_TWILIGHTHIGHLANDS = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 207686);
+		public static PortalInfo ORGRIMMAR_TOLBARAD = new PortalInfo(Coords.CATACLYSM_PORTALS_HORDE, 206595);
+
+		public static PortalInfo PANDARIA_ORGRIMMAR = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215127);
+		public static PortalInfo PANDARIA_UNDERCITY = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215124);
+		public static PortalInfo PANDARIA_THUNDERBLUFF = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215125);
+		public static PortalInfo PANDARIA_SILVERMOON = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215126);
+		public static PortalInfo PANDARIA_SHATTRATH_HORDE = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215113);
+		public static PortalInfo PANDARIA_DALARAN_NORTHREND_HORDE = new PortalInfo(Coords.PANDARIA_PORTALS_HORDE, 215112);
+
+		public static PortalInfo BROKENISLES_ORGRIMMAR = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246001);
+		public static PortalInfo BROKENISLES_UNDERCITY = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246000);
+		public static PortalInfo BROKENISLES_THUNDERBLUFF = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 245999);
+		public static PortalInfo BROKENISLES_SILVERMOON = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246004);
+		public static PortalInfo BROKENISLES_PANDARIA_HORDE = new PortalInfo(Coords.BROKENISLES_PORTALS_HORDE, 246007);
+
+		//alliance
+		public static PortalInfo STORMWIND_OUTLANDS = new PortalInfo(new Vector3(-8996.93, 860.6223, 29.6206, "None"), 195141);
+		public static PortalInfo STORMWIND_BLASTEDLANDS = new PortalInfo(new Vector3(-9002.964, 868.8864, 129.6928, "None"), 235882);
+		public static PortalInfo STORMWIND_HYJAL = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207692);
+		public static PortalInfo STORMWIND_VASHJIR = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207691);
+		public static PortalInfo STORMWIND_DEEPHOLM = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207693);
+		public static PortalInfo STORMWIND_ULDUM = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207695);
+		public static PortalInfo STORMWIND_TWILIGHTHIGHLANDS = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 207694);
+		public static PortalInfo STORMWIND_TOLBARAD = new PortalInfo(Coords.CATACLYSM_PORTALS_ALLIANCE, 206594);
+
+		public static PortalInfo PANDARIA_STORMWIND = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215119);
+		public static PortalInfo PANDARIA_IRONFORGE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215118);
+		public static PortalInfo PANDARIA_DARNASSUS = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215116);
+		public static PortalInfo PANDARIA_EXODAR = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215117);
+		public static PortalInfo PANDARIA_SHATTRATH_ALLIANCE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215120);
+		public static PortalInfo PANDARIA_DALARAN_NORTHREND_ALLIANCE = new PortalInfo(Coords.PANDARIA_PORTALS_ALLIANCE, 215121);
+
+		public static PortalInfo BROKENISLES_STORMWIND = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246002);
+		public static PortalInfo BROKENISLES_IRONFORGE = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 245998);
+		public static PortalInfo BROKENISLES_DARNASSUS = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 245997);
+		public static PortalInfo BROKENISLES_EXODAR = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246003);
+		public static PortalInfo BROKENISLES_PANDARIA_ALLAINCE = new PortalInfo(Coords.BROKENISLES_PORTALS_ALLIANCE, 246006);
+	}
+
+	public static class Coords
+	{
+		public static Vector3 SHATTRATH = new Vector3(-1863.39, 5430.373, -5.049042, "Flying");
+
+		public static Vector3 CATACLYSM_PORTALS_HORDE = new Vector3(2048.193, -4377.466, 102.8623, "Flying");
+		public static Vector3 CATACLYSM_PORTALS_ALLIANCE = new Vector3(-8206.709, 427.2209, 125.7481, "Flying");
+
+		public static Vector3 PANDARIA_PORTALS_HORDE = new Vector3(1729.32, 888.9265, 487.119, "None");
+		public static Vector3 PANDARIA_PORTALS_ALLIANCE = new Vector3(815.691, 182.3423, 519.6915, "None");
+
+		public static Vector3 BROKENISLES_PORTALS_HORDE = new Vector3(-714.7886, 4406.515, 727.0811, "None");
+		public static Vector3 BROKENISLES_PORTALS_ALLIANCE = new Vector3(-927.9012, 4565.281, 729.2716, "None");
+
+		// instances
+		public static Vector3 BLACKTEMPLE_NEAR = new Vector3(-3632.671, 317.9774, 45.54625, "Flying");
+		public static Vector3 BLACKTEMPLE_MOVEIN = new Vector3(-3665.674, 319.7783, 34.85582, "None");
+
+		public static Vector3 FIRELANDS_NEAR = new Vector3(4053.186, -2945.826, 1081.849, "Flying");
+
+		public static Vector3 SUNWELLPLATEAU_NEAR = new Vector3(12561.39, -6774.708, 15.09085, "None");
+		public static Vector3 SUNWELLPLATEAU_MOVEIN = new Vector3(12542.34, -6777.375, 14.99986, "None");
+	}
+
+	public static class Instances
+	{
+		public static bool InBlackTemple
+		{
+			get
+			{
+				return Usefuls.ContinentId == (int) ContinentId.BlackTemple;
+			}
+		}
+
+		public static void ToBlackTemple()
+		{
+			if (InBlackTemple)
+			{
+				TravelLog("Im in Black Temple");
+			}
+			else if (NearBlackTemple)
+			{
+				TravelLog("Im near Black Temple, going inside");
+				GoToTask.ToPosition(Coords.BLACKTEMPLE_MOVEIN);
+			}
+			else
+			{
+				ToBlackTempleNear();
+			}
+		}
+
+		public static bool NearBlackTemple
+		{
+			get
+			{
+				if (InBlackTemple)
+					return true;
+				if (!InOutlands)
+					return false;
+
+				return ObjectManager.Me.Position.DistanceTo2D(Coords.BLACKTEMPLE_NEAR) &lt; 500;
+			}
+		}
+
+		public static void ToBlackTempleNear()
+		{
+			uint teleportMedalion = 32757;  //http://www.wowhead.com/item=32757/blessed-medallion-of-karabor
+			if (InBlackTemple || NearBlackTemple)
+			{
+				TravelLog("Im in Black Temple or near");
+			}
+			else if (ItemsManager.HasItemById(teleportMedalion))
+			{
+				TravelLog("Equipping teleport item");
+				ItemsManager.EquipItemByName(ItemsManager.GetNameById(teleportMedalion));
+				Thread.Sleep(35 * 1000);
+				TravelLog("Teleporting to Black Temple");
+				ItemsManager.UseItem(teleportMedalion);
+				Usefuls.WaitIsCasting();
+			}
+			else if (InOutlands)
+			{
+				TravelLog("Im in Outlands. Moving near Black Temple");
+				GoToTask.ToPosition(Coords.BLACKTEMPLE_NEAR);
+			}
+			else
+			{
+				TravelLog("Im in somewhere else. Go to Shattrath");
+				ToShattrath();
+				Thread.Sleep(10 * 1000);
+				ToBlackTempleNear();
+			}
+		}
+
+		// sunwell
+		public static bool InSunwell
+		{
+			get
+			{
+				return Usefuls.ContinentId == (int)ContinentId.SunwellPlateau;
+			}
+		}
+
+		public static void ToSunwell()
+		{
+			if (InSunwell)
+			{
+				TravelLog("Im in Sunwell");
+			}
+			else if (InQuelDanas)
+			{
+				TravelLog("Im in Quel Danas, goin to sunwell");
+				GoToTask.ToPosition(Coords.SUNWELLPLATEAU_MOVEIN);
+			}
+			else
+			{
+				ToQuelDanas();
+			}
+		}
+
+	}
+
+	public enum AreaId
+	{
+		QuelDanas = 4080,
+		Shattrath = 3703,
+		DalaranNorthrend = 4395,
+		DalaranBrokenIsles = 7502,
+		PandariaShrineAlliance = 6553, //alliance PandariaShrineOfSevenStars
+		PandariaShrineAllianceNear = 6142,
+		PandariaShrineHorde = 6141, //horde PandariaShrineOfTwoMoons
+		PandariaShrineHordeNear = 6554,
+	}
+
+	public class PortalInfo
+	{
+		public Vector3 position;
+		public int objectId;
+		public PortalInfo(Vector3 pos, int id)
+		{
+			position = pos;
+			objectId = id;
+		}
+
+		public void Use()
+		{
+			GoToTask.ToPosition(position);
+			MountTask.DismountMount();
+			GoToTask.ToPositionAndIntecractWithGameObject(position, objectId);
+		}
+	}
+
+	static void TravelLog(string message)
+	{
+		Logging.WriteDebug("[Traveler] " + message);
+	}
+
+	static void TravelError(string message)
+	{
+		Logging.WriteError("[Traveler] " + message);
+	}
+
+	public Traveler()
+	{
+		Name = "Traveler";
+		SetDefaultSettings();
+	}
+
+	static Traveler()
+	{
+	}
+
+	public static void SetDefaultSettings()
+	{
+		var config = wManager.wManagerSetting.CurrentSetting;
+		config.CloseIfPlayerTeleported = false;
+		config.MaxUnitsNear = 99;
+		config.CanAttackUnitsAlreadyInFight = true;
+		config.AttackElite = true;
+		config.AttackBeforeBeingAttacked = false;
+		config.SearchRadius = 85;
+		config.SkinNinja = false;
+		config.SkinMobs = false;
+		config.HarvestHerbs = false;
+		config.HarvestMinerals = false;
+		config.HarvestTimber = false;
+		config.UseFlyingMount = true;
+		config.UseGroundMount = true;
+		config.UseMount = true;
+		config.IgnoreFightGoundMount = true;
+		wManager.Wow.Helpers.CVar.SetCVar("autoDismount", "1");
+		wManager.Wow.Helpers.CVar.SetCVar("autoDismountFlying", "1");
+		wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;
+		Logging.Write("set default settings");
+	}
+
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>To Northrend</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>Traveler.ToNorthrendDalaran();
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition>return !Traveler.InNorthrend;</CanCondition>
+      <IsCompleteCondition>return Traveler.InNorthrend;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>All Dailies</Name>
+      <QuestId>
+        <int>13424</int>
+        <int>13423</int>
+        <int>13422</int>
+        <int>13425</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>6</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Back to the Pit</Name>
+      <QuestId>
+        <int>13424</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		uint itemId = 42499; //Reins of the Warbear Matriarch
+		var positionPit = new Vector3(6954.298, -1662.348, 810.8221, "None");
+
+		if (!ObjectManager.Me.PlayerUsingVehicle)
+		{
+			Logging.Write("go to pit");
+
+			// enable mount and fight
+			wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+			wManager.wManagerSetting.CurrentSetting.UseFlyingMount = true;
+			wManager.wManagerSetting.CurrentSetting.UseGroundMount = true;
+			wManager.wManagerSetting.CurrentSetting.UseMount = true;
+			Conditions.ForceIgnoreIsAttacked = false;
+
+			wManager.Wow.Bot.Tasks.GoToTask.ToPosition(positionPit);
+			Thread.Sleep(Usefuls.Latency + 150);
+			MovementManager.StopMove();
+			Logging.Write("mount bear");
+			// disable mount and fight
+			wManager.wManagerSetting.CurrentSetting.UseFlyingMount = false;
+			wManager.wManagerSetting.CurrentSetting.UseGroundMount = false;
+			wManager.wManagerSetting.CurrentSetting.UseMount = false;
+			Conditions.ForceIgnoreIsAttacked = true;
+
+			ItemsManager.UseItem(itemId);
+			Usefuls.WaitIsCasting();
+			Thread.Sleep(2 * 1000);
+			return true;
+		}
+
+		if (ObjectManager.Me.HasTarget &amp;&amp; ObjectManager.Me.TargetObject.IsValid)
+		{
+			if (ObjectManager.Me.Position.DistanceTo(ObjectManager.Me.TargetObject.Position) &gt; 5)
+			{
+				Logging.Write("Target far. move closer");
+				wManager.Wow.Bot.Tasks.GoToTask.ToPosition(ObjectManager.Me.TargetObject.Position);
+				return true;
+			}
+			MovementManager.Face(ObjectManager.Target);
+			Logging.Write("attack rider");
+			Lua.RunMacroText("/click [overridebar][vehicleui][possessbar,@vehicle,exists]OverrideActionBarButton4");
+			Thread.Sleep(2 * 1000 + Others.Random(50, 100));
+			return true;
+		}
+		int mobId = 30174; // rider 30174
+		var mobEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(mobId));
+		if (mobEntry != null &amp;&amp; mobEntry.IsAlive &amp;&amp; mobEntry.IsValid)// &amp;&amp; mobEntry.IsAttackable)
+		{
+			Logging.Write("Found rider");
+			Interact.InteractGameObject(mobEntry.GetBaseAddress);
+			return true;
+		}
+		Logging.Write("No rider around");
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>6</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Defending Your Title</Name>
+      <QuestId>
+        <int>13423</int>
+      </QuestId>
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7049.787" Y="-1787.232" Z="823.6807" />
+          <Vector3 X="7027.545" Y="-1799.218" Z="822.4957" />
+          <Vector3 X="7037.756" Y="-1821.122" Z="823.0303" />
+          <Vector3 X="7066.639" Y="-1824.943" Z="821.6486" />
+          <Vector3 X="6995.925" Y="-1744.802" Z="822.0621" />
+          <Vector3 X="7031.696" Y="-1708.566" Z="821.9819" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro />
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>30012</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>6</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Maintaining Discipline</Name>
+      <QuestId>
+        <int>13422</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="6963.651" Y="-1463.913" Z="841.3286" />
+          <Vector3 X="7017.163" Y="-1353.612" Z="830.9443" />
+          <Vector3 X="6862.876" Y="-1342.013" Z="833.0759" />
+          <Vector3 X="6831.262" Y="-1314.478" Z="834.0916" />
+        </HotSpots>
+        <EntryIdTarget>
+          <int>30146</int>
+        </EntryIdTarget>
+        <ItemId>42837</ItemId>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>6</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Aberrations Must Die</Name>
+      <QuestId>
+        <int>13425</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		wManager.wManagerSetting.CurrentSetting.SearchRadius = 200;
+		var eggObjectId = 191840;
+		uint vialItemId = 41612;
+		var valkyrionAspirantId = 29569;
+		var startPosition = new Vector3(7433.672, 201.9405, 768.3013, "None");
+		if (ObjectManager.Me.Position.DistanceTo(startPosition) &gt; 200)
+		{
+			//Logging.Write("go to start");
+			GoToTask.ToPosition(startPosition);
+			return true;
+		}
+
+		if (ItemsManager.HasItemById(vialItemId))
+		{
+			var eggEntry = ObjectManager.GetNearestWoWGameObject(ObjectManager.GetWoWGameObjectByEntry(eggObjectId));
+			if (eggEntry != null &amp;&amp; eggEntry.IsValid)
+			{
+				if (eggEntry.GetDistance &lt; 20)
+				{
+					//Logging.Write("use vial on eggs");
+					ItemsManager.UseItem(vialItemId);
+					Thread.Sleep(Usefuls.Latency * 2);
+					wManager.Wow.Helpers.ClickOnTerrain.Pulse(eggEntry.Position);
+					wManager.Wow.Helpers.Usefuls.WaitIsCasting();
+					Thread.Sleep(Usefuls.Latency * 2);
+				}
+				else
+				{
+					//Logging.Write("go to egg");
+					GoToTask.ToPosition(eggEntry.Position);
+				}
+			}
+			else
+			{
+				//Logging.Write("no eggs. go to start");
+				GoToTask.ToPosition(startPosition);
+			}
+			return true;
+		}
+		var mobEntry = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(valkyrionAspirantId));
+		if (mobEntry != null &amp;&amp; mobEntry.IsAlive &amp;&amp; mobEntry.IsAttackable &amp;&amp; mobEntry.IsValid)
+		{
+			//Logging.Write("get vial");
+			Fight.StartFight(mobEntry.Guid);
+		}
+		else
+		{
+			var randomPoints = new List&lt;Vector3&gt;() {
+				new Vector3(7367.067, 263.7455, 771.2306, "None"),
+				new Vector3(7357.921, 158.548, 781.2589, "None"),
+				new Vector3(7391.188, 30.7574, 772.3488, "None"),
+			};
+			var randomPointIndex = robotManager.Helpful.Others.Random(0, randomPoints.Count - 1);
+			var randomPoint = randomPoints[randomPointIndex];
+			//Logging.Write("get vial. farm on points");
+			GoToTask.ToPosition(randomPoint);
+		}
+		return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Maintaining Discipline Move In</Name>
+      <QuestId>
+        <int>13422</int>
+      </QuestId>
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="6951.065" Y="-1511.893" Z="840.3645" />
+          <Vector3 X="6950.559" Y="-1504.863" Z="841.7719" />
+          <Vector3 X="6950.542" Y="-1501.384" Z="842.4747" />
+          <Vector3 X="6950.523" Y="-1497.533" Z="842.8135" />
+          <Vector3 X="6950.504" Y="-1493.683" Z="842.6603" />
+          <Vector3 X="6950.487" Y="-1490.078" Z="842.5104" />
+          <Vector3 X="6950.469" Y="-1486.25" Z="842.187" />
+          <Vector3 X="6950.451" Y="-1482.518" Z="841.8027" />
+          <Vector3 X="6950.433" Y="-1478.802" Z="841.5228" />
+          <Vector3 X="6950.398" Y="-1471.479" Z="841.2292" />
+          <Vector3 X="6950.178" Y="-1467.765" Z="841.344" />
+          <Vector3 X="6949.74" Y="-1464.208" Z="841.1371" />
+          <Vector3 X="6949.261" Y="-1460.393" Z="841.1509" />
+          <Vector3 X="6948.807" Y="-1456.824" Z="841.1587" />
+          <Vector3 X="6948.321" Y="-1453.004" Z="841.211" />
+          <Vector3 X="6947.85" Y="-1449.303" Z="841.4293" />
+          <Vector3 X="6947.379" Y="-1445.608" Z="842.1672" />
+          <Vector3 X="6946.909" Y="-1441.914" Z="842.3503" />
+          <Vector3 X="6946.439" Y="-1438.219" Z="841.7341" />
+          <Vector3 X="6945.97" Y="-1434.532" Z="840.1639" />
+          <Vector3 X="6945.515" Y="-1430.956" Z="838.6671" />
+          <Vector3 X="6945.014" Y="-1427.017" Z="837.0097" />
+          <Vector3 X="6944.559" Y="-1423.441" Z="836.8424" />
+          <Vector3 X="6944.057" Y="-1419.744" Z="835.506" />
+          <Vector3 X="6943.451" Y="-1416.069" Z="833.9557" />
+          <Vector3 X="6942.836" Y="-1412.396" Z="832.4064" />
+          <Vector3 X="6942.222" Y="-1408.73" Z="831.0953" />
+          <Vector3 X="6941.607" Y="-1405.057" Z="830.869" />
+          <Vector3 X="6941.014" Y="-1401.508" Z="830.8712" />
+          <Vector3 X="6940.378" Y="-1397.71" Z="830.6537" />
+          <Vector3 X="6939.764" Y="-1394.037" Z="830.2031" />
+          <Vector3 X="6939.208" Y="-1390.489" Z="830.3088" />
+          <Vector3 X="6938.846" Y="-1387.644" Z="830.0987" />
+          <Vector3 X="6937.56" Y="-1380.929" Z="829.9254" />
+          <Vector3 X="6936.947" Y="-1377.271" Z="829.8456" />
+          <Vector3 X="6936.333" Y="-1373.598" Z="829.8084" />
+          <Vector3 X="6935.717" Y="-1369.917" Z="830.136" />
+          <Vector3 X="6935.101" Y="-1366.237" Z="830.3224" />
+          <Vector3 X="6934.489" Y="-1362.578" Z="830.5827" />
+          <Vector3 X="6933.874" Y="-1358.905" Z="831.149" />
+          <Vector3 X="6933.256" Y="-1355.217" Z="831.1431" />
+          <Vector3 X="6932.644" Y="-1351.558" Z="831.135" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>6</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Maintaining Discipline Move Out</Name>
+      <QuestId>
+        <int>13422</int>
+      </QuestId>
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="6932.541" Y="-1350.941" Z="831.1329" />
+          <Vector3 X="6933.453" Y="-1354.923" Z="831.1404" />
+          <Vector3 X="6933.971" Y="-1358.739" Z="831.1476" />
+          <Vector3 X="6934.454" Y="-1362.304" Z="830.636" />
+          <Vector3 X="6934.936" Y="-1365.869" Z="830.3254" />
+          <Vector3 X="6935.468" Y="-1369.811" Z="830.0969" />
+          <Vector3 X="6935.969" Y="-1373.509" Z="829.7949" />
+          <Vector3 X="6936.45" Y="-1377.067" Z="829.8967" />
+          <Vector3 X="6936.95" Y="-1380.765" Z="829.9467" />
+          <Vector3 X="6937.449" Y="-1384.456" Z="830.2609" />
+          <Vector3 X="6937.964" Y="-1388.264" Z="830.0481" />
+          <Vector3 X="6938.448" Y="-1391.837" Z="830.0989" />
+          <Vector3 X="6938.964" Y="-1395.653" Z="830.2752" />
+          <Vector3 X="6939.464" Y="-1399.351" Z="830.5026" />
+          <Vector3 X="6939.945" Y="-1402.909" Z="830.924" />
+          <Vector3 X="6940.461" Y="-1406.725" Z="830.9546" />
+          <Vector3 X="6940.943" Y="-1410.29" Z="831.4008" />
+          <Vector3 X="6941.458" Y="-1414.099" Z="833.0306" />
+          <Vector3 X="6941.924" Y="-1417.546" Z="834.5178" />
+          <Vector3 X="6942.458" Y="-1421.488" Z="836.1327" />
+          <Vector3 X="6942.957" Y="-1425.178" Z="836.8629" />
+          <Vector3 X="6943.456" Y="-1428.869" Z="837.7375" />
+          <Vector3 X="6943.949" Y="-1432.433" Z="839.2695" />
+          <Vector3 X="6944.623" Y="-1436.088" Z="840.7905" />
+          <Vector3 X="6945.354" Y="-1439.899" Z="842.3204" />
+          <Vector3 X="6946.049" Y="-1443.528" Z="842.2298" />
+          <Vector3 X="6946.728" Y="-1447.068" Z="842.0656" />
+          <Vector3 X="6947.429" Y="-1450.722" Z="841.6082" />
+          <Vector3 X="6948.152" Y="-1454.497" Z="841.1841" />
+          <Vector3 X="6948.833" Y="-1458.045" Z="841.1527" />
+          <Vector3 X="6949.555" Y="-1461.812" Z="841.1527" />
+          <Vector3 X="6950.257" Y="-1465.477" Z="841.1364" />
+          <Vector3 X="6950.935" Y="-1469.011" Z="841.3683" />
+          <Vector3 X="6951.633" Y="-1472.667" Z="841.1902" />
+          <Vector3 X="6952.333" Y="-1476.318" Z="841.4751" />
+          <Vector3 X="6952.71" Y="-1480.018" Z="841.5012" />
+          <Vector3 X="6952.51" Y="-1483.744" Z="841.8102" />
+          <Vector3 X="6952.258" Y="-1487.572" Z="842.1305" />
+          <Vector3 X="6952.021" Y="-1491.169" Z="842.6353" />
+          <Vector3 X="6951.769" Y="-1494.998" Z="842.7769" />
+          <Vector3 X="6951.401" Y="-1502.318" Z="842.3027" />
+          <Vector3 X="6951.275" Y="-1506.151" Z="841.5264" />
+          <Vector3 X="6951.117" Y="-1509.88" Z="840.7711" />
+          <Vector3 X="6950.959" Y="-1513.601" Z="840.0186" />
+          <Vector3 X="6950.802" Y="-1517.322" Z="839.2642" />
+          <Vector3 X="6950.525" Y="-1521.035" Z="838.3552" />
+          <Vector3 X="6950.161" Y="-1524.621" Z="837.3492" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>6</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script />
+  <OffMeshConnections />
+</EasyQuestProfile>

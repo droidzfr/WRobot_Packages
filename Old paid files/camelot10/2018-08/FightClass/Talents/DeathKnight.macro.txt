@@ -1,0 +1,1 @@
+/run TalentMicroButton:Click() if PlayerTalentFrame then local s = GetSpecialization() local t = select(s, {2,1,1,2,3,1,3}, {2,2,3,2,3,2,1}, {2,2,2,1,1,3,3}) _G["PlayerTalentFrameTab"..s]:Click() for k, v  in pairs(t) do _G["PlayerTalentFrameTalentsTalentRow"..k.."Talent"..v]:Click() end PlayerTalentFrameCloseButton:Click() end

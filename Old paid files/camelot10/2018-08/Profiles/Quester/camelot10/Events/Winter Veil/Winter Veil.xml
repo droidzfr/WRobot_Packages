@@ -1,0 +1,1289 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="WriteLog" NameClass="--- Winter Veil start ---" />
+    <QuestsSorted Action="RunCode" NameClass="/* ACCEPT PARTY */&#xD;&#xA;var npcs = Quest.QuesterCurrentContext.NPCList;&#xA;  var removeLabel = &quot;(H)&quot;;&#xA;  if (ObjectManager.Me.IsHorde)&#xA;   removeLabel = &quot;(A)&quot;;&#xA;&#xA;  foreach (var npc in npcs)&#xA;  {&#xA;   if (npc.Name.Contains(removeLabel))&#xA;   {&#xA;    Logging.WriteDebug(&quot;Clear npc=&quot; + npc.Name + &quot; from list. coz opposite faction&quot;);&#xA;    npc.PickUpQuests.Clear();&#xA;    npc.TurnInQuests.Clear();&#xA;   }&#xA;  }&#xA;" />
+    <QuestsSorted Action="PickUp" NameClass="YoureaMeanOne" />
+    <QuestsSorted Action="Pulse" NameClass="YoureaMeanOne" />
+    <QuestsSorted Action="If" NameClass="GarrisonHelper.Level &gt;= 3 &amp;&amp; Questing.NotCompleteAll(39651, 39649, 39668, 39648)" />
+    <QuestsSorted Action="Pulse" NameClass="ToGarrison" />
+    <QuestsSorted Action="PickUp" NameClass="Grumpus" />
+    <QuestsSorted Action="PickUp" NameClass="MenacingGrumplings" />
+    <QuestsSorted Action="PickUp" NameClass="WhatHorriblePresents" />
+    <QuestsSorted Action="PickUp" NameClass="WhereAretheChildren" />
+    <QuestsSorted Action="RunCode" NameClass="  //Accept group&#xD;&#xA;  Thread t = new Thread(() =&gt;&#xA;  {&#xA;   while (robotManager.Products.Products.IsStarted)&#xA;   {&#xA;    if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xA;    {&#xA;     Lua.LuaDoString(&quot;AcceptGroup();&quot;);&#xA;    }&#xA;    Thread.Sleep(3 * 1000);&#xA;   }&#xD;&#xA;  });&#xA;  t.Start();&#xA;" />
+    <QuestsSorted Action="Pulse" NameClass="ToWinterVeilQuestsArea" />
+    <QuestsSorted Action="Pulse" NameClass="WhatHorriblePresents" />
+    <QuestsSorted Action="Pulse" NameClass="WhereAretheChildren" />
+    <QuestsSorted Action="Pulse" NameClass="Grumpus" />
+    <QuestsSorted Action="Pulse" NameClass="MenacingGrumplings" />
+    <QuestsSorted Action="RunCode" NameClass="/* LEAVE PARTY */ Lua.LuaDoString(&quot;LeaveParty()&quot;);&#xA;" />
+    <QuestsSorted Action="Pulse" NameClass="ReturnToGarrison" />
+    <QuestsSorted Action="TurnIn" NameClass="Grumpus" />
+    <QuestsSorted Action="TurnIn" NameClass="WhatHorriblePresents" />
+    <QuestsSorted Action="TurnIn" NameClass="WhereAretheChildren" />
+    <QuestsSorted Action="TurnIn" NameClass="MenacingGrumplings" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="YoureaMeanOne" />
+    <QuestsSorted Action="RunCode" NameClass="/* LEAVE PARTY */ Lua.LuaDoString(&quot;LeaveParty()&quot;);&#xA;" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.IsHorde" />
+    <QuestsSorted Action="None" NameClass="&gt;&gt;&gt; to ogrimmar" />
+    <QuestsSorted Action="PickUp" NameClass="ASmokywoodPasturesThankYou" />
+    <QuestsSorted Action="PickUp" NameClass="GreatfatherWinterisHere" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="TheReasonfortheSeason" />
+    <QuestsSorted Action="PickUp" NameClass="TheFeastofWinterVeil" />
+    <QuestsSorted Action="TurnIn" NameClass="GreatfatherWinterisHere" />
+    <QuestsSorted Action="TurnIn" NameClass="ASmokywoodPasturesThankYou" />
+    <QuestsSorted Action="PickUp" NameClass="TreatsforGreatfatherWinter" />
+    <QuestsSorted Action="None" NameClass="TreatsforGreatfatherWinter" />
+    <QuestsSorted Action="TurnIn" NameClass="TreatsforGreatfatherWinter" />
+    <QuestsSorted Action="TurnIn" NameClass="AGailyWrappedPresent" />
+    <QuestsSorted Action="TurnIn" NameClass="ACarefullyWrappedPresent" />
+    <QuestsSorted Action="TurnIn" NameClass="ATickingPresent" />
+    <QuestsSorted Action="TurnIn" NameClass="AWinterVeilGift" />
+    <QuestsSorted Action="TurnIn" NameClass="AGentlyShakenGift" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="--- Winter Veil complete ---" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="96735" Name="Pizzle (H)" GameObject="false">
+      <PickUpQuests>
+        <int>39651</int>
+        <int>39649</int>
+        <int>39668</int>
+        <int>39648</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="5637.596" Y="4554.153" Z="119.5347" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="96362" Name="Izzy Hollyfizzle (H)" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>39651</int>
+        <int>39649</int>
+        <int>39668</int>
+        <int>39648</int>
+      </TurnInQuests>
+      <Position X="5634.308" Y="4553.008" Z="119.5289" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="96451" Name="Almie (A)" GameObject="false">
+      <PickUpQuests>
+        <int>39651</int>
+        <int>39649</int>
+        <int>39668</int>
+        <int>39648</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="1857.106" Y="245.1667" Z="76.64002" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="96362" Name="Izzy Hollyfizzle (A)" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>39651</int>
+        <int>39649</int>
+        <int>39668</int>
+        <int>39648</int>
+      </TurnInQuests>
+      <Position X="1858.858" Y="243.2292" Z="76.7229" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="13636" Name="Strange Snowman" GameObject="false">
+      <PickUpQuests>
+        <int>6983</int>
+        <int>7043</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="147.423" Y="-208.914" Z="153.407" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="13418" Name="Wulmort Jinglepocket" GameObject="false">
+      <PickUpQuests>
+        <int>6984</int>
+        <int>6961</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>6983</int>
+      </TurnInQuests>
+      <Position X="1593.181" Y="-4420.134" Z="14.49861" />
+    </NPCQuest>
+    <NPCQuest Id="13445" Name="Great-father Winter" GameObject="false">
+      <PickUpQuests>
+        <int>6962</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>6984</int>
+        <int>6961</int>
+      </TurnInQuests>
+      <Position X="1582.25" Y="-4369.52" Z="20.68885" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="9550" Name="Furmund" GameObject="false">
+      <PickUpQuests>
+        <int>6964</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="1663.238" Y="-4393.993" Z="20.92645" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="13417" Name="Sagorne Creststrider" GameObject="false">
+      <PickUpQuests>
+        <int>7061</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>6964</int>
+      </TurnInQuests>
+      <Position X="1937.74" Y="-4194.03" Z="37.01807" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="3057" Name="Cairne Bloodhoof" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>7061</int>
+      </TurnInQuests>
+      <Position X="0" Y="0" Z="0" />
+    </NPCQuest>
+    <NPCQuest Id="13433" Name="Wulmort Jinglepocket" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>7043</int>
+      </TurnInQuests>
+      <Position X="-4927.624" Y="-979.1354" Z="501.4797" />
+    </NPCQuest>
+    <NPCQuest Id="13445" Name="Great-father Winter (H)" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>6962</int>
+      </TurnInQuests>
+      <Position X="1582.25" Y="-4369.52" Z="20.68885" />
+    </NPCQuest>
+    <NPCQuest Id="180747" Name="Gaily Wrapped Present (H)" GameObject="true">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>8768</int>
+      </TurnInQuests>
+      <Position X="1580.95" Y="-4368.02" Z="20.664" />
+    </NPCQuest>
+    <NPCQuest Id="180743" Name="Carefully Wrapped Present (H)" GameObject="true">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>8744</int>
+      </TurnInQuests>
+      <Position X="1579.14" Y="-4363.66" Z="20.7744" />
+    </NPCQuest>
+    <NPCQuest Id="180746" Name="Gently Shaken Gift (H)" GameObject="true">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>39658</int>
+        <int>8788</int>
+        <int>8767</int>
+        <int>43364</int>
+      </TurnInQuests>
+      <Position X="1581.399" Y="-4361.351" Z="20.9021" />
+    </NPCQuest>
+    <NPCQuest Id="180748" Name="Ticking Present (H)" GameObject="true">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>8769</int>
+      </TurnInQuests>
+      <Position X="1584.95" Y="-4362.07" Z="21.2794" />
+    </NPCQuest>
+    <NPCQuest Id="187236" Name="Winter Veil Gift (H)" GameObject="true">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>11528</int>
+        <int>28878</int>
+        <int>29385</int>
+        <int>32106</int>
+        <int>33252</int>
+        <int>36617</int>
+        <int>39659</int>
+        <int>43363</int>
+      </TurnInQuests>
+      <Position X="1586.62" Y="-4365.35" Z="20.8749" />
+    </NPCQuest>
+    <NPCQuest Id="180793" Name="Festive Gift (H)" GameObject="true">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>8803</int>
+      </TurnInQuests>
+      <Position X="1584.34" Y="-4367.93" Z="20.7584" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc>
+    <Npc>
+      <Position X="1772.18" Y="-4482.51" Z="45.64117" />
+      <Entry>46709</Entry>
+      <Name>Arugi</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>CookingTrainer</Type>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots />
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>You're a Mean One...</Name>
+      <QuestId>
+        <int>6983</int>
+        <int>7043</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class YoureaMeanOne : QuestClass
+{
+	public YoureaMeanOne()
+	{
+		Name = "You're a Mean One...";
+		QuestId.Add(6983);
+		QuestId.Add(7043);
+		Step.AddRange(new[] { 1, 1 });
+	}
+	static void Log(string text)
+	{
+		Logging.WriteDebug("[You're a Mean One...] " + text);
+	}
+	public override bool PickUp()
+	{
+		//if (Traveler.InEasternKingdoms)
+		if (Usefuls.AreaId == 267) //hillbard foothills
+		{
+			return base.PickUp();
+		}
+		if (Traveler.InDalaraPortraitRoom)
+		{
+			Traveler.Portals.BROKENISLES_DALARANCRATER.Use();
+			return true;
+		}
+		Traveler.ToDalaranPortraitRoom();
+		return true;
+	}
+	public override bool Pulse()
+	{
+		if (Usefuls.AreaId != 267)
+		{
+			if (Traveler.InDalaraPortraitRoom)
+			{
+				Traveler.Portals.BROKENISLES_DALARANCRATER.Use();
+				return true;
+			}
+			Traveler.ToDalaranPortraitRoom();
+			return true;
+		}
+		var p = new Vector3(220.6472, -279.3594, 146.634, "None");
+		if (!Questing.ObjectiveComplete(this, 1))
+		{
+			var goodsID = 209506;
+			if (ObjectManager.Me.IsAlliance)
+				goodsID = 209497;
+			var goods = Questing.FindObject(goodsID);
+			if (goods != null &amp;&amp; goods.IsValid)
+			{
+				Log("get goods " + goods.Name);
+				GoToTask.ToPositionAndIntecractWithGameObject(goods.Position, goods.Entry, 1);
+				return true;
+			}
+		}
+		if (!Questing.ObjectiveComplete(this, 2))
+		{
+			if (Questing.Attack(54499))
+				return true;
+
+			var metzen = Questing.FindUnit(15664);
+			if (metzen != null &amp;&amp; metzen.IsValid)
+			{
+				Log("talk deer " + metzen.Name);
+				GoToTask.ToPositionAndIntecractWithNpc(metzen.Position, metzen.Entry, 1);
+				return true;
+			}
+		}
+		GoToTask.ToPosition(p);
+		return true;
+	}
+	public override bool TurnIn()
+	{
+		if (ObjectManager.Me.IsHorde &amp;&amp; !Traveler.InCapitalOpen)
+		{
+			Traveler.ToCapitalOpen();
+			return true;
+		}
+		if (ObjectManager.Me.IsAlliance &amp;&amp; !Traveler.InIronforge)
+		{
+			Traveler.ToIronforge();
+			return true;
+		}
+		return base.TurnIn();
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>+To Garrison</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		GarrisonHelper.ToGarrison();
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return GarrisonHelper.InDraenor;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Grumpus</Name>
+      <QuestId>
+        <int>39651</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7124.177" Y="4719.419" Z="228.127" />
+        </HotSpots>
+        <EntryTarget>
+          <int>96448</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Menacing Grumplings</Name>
+      <QuestId>
+        <int>39649</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7198.497" Y="4717.026" Z="220.7808" />
+          <Vector3 X="7165.733" Y="4749.109" Z="225.4435" />
+          <Vector3 X="7161.084" Y="4651.715" Z="206.6357" />
+          <Vector3 X="7103.661" Y="4650.042" Z="206.8309" />
+          <Vector3 X="7081.667" Y="4719.564" Z="226.4044" />
+        </HotSpots>
+        <EntryTarget>
+          <int>96449</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>8</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>What Horrible Presents!</Name>
+      <QuestId>
+        <int>39668</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7171.189" Y="4821.747" Z="225.4822" />
+          <Vector3 X="7193.099" Y="4756.75" Z="226.478" />
+          <Vector3 X="7203.235" Y="4700.072" Z="214.0149" />
+          <Vector3 X="7171.291" Y="4649.215" Z="207.1764" />
+          <Vector3 X="7102.379" Y="4659.261" Z="206.5855" />
+          <Vector3 X="7089.349" Y="4717.82" Z="224.8878" />
+          <Vector3 X="7128.603" Y="4757.185" Z="225.5054" />
+          <Vector3 X="7156.898" Y="4791.382" Z="225.4753" />
+          <Vector3 X="7201.338" Y="4834.679" Z="225.5634" />
+        </HotSpots>
+        <EntryIdTarget>
+          <int>96487</int>
+          <int>96593</int>
+        </EntryIdTarget>
+        <ItemId>128675</ItemId>
+        <Range>28</Range>
+      </QuestClass>
+      <ObjectiveCount1>5</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Where Are the Children?</Name>
+      <QuestId>
+        <int>39648</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7148.532" Y="4792.681" Z="225.4574" />
+          <Vector3 X="7210.095" Y="4772.961" Z="229.9859" />
+          <Vector3 X="7198.567" Y="4709.857" Z="217.5753" />
+          <Vector3 X="7175.406" Y="4663.018" Z="206.9501" />
+          <Vector3 X="7103.661" Y="4650.042" Z="206.831" />
+          <Vector3 X="7093.862" Y="4714.943" Z="225.2001" />
+          <Vector3 X="7112.387" Y="4747.905" Z="228.067" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>243905</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>6</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>+To Winter Veil Quests Area</Name>
+      <QuestId>
+        <int>39651</int>
+        <int>39649</int>
+        <int>39668</int>
+        <int>39648</int>
+      </QuestId>
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class ToWinterVeilQuestsArea : QuestClass
+{
+	public static Vector3 Center = new Vector3(7139.887, 4716.024, 225.5821, "None");
+	public static int FrostfireRidgeAreaID = 6720;
+	public static int FrostfireRidgeMapID = 962;
+	static bool _taxiFixed = false;
+	static int _taxiTry = 20;
+	public ToWinterVeilQuestsArea()
+	{
+		Name = "To Winter Veil Quests Area";
+		QuestId.Add(39651);
+		QuestId.Add(39649);
+		QuestId.Add(39668);
+		QuestId.Add(39648);
+		Step.AddRange(new[] { 0 });
+	}
+	static void Log(string text)
+	{
+		Logging.WriteDebug("[Winter Veil] " + text);
+	}
+	public override bool Pulse()
+	{
+		FixTaxi();
+		if (TryTakeTaxi())
+			return true;
+
+		Traveler.Goto(Center);
+		return true;
+	}
+	bool TryTakeTaxi()
+	{
+		if (Usefuls.AreaId == FrostfireRidgeAreaID || _taxiTry &lt; 0)
+			return false;
+
+		_taxiTry -= 1;
+		Logging.WriteDebug("Try to take taxi to frostfire ridge. Tryes left=" + _taxiTry);
+		Traveler.TryTaxi(Usefuls.ContinentId, FrostfireRidgeMapID, Center);
+		return true;
+	}
+	void FixTaxi()
+	{
+		if (_taxiFixed)
+			return;
+
+		Logging.WriteDebug("Fix taxi nodes");
+		_taxiFixed = true;
+		/*
+		lock (Taxi.TaxiList.Locker)
+		{
+			foreach (var node in Taxi.TaxiList.Nodes)
+			{
+				Taxi.TaxiList.Active(node);
+			}
+		}
+		//*/
+		if (ObjectManager.Me.IsHorde)
+		{
+			AddTaxiNode("Bron Skyhorn", new Vector3(5575.775, 4563.67, 136.2239, "None"), (int)ContinentId.FWHordeGarrisonLevel2);
+		}
+		if (ObjectManager.Me.IsAlliance)
+		{
+			AddTaxiNode("Dungar Longdrink", new Vector3(1864.33, 217.8108, 76.66184, "None"), (int)ContinentId.SMVAllianceGarrisonLevel2);
+		}
+		AddTaxiNode("Brenna Skymoor", new Vector3(7400.537, 4360.385, 126.406, "None"), (int)ContinentId.Draenor);
+	}
+	void AddTaxiNode(string name, Vector3 p, int continent)
+	{
+		lock (Taxi.TaxiList.Locker)
+		{
+			var t = new TaxiNode(1, name, p, continent);
+			if (t.IsValid())
+			{
+				t.Active = true;
+				Taxi.TaxiList.AddOrEditForCurrentPlayer(t);
+			}
+		}
+	}
+	public override bool IsComplete()
+	{
+		var questsComplete = true;
+		foreach (var questID in QuestId)
+		{
+			Questing.ObjectiveComplete(this, 1);
+			if (Quest.HasQuest(questID) &amp;&amp; !Quest.IsObjectiveComplete(1, questID))
+			{
+				questsComplete = false;
+				break;
+			}
+		}
+		if (questsComplete)
+		{
+			Log("all quests objectives completed");
+			return true;
+		}
+		return ObjectManager.Me.Position.DistanceTo2D(Center) &lt; 300;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+}</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return ObjectManager.Me.Position.DistanceTo2D(new Vector3(7139.887, 4716.024, 225.5821, "None")) &lt; 300;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Smokywood Pastures' Thank You!</Name>
+      <QuestId>
+        <int>6984</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Great-father Winter is Here!</Name>
+      <QuestId>
+        <int>6961</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Reason for the Season</Name>
+      <QuestId>
+        <int>6964</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Feast of Winter Veil</Name>
+      <QuestId>
+        <int>7061</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>9</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Treats for Great-father Winter</Name>
+      <QuestId>
+        <int>6962</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>
+// This code is executed with 'Pulse' action, don't forget to return true or false.
+return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>5</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>+Return To Garrison</Name>
+      <QuestId>
+        <int>39651</int>
+        <int>39649</int>
+        <int>39668</int>
+        <int>39648</int>
+      </QuestId>
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		ItemsManager.UseItem(110560);
+		Usefuls.WaitIsCasting();
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return Questing.ItemOnCooldown(110560) || GarrisonHelper.InGarrison;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Gaily Wrapped Present</Name>
+      <QuestId>
+        <int>8768</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Carefully Wrapped Present</Name>
+      <QuestId>
+        <int>8744</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Gently Shaken Gift</Name>
+      <QuestId>
+        <int>39658</int>
+        <int>8788</int>
+        <int>8767</int>
+        <int>43364</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Ticking Present</Name>
+      <QuestId>
+        <int>8769</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Winter Veil Gift</Name>
+      <QuestId>
+        <int>11528</int>
+        <int>28878</int>
+        <int>29385</int>
+        <int>32106</int>
+        <int>33252</int>
+        <int>36617</int>
+        <int>39659</int>
+        <int>43363</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>A Festive Gift</Name>
+      <QuestId>
+        <int>8803</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs
+camelot10\Libs\Traveler.cs
+camelot10\Libs\GarrisonHelper.cs</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

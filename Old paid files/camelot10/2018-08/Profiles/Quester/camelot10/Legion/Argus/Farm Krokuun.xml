@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.SkinMobs = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SkinNinja = true;&#xA; &#xD;&#xA;wManager.wManagerSetting.CurrentSetting.IgnoreFightGoundMount = true;&#xA;" />
+    <QuestsSorted Action="WriteLog" NameClass="Krokuun farm started" />
+    <QuestsSorted Action="RunCode" NameClass="FarmKrokuun.StartFixThread();ArgusHelper.StartMoveFix();" />
+    <QuestsSorted Action="Pulse" NameClass="ToKrokuunOpen" />
+    <QuestsSorted Action="Pulse" NameClass="FarmKrokuun" />
+    <QuestsSorted Action="None" NameClass="FarmKrokuunEredars" />
+    <QuestsSorted Action="RunCode" NameClass="ArgusHelper.StopMoveFix();" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="121519" Name="Капитан Фария" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests />
+      <Position X="1078.097" Y="2268.184" Z="408.4374" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc>
+    <Npc>
+      <Position X="952.094" Y="1661.42" Z="528.9495" Type="Flying" />
+      <Entry>125246</Entry>
+      <Name>Гаал</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Argus_1</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="952.094" Y="1661.42" Z="528.9495" Type="Flying" />
+      <Entry>125246</Entry>
+      <Name>Гаал</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Argus_1</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots>
+    <Blackspot X="1035.56287" Y="1513.77087" Z="534.0005" Radius="22" />
+    <Blackspot X="1058.54517" Y="1524.043" Z="528.4184" Radius="22" />
+    <Blackspot X="1092.65137" Y="1530.6814" Z="524.4692" Radius="22" />
+    <Blackspot X="1313.8147" Y="1732.43347" Z="503.142029" Radius="15" />
+    <Blackspot X="1323.31812" Y="1709.84619" Z="503.264923" Radius="15" />
+    <Blackspot X="1323.96753" Y="1690.219" Z="503.143524" Radius="15" />
+    <Blackspot X="1313.05371" Y="1678.422" Z="503.2908" Radius="15" />
+    <Blackspot X="1292.26721" Y="1676.56616" Z="503.541077" Radius="15" />
+    <Blackspot X="-4217.92432" Y="-11467.3779" Z="8.5375185" Radius="10" />
+    <Blackspot X="1129.59644" Y="2103.53149" Z="413.3882" Radius="25" />
+    <Blackspot X="1081.86279" Y="2089.60278" Z="412.6934" Radius="25" />
+    <Blackspot X="1162.39392" Y="2118.03052" Z="412.883118" Radius="25" />
+    <Blackspot X="1294.85352" Y="1700.992" Z="506.55246" Radius="8" />
+  </Blackspots>
+  <BlackGuids />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>To Krokuun Open</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>		ArgusHelper.ToKrokuunOpen();
+		return true;
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return ArgusHelper.InKrokuunOpen;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Farm Krokuun</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>#if VISUAL_STUDIO
+using robotManager.Helpful;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Class;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using wManager.Wow.Enums;
+#endif
+
+public class FarmKrokuun : QuestClass
+{
+	int minHealthPercentInLava = 90;
+	int minHealthPercentMob = 50;
+	float minHotspotRadius = 20;
+	bool farmChests = true;
+	Vector3 _lastHarvestPosition = Vector3.Zero;
+	Vector3 _destination = Vector3.Zero;
+	List&lt;Vector3&gt; _hotspots = new List&lt;Vector3&gt;()
+	{
+		//E
+		new Vector3(1040.505, 1198.076, 463.7029, "None"),
+		new Vector3(1106.888, 1138.073, 491.2581, "None"),
+		new Vector3(976.7635, 1086.716, 457.9274, "None"),
+		new Vector3(810.8569, 1128.546, 447.2613, "None"),
+		//NE
+		new Vector3(1326.449, 1528.353, 502.8246, "None"),
+		new Vector3(1699.22, 1359.612, 511.0437, "None"),
+		new Vector3(1765.598, 1204.671, 511.2201, "None"),
+		new Vector3(1835.75, 1069.505, 500.0839, "None"),
+		//N
+		new Vector3(1630.55, 1562.536, 434.0638, "None"),
+		new Vector3(1778.82, 1521.03, 395.9202, "None"),
+		new Vector3(2039.961, 1342.263, 404.4632, "None"),
+		new Vector3(2118.649, 1779.993, 334.359, "None"),
+		new Vector3(1785.57, 1652.084, 379.2693, "None"),
+		//NW
+		new Vector3(1838.265, 1945.952, 398.3775, "None"),
+		new Vector3(1655.249, 2012.389, 418.5124, "None"),
+		new Vector3(1428.199, 2119.622, 412.7382, "None"),
+		new Vector3(1251.611, 2187.213, 419.1974, "None"),
+		//W
+		new Vector3(1009.085, 2289.452, 400.3849, "None"),
+		new Vector3(1080.823, 2525.802, 380.4016, "None"),
+		new Vector3(825.5547, 2549.787, 367.6767, "None"),
+		new Vector3(903.3759, 2267.592, 389.485, "None"),
+		//S
+		new Vector3(819.2223, 2114.958, 393.2962, "None"),
+		new Vector3(974.7001, 1990.806, 448.9941, "None"),
+		//
+		new Vector3(1043.182, 1850.865, 482.1931, "None"),
+		new Vector3(1125.179, 1736.186, 506.515, "None"),
+		new Vector3(1264.077, 1769.656, 514.3955, "None"),
+		new Vector3(1244.373, 1639.157, 512.0289, "None"),
+	};
+	List&lt;int&gt; _mobs = new List&lt;int&gt;()
+	{
+		24775,//commander-endaxis
+		122912,//commander-sathrenael
+		125820,//imp-mother-laglath
+		125824,//khazaduum
+		126419,//naroua
+		120393,//siegemaster-voraan
+		123464,//sister-subversia
+		123689,//talestra-the-vile
+		125479,//tar-spitter
+		124804,//tereck-the-selector
+		125388,//vagath-the-betrayed
+	};
+	public FarmKrokuun()
+	{
+		Name = "Farm Krokuun";
+		QuestId.Add(0);
+		Step.AddRange(new[] { 0 });
+		ApplySettings();
+	}
+	static void Log(string text)
+	{
+		Logging.Write("[Farm Krokuun] " + text);
+	}
+	public override bool Pulse()
+	{
+		GoToTask.ToPosition(GetDestination(), minHotspotRadius, false, (c) =&gt; FindMobs() &amp;&amp; ContinueTask() );
+		return true;
+	}
+	Vector3 GetDestination()
+	{
+		var result = false;
+		var path = PathFinder.FindPath(_destination, out result);
+		if (!result || _destination == Vector3.Zero || ObjectManager.Me.Position.DistanceTo(_destination) &lt; minHotspotRadius)
+		{
+			var p = _hotspots[Others.Random(0, _hotspots.Count - 1)];
+			_destination = _hotspots[Others.Random(0, _hotspots.Count - 1)];
+			Log("new destination= " + _destination +" have path=" + result );
+			Thread.Sleep(50);
+		}
+		return _destination;
+	}
+	bool ContinueTask()
+	{
+		var me = ObjectManager.Me;
+		if (me.InCombat)
+		{
+			if (!me.IsMounted)
+			{
+				Log("stop task. droped from mount");
+				return false;
+			}
+			if (me.HaveBuff(251702) &amp;&amp; me.HealthPercent &lt; minHealthPercentInLava)
+			{
+				Log("stop task. in lava. dismount");
+				MountTask.DismountMount();
+				return false;
+			}
+		}
+		return true;
+	}
+	bool FindMobs()
+	{
+		var mob = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(_mobs));
+		if (mob != null &amp;&amp; mob.IsValid &amp;&amp; mob.IsAlive &amp;&amp; mob.IsAttackable &amp;&amp; mob.HealthPercent &lt;= minHealthPercentMob)
+		{
+			Log("found mob =" + mob.Name);
+			Interact.InteractGameObject(mob.GetBaseAddress);
+			Fight.StartFight(mob.Guid);
+			return false;
+		}
+		return TryHarvest();
+	}
+	bool TryHarvest()
+	{
+		var harvest = FindHarvest();
+		if (harvest != null &amp;&amp; harvest.IsValid)
+		{
+			Log("found harvest=" + harvest.Name);
+			_lastHarvestPosition = harvest.Position;
+			GoToTask.ToPositionAndIntecractWithGameObject(harvest.Position, harvest.Entry, -1, true, (c) =&gt; ContinueHarvest() &amp;&amp; ContinueTask());
+			return false;
+		}
+		return true;
+	}
+	bool ContinueHarvest()
+	{
+		var harvest = FindHarvest();
+		if (harvest != null &amp;&amp; harvest.IsValid &amp;&amp; harvest.Position.DistanceTo(_lastHarvestPosition) &gt; 5)
+		{
+			Log("found closer harvest=" + harvest.Name);
+			return false;
+		}
+		return true;
+	}
+	WoWGameObject FindHarvest()
+	{
+		return ObjectManager.GetNearestWoWGameObject(ObjectManager.GetWoWGameObjectByEntry(wManager.wManagerSetting.CurrentSetting.ListHarvest));
+	}
+	void Snippet()
+	{
+		/* IGNORE MOUNT FIGHT */ Var.SetVar("FarmKrokuunIgnorFightGroundMount", true);
+	}
+	void ApplySettings()
+	{
+		wManager.wManagerSetting.ClearBlacklistOfCurrentProductSession();
+		wManager.wManagerSetting.CurrentSetting.SearchRadius = 200;
+		wManager.wManagerSetting.CurrentSetting.MinFreeBagSlotsToGoToTown = 2;
+		wManager.wManagerSetting.CurrentSetting.CanAttackUnitsAlreadyInFight = true;
+		wManager.wManagerSetting.CurrentSetting.AttackElite = true;
+		wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 0f;
+		wManager.wManagerSetting.CurrentSetting.SkipInOutDoors = false;
+		wManager.wManagerSetting.CurrentSetting.MaxUnitsNear = 9999;
+		wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = false;
+		wManager.wManagerSetting.CurrentSetting.BlackListZoneWhereDead = true;
+
+		if (farmChests) 
+		{
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(271850);// eredar-war-supplies
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272771);// eredar-war-supplies
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272455);// eredar-war-supplies
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272456);// eredar-war-supplies
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272770);// eredar-war-supplies
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(273222);// eredar-war-supplies
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(271849);// eredar-war-supplies
+		}
+
+		wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272778);// rich-empyrium-deposit
+
+		int mining = wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Mining);
+		if (mining &gt; 0)
+		{
+			wManager.wManagerSetting.CurrentSetting.HarvestMinerals = true;
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272778);// rich-empyrium-deposit
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272768);// empyrium-deposit
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272780);// empyrium-seam
+			Log("added mining nodes to harvest list");
+		}
+		int herbalism = wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Herbalism);
+		if (herbalism &gt; 0)
+		{
+			wManager.wManagerSetting.CurrentSetting.HarvestHerbs = true;
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(272782);// astral-glory
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(273052);// fel-encrusted-herb
+			wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(273053);// fel-encrusted-herb-cluster
+			Log("added herbalism nodes to harvest list");
+		}
+		Log("settings changed. Harvest list=" + string.Join(",", wManager.wManagerSetting.CurrentSetting.ListHarvest.ToArray()));
+	}
+	public override bool IsComplete()
+	{
+		return false;// Bag.GetContainerNumFreeSlots &lt; 2;
+	}
+	public override bool HasQuest()
+	{
+		return true;
+	}
+	public override bool IsCompleted()
+	{
+		return false;
+	}
+	public static void StartFixThread()
+	{
+		Thread t = new Thread(() =&gt;
+		{
+			while (robotManager.Products.Products.IsStarted)
+			{
+				if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)
+				{
+					var me = ObjectManager.Me;
+					var buttonName = "StaticPopup1Button1";
+					if (me.IsDead &amp;&amp; Lua.LuaDoString&lt;bool&gt;("return " + buttonName + " and " + buttonName + ":IsVisible()"))
+					{
+						Lua.LuaDoString(buttonName + ":Click();");
+					}
+				}
+				Thread.Sleep(10000);
+			} 
+		});
+		t.Start();
+		Log("fix thread started");
+	}
+}
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Farm Krokuun Eredars</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="866.4358" Y="1601.523" Z="580.6069" />
+          <Vector3 X="835.2391" Y="1656.533" Z="580.8537" />
+          <Vector3 X="804.1371" Y="1534.283" Z="586.3394" />
+          <Vector3 X="771.9879" Y="1538.924" Z="590.2795" />
+          <Vector3 X="811.1563" Y="1560.229" Z="582.1976" />
+          <Vector3 X="750.2477" Y="1597.879" Z="588.7542" />
+        </HotSpots>
+        <EntryTarget>
+          <int>119597</int>
+          <int>119533</int>
+          <int>123422</int>
+          <int>123421</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <ObjectiveCount6>0</ObjectiveCount6>
+      <ObjectiveCount7>0</ObjectiveCount7>
+      <ObjectiveCount8>0</ObjectiveCount8>
+      <ObjectiveCount9>0</ObjectiveCount9>
+      <ObjectiveCount10>0</ObjectiveCount10>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <AutoDetectObjectiveCount6>false</AutoDetectObjectiveCount6>
+      <AutoDetectObjectiveCount7>false</AutoDetectObjectiveCount7>
+      <AutoDetectObjectiveCount8>false</AutoDetectObjectiveCount8>
+      <AutoDetectObjectiveCount9>false</AutoDetectObjectiveCount9>
+      <AutoDetectObjectiveCount10>false</AutoDetectObjectiveCount10>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountByIdLUA(140764) &gt; 0;</IsCompleteCondition>
+      <RepeatableQuest>true</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>110</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>camelot10\Libs\Questing.cs
+camelot10\Libs\LegionQuests.cs
+camelot10\Libs\ArgusHelper.cs</Script>
+  <OffMeshConnections>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4267.456" Y="-11341.04" Z="5.319087" />
+        <Vector3 X="-4285.355" Y="-11342.55" Z="10.42454" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>to Ship (H)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4285.355" Y="-11342.55" Z="10.42454" />
+        <Vector3 X="-4267.336" Y="-11340.99" Z="5.331721" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>from Ship (H)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4252.55" Y="-11448.28" Z="10.88169" />
+        <Vector3 X="-4256.658" Y="-11418.55" Z="7.885092" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>to Pier</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4256.658" Y="-11418.55" Z="7.885092" />
+        <Vector3 X="-4250.162" Y="-11445.91" Z="11.08386" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>from Pier</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4260.979" Y="-11350.67" Z="4.707508" />
+        <Vector3 X="-4240.958" Y="-11347.68" Z="9.047905" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>to Ship (A)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4240.958" Y="-11347.68" Z="9.047905" />
+        <Vector3 X="-4259.567" Y="-11350.56" Z="4.705549" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>from Ship (A)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4253.106" Y="-11447.37" Z="10.81602" />
+        <Vector3 X="-4265.855" Y="-11340.21" Z="5.391361" />
+        <Vector3 X="-4288.499" Y="-11343" Z="10.39594" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>to Ship (H)(full)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4286.918" Y="-11342.6" Z="10.40936" />
+        <Vector3 X="-4264.141" Y="-11341.57" Z="5.272235" />
+        <Vector3 X="-4251.717" Y="-11445.1" Z="10.84747" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>from Ship (H)(full)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4251.717" Y="-11445.1" Z="10.84747" />
+        <Vector3 X="-4261.166" Y="-11350.15" Z="4.734293" />
+        <Vector3 X="-4241.468" Y="-11347.9" Z="9.040648" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>to Ship (A)(full)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="-4241.468" Y="-11347.9" Z="9.040648" />
+        <Vector3 X="-4261.333" Y="-11350.37" Z="4.724989" />
+        <Vector3 X="-4252.95" Y="-11447.01" Z="10.80307" />
+      </Path>
+      <ContinentId>1750</ContinentId>
+      <Name>from Ship (A)(full)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="988.1125" Y="1545.58" Z="545.5463" />
+        <Vector3 X="963.322" Y="1568.797" Z="547.0801" />
+        <Vector3 X="962.1907" Y="1603.304" Z="540.1338" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Middle (to SW)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="962.1907" Y="1603.304" Z="540.1338" />
+        <Vector3 X="963.8596" Y="1570.824" Z="547.0267" />
+        <Vector3 X="989.9473" Y="1546.058" Z="545.4823" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Middle (to NE)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="985.1197" Y="1546.409" Z="545.7351" />
+        <Vector3 X="964.4887" Y="1563.418" Z="547.1583" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Middle (to SW) 2</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="964.4887" Y="1563.418" Z="547.1583" />
+        <Vector3 X="991.5609" Y="1546.504" Z="545.4267" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Middle (to NE) 2</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="967.1478" Y="1622.448" Z="534.0521" />
+        <Vector3 X="960.6898" Y="1584.094" Z="545.9745" />
+        <Vector3 X="967.9117" Y="1560.495" Z="546.7812" />
+        <Vector3 X="990.0755" Y="1547.607" Z="545.5676" />
+        <Vector3 X="1031.893" Y="1554.189" Z="540.463" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Middle (to NE) 3</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1031.893" Y="1554.189" Z="540.463" />
+        <Vector3 X="984.4178" Y="1550.146" Z="546.0178" />
+        <Vector3 X="962.5193" Y="1574.618" Z="546.9941" />
+        <Vector3 X="965.3295" Y="1605.997" Z="538.7764" />
+        <Vector3 X="968.7684" Y="1626.92" Z="532.8574" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Middle (to SW) 3</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="379.5735" Y="1412.543" Z="769.5481" />
+        <Vector3 X="385.5132" Y="1414.664" Z="769.5757" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Vendikar (Krokuun)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="971.4363" Y="1707.245" Z="524.0409" />
+        <Vector3 X="949.2358" Y="1720.327" Z="530.0112" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokul Hovel (into Cave)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="949.2358" Y="1720.327" Z="530.0112" />
+        <Vector3 X="969.8884" Y="1708.23" Z="524.5673" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokul Hovel (from Cave)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="989.4476" Y="2028.2" Z="444.6021" />
+        <Vector3 X="1002.791" Y="2053.942" Z="441.4307" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Bridge (from E)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1002.791" Y="2053.942" Z="441.4307" />
+        <Vector3 X="988.8605" Y="2027.706" Z="444.6525" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Bridge (to E)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="988.8605" Y="2027.706" Z="444.6525" />
+        <Vector3 X="1043.128" Y="2137.926" Z="432.7917" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Bridge (E to W)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1043.128" Y="2137.926" Z="432.7917" />
+        <Vector3 X="1027.937" Y="2117.406" Z="434.2014" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Bridge (from W)</Name>
+    </OffMeshConnection>
+    <OffMeshConnection>
+      <Path>
+        <Vector3 X="1040.92" Y="2143.177" Z="432.6431" />
+        <Vector3 X="988.7507" Y="2029.623" Z="444.4375" />
+      </Path>
+      <ContinentId>1669</ContinentId>
+      <Name>Krokuun Bridge (W to E)</Name>
+    </OffMeshConnection>
+  </OffMeshConnections>
+</EasyQuestProfile>
