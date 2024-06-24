@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="string version = &quot;1.1&quot;;&#xD;&#xA;Logging.Write(&quot;[1-60 REMAKE _ Andoido]: Running version &quot; + version);" />
+    <QuestsSorted Action="RunLuaCode" NameClass=" if not MyFrame then&#xD;&#xA;  MyFrameText = &quot;Updating...&quot;&#xD;&#xA;  MyFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  MyFrame:ClearAllPoints()&#xD;&#xA;  MyFrame:SetBackdrop(StaticPopup1:GetBackdrop())&#xD;&#xA;  MyFrame:SetHeight(80)&#xD;&#xA;  MyFrame:SetWidth(310)&#xD;&#xA;&#xD;&#xA;  MyFrame.text = MyFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontGreen&quot;)&#xD;&#xA;  MyFrame.text:SetFontObject(&quot;GameFontNormal&quot;)&#xD;&#xA;  MyFrame.text:SetAllPoints()&#xD;&#xA;  MyFrame.text:SetText(MyFrameText)&#xD;&#xA;  MyFrame:SetPoint(&quot;CENTER&quot;, 0, -150)&#xD;&#xA;  MyFrame.text:SetTextColor(0, 1, 0, 1)&#xD;&#xA;  MyFrame:SetBackdropBorderColor(0, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  CreateFrame(&quot;Frame&quot;,&quot;Test&quot;,UIParent)&#xD;&#xA;  Test:SetWidth(55)&#xD;&#xA;  Test:SetHeight(55)&#xD;&#xA;  Test:SetPoint(&quot;TOPLEFT&quot;, MyFrame, -20, 25)&#xD;&#xA;  Test:CreateTexture(&quot;TestTexture&quot;)&#xD;&#xA;  TestTexture:SetAllPoints()&#xD;&#xA;  TestTexture:SetTexture(&quot;Interface\\Icons\\Inv_bannerpvp_01&quot;)&#xD;&#xA;&#xD;&#xA;  RateFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  RateFrame:ClearAllPoints()&#xD;&#xA;  RateFrame:SetBackdrop(nil)&#xD;&#xA;  RateFrame:SetHeight(60)&#xD;&#xA;  RateFrame:SetWidth(200)&#xD;&#xA;  RateFrame.text = RateFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  RateFrame.text:SetAllPoints()&#xD;&#xA;  RateFrame.text:SetText(&quot;https://rocketr.net/sellers/Tarud for new products&quot;)&#xD;&#xA;  RateFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, -50)&#xD;&#xA;  RateFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  ByFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  ByFrame:ClearAllPoints()&#xD;&#xA;  ByFrame:SetBackdrop(nil)&#xD;&#xA;  ByFrame:SetHeight(60)&#xD;&#xA;  ByFrame:SetWidth(140)&#xD;&#xA;  ByFrame.text = ByFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  ByFrame.text:SetAllPoints()&#xD;&#xA;  ByFrame.text:SetText(&quot;1-60 Horde Remake - Andoido&quot;)&#xD;&#xA;  ByFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, 47)&#xD;&#xA;  ByFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  MyFrame:SetMovable(true)&#xD;&#xA;  MyFrame:EnableMouse(true)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  Test:SetMovable(true)&#xD;&#xA;  Test:EnableMouse(true)&#xD;&#xA;  Test:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  Test:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  RateFrame:SetMovable(true)&#xD;&#xA;  RateFrame:EnableMouse(true)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  ByFrame:SetMovable(true)&#xD;&#xA;  ByFrame:EnableMouse(true)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  MyFrame.Close = CreateFrame(&quot;BUTTON&quot;, nil, MyFrame, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;  MyFrame.Close:SetWidth(20)&#xD;&#xA;  MyFrame.Close:SetHeight(20)&#xD;&#xA;  MyFrame.Close:SetPoint(&quot;TOPRIGHT&quot;, MyFrame, 3, 3)&#xD;&#xA;  MyFrame.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;   MyFrame:Hide()&#xD;&#xA;   Test:Hide()&#xD;&#xA;   RateFrame:Hide()&#xD;&#xA;   ByFrame:Hide()&#xD;&#xA;   DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF8AFF40MyFrame is now CLOSED|r |cFFFC7DFFType /MyFrame|r |cFF8AFF40In Game to OPEN it again!|r&quot;)     &#xD;&#xA;  end)&#xD;&#xA;  &#xD;&#xA;  SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/MyFrame&quot;&#xD;&#xA;  SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;   if MyFrame:IsShown() then&#xD;&#xA;    MyFrame:Hide()&#xD;&#xA;    Test:Hide()&#xD;&#xA;    RateFrame:Hide()&#xD;&#xA;    ByFrame:Hide()&#xD;&#xA;   else&#xD;&#xA;    MyFrame:Show()&#xD;&#xA;    Test:Show()&#xD;&#xA;    RateFrame:Show()&#xD;&#xA;    ByFrame:Show()&#xD;&#xA;   end&#xD;&#xA;  end&#xD;&#xA; end" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF0DB3FF Thanks for purchasing Andoido's 1-60 Horde REMAKE! - We are now determining what profile to load based on level - Be patient! ----- Checkout my other work! https://rocketr.net/sellers/Tarud |r&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Bot will now check your level'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="ProfileRestarter.StartProfileRestarter();" />
+    <QuestsSorted Action="RunCode" NameClass="if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Skinning Knife&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Skinning Knife&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Accurate Slugs&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Accurate Slugs&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Adept's Elixir&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Adept's Elixir&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Alterac Swiss&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Alterac Swiss&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Arakkoa Feather&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Arakkoa Feather&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Arcane Tome&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Arcane Tome&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Arctic Fur&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Arctic Fur&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bear Flank&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bear Flank&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Black Pearl&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Black Pearl&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Blessed Wizard Oil&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Blessed Wizard Oil&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Blinding Powder&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Blinding Powder&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bloodberry Elixir&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bloodberry Elixir&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Borean Leather Scraps&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Borean Leather Scraps&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bristle Whisker Catfish&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bristle Whisker Catfish&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Crude Throwing Axe&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Crude Throwing Axe&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Dalaran Sharp&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Dalaran Sharp&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Darnassian Bleu&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Darnassian Bleu&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Deadly Poison&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Deadly Poiso&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Deep Fried Plantains&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Deep Fried Plantains&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Delicious Cave Mold&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Delicious Cave Mold&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Dried King Bolete&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Dried King Bolete&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Dwarven Mild&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Dwarven Mild&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Fine Aged Cheddar&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Fine Aged Cheddar&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Flash Powder&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Flash Powder&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Forest Mushroom Cap&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Forest Mushroom Cap&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Freshly Baked Bread&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Freshly Baked Bread&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Garadar Sharp&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Garadar Sharp&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Giant Egg&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Giant Egg&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Gold Pearl&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Gold Pearl&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Golden Pearl&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Golden Pearl&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Goldenbark Apple&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Goldenbark Apple&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Greater Healing Potion&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Greater Healing Potion&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Haunch of Meat&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Haunch of Meat&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Healing Potion&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Healing Potion&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Linen Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Heavy Linen Bandage&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Mageweave Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Heavy Mageweave Bandage&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Runecloth Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Heavy Runecloth Bandage&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Shot&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Heavy Shot&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Silk Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Heavy Silk Bandage&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Wool Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Heavy Wool Bandage&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Homemade Cherry Pie&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Homemade Cherry Pie&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison I&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison I&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison II&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison II&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison III&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison III&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison IV&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison IV&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison V&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison V&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison VI&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison VI&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison VII&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison VII&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison VIII&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison VIII&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison X&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison X&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Instant Poison IX&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Instant Poison IX&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Larval Acid&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Larval Acid&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Lesser Healing Potion&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Lesser Healing Potion&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Linen Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Linen Bandage&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Longjaw Mud Snapper&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Longjaw Mud Snapper&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Major Healing Potion&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Major Healing Potion&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Minor Healing Potion&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Minor Healing Potion&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Minor Wizard Oil&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Minor Wizard Oil&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Moist Cornbread&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Moist Cornbread&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Moon Harvest Pumpkin&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Moon Harvest Pumpkin&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Mulgore Spice Bread&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Mulgore Spice Bread&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Mutton Chop&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Mutton Chop&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Raw Black Truffle&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Raw Black Truffle&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Red-speckled Mushroom&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Red-speckled Mushroom&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Roasted Quail&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Roasted Quail&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Rockscale Cod&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Rockscale Cod&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Rune of Portals&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Rune of Portals&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Rune of Teleportation&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Rune of Teleportation&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Runecloth&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Runecloth&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Runecloth Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Shiny Red Apple&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Shiny Red Apple&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Silk Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Silk Bandage&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Slitherskin Mackeral&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Slitherskin Mackeral&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Soft Banana Bread&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Soft Banana Bread&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Spongy Morel&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Spongy Morel&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Spotted Yellowtail&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Spotted Yellowtail&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Superior Healing Potion&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Superior Healing Potion&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Tel'Abim Banana&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Tel'Abim Banana&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Thick Leather&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Thick Leather&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Tough Hunk of Bread&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Tough Hunk of Bread&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Tough Jerky&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Tough Jerky&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Traveler's Backpack&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Traveler's Backpack&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Warbear Leather&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Warbear Leather&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Wizard Oil&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Wizard Oil&quot;);&#xD;&#xA;                    }&#xD;&#xA;if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Wool Bandage&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Wool Bandage&quot;);&#xD;&#xA;                    }" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///----------------------------1 - 13  CHECK-------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt; 13)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - 1-13 (All Starting Areas).xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 10 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 10 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF8CFF4F[Andoido_Quester]|r |cFFA2B9E9Now checking level 10 Class Quests. If Successful the bot will then load the appropriate file, complete your class quest and then load right back into the PROFILE_LOADER.xml Thanks for your support!|r&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Class Quest Checkers 1-13 Quests'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="((!ItemsManager.HasItemById(5175)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Troll || ObjectManager.Me.PlayerRace == PlayerFactions.Orc) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 4 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 4 Orc/Troll Earth Totem'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\4 (level) - Horde - SHAMAN (ORC + TROLL) - Earth Totem Class Quest - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!ItemsManager.HasItemById(5175)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren)&#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 4 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 4 Tauren Earth Totem Profile'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\4 (level) - Horde - SHAMAN (TAUREN) - Earth Totem Class Quest - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(5487)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Druid) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 10 Druid Bear Form Class Quest'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - DRUID (Tauren) - Bear Form Class Quest - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(&quot;Revive Pet&quot;) || !wManager.Wow.Helpers.SpellManager.KnowSpell(982)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Hunter) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 10 Tauren Hunter Tame Beast'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - HUNTER (Tauren) - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(!wManager.Wow.Helpers.SpellManager.KnowSpell(&quot;Revive Pet&quot;) || !wManager.Wow.Helpers.SpellManager.KnowSpell(982)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Hunter) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 10 Orc/Troll Hunter TameBeast'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - HUNTER (ORC + TROLL) - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(9035)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Priest) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Troll)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 10 Priest Class Q'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - PRIEST (TROLL) - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(5176)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 10 Shaman Fire Totem'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - SHAMAN (ORC + TROLL) - Fire Totem Class Quest- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(5176))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 10 Tauren Fire Totem'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - SHAMAN (Tauren) - Fire Totem Class Quest- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(697)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warlock) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;=10 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 10 Warlock Voidwalker'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - WARLOCK (ORC) - Voidwalker Class Quest - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.WowClass == WoWClass.Warrior) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(&quot;Defensive Stance&quot;) || !wManager.Wow.Helpers.SpellManager.KnowSpell(71)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - Warrior Def Stance'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - WARRIOR (Orc + Troll)- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.WowClass == WoWClass.Warrior) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(&quot;Defensive Stance&quot;) || !wManager.Wow.Helpers.SpellManager.KnowSpell(71)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = ''&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\10 (level) - Horde - WARRIOR (Tauren) - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF8CFF4F[ANDOIDO_CLASS_QUEST_CHECKER]]|r |cFFA2B9E9[CLASS_QUEST_CHECKER] Has finished checking all classes and will now proceed with the 13-31 Quester Profile.|r&quot;)" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - LEVEL 10 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - LEVEL 10 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 16 DRUID AQUATIC FORM CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 16 DRUID AQUATIC FORM CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(1066)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 16 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Druid) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profiles - 16 Druid Aquatic Form'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\16 (level) - Horde - DRUID (Tauren) - Aquatic Form - Class Quest- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - DRUID AQUATIC FORM CHECK -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - DRUID AQUATIC FORM CHECK -- \\\\\" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 20 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 20 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &gt;= 20 &amp;&amp; ObjectManager.Me.Level &lt;= 60)" />
+    <QuestsSorted Action="If" NameClass="((!ItemsManager.HasItemById(5177))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 20 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 20 Shaman Water Totem'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\20 (level) - Horde - SHAMAN (ALL RACES) - WATER Totem Class Quest- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(712)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warlock) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 20 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 20 Warlock Succubus'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\20 (level) - Horde - WARLOCK (ALL RACES) - Succubus Pet Class Quest- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - LEVEL 10 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - LEVEL 10 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="RunLuaCode" NameClass="---------------------------------------------------------------" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 30 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- LEVEL 30 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60)" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(2842)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Rogue) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 30 Rogue Poisons Quest'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\30 (level) - Horde - ROGUE Poisons Quest (REMAKE) - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!ItemsManager.HasItemById(5178))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 30 Shaman Air Totem'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="30 (level) - Horde - SHAMAN (ALL RACES) - AIR Totem Class Quest- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(691)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warlock) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 30 Warlock Felhunter'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\30 (level) - Horde - WARLOCK (ALL RACES) - FELHUNTER Pet Class Quest- Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(2458)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warrior) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Load Profile - 30 Warrior Berserker Stance'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\30 (level) - Horde - WARRIOR - (ALL RACES) - BERSERKER STANCE - Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - LEVEL 30 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="WriteLog" NameClass="///// -- END - LEVEL 30 CLASS QUEST CHECKER -- \\\\\" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///----------------------------13 - 31 CHECK-------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &gt;= 13 &amp;&amp; ObjectManager.Me.Level &lt; 31)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - 13-31.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///-----------------------------31 - 44 CHECK------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &gt;= 31 &amp;&amp; ObjectManager.Me.Level &lt; 45)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - 31-44.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///--------------------------WARLOCK - MOUNT CHECK ---------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warlock) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(5784)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\wMount 45+ WARLOCK (ORG KALIMDOR) - By Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///--------------------------ORC - MOUNT CHECK ---------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(1132)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(5665)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(5668)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.GetMoneyCopper &gt;= 1100000) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Orc) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass != WoWClass.Warlock)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\wMount 45+ ORC - By Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///--------------------------TROLL - MOUNT CHECK ---------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(8592)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(8591)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(8588)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.GetMoneyCopper &gt;= 1100000) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Troll)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\wMount 45+ TROLL - By Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///--------------------------TAUREN - MOUNT CHECK ---------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(15290)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(15277)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.GetMoneyCopper &gt;= 1100000) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\wMount 45+ TAUREN - By Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///--------------------------UNDEAD - MOUNT CHECK ---------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(13331)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(13332)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(13333)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.GetMoneyCopper &gt;= 1100000) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Undead) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass != WoWClass.Warlock)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\wMount 45+ UNDEAD Mount - By Andoido.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///----------------------------44 - 53 CHECK-------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &gt;= 44 &amp;&amp; ObjectManager.Me.Level &lt; 55)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - 44-53.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="///----------------------------53 - 60 CHECK-------------------------------\\\" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &gt;= 53 &amp;&amp; ObjectManager.Me.Level &lt; 60)" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - 53-60.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests />
+  <Script>using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using wManager.Events;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.ComponentModel;
+using System.Configuration;
+using System.Net;
+using System.Windows.Forms;
+using robotManager.Products;
+using System.Threading.Tasks;
+
+using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using wManager.Events;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.ComponentModel;
+using System.Configuration;
+using System.Net;
+using robotManager.Products;
+using System.Threading.Tasks;
+
+public class Steps
+{
+    static Steps()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Mage)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Mage)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(16) &amp;&amp; !p.SkipSteps.Contains(17) &amp;&amp; !p.SkipSteps.Contains(18) &amp;&amp; !p.SkipSteps.Contains(19) &amp;&amp; !p.SkipSteps.Contains(20) &amp;&amp; !p.SkipSteps.Contains(21) 
+                        &amp;&amp; !p.SkipSteps.Contains(22) &amp;&amp; !p.SkipSteps.Contains(23) &amp;&amp; !p.SkipSteps.Contains(24) &amp;&amp; !p.SkipSteps.Contains(25) &amp;&amp; !p.SkipSteps.Contains(26) &amp;&amp; !p.SkipSteps.Contains(27) 
+                        &amp;&amp; !p.SkipSteps.Contains(28) &amp;&amp; !p.SkipSteps.Contains(29) &amp;&amp; !p.SkipSteps.Contains(30) &amp;&amp; !p.SkipSteps.Contains(31) &amp;&amp; !p.SkipSteps.Contains(32) &amp;&amp; !p.SkipSteps.Contains(33)
+                        &amp;&amp; !p.SkipSteps.Contains(34) &amp;&amp; !p.SkipSteps.Contains(35) &amp;&amp; !p.SkipSteps.Contains(36) &amp;&amp; !p.SkipSteps.Contains(37) &amp;&amp; !p.SkipSteps.Contains(38) &amp;&amp; !p.SkipSteps.Contains(39)
+                        &amp;&amp; !p.SkipSteps.Contains(40) &amp;&amp; !p.SkipSteps.Contains(41) &amp;&amp; !p.SkipSteps.Contains(42) &amp;&amp; !p.SkipSteps.Contains(43) &amp;&amp; !p.SkipSteps.Contains(44) &amp;&amp; !p.SkipSteps.Contains(45)
+                        &amp;&amp; !p.SkipSteps.Contains(46) &amp;&amp; !p.SkipSteps.Contains(47) &amp;&amp; !p.SkipSteps.Contains(48) &amp;&amp; !p.SkipSteps.Contains(49) &amp;&amp; !p.SkipSteps.Contains(50) &amp;&amp; !p.SkipSteps.Contains(51)
+                        &amp;&amp; !p.SkipSteps.Contains(52) &amp;&amp; !p.SkipSteps.Contains(53) &amp;&amp; !p.SkipSteps.Contains(54) &amp;&amp; !p.SkipSteps.Contains(55) &amp;&amp; !p.SkipSteps.Contains(56) &amp;&amp; !p.SkipSteps.Contains(57)
+                        &amp;&amp; !p.SkipSteps.Contains(58) &amp;&amp; !p.SkipSteps.Contains(59) &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(65) &amp;&amp; !p.SkipSteps.Contains(66) &amp;&amp; !p.SkipSteps.Contains(67) &amp;&amp; !p.SkipSteps.Contains(68) &amp;&amp; !p.SkipSteps.Contains(69)
+                        &amp;&amp; !p.SkipSteps.Contains(70) &amp;&amp; !p.SkipSteps.Contains(71) &amp;&amp; !p.SkipSteps.Contains(72) &amp;&amp; !p.SkipSteps.Contains(73) &amp;&amp; !p.SkipSteps.Contains(74) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(78) &amp;&amp; !p.SkipSteps.Contains(79) &amp;&amp; !p.SkipSteps.Contains(80) &amp;&amp; !p.SkipSteps.Contains(81)
+                        &amp;&amp; !p.SkipSteps.Contains(82) &amp;&amp; !p.SkipSteps.Contains(83) &amp;&amp; !p.SkipSteps.Contains(84) &amp;&amp; !p.SkipSteps.Contains(85) &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(94) &amp;&amp; !p.SkipSteps.Contains(95) &amp;&amp; !p.SkipSteps.Contains(96) &amp;&amp; !p.SkipSteps.Contains(97) &amp;&amp; !p.SkipSteps.Contains(98) &amp;&amp; !p.SkipSteps.Contains(99)
+                        &amp;&amp; !p.SkipSteps.Contains(100) &amp;&amp; !p.SkipSteps.Contains(101) &amp;&amp; !p.SkipSteps.Contains(102) &amp;&amp; !p.SkipSteps.Contains(103) &amp;&amp; !p.SkipSteps.Contains(104) &amp;&amp; !p.SkipSteps.Contains(105)
+                        &amp;&amp; !p.SkipSteps.Contains(106) &amp;&amp; !p.SkipSteps.Contains(107) &amp;&amp; !p.SkipSteps.Contains(108) &amp;&amp; !p.SkipSteps.Contains(109) &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(16); p.SkipSteps.Add(17); p.SkipSteps.Add(18); p.SkipSteps.Add(19); p.SkipSteps.Add(20); p.SkipSteps.Add(21); p.SkipSteps.Add(22); p.SkipSteps.Add(23);
+                        p.SkipSteps.Add(24); p.SkipSteps.Add(25); p.SkipSteps.Add(26); p.SkipSteps.Add(27); p.SkipSteps.Add(28); p.SkipSteps.Add(29); p.SkipSteps.Add(30); p.SkipSteps.Add(31);
+                        p.SkipSteps.Add(32); p.SkipSteps.Add(33); p.SkipSteps.Add(34); p.SkipSteps.Add(35); p.SkipSteps.Add(36); p.SkipSteps.Add(37); p.SkipSteps.Add(38); p.SkipSteps.Add(39);
+                        p.SkipSteps.Add(40); p.SkipSteps.Add(41); p.SkipSteps.Add(42); p.SkipSteps.Add(43); p.SkipSteps.Add(44); p.SkipSteps.Add(45); p.SkipSteps.Add(46); p.SkipSteps.Add(47);
+                        p.SkipSteps.Add(48); p.SkipSteps.Add(49); p.SkipSteps.Add(50); p.SkipSteps.Add(51); p.SkipSteps.Add(52); p.SkipSteps.Add(53); p.SkipSteps.Add(54); p.SkipSteps.Add(55);
+                        p.SkipSteps.Add(56); p.SkipSteps.Add(57); p.SkipSteps.Add(58); p.SkipSteps.Add(59); p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(65); p.SkipSteps.Add(66); p.SkipSteps.Add(67); p.SkipSteps.Add(68); p.SkipSteps.Add(69); p.SkipSteps.Add(70); p.SkipSteps.Add(71);
+                        p.SkipSteps.Add(72); p.SkipSteps.Add(73); p.SkipSteps.Add(74); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(78); p.SkipSteps.Add(79);
+                        p.SkipSteps.Add(80); p.SkipSteps.Add(81); p.SkipSteps.Add(82); p.SkipSteps.Add(83); p.SkipSteps.Add(84); p.SkipSteps.Add(85); p.SkipSteps.Add(86); p.SkipSteps.Add(87);
+                        p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91); p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(95);
+                        p.SkipSteps.Add(96); p.SkipSteps.Add(97); p.SkipSteps.Add(98); p.SkipSteps.Add(99); p.SkipSteps.Add(100); p.SkipSteps.Add(101); p.SkipSteps.Add(102); p.SkipSteps.Add(103);
+                        p.SkipSteps.Add(104); p.SkipSteps.Add(105); p.SkipSteps.Add(106); p.SkipSteps.Add(107); p.SkipSteps.Add(108); p.SkipSteps.Add(109); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("MAGE - Skipping all class quest in Profile Loader");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+
+
+public class SkipWarrior
+{
+    static SkipWarrior()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Warrior)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Warrior)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(16) &amp;&amp; !p.SkipSteps.Contains(17) &amp;&amp; !p.SkipSteps.Contains(18) &amp;&amp; !p.SkipSteps.Contains(19) &amp;&amp; !p.SkipSteps.Contains(20) &amp;&amp; !p.SkipSteps.Contains(21)
+                        &amp;&amp; !p.SkipSteps.Contains(22) &amp;&amp; !p.SkipSteps.Contains(23) &amp;&amp; !p.SkipSteps.Contains(24) &amp;&amp; !p.SkipSteps.Contains(25) &amp;&amp; !p.SkipSteps.Contains(26) &amp;&amp; !p.SkipSteps.Contains(27)
+                        &amp;&amp; !p.SkipSteps.Contains(28) &amp;&amp; !p.SkipSteps.Contains(29) &amp;&amp; !p.SkipSteps.Contains(30) &amp;&amp; !p.SkipSteps.Contains(31) &amp;&amp; !p.SkipSteps.Contains(32) &amp;&amp; !p.SkipSteps.Contains(33)
+                        &amp;&amp; !p.SkipSteps.Contains(34) &amp;&amp; !p.SkipSteps.Contains(35) &amp;&amp; !p.SkipSteps.Contains(36) &amp;&amp; !p.SkipSteps.Contains(37) &amp;&amp; !p.SkipSteps.Contains(38) &amp;&amp; !p.SkipSteps.Contains(39)
+                        &amp;&amp; !p.SkipSteps.Contains(40) &amp;&amp; !p.SkipSteps.Contains(41) &amp;&amp; !p.SkipSteps.Contains(42) &amp;&amp; !p.SkipSteps.Contains(43) &amp;&amp; !p.SkipSteps.Contains(44) &amp;&amp; !p.SkipSteps.Contains(45)
+                        &amp;&amp; !p.SkipSteps.Contains(46) &amp;&amp; !p.SkipSteps.Contains(47) &amp;&amp; !p.SkipSteps.Contains(48) &amp;&amp; !p.SkipSteps.Contains(49) &amp;&amp; !p.SkipSteps.Contains(50) &amp;&amp; !p.SkipSteps.Contains(51)
+                        &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(65) &amp;&amp; !p.SkipSteps.Contains(66) &amp;&amp; !p.SkipSteps.Contains(67) &amp;&amp; !p.SkipSteps.Contains(68) &amp;&amp; !p.SkipSteps.Contains(69)
+                        &amp;&amp; !p.SkipSteps.Contains(70) &amp;&amp; !p.SkipSteps.Contains(71) &amp;&amp; !p.SkipSteps.Contains(72) &amp;&amp; !p.SkipSteps.Contains(73) &amp;&amp; !p.SkipSteps.Contains(74) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(78) &amp;&amp; !p.SkipSteps.Contains(79) &amp;&amp; !p.SkipSteps.Contains(80) &amp;&amp; !p.SkipSteps.Contains(81)
+                        &amp;&amp; !p.SkipSteps.Contains(82) &amp;&amp; !p.SkipSteps.Contains(83) &amp;&amp; !p.SkipSteps.Contains(84) &amp;&amp; !p.SkipSteps.Contains(85) &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(94) &amp;&amp; !p.SkipSteps.Contains(95) &amp;&amp; !p.SkipSteps.Contains(96) &amp;&amp; !p.SkipSteps.Contains(97) &amp;&amp; !p.SkipSteps.Contains(98) &amp;&amp; !p.SkipSteps.Contains(99)
+                        &amp;&amp; !p.SkipSteps.Contains(100) &amp;&amp; !p.SkipSteps.Contains(101) &amp;&amp; !p.SkipSteps.Contains(102) &amp;&amp; !p.SkipSteps.Contains(103) &amp;&amp; !p.SkipSteps.Contains(104) &amp;&amp; !p.SkipSteps.Contains(105)
+                        &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(16); p.SkipSteps.Add(17); p.SkipSteps.Add(18); p.SkipSteps.Add(19); p.SkipSteps.Add(20); p.SkipSteps.Add(21); p.SkipSteps.Add(22); p.SkipSteps.Add(23);
+                        p.SkipSteps.Add(24); p.SkipSteps.Add(25); p.SkipSteps.Add(26); p.SkipSteps.Add(27); p.SkipSteps.Add(28); p.SkipSteps.Add(29); p.SkipSteps.Add(30); p.SkipSteps.Add(31);
+                        p.SkipSteps.Add(32); p.SkipSteps.Add(33); p.SkipSteps.Add(34); p.SkipSteps.Add(35); p.SkipSteps.Add(36); p.SkipSteps.Add(37); p.SkipSteps.Add(38); p.SkipSteps.Add(39);
+                        p.SkipSteps.Add(40); p.SkipSteps.Add(41); p.SkipSteps.Add(42); p.SkipSteps.Add(43); p.SkipSteps.Add(44); p.SkipSteps.Add(45); p.SkipSteps.Add(46); p.SkipSteps.Add(47);
+                        p.SkipSteps.Add(48); p.SkipSteps.Add(49); p.SkipSteps.Add(50); p.SkipSteps.Add(51); p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(65); p.SkipSteps.Add(66); p.SkipSteps.Add(67); p.SkipSteps.Add(68); p.SkipSteps.Add(69); p.SkipSteps.Add(70); p.SkipSteps.Add(71);
+                        p.SkipSteps.Add(72); p.SkipSteps.Add(73); p.SkipSteps.Add(74); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(78); p.SkipSteps.Add(79);
+                        p.SkipSteps.Add(80); p.SkipSteps.Add(81); p.SkipSteps.Add(82); p.SkipSteps.Add(83); p.SkipSteps.Add(84); p.SkipSteps.Add(85); p.SkipSteps.Add(86); p.SkipSteps.Add(87);
+                        p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91); p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(95);
+                        p.SkipSteps.Add(96); p.SkipSteps.Add(97); p.SkipSteps.Add(98); p.SkipSteps.Add(99); p.SkipSteps.Add(100); p.SkipSteps.Add(101); p.SkipSteps.Add(102); p.SkipSteps.Add(103);
+                        p.SkipSteps.Add(104); p.SkipSteps.Add(105); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("WARRIOR - Skipping all class quests unrelated to Warriors in PROFILE_LAUNCHER");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+
+public class SkipRogue
+{
+    static SkipRogue()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Rogue)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Rogue)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(16) &amp;&amp; !p.SkipSteps.Contains(17) &amp;&amp; !p.SkipSteps.Contains(18) &amp;&amp; !p.SkipSteps.Contains(19) &amp;&amp; !p.SkipSteps.Contains(20) &amp;&amp; !p.SkipSteps.Contains(21)
+                        &amp;&amp; !p.SkipSteps.Contains(22) &amp;&amp; !p.SkipSteps.Contains(23) &amp;&amp; !p.SkipSteps.Contains(24) &amp;&amp; !p.SkipSteps.Contains(25) &amp;&amp; !p.SkipSteps.Contains(26) &amp;&amp; !p.SkipSteps.Contains(27)
+                        &amp;&amp; !p.SkipSteps.Contains(28) &amp;&amp; !p.SkipSteps.Contains(29) &amp;&amp; !p.SkipSteps.Contains(30) &amp;&amp; !p.SkipSteps.Contains(31) &amp;&amp; !p.SkipSteps.Contains(32) &amp;&amp; !p.SkipSteps.Contains(33)
+                        &amp;&amp; !p.SkipSteps.Contains(34) &amp;&amp; !p.SkipSteps.Contains(35) &amp;&amp; !p.SkipSteps.Contains(36) &amp;&amp; !p.SkipSteps.Contains(37) &amp;&amp; !p.SkipSteps.Contains(38) &amp;&amp; !p.SkipSteps.Contains(39)
+                        &amp;&amp; !p.SkipSteps.Contains(40) &amp;&amp; !p.SkipSteps.Contains(41) &amp;&amp; !p.SkipSteps.Contains(42) &amp;&amp; !p.SkipSteps.Contains(43) &amp;&amp; !p.SkipSteps.Contains(44) &amp;&amp; !p.SkipSteps.Contains(45)
+                        &amp;&amp; !p.SkipSteps.Contains(46) &amp;&amp; !p.SkipSteps.Contains(47) &amp;&amp; !p.SkipSteps.Contains(48) &amp;&amp; !p.SkipSteps.Contains(49) &amp;&amp; !p.SkipSteps.Contains(50) &amp;&amp; !p.SkipSteps.Contains(51)
+                        &amp;&amp; !p.SkipSteps.Contains(52) &amp;&amp; !p.SkipSteps.Contains(53) &amp;&amp; !p.SkipSteps.Contains(54) &amp;&amp; !p.SkipSteps.Contains(55) &amp;&amp; !p.SkipSteps.Contains(56) &amp;&amp; !p.SkipSteps.Contains(57)
+                        &amp;&amp; !p.SkipSteps.Contains(58) &amp;&amp; !p.SkipSteps.Contains(59) &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(65) &amp;&amp; !p.SkipSteps.Contains(66) &amp;&amp; !p.SkipSteps.Contains(67) &amp;&amp; !p.SkipSteps.Contains(68) &amp;&amp; !p.SkipSteps.Contains(69)
+                        &amp;&amp; !p.SkipSteps.Contains(70) &amp;&amp; !p.SkipSteps.Contains(71) &amp;&amp; !p.SkipSteps.Contains(72) &amp;&amp; !p.SkipSteps.Contains(73) &amp;&amp; !p.SkipSteps.Contains(74) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(78) &amp;&amp; !p.SkipSteps.Contains(79) &amp;&amp; !p.SkipSteps.Contains(80) &amp;&amp; !p.SkipSteps.Contains(81)
+                        &amp;&amp; !p.SkipSteps.Contains(82) &amp;&amp; !p.SkipSteps.Contains(83) &amp;&amp; !p.SkipSteps.Contains(84) &amp;&amp; !p.SkipSteps.Contains(85) &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(98) &amp;&amp; !p.SkipSteps.Contains(99)
+                        &amp;&amp; !p.SkipSteps.Contains(100) &amp;&amp; !p.SkipSteps.Contains(101) &amp;&amp; !p.SkipSteps.Contains(102) &amp;&amp; !p.SkipSteps.Contains(103) &amp;&amp; !p.SkipSteps.Contains(104) &amp;&amp; !p.SkipSteps.Contains(105)
+                        &amp;&amp; !p.SkipSteps.Contains(106) &amp;&amp; !p.SkipSteps.Contains(107) &amp;&amp; !p.SkipSteps.Contains(108) &amp;&amp; !p.SkipSteps.Contains(109) &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(16); p.SkipSteps.Add(17); p.SkipSteps.Add(18); p.SkipSteps.Add(19); p.SkipSteps.Add(20); p.SkipSteps.Add(21); p.SkipSteps.Add(22); p.SkipSteps.Add(23);
+                        p.SkipSteps.Add(24); p.SkipSteps.Add(25); p.SkipSteps.Add(26); p.SkipSteps.Add(27); p.SkipSteps.Add(28); p.SkipSteps.Add(29); p.SkipSteps.Add(30); p.SkipSteps.Add(31);
+                        p.SkipSteps.Add(32); p.SkipSteps.Add(33); p.SkipSteps.Add(34); p.SkipSteps.Add(35); p.SkipSteps.Add(36); p.SkipSteps.Add(37); p.SkipSteps.Add(38); p.SkipSteps.Add(39);
+                        p.SkipSteps.Add(40); p.SkipSteps.Add(41); p.SkipSteps.Add(42); p.SkipSteps.Add(43); p.SkipSteps.Add(44); p.SkipSteps.Add(45); p.SkipSteps.Add(46); p.SkipSteps.Add(47);
+                        p.SkipSteps.Add(48); p.SkipSteps.Add(49); p.SkipSteps.Add(50); p.SkipSteps.Add(51); p.SkipSteps.Add(52); p.SkipSteps.Add(53); p.SkipSteps.Add(54); p.SkipSteps.Add(55);
+                        p.SkipSteps.Add(56); p.SkipSteps.Add(57); p.SkipSteps.Add(58); p.SkipSteps.Add(59); p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(65); p.SkipSteps.Add(66); p.SkipSteps.Add(67); p.SkipSteps.Add(68); p.SkipSteps.Add(69); p.SkipSteps.Add(70); p.SkipSteps.Add(71);
+                        p.SkipSteps.Add(72); p.SkipSteps.Add(73); p.SkipSteps.Add(74); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(78); p.SkipSteps.Add(79);
+                        p.SkipSteps.Add(80); p.SkipSteps.Add(81); p.SkipSteps.Add(82); p.SkipSteps.Add(83); p.SkipSteps.Add(84); p.SkipSteps.Add(85); p.SkipSteps.Add(86); p.SkipSteps.Add(87);
+                        p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91); p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(98); p.SkipSteps.Add(99); p.SkipSteps.Add(100); p.SkipSteps.Add(101); p.SkipSteps.Add(102); p.SkipSteps.Add(103);
+                        p.SkipSteps.Add(104); p.SkipSteps.Add(105); p.SkipSteps.Add(106); p.SkipSteps.Add(107); p.SkipSteps.Add(108); p.SkipSteps.Add(109); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("ROGUE - Skipping all class quests unrelated  in PROFILE_LAUNCHER");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+public class SkipShaman
+{
+    static SkipShaman()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Shaman)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Shaman)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(24) &amp;&amp; !p.SkipSteps.Contains(25) &amp;&amp; !p.SkipSteps.Contains(26) &amp;&amp; !p.SkipSteps.Contains(27)
+                        &amp;&amp; !p.SkipSteps.Contains(28) &amp;&amp; !p.SkipSteps.Contains(29) &amp;&amp; !p.SkipSteps.Contains(30) &amp;&amp; !p.SkipSteps.Contains(31) &amp;&amp; !p.SkipSteps.Contains(32) &amp;&amp; !p.SkipSteps.Contains(33)
+                        &amp;&amp; !p.SkipSteps.Contains(34) &amp;&amp; !p.SkipSteps.Contains(35) &amp;&amp; !p.SkipSteps.Contains(36) &amp;&amp; !p.SkipSteps.Contains(37) &amp;&amp; !p.SkipSteps.Contains(38) &amp;&amp; !p.SkipSteps.Contains(39)
+                        &amp;&amp; !p.SkipSteps.Contains(48) &amp;&amp; !p.SkipSteps.Contains(49) &amp;&amp; !p.SkipSteps.Contains(50) &amp;&amp; !p.SkipSteps.Contains(51)
+                        &amp;&amp; !p.SkipSteps.Contains(52) &amp;&amp; !p.SkipSteps.Contains(53) &amp;&amp; !p.SkipSteps.Contains(54) &amp;&amp; !p.SkipSteps.Contains(55) &amp;&amp; !p.SkipSteps.Contains(56) &amp;&amp; !p.SkipSteps.Contains(57)
+                        &amp;&amp; !p.SkipSteps.Contains(58) &amp;&amp; !p.SkipSteps.Contains(59) &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(65) &amp;&amp; !p.SkipSteps.Contains(66) &amp;&amp; !p.SkipSteps.Contains(67) &amp;&amp; !p.SkipSteps.Contains(68) &amp;&amp; !p.SkipSteps.Contains(69)
+                        &amp;&amp; !p.SkipSteps.Contains(70) &amp;&amp; !p.SkipSteps.Contains(71) &amp;&amp; !p.SkipSteps.Contains(72) &amp;&amp; !p.SkipSteps.Contains(73) &amp;&amp; !p.SkipSteps.Contains(74) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(82) &amp;&amp; !p.SkipSteps.Contains(83) &amp;&amp; !p.SkipSteps.Contains(84) &amp;&amp; !p.SkipSteps.Contains(85) 
+                        &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(94) &amp;&amp; !p.SkipSteps.Contains(95) &amp;&amp; !p.SkipSteps.Contains(96) &amp;&amp; !p.SkipSteps.Contains(97) &amp;&amp; !p.SkipSteps.Contains(102) &amp;&amp; !p.SkipSteps.Contains(103) &amp;&amp; !p.SkipSteps.Contains(104) &amp;&amp; !p.SkipSteps.Contains(105)
+                        &amp;&amp; !p.SkipSteps.Contains(106) &amp;&amp; !p.SkipSteps.Contains(107) &amp;&amp; !p.SkipSteps.Contains(108) &amp;&amp; !p.SkipSteps.Contains(109) &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(24); p.SkipSteps.Add(25); p.SkipSteps.Add(26); p.SkipSteps.Add(27); p.SkipSteps.Add(28); p.SkipSteps.Add(29); p.SkipSteps.Add(30); p.SkipSteps.Add(31);
+                        p.SkipSteps.Add(32); p.SkipSteps.Add(33); p.SkipSteps.Add(34); p.SkipSteps.Add(35); p.SkipSteps.Add(36); p.SkipSteps.Add(37); p.SkipSteps.Add(38); p.SkipSteps.Add(39);
+                        p.SkipSteps.Add(48); p.SkipSteps.Add(49); p.SkipSteps.Add(50); p.SkipSteps.Add(51); p.SkipSteps.Add(52); p.SkipSteps.Add(53); p.SkipSteps.Add(54); p.SkipSteps.Add(55);
+                        p.SkipSteps.Add(56); p.SkipSteps.Add(57); p.SkipSteps.Add(58); p.SkipSteps.Add(59); p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(65); p.SkipSteps.Add(66); p.SkipSteps.Add(67); p.SkipSteps.Add(68); p.SkipSteps.Add(69); p.SkipSteps.Add(70); p.SkipSteps.Add(71);
+                        p.SkipSteps.Add(72); p.SkipSteps.Add(73); p.SkipSteps.Add(74); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(81); p.SkipSteps.Add(82); p.SkipSteps.Add(83); p.SkipSteps.Add(84); p.SkipSteps.Add(85); p.SkipSteps.Add(86); p.SkipSteps.Add(87);
+                        p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91); p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(95);
+                        p.SkipSteps.Add(96); p.SkipSteps.Add(97); p.SkipSteps.Add(102); p.SkipSteps.Add(103);
+                        p.SkipSteps.Add(104); p.SkipSteps.Add(105); p.SkipSteps.Add(106); p.SkipSteps.Add(107); p.SkipSteps.Add(108); p.SkipSteps.Add(109); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("SHAMAN - Skipping all class quests unrelated  in PROFILE_LAUNCHER");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+public class SkipHunter
+{
+    static SkipHunter()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Hunter)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Hunter)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(16) &amp;&amp; !p.SkipSteps.Contains(17) &amp;&amp; !p.SkipSteps.Contains(18) &amp;&amp; !p.SkipSteps.Contains(19) &amp;&amp; !p.SkipSteps.Contains(20) &amp;&amp; !p.SkipSteps.Contains(21)
+                        &amp;&amp; !p.SkipSteps.Contains(22) &amp;&amp; !p.SkipSteps.Contains(23) &amp;&amp; !p.SkipSteps.Contains(24) &amp;&amp; !p.SkipSteps.Contains(25) &amp;&amp; !p.SkipSteps.Contains(26) &amp;&amp; !p.SkipSteps.Contains(27)
+                        &amp;&amp; !p.SkipSteps.Contains(36) &amp;&amp; !p.SkipSteps.Contains(37) &amp;&amp; !p.SkipSteps.Contains(38) &amp;&amp; !p.SkipSteps.Contains(39)
+                        &amp;&amp; !p.SkipSteps.Contains(40) &amp;&amp; !p.SkipSteps.Contains(41) &amp;&amp; !p.SkipSteps.Contains(42) &amp;&amp; !p.SkipSteps.Contains(43) &amp;&amp; !p.SkipSteps.Contains(44) &amp;&amp; !p.SkipSteps.Contains(45)
+                        &amp;&amp; !p.SkipSteps.Contains(46) &amp;&amp; !p.SkipSteps.Contains(47) &amp;&amp; !p.SkipSteps.Contains(48) &amp;&amp; !p.SkipSteps.Contains(49) &amp;&amp; !p.SkipSteps.Contains(50) &amp;&amp; !p.SkipSteps.Contains(51)
+                        &amp;&amp; !p.SkipSteps.Contains(52) &amp;&amp; !p.SkipSteps.Contains(53) &amp;&amp; !p.SkipSteps.Contains(54) &amp;&amp; !p.SkipSteps.Contains(55) &amp;&amp; !p.SkipSteps.Contains(56) &amp;&amp; !p.SkipSteps.Contains(57)
+                        &amp;&amp; !p.SkipSteps.Contains(58) &amp;&amp; !p.SkipSteps.Contains(59) &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(65) &amp;&amp; !p.SkipSteps.Contains(66) &amp;&amp; !p.SkipSteps.Contains(67) &amp;&amp; !p.SkipSteps.Contains(68) &amp;&amp; !p.SkipSteps.Contains(69)
+                        &amp;&amp; !p.SkipSteps.Contains(70) &amp;&amp; !p.SkipSteps.Contains(71) &amp;&amp; !p.SkipSteps.Contains(72) &amp;&amp; !p.SkipSteps.Contains(73) &amp;&amp; !p.SkipSteps.Contains(74) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(78) &amp;&amp; !p.SkipSteps.Contains(79) &amp;&amp; !p.SkipSteps.Contains(80) &amp;&amp; !p.SkipSteps.Contains(81)
+                        &amp;&amp; !p.SkipSteps.Contains(82) &amp;&amp; !p.SkipSteps.Contains(83) &amp;&amp; !p.SkipSteps.Contains(84) &amp;&amp; !p.SkipSteps.Contains(85) &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(94) &amp;&amp; !p.SkipSteps.Contains(95) &amp;&amp; !p.SkipSteps.Contains(96) &amp;&amp; !p.SkipSteps.Contains(97) &amp;&amp; !p.SkipSteps.Contains(98) &amp;&amp; !p.SkipSteps.Contains(99)
+                        &amp;&amp; !p.SkipSteps.Contains(100) &amp;&amp; !p.SkipSteps.Contains(101) &amp;&amp; !p.SkipSteps.Contains(102) &amp;&amp; !p.SkipSteps.Contains(103) &amp;&amp; !p.SkipSteps.Contains(104) &amp;&amp; !p.SkipSteps.Contains(105)
+                        &amp;&amp; !p.SkipSteps.Contains(106) &amp;&amp; !p.SkipSteps.Contains(107) &amp;&amp; !p.SkipSteps.Contains(108) &amp;&amp; !p.SkipSteps.Contains(109) &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(16); p.SkipSteps.Add(17); p.SkipSteps.Add(18); p.SkipSteps.Add(19); p.SkipSteps.Add(20); p.SkipSteps.Add(21); p.SkipSteps.Add(22); p.SkipSteps.Add(23);
+                        p.SkipSteps.Add(24); p.SkipSteps.Add(25); p.SkipSteps.Add(26); p.SkipSteps.Add(27); 
+                        p.SkipSteps.Add(36); p.SkipSteps.Add(37); p.SkipSteps.Add(38); p.SkipSteps.Add(39);
+                        p.SkipSteps.Add(40); p.SkipSteps.Add(41); p.SkipSteps.Add(42); p.SkipSteps.Add(43); p.SkipSteps.Add(44); p.SkipSteps.Add(45); p.SkipSteps.Add(46); p.SkipSteps.Add(47);
+                        p.SkipSteps.Add(48); p.SkipSteps.Add(49); p.SkipSteps.Add(50); p.SkipSteps.Add(51); p.SkipSteps.Add(52); p.SkipSteps.Add(53); p.SkipSteps.Add(54); p.SkipSteps.Add(55);
+                        p.SkipSteps.Add(56); p.SkipSteps.Add(57); p.SkipSteps.Add(58); p.SkipSteps.Add(59); p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(65); p.SkipSteps.Add(66); p.SkipSteps.Add(67); p.SkipSteps.Add(68); p.SkipSteps.Add(69); p.SkipSteps.Add(70); p.SkipSteps.Add(71);
+                        p.SkipSteps.Add(72); p.SkipSteps.Add(73); p.SkipSteps.Add(74); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(78); p.SkipSteps.Add(79);
+                        p.SkipSteps.Add(80); p.SkipSteps.Add(81); p.SkipSteps.Add(82); p.SkipSteps.Add(83); p.SkipSteps.Add(84); p.SkipSteps.Add(85); p.SkipSteps.Add(86); p.SkipSteps.Add(87);
+                        p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91); p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(95);
+                        p.SkipSteps.Add(96); p.SkipSteps.Add(97); p.SkipSteps.Add(98); p.SkipSteps.Add(99); p.SkipSteps.Add(100); p.SkipSteps.Add(101); p.SkipSteps.Add(102); p.SkipSteps.Add(103);
+                        p.SkipSteps.Add(104); p.SkipSteps.Add(105); p.SkipSteps.Add(106); p.SkipSteps.Add(107); p.SkipSteps.Add(108); p.SkipSteps.Add(109); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("HUNTER - Skipping all class quests unrelated  in PROFILE_LAUNCHER");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+public class SkipWarlock
+{
+    static SkipWarlock()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Warlock)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Warlock)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(16) &amp;&amp; !p.SkipSteps.Contains(17) &amp;&amp; !p.SkipSteps.Contains(18) &amp;&amp; !p.SkipSteps.Contains(19) &amp;&amp; !p.SkipSteps.Contains(20) &amp;&amp; !p.SkipSteps.Contains(21)
+                        &amp;&amp; !p.SkipSteps.Contains(22) &amp;&amp; !p.SkipSteps.Contains(23) &amp;&amp; !p.SkipSteps.Contains(24) &amp;&amp; !p.SkipSteps.Contains(25) &amp;&amp; !p.SkipSteps.Contains(26) &amp;&amp; !p.SkipSteps.Contains(27)
+                        &amp;&amp; !p.SkipSteps.Contains(28) &amp;&amp; !p.SkipSteps.Contains(29) &amp;&amp; !p.SkipSteps.Contains(30) &amp;&amp; !p.SkipSteps.Contains(31) &amp;&amp; !p.SkipSteps.Contains(32) &amp;&amp; !p.SkipSteps.Contains(33)
+                        &amp;&amp; !p.SkipSteps.Contains(34) &amp;&amp; !p.SkipSteps.Contains(35) &amp;&amp; !p.SkipSteps.Contains(36) &amp;&amp; !p.SkipSteps.Contains(37) &amp;&amp; !p.SkipSteps.Contains(38) &amp;&amp; !p.SkipSteps.Contains(39)
+                        &amp;&amp; !p.SkipSteps.Contains(40) &amp;&amp; !p.SkipSteps.Contains(41) &amp;&amp; !p.SkipSteps.Contains(42) &amp;&amp; !p.SkipSteps.Contains(43) &amp;&amp; !p.SkipSteps.Contains(44) &amp;&amp; !p.SkipSteps.Contains(45)
+                        &amp;&amp; !p.SkipSteps.Contains(46) &amp;&amp; !p.SkipSteps.Contains(47) &amp;&amp; !p.SkipSteps.Contains(52) &amp;&amp; !p.SkipSteps.Contains(53) &amp;&amp; !p.SkipSteps.Contains(54) &amp;&amp; !p.SkipSteps.Contains(55) &amp;&amp; !p.SkipSteps.Contains(56) &amp;&amp; !p.SkipSteps.Contains(57)
+                        &amp;&amp; !p.SkipSteps.Contains(58) &amp;&amp; !p.SkipSteps.Contains(59) &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(65) &amp;&amp; !p.SkipSteps.Contains(66) &amp;&amp; !p.SkipSteps.Contains(67) &amp;&amp; !p.SkipSteps.Contains(68) &amp;&amp; !p.SkipSteps.Contains(69)
+                        &amp;&amp; !p.SkipSteps.Contains(70) &amp;&amp; !p.SkipSteps.Contains(71) &amp;&amp; !p.SkipSteps.Contains(72) &amp;&amp; !p.SkipSteps.Contains(73) &amp;&amp; !p.SkipSteps.Contains(74) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(78) &amp;&amp; !p.SkipSteps.Contains(79) &amp;&amp; !p.SkipSteps.Contains(80) &amp;&amp; !p.SkipSteps.Contains(81)
+                        &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(94) &amp;&amp; !p.SkipSteps.Contains(95) &amp;&amp; !p.SkipSteps.Contains(96) &amp;&amp; !p.SkipSteps.Contains(97) &amp;&amp; !p.SkipSteps.Contains(98) &amp;&amp; !p.SkipSteps.Contains(99)
+                        &amp;&amp; !p.SkipSteps.Contains(100) &amp;&amp; !p.SkipSteps.Contains(101) &amp;&amp; !p.SkipSteps.Contains(106) &amp;&amp; !p.SkipSteps.Contains(107) &amp;&amp; !p.SkipSteps.Contains(108) &amp;&amp; !p.SkipSteps.Contains(109) &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(16); p.SkipSteps.Add(17); p.SkipSteps.Add(18); p.SkipSteps.Add(19); p.SkipSteps.Add(20); p.SkipSteps.Add(21); p.SkipSteps.Add(22); p.SkipSteps.Add(23);
+                        p.SkipSteps.Add(24); p.SkipSteps.Add(25); p.SkipSteps.Add(26); p.SkipSteps.Add(27); p.SkipSteps.Add(28); p.SkipSteps.Add(29); p.SkipSteps.Add(30); p.SkipSteps.Add(31);
+                        p.SkipSteps.Add(32); p.SkipSteps.Add(33); p.SkipSteps.Add(34); p.SkipSteps.Add(35); p.SkipSteps.Add(36); p.SkipSteps.Add(37); p.SkipSteps.Add(38); p.SkipSteps.Add(39);
+                        p.SkipSteps.Add(40); p.SkipSteps.Add(41); p.SkipSteps.Add(42); p.SkipSteps.Add(43); p.SkipSteps.Add(44); p.SkipSteps.Add(45); p.SkipSteps.Add(46); p.SkipSteps.Add(47);
+                        p.SkipSteps.Add(52); p.SkipSteps.Add(53); p.SkipSteps.Add(54); p.SkipSteps.Add(55); p.SkipSteps.Add(56); p.SkipSteps.Add(57); p.SkipSteps.Add(58); p.SkipSteps.Add(59);
+                        p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(65); p.SkipSteps.Add(66); p.SkipSteps.Add(67); p.SkipSteps.Add(68); p.SkipSteps.Add(69); p.SkipSteps.Add(70); p.SkipSteps.Add(71);
+                        p.SkipSteps.Add(72); p.SkipSteps.Add(73); p.SkipSteps.Add(74); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(78); p.SkipSteps.Add(79);
+                        p.SkipSteps.Add(80); p.SkipSteps.Add(81); p.SkipSteps.Add(86); p.SkipSteps.Add(87); p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91);
+                        p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(95); p.SkipSteps.Add(96); p.SkipSteps.Add(97); p.SkipSteps.Add(98); p.SkipSteps.Add(99);
+                        p.SkipSteps.Add(100); p.SkipSteps.Add(101); p.SkipSteps.Add(106); p.SkipSteps.Add(107); p.SkipSteps.Add(108); p.SkipSteps.Add(109); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("WARLOCK - Skipping all class quests unrelated  in PROFILE_LAUNCHER");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+public class SkipPriest
+{
+    static SkipPriest()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Priest)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Priest)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(16) &amp;&amp; !p.SkipSteps.Contains(17) &amp;&amp; !p.SkipSteps.Contains(18) &amp;&amp; !p.SkipSteps.Contains(19) &amp;&amp; !p.SkipSteps.Contains(20) &amp;&amp; !p.SkipSteps.Contains(21)
+                        &amp;&amp; !p.SkipSteps.Contains(22) &amp;&amp; !p.SkipSteps.Contains(23) &amp;&amp; !p.SkipSteps.Contains(24) &amp;&amp; !p.SkipSteps.Contains(25) &amp;&amp; !p.SkipSteps.Contains(26) &amp;&amp; !p.SkipSteps.Contains(27)
+                        &amp;&amp; !p.SkipSteps.Contains(28) &amp;&amp; !p.SkipSteps.Contains(29) &amp;&amp; !p.SkipSteps.Contains(30) &amp;&amp; !p.SkipSteps.Contains(31) &amp;&amp; !p.SkipSteps.Contains(32) &amp;&amp; !p.SkipSteps.Contains(33)
+                        &amp;&amp; !p.SkipSteps.Contains(34) &amp;&amp; !p.SkipSteps.Contains(40) &amp;&amp; !p.SkipSteps.Contains(41) &amp;&amp; !p.SkipSteps.Contains(42) &amp;&amp; !p.SkipSteps.Contains(43) &amp;&amp; !p.SkipSteps.Contains(44) &amp;&amp; !p.SkipSteps.Contains(45)
+                        &amp;&amp; !p.SkipSteps.Contains(46) &amp;&amp; !p.SkipSteps.Contains(47) &amp;&amp; !p.SkipSteps.Contains(48) &amp;&amp; !p.SkipSteps.Contains(49) &amp;&amp; !p.SkipSteps.Contains(50) &amp;&amp; !p.SkipSteps.Contains(51)
+                        &amp;&amp; !p.SkipSteps.Contains(52) &amp;&amp; !p.SkipSteps.Contains(53) &amp;&amp; !p.SkipSteps.Contains(54) &amp;&amp; !p.SkipSteps.Contains(55) &amp;&amp; !p.SkipSteps.Contains(56) &amp;&amp; !p.SkipSteps.Contains(57)
+                        &amp;&amp; !p.SkipSteps.Contains(58) &amp;&amp; !p.SkipSteps.Contains(59) &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(65) &amp;&amp; !p.SkipSteps.Contains(66) &amp;&amp; !p.SkipSteps.Contains(67) &amp;&amp; !p.SkipSteps.Contains(68) &amp;&amp; !p.SkipSteps.Contains(69)
+                        &amp;&amp; !p.SkipSteps.Contains(70) &amp;&amp; !p.SkipSteps.Contains(71) &amp;&amp; !p.SkipSteps.Contains(72) &amp;&amp; !p.SkipSteps.Contains(73) &amp;&amp; !p.SkipSteps.Contains(74) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(78) &amp;&amp; !p.SkipSteps.Contains(79) &amp;&amp; !p.SkipSteps.Contains(80) &amp;&amp; !p.SkipSteps.Contains(81)
+                        &amp;&amp; !p.SkipSteps.Contains(82) &amp;&amp; !p.SkipSteps.Contains(83) &amp;&amp; !p.SkipSteps.Contains(84) &amp;&amp; !p.SkipSteps.Contains(85) &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(94) &amp;&amp; !p.SkipSteps.Contains(95) &amp;&amp; !p.SkipSteps.Contains(96) &amp;&amp; !p.SkipSteps.Contains(97) &amp;&amp; !p.SkipSteps.Contains(98) &amp;&amp; !p.SkipSteps.Contains(99)
+                        &amp;&amp; !p.SkipSteps.Contains(100) &amp;&amp; !p.SkipSteps.Contains(101) &amp;&amp; !p.SkipSteps.Contains(102) &amp;&amp; !p.SkipSteps.Contains(103) &amp;&amp; !p.SkipSteps.Contains(104) &amp;&amp; !p.SkipSteps.Contains(105)
+                        &amp;&amp; !p.SkipSteps.Contains(106) &amp;&amp; !p.SkipSteps.Contains(107) &amp;&amp; !p.SkipSteps.Contains(108) &amp;&amp; !p.SkipSteps.Contains(109) &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(16); p.SkipSteps.Add(17); p.SkipSteps.Add(18); p.SkipSteps.Add(19); p.SkipSteps.Add(20); p.SkipSteps.Add(21); p.SkipSteps.Add(22); p.SkipSteps.Add(23);
+                        p.SkipSteps.Add(24); p.SkipSteps.Add(25); p.SkipSteps.Add(26); p.SkipSteps.Add(27); p.SkipSteps.Add(28); p.SkipSteps.Add(29); p.SkipSteps.Add(30); p.SkipSteps.Add(31);
+                        p.SkipSteps.Add(32); p.SkipSteps.Add(33); p.SkipSteps.Add(34); 
+                        p.SkipSteps.Add(40); p.SkipSteps.Add(41); p.SkipSteps.Add(42); p.SkipSteps.Add(43); p.SkipSteps.Add(44); p.SkipSteps.Add(45); p.SkipSteps.Add(46); p.SkipSteps.Add(47);
+                        p.SkipSteps.Add(48); p.SkipSteps.Add(49); p.SkipSteps.Add(50); p.SkipSteps.Add(51); p.SkipSteps.Add(52); p.SkipSteps.Add(53); p.SkipSteps.Add(54); p.SkipSteps.Add(55);
+                        p.SkipSteps.Add(56); p.SkipSteps.Add(57); p.SkipSteps.Add(58); p.SkipSteps.Add(59); p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(65); p.SkipSteps.Add(66); p.SkipSteps.Add(67); p.SkipSteps.Add(68); p.SkipSteps.Add(69); p.SkipSteps.Add(70); p.SkipSteps.Add(71);
+                        p.SkipSteps.Add(72); p.SkipSteps.Add(73); p.SkipSteps.Add(74); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(78); p.SkipSteps.Add(79);
+                        p.SkipSteps.Add(80); p.SkipSteps.Add(81); p.SkipSteps.Add(82); p.SkipSteps.Add(83); p.SkipSteps.Add(84); p.SkipSteps.Add(85); p.SkipSteps.Add(86); p.SkipSteps.Add(87);
+                        p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91); p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(95);
+                        p.SkipSteps.Add(96); p.SkipSteps.Add(97); p.SkipSteps.Add(98); p.SkipSteps.Add(99); p.SkipSteps.Add(100); p.SkipSteps.Add(101); p.SkipSteps.Add(102); p.SkipSteps.Add(103);
+                        p.SkipSteps.Add(104); p.SkipSteps.Add(105); p.SkipSteps.Add(106); p.SkipSteps.Add(107); p.SkipSteps.Add(108); p.SkipSteps.Add(109); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("PRIEST - Skipping all class quests unrelated  in PROFILE_LAUNCHER");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+
+public class SkipDruid
+{
+    static SkipDruid()
+    {
+        if (ObjectManager.Me.WowClass == WoWClass.Druid)
+        {
+            var p = Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.FirstOrDefault(ps =&gt; ps.ProfilePath == Quester.Bot.QuesterSetting.CurrentSetting.ProfileName);
+            if (p == null)
+            {
+                p = new Quester.Bot.ProfileUserSettings { ProfilePath = Quester.Bot.QuesterSetting.CurrentSetting.ProfileName };
+                Quester.Bot.QuesterSetting.CurrentSetting.ProfilesUserSettings.Add(p);
+            }
+
+            if (ObjectManager.Me.WowClass == WoWClass.Druid)
+            {
+                if (ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt;= 60)
+                {
+                    if (!p.SkipSteps.Contains(16) &amp;&amp; !p.SkipSteps.Contains(17) &amp;&amp; !p.SkipSteps.Contains(18) &amp;&amp; !p.SkipSteps.Contains(19) &amp;&amp; !p.SkipSteps.Contains(20) &amp;&amp; !p.SkipSteps.Contains(21)
+                        &amp;&amp; !p.SkipSteps.Contains(22) &amp;&amp; !p.SkipSteps.Contains(23) &amp;&amp; !p.SkipSteps.Contains(28) &amp;&amp; !p.SkipSteps.Contains(29) &amp;&amp; !p.SkipSteps.Contains(30) &amp;&amp; !p.SkipSteps.Contains(31) &amp;&amp; !p.SkipSteps.Contains(32) &amp;&amp; !p.SkipSteps.Contains(33)
+                        &amp;&amp; !p.SkipSteps.Contains(34) &amp;&amp; !p.SkipSteps.Contains(35) &amp;&amp; !p.SkipSteps.Contains(36) &amp;&amp; !p.SkipSteps.Contains(37) &amp;&amp; !p.SkipSteps.Contains(38) &amp;&amp; !p.SkipSteps.Contains(39)
+                        &amp;&amp; !p.SkipSteps.Contains(40) &amp;&amp; !p.SkipSteps.Contains(41) &amp;&amp; !p.SkipSteps.Contains(42) &amp;&amp; !p.SkipSteps.Contains(43) &amp;&amp; !p.SkipSteps.Contains(44) &amp;&amp; !p.SkipSteps.Contains(45)
+                        &amp;&amp; !p.SkipSteps.Contains(46) &amp;&amp; !p.SkipSteps.Contains(47) &amp;&amp; !p.SkipSteps.Contains(48) &amp;&amp; !p.SkipSteps.Contains(49) &amp;&amp; !p.SkipSteps.Contains(50) &amp;&amp; !p.SkipSteps.Contains(51)
+                        &amp;&amp; !p.SkipSteps.Contains(52) &amp;&amp; !p.SkipSteps.Contains(53) &amp;&amp; !p.SkipSteps.Contains(54) &amp;&amp; !p.SkipSteps.Contains(55) &amp;&amp; !p.SkipSteps.Contains(56) &amp;&amp; !p.SkipSteps.Contains(57)
+                        &amp;&amp; !p.SkipSteps.Contains(58) &amp;&amp; !p.SkipSteps.Contains(59) &amp;&amp; !p.SkipSteps.Contains(60) &amp;&amp; !p.SkipSteps.Contains(61) &amp;&amp; !p.SkipSteps.Contains(62) &amp;&amp; !p.SkipSteps.Contains(63)
+                        &amp;&amp; !p.SkipSteps.Contains(64) &amp;&amp; !p.SkipSteps.Contains(75)
+                        &amp;&amp; !p.SkipSteps.Contains(76) &amp;&amp; !p.SkipSteps.Contains(77) &amp;&amp; !p.SkipSteps.Contains(78) &amp;&amp; !p.SkipSteps.Contains(79) &amp;&amp; !p.SkipSteps.Contains(80) &amp;&amp; !p.SkipSteps.Contains(81)
+                        &amp;&amp; !p.SkipSteps.Contains(82) &amp;&amp; !p.SkipSteps.Contains(83) &amp;&amp; !p.SkipSteps.Contains(84) &amp;&amp; !p.SkipSteps.Contains(85) &amp;&amp; !p.SkipSteps.Contains(86) &amp;&amp; !p.SkipSteps.Contains(87)
+                        &amp;&amp; !p.SkipSteps.Contains(88) &amp;&amp; !p.SkipSteps.Contains(89) &amp;&amp; !p.SkipSteps.Contains(90) &amp;&amp; !p.SkipSteps.Contains(91) &amp;&amp; !p.SkipSteps.Contains(92) &amp;&amp; !p.SkipSteps.Contains(93)
+                        &amp;&amp; !p.SkipSteps.Contains(94) &amp;&amp; !p.SkipSteps.Contains(95) &amp;&amp; !p.SkipSteps.Contains(96) &amp;&amp; !p.SkipSteps.Contains(97) &amp;&amp; !p.SkipSteps.Contains(98) &amp;&amp; !p.SkipSteps.Contains(99)
+                        &amp;&amp; !p.SkipSteps.Contains(100) &amp;&amp; !p.SkipSteps.Contains(101) &amp;&amp; !p.SkipSteps.Contains(102) &amp;&amp; !p.SkipSteps.Contains(103) &amp;&amp; !p.SkipSteps.Contains(104) &amp;&amp; !p.SkipSteps.Contains(105)
+                        &amp;&amp; !p.SkipSteps.Contains(106) &amp;&amp; !p.SkipSteps.Contains(107) &amp;&amp; !p.SkipSteps.Contains(108) &amp;&amp; !p.SkipSteps.Contains(109) &amp;&amp; !p.SkipSteps.Contains(110) &amp;&amp; !p.SkipSteps.Contains(111)
+                        &amp;&amp; !p.SkipSteps.Contains(112))
+                    {
+                        p.SkipSteps.Add(16); p.SkipSteps.Add(17); p.SkipSteps.Add(18); p.SkipSteps.Add(19); p.SkipSteps.Add(20); p.SkipSteps.Add(21); p.SkipSteps.Add(22); p.SkipSteps.Add(23);
+                        p.SkipSteps.Add(28); p.SkipSteps.Add(29); p.SkipSteps.Add(30); p.SkipSteps.Add(31);
+                        p.SkipSteps.Add(32); p.SkipSteps.Add(33); p.SkipSteps.Add(34); p.SkipSteps.Add(35); p.SkipSteps.Add(36); p.SkipSteps.Add(37); p.SkipSteps.Add(38); p.SkipSteps.Add(39);
+                        p.SkipSteps.Add(40); p.SkipSteps.Add(41); p.SkipSteps.Add(42); p.SkipSteps.Add(43); p.SkipSteps.Add(44); p.SkipSteps.Add(45); p.SkipSteps.Add(46); p.SkipSteps.Add(47);
+                        p.SkipSteps.Add(48); p.SkipSteps.Add(49); p.SkipSteps.Add(50); p.SkipSteps.Add(51); p.SkipSteps.Add(52); p.SkipSteps.Add(53); p.SkipSteps.Add(54); p.SkipSteps.Add(55);
+                        p.SkipSteps.Add(56); p.SkipSteps.Add(57); p.SkipSteps.Add(58); p.SkipSteps.Add(59); p.SkipSteps.Add(60); p.SkipSteps.Add(61); p.SkipSteps.Add(62); p.SkipSteps.Add(63);
+                        p.SkipSteps.Add(64); p.SkipSteps.Add(75); p.SkipSteps.Add(76); p.SkipSteps.Add(77); p.SkipSteps.Add(78); p.SkipSteps.Add(79);
+                        p.SkipSteps.Add(80); p.SkipSteps.Add(81); p.SkipSteps.Add(82); p.SkipSteps.Add(83); p.SkipSteps.Add(84); p.SkipSteps.Add(85); p.SkipSteps.Add(86); p.SkipSteps.Add(87);
+                        p.SkipSteps.Add(88); p.SkipSteps.Add(89); p.SkipSteps.Add(90); p.SkipSteps.Add(91); p.SkipSteps.Add(92); p.SkipSteps.Add(93); p.SkipSteps.Add(94); p.SkipSteps.Add(95);
+                        p.SkipSteps.Add(96); p.SkipSteps.Add(97); p.SkipSteps.Add(98); p.SkipSteps.Add(99); p.SkipSteps.Add(100); p.SkipSteps.Add(101); p.SkipSteps.Add(102); p.SkipSteps.Add(103);
+                        p.SkipSteps.Add(104); p.SkipSteps.Add(105); p.SkipSteps.Add(106); p.SkipSteps.Add(107); p.SkipSteps.Add(108); p.SkipSteps.Add(109); p.SkipSteps.Add(110); p.SkipSteps.Add(111);
+                        p.SkipSteps.Add(112);
+                        Logging.Write("DRUID - Skipping all class quests unrelated  in PROFILE_LAUNCHER");
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
+
+public class ProfileRestarter
+{
+    private static bool _IsAfk = false;
+    private static Vector3 afkPosition = (Vector3)null;
+    private static int timer = 0;
+    private static bool _isSubscribed = false;
+    private static void WatchForEvents()
+    {
+        if (!_isSubscribed)
+        {
+            _isSubscribed = true;
+
+            EventsLuaWithArgs.OnEventsLuaWithArgs += (LuaEventsId id, List&lt;string&gt; args) =&gt;
+            {
+                if (id == wManager.Wow.Enums.LuaEventsId.CHAT_MSG_SYSTEM &amp;&amp; Conditions.ProductIsStartedNotInPause)
+                {
+
+                    if (args.FirstOrDefault().Contains("You are now AFK"))
+                    {
+                        _IsAfk = true;
+                        timer = 0;
+                        afkPosition = ObjectManager.Me.Position;
+                    }
+                }
+            };
+        }
+    }
+
+    public static void StartProfileRestarter()
+    {
+
+        Thread ProfileRestarterThread = new Thread(() =&gt;
+        {
+            Logging.Write("[Andoido_Quester]: Profile Restarter initialized");
+
+            string profileName	 = "1-60 REMAKE_Andoido\\1-60 Horde - REMAKE - #1 PROFILE_LAUNCHER.xml";
+            string currentProfileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+
+            while ((wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName) || !ObjectManager.Me.GetMove) &amp;&amp; Conditions.ProductIsStarted)
+            {
+                Thread.Sleep(1000);
+            }
+
+            if (!_isSubscribed)
+            {
+                Thread.Sleep(Usefuls.Latency + 500);
+                WatchForEvents();
+            }
+
+            while (Conditions.ProductIsStarted || Conditions.ProductInPause)
+            {
+
+                if (wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                    break;
+
+                while (_IsAfk &amp;&amp; timer &lt; 600 &amp;&amp; !wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    Thread.Sleep(1000);
+                    timer++;
+                }
+
+                if (_IsAfk &amp;&amp; timer &gt;= 600 &amp;&amp; ObjectManager.Me.Position.DistanceTo(afkPosition) &lt; 25)
+                {
+                    Logging.Write("[Andoido_Quester]: Bot seems to have stopped / went AFK for too long. Restart of profile in process...");
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName = profileName;
+                    robotManager.Products.Products.ProductRestart();
+                    break;
+                }
+
+                timer = 0;
+                _IsAfk = false;
+                Thread.Sleep(10000);
+            }
+
+            Logging.Write("[Andoido_Quester]: Profile Restarter disposed");
+
+        });
+
+        ProfileRestarterThread.Start();
+    }
+}
+
+//Additional functions for quests
+public class Quests
+{
+    public static void abandon(string questName)
+    {
+        wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + questName + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+    }
+
+    public static bool hasFailed(string questName)
+    {
+        int temp = 0;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) local questTimer = GetQuestLogTimeLeft() return questTimer end end");
+
+        if(temp &gt; 8)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public static bool isComplete(string questName)
+    {
+        int temp;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then local questTitleZ, levelZ, questTagZ, isHeaderZ, isCollapsedZ, isCompleteZ = GetQuestLogTitle(i) return isCompleteZ end end");
+
+        if(temp == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static bool isFailed(string questName)
+    {
+        int temp;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then local questTitleZ, levelZ, questTagZ, isHeaderZ, isCollapsedZ, isCompleteZ = GetQuestLogTitle(i) return isCompleteZ end end");
+
+        if(temp == -1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+public class Key
+{
+    public static bool haveKey(int keyId)
+    {
+        bool haveKey = Lua.LuaDoString&lt;bool&gt;("local itemIdSearch = " + keyId + "; local bag = KEYRING_CONTAINER; for slot = 1,MAX_CONTAINER_ITEMS do local itemLink = GetContainerItemLink(bag,slot); local _, itemCount = GetContainerItemInfo(bag,slot); if itemLink and itemCount then local _,_,itemId = string.find(itemLink, '.*|Hitem:(%d+):.*'); if itemId and tonumber(itemId) == itemIdSearch then return true end end end return false");
+        return haveKey;
+    }
+}
+
+public class QuestHelper
+{
+ 
+    public static void AbandonQuest(string name)
+    {
+        string luaExecute = @"
+            for logId=1,GetNumQuestLogEntries() do
+                local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(logId);
+                if ( questTitle == ""{0}"" ) then
+                    SelectQuestLogEntry(logId);
+                    SetAbandonQuest();
+                    AbandonQuest();
+                    return;
+                end
+            end
+        ";
+ 
+        Lua.LuaDoString(string.Format(luaExecute, name));
+    }
+ 
+    public static void LoadStep(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if (p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 1;
+                    break;
+                }
+            }
+        }
+    }
+ 
+   public static void LoadOneStepBefore(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if ( p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 2;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+    //Abandon Quests
+    public class abandonQuest
+    {
+
+        public static void abandon(string questName)
+        {
+
+            string name = questName;
+
+            wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + name + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+
+        }
+
+    }
+
+
+
+    //Throw away items - by Reapler
+    public class throwAway
+    {
+        public static int GetItemQuantity(string itemName)
+        {
+            var execute =
+                "local itemCount = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "if string.find(itemLink, \"" + itemName + "\") then " +
+                                    "itemCount = itemCount + stackCount; " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; " +
+                "return itemCount; ";
+            return Lua.LuaDoString&lt;int&gt;(execute);
+        }
+
+        /// &lt;summary&gt;
+        /// Used to delete all items by name.
+        /// &lt;/summary&gt;
+        /// &lt;param name="itemName"&gt;The item to delete.&lt;/param&gt;
+        /// &lt;param name="leaveAmount"&gt;The amount of items which remain in the bag.&lt;/param&gt;
+        /// &lt;remarks&gt;Bug at links with "-"&lt;/remarks&gt;
+        public static void DeleteItems(string itemName, int leaveAmount)
+        {
+            var itemQuantity = GetItemQuantity(itemName) - leaveAmount;
+            if(string.IsNullOrWhiteSpace(itemName) || itemQuantity &lt;= 0)
+                return;
+            var execute =
+                "local itemCount = " + itemQuantity + "; " +
+                "local deleted = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "local leftItems = itemCount - deleted; " +
+                                "if string.find(itemLink, \"" + itemName + "\") and leftItems &gt; 0 then " +
+                                    "if stackCount &lt;= 1 then " +
+                                        "PickupContainerItem(b, s); " +
+                                        "DeleteCursorItem(); " +
+                                        "deleted = deleted + 1; " +
+                                    "else " +
+                                        "if (leftItems &gt; stackCount) then " +
+                                            "SplitContainerItem(b, s, stackCount); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + stackCount; " +
+                                        "else " +
+                                            "SplitContainerItem(b, s, leftItems); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + leftItems; " +
+                                        "end " +
+                                    "end " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; ";
+            Lua.LuaDoString(execute);
+        }
+    }</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

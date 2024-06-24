@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ELevel 4 TAUREN Shaman Earth Totem Checkerr|r Checking if we have Earth Totem  - Tauren Shaman -&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Shaman (orc) - Do We have Earth Totem?'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="((!ItemsManager.HasItemById(5175)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren)&#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 4 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor))" />
+    <QuestsSorted Action="If" NameClass="((!ItemsManager.HasItemById(5175)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren)&#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 4 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor))" />
+    <QuestsSorted Action="RunLuaCode" NameClass=" if not MyFrame then&#xD;&#xA;  MyFrameText = &quot;Shaman Loading...&quot;&#xD;&#xA;  MyFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  MyFrame:ClearAllPoints()&#xD;&#xA;  MyFrame:SetBackdrop(StaticPopup1:GetBackdrop())&#xD;&#xA;  MyFrame:SetHeight(80)&#xD;&#xA;  MyFrame:SetWidth(310)&#xD;&#xA;&#xD;&#xA;  MyFrame.text = MyFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontGreen&quot;)&#xD;&#xA;  MyFrame.text:SetFontObject(&quot;GameFontNormal&quot;)&#xD;&#xA;  MyFrame.text:SetAllPoints()&#xD;&#xA;  MyFrame.text:SetText(MyFrameText)&#xD;&#xA;  MyFrame:SetPoint(&quot;CENTER&quot;, 0, -150)&#xD;&#xA;  MyFrame.text:SetTextColor(0, 1, 0, 1)&#xD;&#xA;  MyFrame:SetBackdropBorderColor(0, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  CreateFrame(&quot;Frame&quot;,&quot;Test&quot;,UIParent)&#xD;&#xA;  Test:SetWidth(55)&#xD;&#xA;  Test:SetHeight(55)&#xD;&#xA;  Test:SetPoint(&quot;TOPLEFT&quot;, MyFrame, -20, 25)&#xD;&#xA;  Test:CreateTexture(&quot;TestTexture&quot;)&#xD;&#xA;  TestTexture:SetAllPoints()&#xD;&#xA;  TestTexture:SetTexture(&quot;Interface\\Icons\\Spell_Nature_ManaRegenTotem&quot;)&#xD;&#xA;&#xD;&#xA;  RateFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  RateFrame:ClearAllPoints()&#xD;&#xA;  RateFrame:SetBackdrop(nil)&#xD;&#xA;  RateFrame:SetHeight(60)&#xD;&#xA;  RateFrame:SetWidth(200)&#xD;&#xA;  RateFrame.text = RateFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  RateFrame.text:SetAllPoints()&#xD;&#xA;  RateFrame.text:SetText(&quot;https://rocketr.net/sellers/Tarud for new products&quot;)&#xD;&#xA;  RateFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, -50)&#xD;&#xA;  RateFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  ByFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  ByFrame:ClearAllPoints()&#xD;&#xA;  ByFrame:SetBackdrop(nil)&#xD;&#xA;  ByFrame:SetHeight(60)&#xD;&#xA;  ByFrame:SetWidth(140)&#xD;&#xA;  ByFrame.text = ByFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  ByFrame.text:SetAllPoints()&#xD;&#xA;  ByFrame.text:SetText(&quot;lvl 4 Tauren Shaman Earth Totem&quot;)&#xD;&#xA;  ByFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, 47)&#xD;&#xA;  ByFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  MyFrame:SetMovable(true)&#xD;&#xA;  MyFrame:EnableMouse(true)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  Test:SetMovable(true)&#xD;&#xA;  Test:EnableMouse(true)&#xD;&#xA;  Test:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  Test:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  RateFrame:SetMovable(true)&#xD;&#xA;  RateFrame:EnableMouse(true)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  ByFrame:SetMovable(true)&#xD;&#xA;  ByFrame:EnableMouse(true)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  MyFrame.Close = CreateFrame(&quot;BUTTON&quot;, nil, MyFrame, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;  MyFrame.Close:SetWidth(20)&#xD;&#xA;  MyFrame.Close:SetHeight(20)&#xD;&#xA;  MyFrame.Close:SetPoint(&quot;TOPRIGHT&quot;, MyFrame, 3, 3)&#xD;&#xA;  MyFrame.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;   MyFrame:Hide()&#xD;&#xA;   Test:Hide()&#xD;&#xA;   RateFrame:Hide()&#xD;&#xA;   ByFrame:Hide()&#xD;&#xA;   DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF8AFF40MyFrame is now CLOSED|r |cFFFC7DFFType /MyFrame|r |cFF8AFF40In Game to OPEN it again!|r&quot;)     &#xD;&#xA;  end)&#xD;&#xA;  &#xD;&#xA;  SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/MyFrame&quot;&#xD;&#xA;  SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;   if MyFrame:IsShown() then&#xD;&#xA;    MyFrame:Hide()&#xD;&#xA;    Test:Hide()&#xD;&#xA;    RateFrame:Hide()&#xD;&#xA;    ByFrame:Hide()&#xD;&#xA;   else&#xD;&#xA;    MyFrame:Show()&#xD;&#xA;    Test:Show()&#xD;&#xA;    RateFrame:Show()&#xD;&#xA;    ByFrame:Show()&#xD;&#xA;   end&#xD;&#xA;  end&#xD;&#xA; end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Call of Earth Part 1'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="CallofEarthTaurenShamanEarthTotem" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Do Call of Earth Part 1'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="CallofEarthTaurenShamanEarthTotem" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Turnin Call of Earth Part 1'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="CallofEarthTaurenShamanEarthTotem" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Call of Earth Part 2'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="CallofEarthPart2TaurenShamanEarthTotem" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(1520) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(1520))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Call of Earth P2 - Run to Alter'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="RUNCallofEarthPart2TAUREN" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Use Item (Sapta)'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(6635);" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(6635);" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(!ItemsManager.HasItemById(6635)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ObjectManager.Me.HaveBuff(&quot;Sapta Sight&quot;)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Quest.HasQuest(1520) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(1520))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'No Sapta + No Buff? Get New Sapta'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="if (!Quest.GetQuestCompleted(1517))&#xD;&#xA;{&#xD;&#xA;wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(-630.02f, -4204.55f, 38.13409f));&#xD;&#xA;}&#xD;&#xA;var u = ObjectManager.GetNearestWoWUnit(ObjectManager.GetWoWUnitByEntry(5887));&#xD;&#xA;if (u.IsValid)&#xD;&#xA;{&#xD;&#xA;    Interact.InteractGameObject(u.GetBaseAddress);&#xD;&#xA;Lua.LuaDoString(&quot;QuestFrameCompleteQuestButton:Click();&quot;);&#xD;&#xA;}" />
+    <QuestsSorted Action="GoToStep" NameClass="11" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Call of Earth Part 2 Turnin'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="CallofEarthPart2TaurenShamanEarthTotem" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Call of Earth Part 3'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="CallofEarthPart3TaurenShamanEarthTotem" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Turnin Call of Earth Part 3'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="CallofEarthPart3TaurenShamanEarthTotem" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Gratz! U now have Earth Totem'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETotem Checker|r Gratz on Earth Totem (Tauren Shaman)&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="Shaman Earth Totem (TAUREN) Aquired - Starting the Main Profile Back Up" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Loading 1-13.xml Please wait'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="WriteDebugLog" NameClass="Shaman Earth Totem (TAUREN) Aquired - Starting the Main Profile Back Up" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 Horde - REMAKE - 1-13 (All Starting Areas).xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="5888" Name="Seer Ravenfeather" GameObject="false">
+      <PickUpQuests>
+        <int>1519</int>
+        <int>1520</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>1519</int>
+        <int>1521</int>
+      </TurnInQuests>
+      <Position X="-2882.26" Y="-250.201" Z="53.90607" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="5891" Name="Minor Manifestation of Earth" GameObject="false">
+      <PickUpQuests>
+        <int>1521</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>1520</int>
+      </TurnInQuests>
+      <Position X="-3031.36" Y="-720.833" Z="44.8901" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Call of Earth - Tauren Shaman (Earth Totem)</Name>
+      <QuestId>
+        <int>1519</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2860.915" Y="-1027.369" Z="56.06275" />
+          <Vector3 X="-2879.211" Y="-1198.037" Z="60.87652" />
+        </HotSpots>
+        <EntryTarget>
+          <int>2953</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>2</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>4</MinLevel>
+      <WoWClass>Shaman</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Call of Earth - Part 2 - Tauren Shaman (Earth Totem)</Name>
+      <QuestId>
+        <int>1520</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>1519</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>4</MinLevel>
+      <WoWClass>Shaman</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Call of Earth - Part 3 - Tauren Shaman (Earth Totem)</Name>
+      <QuestId>
+        <int>1521</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>1520</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>4</MinLevel>
+      <WoWClass>Shaman</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Call of Earth Part 2 - TAUREN</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-2971.438" Y="-398.2985" Z="54.03336" />
+          <Vector3 X="-2977.128" Y="-412.4875" Z="50.82894" />
+          <Vector3 X="-2978.885" Y="-436.8076" Z="47.6344" />
+          <Vector3 X="-2966.685" Y="-457.41" Z="47.64381" />
+          <Vector3 X="-2971.053" Y="-480.8668" Z="43.41959" />
+          <Vector3 X="-2973.607" Y="-505.9376" Z="41.10222" />
+          <Vector3 X="-2973.837" Y="-530.3832" Z="43.26112" />
+          <Vector3 X="-2979.246" Y="-554.9483" Z="40.78527" />
+          <Vector3 X="-2981.49" Y="-579.0237" Z="38.3099" />
+          <Vector3 X="-2978.598" Y="-604.0891" Z="35.66505" />
+          <Vector3 X="-2974.582" Y="-628.2067" Z="33.761" />
+          <Vector3 X="-2975.941" Y="-653.0549" Z="36.78602" />
+          <Vector3 X="-2989.569" Y="-672.7204" Z="38.15994" />
+          <Vector3 X="-3005.004" Y="-704.6812" Z="44.89547" />
+          <Vector3 X="-3012.534" Y="-719.673" Z="46.07789" />
+          <Vector3 X="-3022.786" Y="-721.9456" Z="45.94814" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>4</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

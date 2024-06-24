@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(9035)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Priest) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Troll) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor))" />
+    <QuestsSorted Action="PickUp" NameClass="HexofWeaknessTrollPriest" />
+    <QuestsSorted Action="TurnIn" NameClass="HexofWeaknessTrollPriest" />
+    <QuestsSorted Action="RunCode" NameClass="if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new robotManager.Helpful.Vector3(1452.43f, -4179.82f, 44.05009f), 6018)) // replace 1, 2, 3 by position, and 5392 by npc entry id&#xD;&#xA; { &#xD;&#xA; wManager.Wow.Helpers.Usefuls.SelectGossipOption(wManager.Wow.Enums.GossipOptionsType.trainer);&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA;}" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - #1 PROFILE_LAUNCHER.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="3706" Name="Tai'jin" GameObject="false">
+      <PickUpQuests>
+        <int>5655</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="294.884" Y="-4831.49" Z="10.52413" />
+    </NPCQuest>
+    <NPCQuest Id="6018" Name="Ur'kyo" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>5655</int>
+      </TurnInQuests>
+      <Position X="1452.43" Y="-4179.82" Z="44.05009" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Hex of Weakness - Troll Priest</Name>
+      <QuestId>
+        <int>5655</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Priest</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

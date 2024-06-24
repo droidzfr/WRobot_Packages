@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1 &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13331) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13332) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13333) &#xD;&#xA;&amp;&amp; &#xD;&#xA;ObjectManager.Me.GetMoneyCopper &gt;= 1100000 &#xD;&#xA;&amp;&amp; &#xD;&#xA;ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59 &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Undead) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ObjectManager.Me.WowClass == WoWClass.Warlock)" />
+    <QuestsSorted Action="Pulse" NameClass="RunToZepORG" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="Pulse" NameClass="CatchZeppelinShipOrgrimmartoUndercity" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="Pulse" NameClass="RunDownUCRamp" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1 &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13331) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13332) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13333) &#xD;&#xA;&amp;&amp; &#xD;&#xA;ObjectManager.Me.GetMoneyCopper &gt;= 1100000 &#xD;&#xA;&amp;&amp; &#xD;&#xA;ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59 &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Azeroth) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Undead) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ObjectManager.Me.WowClass == WoWClass.Warlock)" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1" />
+    <QuestsSorted Action="Pulse" NameClass="RUNRuntoBrillmountvendor" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(2253.9f, 318.385f, 35.18914f), 4773);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new robotManager.Helpful.Vector3(2253.9f, 318.385f, 35.18914f), 4773)) // replace 1, 2, 3 by position, and 5392 by npc entry id&#xD;&#xA; { &#xD;&#xA; wManager.Wow.Helpers.Usefuls.SelectGossipOption(wManager.Wow.Enums.GossipOptionsType.trainer);&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA;}" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &gt; 1 &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13331) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13332) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(13333) &#xD;&#xA;&amp;&amp; &#xD;&#xA;ObjectManager.Me.GetMoneyCopper &gt;= 1100000 &#xD;&#xA;&amp;&amp; &#xD;&#xA;ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59 &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Azeroth) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Undead) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ObjectManager.Me.WowClass == WoWClass.Warlock)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(2250.38f, 328.108f, 35.18916f), 4731);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="int npcEntryId = 4731;&#xD;&#xA;var position = new Vector3(2250.38f, 328.108f, 35.18931f);&#xD;&#xA;&#xD;&#xA;while(!wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;{&#xD;&#xA;wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;{&#xD;&#xA;Usefuls.SelectGossipOption(GossipOptionsType.vendor);&#xD;&#xA;Thread.Sleep(Usefuls.Latency + 500);&#xD;&#xA;if(ItemsManager.GetItemCountById(13332) &lt;= 0)&#xD;&#xA;{&#xD;&#xA;wManager.Wow.Helpers.Vendor.BuyItem(&quot;Blue Skeletal Horse&quot;,1);&#xD;&#xA;Thread.Sleep(Usefuls.Latency + 500);&#xD;&#xA;return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;}" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CloseMerchant()&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="Thread t = new Thread(() =&gt;&#xD;&#xA;{&#xD;&#xA;    uint itemId = 13332;&#xD;&#xA;    while (robotManager.Products.Products.IsStarted &amp;&amp; ItemsManager.GetItemCountById(13332) == 0)&#xD;&#xA;    {&#xD;&#xA;        if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xD;&#xA;        {&#xD;&#xA;            if (ObjectManager.Target.IsValid &amp;&amp; ObjectManager.Target.IsDead)&#xD;&#xA;            {&#xD;&#xA;                Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;        Thread.Sleep(100);&#xD;&#xA;    }&#xD;&#xA;});&#xD;&#xA;t.Start();" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(13332);" />
+    <QuestsSorted Action="Wait" NameClass="200" />
+    <QuestsSorted Action="RunCode" NameClass="robotManager.Helpful.Mouse.CurseurWindowPercentagePosition(wManager.Wow.Memory.WowMemory.Memory.WindowHandle, 46, 17);&#xD;&#xA;robotManager.Helpful.Mouse.ClickLeft();" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &gt; 1 &amp;&amp; ItemsManager.HasItemById(13332) &amp;&amp; ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59 &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Undercity&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Tirisfal Glades&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Silverpine Forest&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Eastern Plaguelands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Western Plaguelands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Alterac Mountains&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Hillsbrad Foothills&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Arathi Highlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Hinterlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Wetlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Loch Modan&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Dun Morogh&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Badlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Searing Gorge&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Burning Steppes&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Redridge Mountains&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Elwynn Forest&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Swamp of Sorrows&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Blasted Lands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Westfall&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Duskwood&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Stranglethorn Vale&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Deadwind Pass&quot;) &amp;&amp; (ObjectManager.Me.PlayerRace == PlayerFactions.Undead)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2EUndead Mount Checker|r Gratz on the New Mount! VICTORY LAP TIME&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="VictorylapBrill" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &gt; 1 &amp;&amp; ItemsManager.HasItemById(13332) &amp;&amp; ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59 &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Undercity&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Tirisfal Glades&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Silverpine Forest&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Eastern Plaguelands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Western Plaguelands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Alterac Mountains&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Hillsbrad Foothills&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Arathi Highlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Hinterlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Wetlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Loch Modan&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Dun Morogh&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Badlands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Searing Gorge&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Burning Steppes&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Redridge Mountains&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Elwynn Forest&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Swamp of Sorrows&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Blasted Lands&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Westfall&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Duskwood&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Stranglethorn Vale&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Deadwind Pass&quot;) &amp;&amp; (ObjectManager.Me.PlayerRace == PlayerFactions.Undead)" />
+    <QuestsSorted Action="Pulse" NameClass="PATHRunToZeplinBrilltoOrg" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="Pulse" NameClass="CatchZeppelinShipBrilltoOrg" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="Pulse" NameClass="PATHRunDownZeppDurotar" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - #1 PROFILE_LAUNCHER.xml" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>RUN: Run to Brill mount vendor</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="2184.606" Y="236.3895" Z="36.05656" />
+          <Vector3 X="2214.488" Y="260.5226" Z="34.63047" />
+          <Vector3 X="2241.694" Y="285.9433" Z="35.09398" />
+          <Vector3 X="2258.376" Y="306.4066" Z="34.32502" />
+          <Vector3 X="2255.964" Y="313.2068" Z="35.05256" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>110</MaxLevel>
+      <MinLevel>45</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Victory lap - Brill</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="2264.488" Y="314.0057" Z="34.15738" />
+          <Vector3 X="2268.608" Y="308.2106" Z="34.11375" />
+          <Vector3 X="2268.79" Y="302.6705" Z="34.11375" />
+          <Vector3 X="2265.801" Y="297.8466" Z="34.18042" />
+          <Vector3 X="2257.72" Y="289.8673" Z="34.1137" />
+          <Vector3 X="2249.629" Y="281.8977" Z="34.1137" />
+          <Vector3 X="2245.157" Y="278.6476" Z="34.13102" />
+          <Vector3 X="2239.928" Y="276.2234" Z="34.39768" />
+          <Vector3 X="2228.868" Y="273.6441" Z="34.8823" />
+          <Vector3 X="2223.182" Y="273.2235" Z="34.99228" />
+          <Vector3 X="2217.622" Y="273.7871" Z="35.12542" />
+          <Vector3 X="2206.952" Y="274.8315" Z="36.96532" />
+          <Vector3 X="2202.352" Y="272.0142" Z="38.35394" />
+          <Vector3 X="2200.873" Y="266.4398" Z="37.61687" />
+          <Vector3 X="2200.013" Y="260.9782" Z="36.50054" />
+          <Vector3 X="2203.167" Y="256.4374" Z="35.04332" />
+          <Vector3 X="2206.784" Y="252.1764" Z="34.21883" />
+          <Vector3 X="2216.585" Y="246.52" Z="34.04878" />
+          <Vector3 X="2221.953" Y="244.4214" Z="33.58607" />
+          <Vector3 X="2232.046" Y="247.9976" Z="33.04605" />
+          <Vector3 X="2234.374" Y="258.7312" Z="34.11427" />
+          <Vector3 X="2234.857" Y="264.4704" Z="34.11427" />
+          <Vector3 X="2237.387" Y="269.426" Z="34.11427" />
+          <Vector3 X="2242.012" Y="272.5555" Z="34.11427" />
+          <Vector3 X="2246.73" Y="275.8488" Z="34.11427" />
+          <Vector3 X="2250.887" Y="279.5842" Z="34.11427" />
+          <Vector3 X="2259.468" Y="287.2946" Z="34.13194" />
+          <Vector3 X="2267.965" Y="294.5033" Z="34.50867" />
+          <Vector3 X="2273.354" Y="296.5593" Z="34.79751" />
+          <Vector3 X="2281.152" Y="302.4377" Z="35.08592" />
+          <Vector3 X="2275.835" Y="311.864" Z="34.25352" />
+          <Vector3 X="2270.669" Y="314.4297" Z="34.11375" />
+          <Vector3 X="2259.656" Y="313.4504" Z="34.68446" />
+          <Vector3 X="2256.114" Y="308.9441" Z="34.76912" />
+          <Vector3 X="2253.171" Y="302.0359" Z="34.80354" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>44</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

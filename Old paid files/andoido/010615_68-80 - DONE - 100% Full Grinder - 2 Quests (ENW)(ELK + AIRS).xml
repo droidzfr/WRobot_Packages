@@ -1,0 +1,1164 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.NpcDB.AcceptOnlyProfileNpc = true;, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame:Hide()&#xD;&#xA;ByFrame:Hide()&#xD;&#xA;RateFrame:Hide(), 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;MyFrame:ClearAllPoints()&#xD;&#xA;MyFrame:SetBackdrop(StaticPopup1:GetBackdrop())&#xD;&#xA;MyFrame:SetHeight(100)&#xD;&#xA;MyFrame:SetWidth(250)&#xD;&#xA; &#xD;&#xA;MyFrame.text = MyFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;MyFrame.text:SetAllPoints()&#xD;&#xA;MyFrame.text:SetText(&quot;Initializing profile...&quot;)&#xD;&#xA;MyFrame:SetPoint(&quot;CENTER&quot;, 0, -100)&#xD;&#xA;MyFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;RateFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;RateFrame:ClearAllPoints()&#xD;&#xA;RateFrame:SetBackdrop(nil)&#xD;&#xA;RateFrame:SetHeight(60)&#xD;&#xA;RateFrame:SetWidth(140)&#xD;&#xA; &#xD;&#xA;RateFrame.text = RateFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;RateFrame.text:SetAllPoints()&#xD;&#xA;RateFrame.text:SetText(&quot;skype = Ordes189@gmail.com&quot;)&#xD;&#xA;RateFrame:SetPoint(&quot;CENTER&quot;, 0, -165)&#xD;&#xA;RateFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;ByFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;ByFrame:ClearAllPoints()&#xD;&#xA;ByFrame:SetBackdrop(nil)&#xD;&#xA;ByFrame:SetHeight(60)&#xD;&#xA;ByFrame:SetWidth(140)&#xD;&#xA; &#xD;&#xA;ByFrame.text = ByFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;ByFrame.text:SetAllPoints()&#xD;&#xA;ByFrame.text:SetText(&quot;Created by Ordes&quot;)&#xD;&#xA;ByFrame:SetPoint(&quot;CENTER&quot;, -60, -45)&#xD;&#xA;ByFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;CreateFrame(&quot;Frame&quot;,&quot;Test&quot;,UIParent)&#xD;&#xA;Test:SetWidth(100)&#xD;&#xA;Test:SetHeight(100)&#xD;&#xA;Test:SetPoint(&quot;CENTER&quot;,150,-85)&#xD;&#xA;Test:CreateTexture(&quot;TestTexture&quot;)&#xD;&#xA;TestTexture:SetAllPoints()&#xD;&#xA;TestTexture:SetTexture(&quot;Interface\\TargetingFrame\\UI-PVP-Horde&quot;), 80)
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Dragonblight&quot; &amp;&amp; ObjectManager.Me.Level &gt;= 68 &amp;&amp; ObjectManager.Me.Level &lt; 72, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Dragonblight 68 - 72&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="Dragonblight69to72, 80)
+    <QuestsSorted Action="EndIf" NameClass=", 80)
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Dragonblight&quot; &amp;&amp; ObjectManager.Me.Level &gt;= 72 &amp;&amp; ObjectManager.Me.Level &lt; 73, 80)
+    <QuestsSorted Action="Pulse" NameClass="PATHToGrizzlyHills, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Grizzly Hills - 72 to 73&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="GrizzlyHills72to73Bears, 80)
+    <QuestsSorted Action="EndIf" NameClass=", 80)
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Grizzly Hills&quot; &amp;&amp; ObjectManager.Me.Level &gt;= 73 &amp;&amp; ObjectManager.Me.Level &lt; 74, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Pick Up The Unexpected Guest&quot;), 80)
+    <QuestsSorted Action="PickUp" NameClass="TheUnexpectedGuest, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Pick Up The Horse Holler&quot;), 80)
+    <QuestsSorted Action="PickUp" NameClass="TheHorseHollerer, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;DO The Horse Holler&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="TheHorseHollerer, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Turn In The Horse Holler&quot;), 80)
+    <QuestsSorted Action="TurnIn" NameClass="TheHorseHollerer, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;DO The Unexpected Guest&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="TheUnexpectedGuest, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Turn In The Unexpected Guest&quot;), 80)
+    <QuestsSorted Action="TurnIn" NameClass="TheUnexpectedGuest, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Grizzly Hills - 73 to 74 Grind use small Search Radius&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="GrizlyHills73to74, 80)
+    <QuestsSorted Action="EndIf" NameClass=", 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Go To - Zul Drak Grind Spot&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="PATHToZulDrak, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Zul Drak - 74 to 77 Grind&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="ZulDrak74to77, 80)
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;The Storm Peaks - 77-80 Grind.&quot;), 80)
+    <QuestsSorted Action="Pulse" NameClass="StormPeaks77to80, 80)
+    <QuestsSorted Action="MessageBox" NameClass="Gratz on 80!&#xD;&#xA;&#xD;&#xA;Skype = live:ordes189 if you need custom profiles&#xD;&#xA;&#xD;&#xA;~~~~~~~~~~~~~~~~~~~~~~~~~~~~&#xD;&#xA;&#xD;&#xA;Special Thanks to &quot; Malyu &quot; for his code that shows &quot;What&quot; the bot is doing., 80)
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="26944" Name="Soulok Stormfury" GameObject="false">
+      <PickUpQuests>
+        <int>12415</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>12415</int>
+      </TurnInQuests>
+      <Position X="3840.65, -4523.31, 210.6165" Type="Flying, 80)
+    </NPCQuest>
+    <NPCQuest Id="27221" Name="Tormak the Scarred" GameObject="false">
+      <PickUpQuests>
+        <int>12195</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>12195</int>
+      </TurnInQuests>
+      <Position X="3853.87, -4536.55, 209.2674" Type="Flying, 80)
+    </NPCQuest>
+  </NpcQuest>
+  <Npc>
+    <Npc>
+      <Position X="2122.77, -2966.33, 148.6682" Type="Flying, 80)
+      <Entry>24188</Entry>
+      <Name>Samuel Rosemond</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2122.77, -2966.33, 148.6682" Type="Flying, 80)
+      <Entry>24188</Entry>
+      <Name>Samuel Rosemond</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="8383.45, -390.166, 903.1191, 80)
+      <Entry>29964</Entry>
+      <Name>Dargum Hammerdeep</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="8383.45, -390.166, 903.1191, 80)
+      <Entry>29964</Entry>
+      <Name>Dargum Hammerdeep</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3845.49, 1572.72, 86.69859" Type="Flying, 80)
+      <Entry>27019</Entry>
+      <Name>Siegesmith Gulda</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3845.49, 1572.72, 86.69859" Type="Flying, 80)
+      <Entry>27019</Entry>
+      <Name>Siegesmith Gulda</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3845.92, 1580.12, 86.69877" Type="Flying, 80)
+      <Entry>27021</Entry>
+      <Name>Tradesman Kontor</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3835.82, 1597, 86.69876" Type="Flying, 80)
+      <Entry>26569</Entry>
+      <Name>Alys Vol'tyr</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3237.74, -2267.83, 115.7848" Type="Flying, 80)
+      <Entry>27037</Entry>
+      <Name>Hidetrader Jun'ik</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3237.74, -2267.83, 115.7848" Type="Flying, 80)
+      <Entry>27037</Entry>
+      <Name>Hidetrader Jun'ik</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3240.61, -2236.58, 115.106" Type="Flying, 80)
+      <Entry>188618</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3836, -4542.08, 209.277" Type="Flying, 80)
+      <Entry>26707</Entry>
+      <Name>Litoko Icetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3836, -4542.08, 209.277" Type="Flying, 80)
+      <Entry>26707</Entry>
+      <Name>Litoko Icetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3843.42, -4550.32, 209.7362" Type="Flying, 80)
+      <Entry>26936</Entry>
+      <Name>Chaska Frosthoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="5410.21, -2665.95, 303.9543" Type="Flying, 80)
+      <Entry>28797</Entry>
+      <Name>Haley Copperturn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="5410.21, -2665.95, 303.9543" Type="Flying, 80)
+      <Entry>28797</Entry>
+      <Name>Haley Copperturn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <ContinentId>Northrend</ContinentId>
+    </Npc>
+  </Npc>
+  <Blackspots>
+    <Blackspot X="3637.18481, -5093.343, 169.710754" Radius="16.5, 80)
+    <Blackspot X="3497.79468, -5114.48047, 236.845261" Radius="33, 80)
+    <Blackspot X="3550.94727, -5094.971, 224.1887" Radius="33, 80)
+    <Blackspot X="3366.69727, -5081.694, 325.288574" Radius="33, 80)
+    <Blackspot X="8484.99, -225.004486, 820.028442" Radius="10.5, 80)
+    <Blackspot X="8388.723, -183.864136, 828.3718" Radius="10.5, 80)
+    <Blackspot X="8365.498, -114.705338, 821.2205" Radius="10.5, 80)
+    <Blackspot X="8482.276, -49.5095253, 789.228333" Radius="10.5, 80)
+    <Blackspot X="8480.451, -103.908218, 788.8872" Radius="10.5, 80)
+    <Blackspot X="8436.87, -131.1802, 806.248535" Radius="10.5, 80)
+    <Blackspot X="8021.392, -273.824463, 847.633362" Radius="10.5, 80)
+    <Blackspot X="8049.282, -290.735657, 868.8378" Radius="3.5, 80)
+    <Blackspot X="8095.284, -259.850922, 860.5849" Radius="3.5, 80)
+    <Blackspot X="7746.882, 57.54574, 1009.3432" Radius="6.5, 80)
+    <Blackspot X="8005.416, -273.62, 847.3841" Radius="6.5, 80)
+    <Blackspot X="7727.099, 111.365822, 1010.63605" Radius="6.5, 80)
+    <Blackspot X="8358.408, -117.206696, 821.9137" Radius="6.5, 80)
+    <Blackspot X="8366.91, -64.90765, 814.557" Radius="6.5, 80)
+    <Blackspot X="8425.891, -60.0174141, 797.0738" Radius="6.5, 80)
+    <Blackspot X="8486.942, -47.4759941, 789.392151" Radius="6.5, 80)
+    <Blackspot X="7962.05859, -396.6118, 895.6586" Radius="8.5, 80)
+    <Blackspot X="7972.718, -410.751831, 903.1086" Radius="8.5, 80)
+    <Blackspot X="7976.29248, -415.134735, 905.5511" Radius="8.5, 80)
+    <Blackspot X="7980.221, -419.9516, 908.658264" Radius="8.5, 80)
+    <Blackspot X="7988.64551, -438.862518, 920.6754" Radius="8.5, 80)
+    <Blackspot X="7989.80762, -441.6393, 922.5603" Radius="8.5, 80)
+    <Blackspot X="7991.25537, -445.1006, 924.464844" Radius="8.5, 80)
+    <Blackspot X="7992.73828, -448.64444, 926.585938" Radius="8.5, 80)
+    <Blackspot X="7994.316, -452.4157, 928.9618" Radius="8.5, 80)
+    <Blackspot X="7995.837, -456.0512, 931.2289" Radius="8.5, 80)
+    <Blackspot X="7997.35547, -459.6804, 933.6177" Radius="8.5, 80)
+    <Blackspot X="7963.0376, -410.2226, 900.5194" Radius="8.5, 80)
+    <Blackspot X="7957.546, -414.284546, 894.913269" Radius="8.5, 80)
+    <Blackspot X="7950.81738, -415.337616, 892.8783" Radius="8.5, 80)
+    <Blackspot X="3418.63867, -3250.62134, 217.7039" Radius="15, 80)
+    <Blackspot X="3628.97632, -5104.524, 164.165787" Radius="15, 80)
+    <Blackspot X="3748.50635, -5117.67236, 121.41935" Radius="15, 80)
+    <Blackspot X="3748.44946, -5169.73145, 121.238785" Radius="15, 80)
+    <Blackspot X="3730.13965, -5207.334, 123.93367" Radius="15, 80)
+    <Blackspot X="3714.501, -5250.3457, 114.01609" Radius="15, 80)
+    <Blackspot X="3688.144, -5279.359, 114.072624" Radius="15, 80)
+    <Blackspot X="3659.48364, -5288.059, 121.642509" Radius="15, 80)
+    <Blackspot X="3637.626, -5296.42, 124.109894" Radius="15, 80)
+    <Blackspot X="3612.64771, -5305.55664, 128.976456" Radius="15, 80)
+    <Blackspot X="3590.903, -5312.99854, 137.555771" Radius="15, 80)
+  </Blackspots>
+  <BlackGuids>
+    <string>F1300066EB00D60B</string>
+    <string>F1300066EB00D609</string>
+    <string>F1300066EB00D60A</string>
+    <string>F13000672E00D5E7</string>
+    <string>F1300066EB00D5EB</string>
+    <string>F1300066EB00D5EA</string>
+    <string>F130006A2900D5E6</string>
+    <string>F1300069EA00D5E8</string>
+    <string>F1300066EB00D5DD</string>
+    <string>F13000672800D5DC</string>
+    <string>F1300066EB00D5E9</string>
+    <string>F13000672E00D5D7</string>
+    <string>F1300072C6004FB6</string>
+    <string>F1300072C1004CA4</string>
+    <string>F1300072C0004C85</string>
+    <string>F1300072C0003A44</string>
+    <string>F1300072C0004C86</string>
+    <string>F1300072C4004C84</string>
+    <string>F1300072C0003A47</string>
+    <string>F1300072C0003A46</string>
+    <string>F1300072C0003A4E</string>
+    <string>F1300072C0003A4C</string>
+    <string>F1300072C00058D6</string>
+    <string>F1300072C00058D5</string>
+    <string>F1300072C00058D7</string>
+    <string>F1300072C0003A4B</string>
+    <string>F1300072C40050B1</string>
+    <string>F1300072C0003A68</string>
+    <string>F1300072C00058CF</string>
+    <string>F1300072C1003A9E</string>
+    <string>F1300072C6003AA1</string>
+    <string>F1300072C1003A9F</string>
+    <string>F1300072C6003AA2</string>
+    <string>F1300072C1005A2F</string>
+    <string>F13000732D003AB3</string>
+    <string>F1300072C1005516</string>
+    <string>F1300072C6005508</string>
+    <string>F1300072C1003AD6</string>
+    <string>F1300072C1003ADD</string>
+    <string>F1300072C1003ADC</string>
+    <string>F1300072C1003ADE</string>
+    <string>F1300072C6005559</string>
+    <string>F1300072C1004CA2</string>
+    <string>F1300072C6004C98</string>
+    <string>F1300072C1003A9D</string>
+    <string>F1300072C6003AA6</string>
+    <string>F1300072C6005A33</string>
+    <string>F1300072BA0050F8</string>
+    <string>F1300072BE0050F7</string>
+    <string>F1300072BA004D12</string>
+    <string>F1300072BE004D15</string>
+    <string>F1300072BA004D1A</string>
+    <string>F1300072BA0054FD</string>
+    <string>F1300072B80054FE</string>
+    <string>F130006773001B55</string>
+    <string>F130006773001B54</string>
+    <string>F13000677301A0AD</string>
+    <string>F13000677301A063</string>
+    <string>F13000677301A065</string>
+    <string>F13000677301A0A2</string>
+    <string>F13000677301A0B4</string>
+    <string>F13000677301A066</string>
+    <string>F13000677301A085</string>
+    <string>F1300067010176CC</string>
+    <string>F13000670101764C</string>
+    <string>F13000670101766F</string>
+    <string>F1300067010176CB</string>
+    <string>F1300067010175FB</string>
+    <string>F130006701017645</string>
+    <string>F130006701017784</string>
+    <string>F13000670101777B</string>
+    <string>F1300067010175A9</string>
+    <string>F1300066EB01CD8F</string>
+    <string>F1300066EB01CD89</string>
+    <string>F130006A5E0197B4</string>
+    <string>F130006A5E0197D5</string>
+    <string>F130006A5E0197D7</string>
+    <string>F130006A5E019811</string>
+    <string>F130006A5E019812</string>
+    <string>F130006A5E0197DC</string>
+    <string>F130006A5E019813</string>
+    <string>F130006A5E019810</string>
+    <string>F130006A5E0197DF</string>
+    <string>F130006A5E0197D1</string>
+    <string>F130006A5E0197EB</string>
+    <string>F130006A5E0197EC</string>
+    <string>F130006A5E0197EE</string>
+  </BlackGuids>
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Dragonblight - 69 to 72</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+GMR.DefineProfileCenter(4416.795, 1224.392, 147.0431, 80)
+GMR.DefineProfileCenter(4301.84, 1217.783, 148.2364, 80)
+GMR.DefineProfileCenter(4182.016, 1338.47, 140.6176, 80)
+GMR.DefineProfileCenter(4021.992, 1410.408, 129.3658, 80)
+GMR.DefineProfileCenter(3977.89, 1512.28, 120.882, 80)
+GMR.DefineProfileCenter(4021.54, 1361.638, 129.8307, 80)
+GMR.DefineProfileCenter(3953.911, 1303.606, 132.9324, 80)
+GMR.DefineProfileCenter(3885.68, 1322.667, 122.9284, 80)
+GMR.DefineProfileCenter(3777.911, 1273.576, 132.4371, 80)
+GMR.DefineProfileCenter(3807.982, 1410.096, 95.25526, 80)
+GMR.DefineProfileCenter(3708.99, 1368.24, 116.0095, 80)
+GMR.DefineProfileCenter(3437.941, 1371.661, 90.32986, 80)
+GMR.DefineProfileCenter(3527.542, 1521.45, 78.5337, 80)
+GMR.DefineProfileCenter(3485.287, 1602.368, 81.0798, 80)
+GMR.DefineProfileCenter(3361.57, 1647.926, 133.6194, 80)
+GMR.DefineProfileCenter(3289.387, 1569.682, 145.3674, 80)
+GMR.DefineProfileCenter(3687.061, 1693.173, 100.9371, 80)
+GMR.DefineProfileCenter(3759.368, 1775.747, 111.4067, 80)
+GMR.DefineProfileCenter(3158.33, -3030.98, 127.5859, 80)
+        </HotSpots>
+        <EntryTarget>
+          <int>26615</int>
+          <int>26482</int>
+          <int>26613</int>
+          <int>26483</int>
+          <int>27294</int>
+          <int>26322</int>
+          <int>26363</int>
+          <int>27546</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>71</MaxLevel>
+      <MinLevel>69</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>PATH: To Grizzly Hills</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+GMR.DefineProfileCenter(4174.428, 1382.26, 137.3684, 80)
+GMR.DefineProfileCenter(4182.766, 1370.409, 138.8805, 80)
+GMR.DefineProfileCenter(4198.821, 1346.608, 140.9308, 80)
+GMR.DefineProfileCenter(4215.3, 1314.785, 138.8249, 80)
+GMR.DefineProfileCenter(4219.109, 1280.24, 138.8328, 80)
+GMR.DefineProfileCenter(4225.996, 1245.38, 139.1247, 80)
+GMR.DefineProfileCenter(4238.737, 1211.935, 139.222, 80)
+GMR.DefineProfileCenter(4258.434, 1183.23, 141.0329, 80)
+GMR.DefineProfileCenter(4281.32, 1155.113, 139.4717, 80)
+GMR.DefineProfileCenter(4290.741, 1139.734, 137.5072, 80)
+GMR.DefineProfileCenter(4297.483, 1125.603, 130.1529, 80)
+GMR.DefineProfileCenter(4304.642, 1090.219, 97.42519, 80)
+GMR.DefineProfileCenter(4306.638, 1068.192, 77.18835, 80)
+GMR.DefineProfileCenter(4304.319, 1047.321, 64.6192, 80)
+GMR.DefineProfileCenter(4300.567, 1012.348, 69.18353, 80)
+GMR.DefineProfileCenter(4299.479, 977.8439, 81.70839, 80)
+GMR.DefineProfileCenter(4304.428, 942.7725, 80.80149, 80)
+GMR.DefineProfileCenter(4305.233, 906.6534, 78.94478, 80)
+GMR.DefineProfileCenter(4295.106, 874.4171, 76.14939, 80)
+GMR.DefineProfileCenter(4285.472, 860.6545, 74.56907, 80)
+GMR.DefineProfileCenter(4275.077, 850.1172, 75.09914, 80)
+GMR.DefineProfileCenter(4263.349, 835.2303, 73.37509, 80)
+GMR.DefineProfileCenter(4293.216, 816.8094, 71.65658, 80)
+GMR.DefineProfileCenter(4315.411, 788.2402, 76.91366, 80)
+GMR.DefineProfileCenter(4325.72, 769.5065, 74.30016, 80)
+GMR.DefineProfileCenter(4325.592, 757.7472, 74.05451, 80)
+GMR.DefineProfileCenter(4328.294, 742.1593, 69.9441, 80)
+GMR.DefineProfileCenter(4332.302, 729.2573, 65.23351, 80)
+GMR.DefineProfileCenter(4318.34, 711.0128, 60.56906, 80)
+GMR.DefineProfileCenter(4305.495, 709.9984, 62.29889, 80)
+GMR.DefineProfileCenter(4269.44, 710.2174, 68.89746, 80)
+GMR.DefineProfileCenter(4233.91, 709.7473, 69.61496, 80)
+GMR.DefineProfileCenter(4202.72, 693.2979, 69.45452, 80)
+GMR.DefineProfileCenter(4176.3, 669.5046, 68.30841, 80)
+GMR.DefineProfileCenter(4152.691, 643.1483, 63.66247, 80)
+GMR.DefineProfileCenter(4139.426, 610.5784, 62.44329, 80)
+GMR.DefineProfileCenter(4128.833, 577.7381, 62.90853, 80)
+GMR.DefineProfileCenter(4109.978, 550.8981, 60.74912, 80)
+GMR.DefineProfileCenter(4102.289, 536.8654, 60.12244, 80)
+GMR.DefineProfileCenter(4112.178, 526.166, 58.39892, 80)
+GMR.DefineProfileCenter(4127.404, 510.576, 62.87209, 80)
+GMR.DefineProfileCenter(4140.771, 501.4765, 63.2345, 80)
+GMR.DefineProfileCenter(4154.207, 491.8856, 63.02729, 80)
+GMR.DefineProfileCenter(4157.436, 473.7611, 61.41669, 80)
+GMR.DefineProfileCenter(4157.594, 438.9986, 64.96889, 80)
+GMR.DefineProfileCenter(4151.956, 404.1351, 69.10092, 80)
+GMR.DefineProfileCenter(4145.582, 369.0812, 67.67877, 80)
+GMR.DefineProfileCenter(4131.903, 336.772, 59.86181, 80)
+GMR.DefineProfileCenter(4117.582, 308.0104, 52.04636, 80)
+GMR.DefineProfileCenter(4081.857, 298.5352, 42.64699, 80)
+GMR.DefineProfileCenter(4058.404, 284.9626, 30.38007, 80)
+GMR.DefineProfileCenter(4027.74, 267.234, 21.75147, 80)
+GMR.DefineProfileCenter(3998.013, 247.4143, 19.12409, 80)
+GMR.DefineProfileCenter(3987.203, 235.9569, 20.13353, 80)
+GMR.DefineProfileCenter(3970.701, 238.2336, 19.69435, 80)
+GMR.DefineProfileCenter(3965.632, 279.7856, 15.56006, 80)
+GMR.DefineProfileCenter(3962.075, 247.8047, 12.78526, 80)
+GMR.DefineProfileCenter(3964.547, 233.5134, 22.14495, 80)
+GMR.DefineProfileCenter(3962.451, 204.2843, 40.10472, 80)
+GMR.DefineProfileCenter(3958.478, 180.1316, 45.67258, 80)
+GMR.DefineProfileCenter(3948.86, 145.7525, 40.97337, 80)
+GMR.DefineProfileCenter(3936.419, 112.3573, 43.06013, 80)
+GMR.DefineProfileCenter(3930.535, 95.4352, 43.11798, 80)
+GMR.DefineProfileCenter(3922.407, 75.71074, 42.96144, 80)
+GMR.DefineProfileCenter(3908.184, 57.42849, 45.92862, 80)
+GMR.DefineProfileCenter(3886.851, 35.60252, 45.12677, 80)
+GMR.DefineProfileCenter(3862.631, 10.72548, 51.17398, 80)
+GMR.DefineProfileCenter(3837.814, -15.40712, 53.30533, 80)
+GMR.DefineProfileCenter(3812.338, -40.12025, 56.64184, 80)
+GMR.DefineProfileCenter(3783.422, -61.31669, 60.48145, 80)
+GMR.DefineProfileCenter(3752.079, -75.29494, 63.82013, 80)
+GMR.DefineProfileCenter(3718.165, -76.06947, 63.18283, 80)
+GMR.DefineProfileCenter(3688.696, -64.33031, 64.63811, 80)
+GMR.DefineProfileCenter(3701.623, -107.9724, 66.72409, 80)
+GMR.DefineProfileCenter(3709.296, -142.0956, 67.80477, 80)
+GMR.DefineProfileCenter(3716.688, -177.3438, 67.8924, 80)
+GMR.DefineProfileCenter(3716.35, -212.1832, 69.53983, 80)
+GMR.DefineProfileCenter(3699.165, -243.7948, 70.20346, 80)
+GMR.DefineProfileCenter(3678.232, -270.4153, 70.11618, 80)
+GMR.DefineProfileCenter(3646.148, -287.191, 70.35529, 80)
+GMR.DefineProfileCenter(3611.764, -292.0833, 69.24698, 80)
+GMR.DefineProfileCenter(3576.209, -285.3201, 72.71892, 80)
+GMR.DefineProfileCenter(3542.153, -278.5418, 72.6754, 80)
+GMR.DefineProfileCenter(3507.577, -270.5757, 72.75447, 80)
+GMR.DefineProfileCenter(3473.612, -261.0524, 72.06518, 80)
+GMR.DefineProfileCenter(3441.622, -245.7267, 76.23407, 80)
+GMR.DefineProfileCenter(3414.638, -224.4515, 76.22749, 80)
+GMR.DefineProfileCenter(3383.175, -205.9251, 74.51579, 80)
+GMR.DefineProfileCenter(3348.819, -201.7836, 75.35938, 80)
+GMR.DefineProfileCenter(3317.126, -187.4634, 75.63229, 80)
+GMR.DefineProfileCenter(3287.695, -168.8294, 75.38714, 80)
+GMR.DefineProfileCenter(3272.984, -163.1997, 75.25037, 80)
+GMR.DefineProfileCenter(3250.623, -159.3088, 73.76937, 80)
+GMR.DefineProfileCenter(3223.095, -167.5221, 78.35552, 80)
+GMR.DefineProfileCenter(3196.239, -174.6735, 79.4881, 80)
+GMR.DefineProfileCenter(3175.734, -169.7755, 77.55937, 80)
+GMR.DefineProfileCenter(3140.99, -162.2992, 78.5715, 80)
+GMR.DefineProfileCenter(3107.511, -150.7156, 77.75156, 80)
+GMR.DefineProfileCenter(3075.359, -136.2051, 75.96187, 80)
+GMR.DefineProfileCenter(3087.484, -144.1537, 78.41074, 80)
+GMR.DefineProfileCenter(3104.179, -147.365, 78.00398, 80)
+GMR.DefineProfileCenter(3138.318, -155.5252, 78.10192, 80)
+GMR.DefineProfileCenter(3170.724, -169.6141, 76.9194, 80)
+GMR.DefineProfileCenter(3205.401, -177.7079, 80.19531, 80)
+GMR.DefineProfileCenter(3240.053, -171.773, 78.38799, 80)
+GMR.DefineProfileCenter(3275.542, -165.8474, 75.30318, 80)
+GMR.DefineProfileCenter(3294.052, -172.9577, 74.66592, 80)
+GMR.DefineProfileCenter(3306.795, -179.7062, 75.45618, 80)
+GMR.DefineProfileCenter(3315.672, -191.6932, 76.12792, 80)
+GMR.DefineProfileCenter(3305.376, -214.9964, 79.44691, 80)
+GMR.DefineProfileCenter(3292.219, -248.4013, 83.85236, 80)
+GMR.DefineProfileCenter(3281.442, -266.5914, 86.48828, 80)
+GMR.DefineProfileCenter(3247.435, -277.2467, 96.50591, 80)
+GMR.DefineProfileCenter(3221.216, -296.6357, 110.9287, 80)
+GMR.DefineProfileCenter(3219.931, -307.6208, 116.6029, 80)
+GMR.DefineProfileCenter(3216.359, -342.5632, 128.1888, 80)
+GMR.DefineProfileCenter(3216.078, -365.7312, 134.0381, 80)
+GMR.DefineProfileCenter(3222.452, -399.5408, 140.0878, 80)
+GMR.DefineProfileCenter(3234.367, -432.5859, 141.0423, 80)
+GMR.DefineProfileCenter(3240.561, -467.38, 140.1138, 80)
+GMR.DefineProfileCenter(3245.504, -494.7993, 141.8294, 80)
+GMR.DefineProfileCenter(3260.698, -519.2297, 148.4674, 80)
+GMR.DefineProfileCenter(3261.021, -531.3868, 149.9582, 80)
+GMR.DefineProfileCenter(3258.725, -553.3026, 151.5755, 80)
+GMR.DefineProfileCenter(3255.68, -569.1585, 153.4361, 80)
+GMR.DefineProfileCenter(3254.866, -587.0596, 156.6113, 80)
+GMR.DefineProfileCenter(3241.739, -607.7853, 159.872, 80)
+GMR.DefineProfileCenter(3238.449, -632.7209, 164.6063, 80)
+GMR.DefineProfileCenter(3236.376, -645.0233, 165.3044, 80)
+GMR.DefineProfileCenter(3232.99, -661.1926, 166.6485, 80)
+GMR.DefineProfileCenter(3238.113, -678.459, 166.7908, 80)
+GMR.DefineProfileCenter(3249.205, -706.397, 167.159, 80)
+GMR.DefineProfileCenter(3256.833, -721.6716, 167.7755, 80)
+GMR.DefineProfileCenter(3270.833, -743.5758, 168.4935, 80)
+GMR.DefineProfileCenter(3278.921, -752.9591, 168.4565, 80)
+GMR.DefineProfileCenter(3268.935, -759.933, 167.1898, 80)
+GMR.DefineProfileCenter(3271.643, -772.0815, 164.9018, 80)
+GMR.DefineProfileCenter(3271.017, -806.247, 159.9567, 80)
+GMR.DefineProfileCenter(3270.067, -843.1098, 153.9509, 80)
+GMR.DefineProfileCenter(3272.133, -877.7141, 147.6158, 80)
+GMR.DefineProfileCenter(3284.677, -910.5605, 139.8986, 80)
+GMR.DefineProfileCenter(3291.707, -925.0352, 137.529, 80)
+GMR.DefineProfileCenter(3308.917, -957.3433, 131.6275, 80)
+GMR.DefineProfileCenter(3319.605, -977.5814, 127.8027, 80)
+GMR.DefineProfileCenter(3331.856, -1010.552, 124.7173, 80)
+GMR.DefineProfileCenter(3345.434, -1042.389, 125.9661, 80)
+GMR.DefineProfileCenter(3358.718, -1061.629, 126.4194, 80)
+GMR.DefineProfileCenter(3381.134, -1086.747, 124.7674, 80)
+GMR.DefineProfileCenter(3399.967, -1116.096, 120.7887, 80)
+GMR.DefineProfileCenter(3401.356, -1153.1, 114.2237, 80)
+GMR.DefineProfileCenter(3392.64, -1187.214, 109.2488, 80)
+GMR.DefineProfileCenter(3380.147, -1219.828, 104.5255, 80)
+GMR.DefineProfileCenter(3371.355, -1237.345, 102.4218, 80)
+GMR.DefineProfileCenter(3353.426, -1267.55, 98.02393, 80)
+GMR.DefineProfileCenter(3330.135, -1294.738, 93.391, 80)
+GMR.DefineProfileCenter(3319.204, -1304.234, 91.20993, 80)
+GMR.DefineProfileCenter(3292.438, -1315.684, 86.98252, 80)
+GMR.DefineProfileCenter(3267.727, -1330.534, 81.10465, 80)
+GMR.DefineProfileCenter(3252.216, -1343.946, 75.02544, 80)
+GMR.DefineProfileCenter(3245.867, -1354.841, 72.65649, 80)
+GMR.DefineProfileCenter(3226.649, -1375.873, 66.98374, 80)
+GMR.DefineProfileCenter(3214.744, -1395.617, 62.85894, 80)
+GMR.DefineProfileCenter(3211.635, -1430.367, 58.08979, 80)
+GMR.DefineProfileCenter(3204.212, -1465.313, 52.24306, 80)
+GMR.DefineProfileCenter(3194.36, -1499.626, 46.9005, 80)
+GMR.DefineProfileCenter(3184.741, -1534.074, 41.40966, 80)
+GMR.DefineProfileCenter(3179.888, -1568.148, 38.994, 80)
+GMR.DefineProfileCenter(3179.387, -1604.459, 38.994, 80)
+GMR.DefineProfileCenter(3180.177, -1639.128, 39.22004, 80)
+GMR.DefineProfileCenter(3180.689, -1675.868, 37.87318, 80)
+GMR.DefineProfileCenter(3176.152, -1698.292, 36.44183, 80)
+GMR.DefineProfileCenter(3159.233, -1741.551, 39.75629, 80)
+GMR.DefineProfileCenter(3147.334, -1773.893, 49.17715, 80)
+GMR.DefineProfileCenter(3148.815, -1796.364, 54.64512, 80)
+GMR.DefineProfileCenter(3162.704, -1828.098, 62.97583, 80)
+GMR.DefineProfileCenter(3178.361, -1860.787, 74.05293, 80)
+GMR.DefineProfileCenter(3189.545, -1894.589, 84.9982, 80)
+GMR.DefineProfileCenter(3192.046, -1928.747, 87.53945, 80)
+GMR.DefineProfileCenter(3190.653, -1965.185, 86.0182, 80)
+GMR.DefineProfileCenter(3189.349, -1985.653, 85.81643, 80)
+GMR.DefineProfileCenter(3199.674, -1999.83, 84.77223, 80)
+GMR.DefineProfileCenter(3222.069, -2009.069, 86.8633, 80)
+GMR.DefineProfileCenter(3236.234, -2014.142, 87.26601, 80)
+GMR.DefineProfileCenter(3257.222, -2017.687, 89.35637, 80)
+GMR.DefineProfileCenter(3273.253, -1993.443, 95.2772, 80)
+GMR.DefineProfileCenter(3291.299, -1963.911, 103.3581, 80)
+GMR.DefineProfileCenter(3325.676, -1960.99, 112.098, 80)
+GMR.DefineProfileCenter(3360.321, -1966.209, 118.1726, 80)
+GMR.DefineProfileCenter(3382.917, -1993.051, 124.2875, 80)
+GMR.DefineProfileCenter(3399.494, -2017.887, 127.9624, 80)
+GMR.DefineProfileCenter(3412.812, -2000.853, 131.9001, 80)
+GMR.DefineProfileCenter(3423.174, -1985.446, 135.8459, 80)
+GMR.DefineProfileCenter(3436.771, -1956.454, 140.4612, 80)
+GMR.DefineProfileCenter(3455.414, -1926.832, 141.0937, 80)
+GMR.DefineProfileCenter(3485.446, -1910.628, 145.1807, 80)
+GMR.DefineProfileCenter(3511.575, -1931.879, 153.7904, 80)
+GMR.DefineProfileCenter(3509.477, -1967.838, 164.6845, 80)
+GMR.DefineProfileCenter(3516.203, -2002.212, 169.8871, 80)
+GMR.DefineProfileCenter(3532.638, -2033.894, 167.6806, 80)
+GMR.DefineProfileCenter(3562.282, -2050.327, 162.9417, 80)
+GMR.DefineProfileCenter(3595.651, -2062.589, 156.0673, 80)
+GMR.DefineProfileCenter(3624.545, -2083.057, 149.1877, 80)
+GMR.DefineProfileCenter(3647.262, -2109.16, 146.6081, 80)
+GMR.DefineProfileCenter(3656.457, -2143.333, 148.2451, 80)
+GMR.DefineProfileCenter(3664.842, -2178.418, 152.9702, 80)
+GMR.DefineProfileCenter(3672.086, -2206.984, 156.5583, 80)
+GMR.DefineProfileCenter(3675.388, -2220.004, 158.6942, 80)
+GMR.DefineProfileCenter(3681.004, -2256.534, 160.4107, 80)
+GMR.DefineProfileCenter(3677.856, -2292.689, 160.1496, 80)
+GMR.DefineProfileCenter(3667.656, -2326.661, 156.5272, 80)
+GMR.DefineProfileCenter(3653.111, -2359.257, 155.9747, 80)
+GMR.DefineProfileCenter(3650.983, -2394.104, 153.2655, 80)
+GMR.DefineProfileCenter(3660.043, -2427.744, 150.2298, 80)
+GMR.DefineProfileCenter(3673.442, -2460.121, 154.0999, 80)
+GMR.DefineProfileCenter(3695.276, -2488.765, 158.481, 80)
+GMR.DefineProfileCenter(3714.468, -2517.437, 163.6259, 80)
+GMR.DefineProfileCenter(3734.016, -2546.708, 170.9051, 80)
+GMR.DefineProfileCenter(3750.763, -2579.323, 174.3451, 80)
+GMR.DefineProfileCenter(3757.121, -2613.165, 176.0448, 80)
+GMR.DefineProfileCenter(3759.75, -2648.13, 173.118, 80)
+GMR.DefineProfileCenter(3756.037, -2684.043, 175.4141, 80)
+GMR.DefineProfileCenter(3750.857, -2713.288, 175.6018, 80)
+GMR.DefineProfileCenter(3737.906, -2726.666, 177.2836, 80)
+GMR.DefineProfileCenter(3719.234, -2739.051, 178.4653, 80)
+GMR.DefineProfileCenter(3689.979, -2759.004, 184.5812, 80)
+GMR.DefineProfileCenter(3663.584, -2783.146, 188.3812, 80)
+GMR.DefineProfileCenter(3640.693, -2808.918, 199.8982, 80)
+GMR.DefineProfileCenter(3635.618, -2828.846, 205.6393, 80)
+GMR.DefineProfileCenter(3638.651, -2864.37, 215.3294, 80)
+GMR.DefineProfileCenter(3639.42, -2899.765, 223.8791, 80)
+GMR.DefineProfileCenter(3643.471, -2929.822, 232.656, 80)
+GMR.DefineProfileCenter(3654.906, -2946.932, 236.0325, 80)
+GMR.DefineProfileCenter(3648.333, -2962.745, 234.9966, 80)
+GMR.DefineProfileCenter(3617.955, -2981.567, 230.1533, 80)
+GMR.DefineProfileCenter(3604.301, -3006.878, 231.061, 80)
+GMR.DefineProfileCenter(3599.29, -3034.886, 234.366, 80)
+GMR.DefineProfileCenter(3578.759, -3061.597, 237.1455, 80)
+GMR.DefineProfileCenter(3553.407, -3086.958, 239.9196, 80)
+GMR.DefineProfileCenter(3533.52, -3108.808, 241.7585, 80)
+GMR.DefineProfileCenter(3546.095, -3148.556, 243.5672, 80)
+GMR.DefineProfileCenter(3546.025, -3184.021, 241.1028, 80)
+GMR.DefineProfileCenter(3543.552, -3219.213, 241.4715, 80)
+GMR.DefineProfileCenter(3543.531, -3253.399, 241.196, 80)
+GMR.DefineProfileCenter(3546.462, -3289.539, 244.0299, 80)
+GMR.DefineProfileCenter(3549.826, -3317.278, 244.5758, 80)
+GMR.DefineProfileCenter(3555.844, -3347.842, 244.6147, 80)
+GMR.DefineProfileCenter(3576.845, -3376.182, 243.5616, 80)
+GMR.DefineProfileCenter(3592.842, -3391.56, 242.6776, 80)
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>72</MaxLevel>
+      <MinLevel>72</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Grizzly Hills -  72 to 73 Bears</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+GMR.DefineProfileCenter(3010.988, -3093.497, 114.4447, 80)
+GMR.DefineProfileCenter(3048.448, -3079.606, 117.5433, 80)
+GMR.DefineProfileCenter(3120.369, -3061.816, 121.5086, 80)
+GMR.DefineProfileCenter(3139.404, -3123.082, 141.3391, 80)
+GMR.DefineProfileCenter(3215.53, -3172.37, 179.0606, 80)
+GMR.DefineProfileCenter(3253.192, -3210.532, 197.6524, 80)
+GMR.DefineProfileCenter(3348.557, -3242.864, 220.1358, 80)
+GMR.DefineProfileCenter(3369.556, -3295.791, 235.0842, 80)
+GMR.DefineProfileCenter(3322.006, -3322.67, 254.6802, 80)
+GMR.DefineProfileCenter(3379.936, -3355.635, 255.7002, 80)
+GMR.DefineProfileCenter(3451.3, -3316.186, 238.3128, 80)
+GMR.DefineProfileCenter(3485.937, -3251.197, 223.8325, 80)
+GMR.DefineProfileCenter(3527.338, -3376.918, 245.7305, 80)
+GMR.DefineProfileCenter(3470.068, -3464.869, 263.6759, 80)
+GMR.DefineProfileCenter(3543.64, -3474.94, 247.6709, 80)
+GMR.DefineProfileCenter(3618.916, -3481.588, 238.4328, 80)
+GMR.DefineProfileCenter(3648.183, -3539.086, 229.1709, 80)
+GMR.DefineProfileCenter(3673.881, -3391.118, 248.0966, 80)
+        </HotSpots>
+        <EntryTarget>
+          <int>27131</int>
+          <int>26363</int>
+          <int>26369</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>72</MaxLevel>
+      <MinLevel>72</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Unexpected 'Guest'</Name>
+      <QuestId>
+        <int>12195</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+GMR.DefineProfileCenter(3578.118, -4325.271, 208.8679, 80)
+GMR.DefineProfileCenter(3526.959, -4389.766, 236.3595, 80)
+GMR.DefineProfileCenter(3581.555, -4463.9, 203.8597, 80)
+GMR.DefineProfileCenter(3669.4, -4087.998, 186.118, 80)
+GMR.DefineProfileCenter(3727.22, -4085.854, 185.2582, 80)
+GMR.DefineProfileCenter(3791.607, -4110.768, 204.6419, 80)
+GMR.DefineProfileCenter(3722.045, -4702.276, 165.5739, 80)
+GMR.DefineProfileCenter(3833.387, -4775.311, 136.3566, 80)
+        </HotSpots>
+        <EntryTarget>
+          <int>27230</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>5</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>73</MaxLevel>
+      <MinLevel>73</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Horse Hollerer</Name>
+      <QuestId>
+        <int>12415</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+GMR.DefineProfileCenter(4439.717, -4008.366, 180.35, 80)
+GMR.DefineProfileCenter(4842.666, -4246.986, 249.6076, 80)
+GMR.DefineProfileCenter(4764.719, -4330.752, 220.3475, 80)
+GMR.DefineProfileCenter(4875.354, -4357.168, 254.7334, 80)
+GMR.DefineProfileCenter(4961.876, -4848.125, 310.8835, 80)
+        </HotSpots>
+        <EntryIdTarget>
+          <int>26472</int>
+        </EntryIdTarget>
+        <ItemId>37716</ItemId>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>15</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>73</MaxLevel>
+      <MinLevel>73</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Grizly Hills - 73 to 74</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+GMR.DefineProfileCenter(3521.63, -4393.422, 237.2665, 80)
+GMR.DefineProfileCenter(3614.95, -4409.239, 197.0031, 80)
+GMR.DefineProfileCenter(3601.789, -4342.356, 207.8645, 80)
+GMR.DefineProfileCenter(3698.72, -4254.88, 193.4897, 80)
+GMR.DefineProfileCenter(3588.704, -4218.086, 217.2045, 80)
+GMR.DefineProfileCenter(3653.535, -4116.51, 197.084, 80)
+GMR.DefineProfileCenter(3744.684, -4080.719, 187.5085, 80)
+GMR.DefineProfileCenter(3846.883, -4116.28, 209.3717, 80)
+GMR.DefineProfileCenter(3921.662, -4114.615, 216.6758, 80)
+GMR.DefineProfileCenter(3729.537, -4560.435, 196.0875, 80)
+GMR.DefineProfileCenter(3626.026, -4663.723, 184.7076, 80)
+GMR.DefineProfileCenter(3427.14, -4896.544, 273.711, 80)
+GMR.DefineProfileCenter(3507.872, -4990.707, 216.8366, 80)
+GMR.DefineProfileCenter(3626.968, -5000.648, 179.7471, 80)
+GMR.DefineProfileCenter(3629.291, -5213.505, 149.9751, 80)
+        </HotSpots>
+        <EntryTarget>
+          <int>27230</int>
+          <int>26407</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>73</MaxLevel>
+      <MinLevel>73</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>PATH: To Zul Drak</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+GMR.DefineProfileCenter(4463.446, -4318.392, 159.987, 80)
+GMR.DefineProfileCenter(4484.177, -4319.246, 161.5004, 80)
+GMR.DefineProfileCenter(4505.39, -4320.194, 165.0121, 80)
+GMR.DefineProfileCenter(4526.078, -4325.961, 167.6729, 80)
+GMR.DefineProfileCenter(4544.976, -4335.907, 170.0755, 80)
+GMR.DefineProfileCenter(4563.431, -4346.016, 172.1888, 80)
+GMR.DefineProfileCenter(4583.885, -4351.649, 175.6142, 80)
+GMR.DefineProfileCenter(4604.742, -4354.501, 178.9976, 80)
+GMR.DefineProfileCenter(4625.646, -4356.441, 181.6311, 80)
+GMR.DefineProfileCenter(4646.401, -4353.482, 185.8082, 80)
+GMR.DefineProfileCenter(4664.829, -4342.901, 191.5729, 80)
+GMR.DefineProfileCenter(4683.044, -4332.329, 195.5515, 80)
+GMR.DefineProfileCenter(4699.065, -4318, 199.728, 80)
+GMR.DefineProfileCenter(4713.765, -4302.546, 205.0716, 80)
+GMR.DefineProfileCenter(4732.671, -4292.862, 210.8998, 80)
+GMR.DefineProfileCenter(4752.23, -4285.337, 218.5959, 80)
+GMR.DefineProfileCenter(4773.461, -4283.613, 228.8051, 80)
+GMR.DefineProfileCenter(4794.892, -4283.554, 237.7006, 80)
+GMR.DefineProfileCenter(4815.857, -4280.007, 244.0182, 80)
+GMR.DefineProfileCenter(4836.907, -4276.042, 248.5958, 80)
+GMR.DefineProfileCenter(4857.899, -4272.089, 249.4145, 80)
+GMR.DefineProfileCenter(4878.74, -4268.164, 255.0319, 80)
+GMR.DefineProfileCenter(4899.569, -4269.211, 258.5556, 80)
+GMR.DefineProfileCenter(4920.359, -4265.752, 258.9783, 80)
+GMR.DefineProfileCenter(4938.398, -4254.703, 261.8286, 80)
+GMR.DefineProfileCenter(4955.76, -4242.483, 274.4659, 80)
+GMR.DefineProfileCenter(4973.087, -4230.287, 287.0793, 80)
+GMR.DefineProfileCenter(4989.762, -4218.55, 299.219, 80)
+GMR.DefineProfileCenter(5006.356, -4205.333, 311.8623, 80)
+GMR.DefineProfileCenter(5021.833, -4190.739, 324.4847, 80)
+GMR.DefineProfileCenter(5038.048, -4177.104, 337.1019, 80)
+GMR.DefineProfileCenter(5054.688, -4163.583, 349.8774, 80)
+GMR.DefineProfileCenter(5070.975, -4150.161, 351.6574, 80)
+GMR.DefineProfileCenter(5087.433, -4136.749, 351.4118, 80)
+GMR.DefineProfileCenter(5104.501, -4123.622, 351.4118, 80)
+GMR.DefineProfileCenter(5122.135, -4112.182, 351.4118, 80)
+GMR.DefineProfileCenter(5140.065, -4100.048, 351.4118, 80)
+GMR.DefineProfileCenter(5156.151, -4086.128, 351.9023, 80)
+GMR.DefineProfileCenter(5172.251, -4072.493, 352.4313, 80)
+GMR.DefineProfileCenter(5189.103, -4059.685, 364.4449, 80)
+GMR.DefineProfileCenter(5206.512, -4047.469, 371.9872, 80)
+GMR.DefineProfileCenter(5230.217, -4033.82, 371.9872, 80)
+GMR.DefineProfileCenter(5314.802, -4010.2, 371.987, 80)
+GMR.DefineProfileCenter(5400.233, -4005.171, 371.987, 80)
+GMR.DefineProfileCenter(5491.752, -4005.086, 372.1239, 80)
+GMR.DefineProfileCenter(5515.046, -3999.764, 371.9871, 80)
+GMR.DefineProfileCenter(5543.765, -3980.962, 372, 80)
+GMR.DefineProfileCenter(5567.094, -3955.357, 372.3792, 80)
+GMR.DefineProfileCenter(5603.391, -3910, 371.9971, 80)
+GMR.DefineProfileCenter(5632.804, -3881.771, 371.987, 80)
+GMR.DefineProfileCenter(5688.953, -3831.673, 371.9895, 80)
+GMR.DefineProfileCenter(5738.842, -3784.45, 371.987, 80)
+GMR.DefineProfileCenter(5801.111, -3721.74, 371.9871, 80)
+GMR.DefineProfileCenter(5862.765, -3659.404, 372.0132, 80)
+GMR.DefineProfileCenter(5903.128, -3618.593, 371.9883, 80)
+GMR.DefineProfileCenter(5922.818, -3598.686, 371.9868, 80)
+GMR.DefineProfileCenter(5914.842, -3582.138, 371.9868, 80)
+GMR.DefineProfileCenter(5907.401, -3567.861, 371.9868, 80)
+GMR.DefineProfileCenter(5896.059, -3545.948, 372.0283, 80)
+GMR.DefineProfileCenter(5876.02, -3518.814, 371.9874, 80)
+GMR.DefineProfileCenter(5814.216, -3455.253, 372.4415, 80)
+GMR.DefineProfileCenter(5749.566, -3392.963, 372.0173, 80)
+GMR.DefineProfileCenter(5708.539, -3353.828, 371.9883, 80)
+GMR.DefineProfileCenter(5677.761, -3324.738, 372.7829, 80)
+GMR.DefineProfileCenter(5648.636, -3297.21, 372.0232, 80)
+GMR.DefineProfileCenter(5631.627, -3277.911, 372.0941, 80)
+GMR.DefineProfileCenter(5617.511, -3261.894, 372.2423, 80)
+GMR.DefineProfileCenter(5593.564, -3234.723, 372.465, 80)
+GMR.DefineProfileCenter(5584.423, -3224.351, 372.4019, 80)
+GMR.DefineProfileCenter(5562.608, -3201.871, 369.2164, 80)
+GMR.DefineProfileCenter(5531.365, -3170.754, 342.9163, 80)
+GMR.DefineProfileCenter(5466.2, -3107.74, 292.4188, 80)
+GMR.DefineProfileCenter(5443.12, -3087.966, 292.2885, 80)
+GMR.DefineProfileCenter(5403.784, -3056.458, 292.4189, 80)
+GMR.DefineProfileCenter(5371.543, -3029.893, 292.4189, 80)
+GMR.DefineProfileCenter(5353.232, -3005.567, 292.4189, 80)
+GMR.DefineProfileCenter(5340.957, -2990.512, 292.418, 80)
+GMR.DefineProfileCenter(5330.894, -2978.169, 292.418, 80)
+GMR.DefineProfileCenter(5312.45, -2950.504, 292.4189, 80)
+GMR.DefineProfileCenter(5253.618, -2900.017, 292.4189, 80)
+GMR.DefineProfileCenter(5207.76, -2844.714, 292.4189, 80)
+GMR.DefineProfileCenter(5236.432, -2801.718, 292.419, 80)
+GMR.DefineProfileCenter(5298.93, -2738.788, 292.419, 80)
+GMR.DefineProfileCenter(5359.484, -2683.334, 292.5343, 80)
+GMR.DefineProfileCenter(5382.33, -2659.639, 303.9542, 80)
+GMR.DefineProfileCenter(5391.578, -2646.249, 303.9542, 80)
+GMR.DefineProfileCenter(5400.347, -2632.956, 303.9542, 80)
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>76</MaxLevel>
+      <MinLevel>74</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Zul Drak -  74 to 77</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+GMR.DefineProfileCenter(6498.48, -2936.28, 297.8877, 80)
+GMR.DefineProfileCenter(6526.367, -2650.615, 321.9305, 80)
+GMR.DefineProfileCenter(6387.012, -2815.16, 289.5306, 80)
+GMR.DefineProfileCenter(6226.074, -2860.033, 291.7522, 80)
+GMR.DefineProfileCenter(6278.208, -2935.863, 311.4273, 80)
+GMR.DefineProfileCenter(6093.43, -2903.988, 299.131, 80)
+GMR.DefineProfileCenter(6142.327, -2793.883, 295.3479, 80)
+GMR.DefineProfileCenter(6028.141, -2800.494, 289.662, 80)
+GMR.DefineProfileCenter(6037.605, -2933.227, 301.2915, 80)
+GMR.DefineProfileCenter(5994.667, -2830.449, 291.3427, 80)
+GMR.DefineProfileCenter(5983.354, -2679.865, 287.9756, 80)
+GMR.DefineProfileCenter(5991.627, -2510.324, 291.9929, 80)
+GMR.DefineProfileCenter(6057.91, -2420.67, 290.6231, 80)
+GMR.DefineProfileCenter(6121.555, -2382.326, 294.9987, 80)
+GMR.DefineProfileCenter(6190.684, -2288.631, 290.2875, 80)
+GMR.DefineProfileCenter(5965.344, -2307.736, 291.819, 80)
+GMR.DefineProfileCenter(5986.19, -2394.59, 291.555, 80)
+GMR.DefineProfileCenter(5955.762, -2478.825, 293.29, 80)
+GMR.DefineProfileCenter(5858.66, -2459.72, 298.466, 80)
+GMR.DefineProfileCenter(5757.157, -2336.706, 289.0781, 80)
+GMR.DefineProfileCenter(5773.65, -2503.75, 292.6405, 80)
+GMR.DefineProfileCenter(5599.797, -2562.156, 287.5294, 80)
+GMR.DefineProfileCenter(5678.055, -2357.257, 287.5275, 80)
+GMR.DefineProfileCenter(5556.773, -2120.132, 240.6106, 80)
+GMR.DefineProfileCenter(5558.904, -1988.665, 239.905, 80)
+        </HotSpots>
+        <EntryTarget>
+          <int>28221</int>
+          <int>28233</int>
+          <int>29133</int>
+          <int>29129</int>
+          <int>29646</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>76</MaxLevel>
+      <MinLevel>74</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Storm Peaks - 77 to 80</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+GMR.DefineProfileCenter(8256.718, -88.35273, 839.6473, 80)
+GMR.DefineProfileCenter(8294.854, -76.88042, 830.7534, 80)
+GMR.DefineProfileCenter(8259.106, -15.97819, 835.2863, 80)
+GMR.DefineProfileCenter(8363.819, 40.06788, 806.7826, 80)
+GMR.DefineProfileCenter(8294.617, 128.9422, 830.2887, 80)
+GMR.DefineProfileCenter(8483.46, 112.1987, 783.5273, 80)
+GMR.DefineProfileCenter(8392.037, 159.0385, 808.7905, 80)
+GMR.DefineProfileCenter(8270.608, -46.16165, 832.2665, 80)
+GMR.DefineProfileCenter(8234.337, -159.941, 854.0504, 80)
+GMR.DefineProfileCenter(8172.109, -70.33862, 851.3676, 80)
+GMR.DefineProfileCenter(8136.472, -48.6445, 857.394, 80)
+GMR.DefineProfileCenter(8047.25, -38.41647, 875.0049, 80)
+GMR.DefineProfileCenter(8054.441, -116.3225, 861.9158, 80)
+GMR.DefineProfileCenter(7990.755, -101.215, 870.452, 80)
+GMR.DefineProfileCenter(7925.353, -136.5637, 874.4055, 80)
+GMR.DefineProfileCenter(7870.347, -122.9031, 878.0053, 80)
+GMR.DefineProfileCenter(7843.58, -140.1435, 878.6022, 80)
+GMR.DefineProfileCenter(7801.938, -168.9299, 880.0634, 80)
+GMR.DefineProfileCenter(7893.337, -263.195, 876.6198, 80)
+GMR.DefineProfileCenter(7825.253, -319.9658, 894.1681, 80)
+GMR.DefineProfileCenter(7837.25, -396.352, 899.5978, 80)
+GMR.DefineProfileCenter(7910.557, -419.361, 889.3987, 80)
+GMR.DefineProfileCenter(7923.922, -532.1282, 912.8791, 80)
+GMR.DefineProfileCenter(7951.842, -521.2007, 912.0123, 80)
+GMR.DefineProfileCenter(7845.888, -449.6959, 903.6011, 80)
+GMR.DefineProfileCenter(7830.236, -398.3031, 901.1796, 80)
+GMR.DefineProfileCenter(7830.103, -338.1613, 894.4334, 80)
+GMR.DefineProfileCenter(7828.788, -259.9711, 890.8393, 80)
+GMR.DefineProfileCenter(7894.874, -210.2513, 870.2484, 80)
+GMR.DefineProfileCenter(7823.81, -87.12099, 881.1526, 80)
+GMR.DefineProfileCenter(7985.775, -102.7613, 872.0284, 80)
+GMR.DefineProfileCenter(8125.182, -82.80488, 856.1624, 80)
+GMR.DefineProfileCenter(8154.57, -25.9218, 856.6701, 80)
+GMR.DefineProfileCenter(8278.378, -88.009, 835.4875, 80)
+        </HotSpots>
+        <EntryTarget>
+          <int>29624</int>
+          <int>29390</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>79</MaxLevel>
+      <MinLevel>77</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+</EasyQuestProfile>

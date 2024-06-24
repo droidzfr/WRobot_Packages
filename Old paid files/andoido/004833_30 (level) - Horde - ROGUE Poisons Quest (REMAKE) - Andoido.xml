@@ -1,0 +1,1826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.WowClass == WoWClass.Rogue) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(2480)" />
+    <QuestsSorted Action="If" NameClass="((Lua.LuaDoString&lt;string&gt;(&quot;bindlocation = GetBindLocation(); return bindlocation;&quot;) != &quot;Orgrimmar&quot;) &#xD;&#xA;&#xD;&#xA;&amp;&amp; &#xD;&#xA;&#xD;&#xA;(ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt; 60) &#xD;&#xA;&#xD;&#xA;&amp;&amp; &#xD;&#xA;&#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor))" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1633.99f, -4439.37f, 15.43382f), 6929);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(1633.99f, -4439.37f, 15.43382f);&#xD;&#xA;int npcEntryId = 6929;&#xD;&#xA;{&#xD;&#xA; if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;  Lua.LuaDoString(&quot;GossipTitleButton1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(2000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;GossipTitleButton2:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA;}" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(2842)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Rogue) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor))" />
+    <QuestsSorted Action="RunLuaCode" NameClass=" if not MyFrame then&#xD;&#xA;  MyFrameText = &quot;Updating...&quot;&#xD;&#xA;  MyFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  MyFrame:ClearAllPoints()&#xD;&#xA;  MyFrame:SetBackdrop(StaticPopup1:GetBackdrop())&#xD;&#xA;  MyFrame:SetHeight(80)&#xD;&#xA;  MyFrame:SetWidth(310)&#xD;&#xA;&#xD;&#xA;  MyFrame.text = MyFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontGreen&quot;)&#xD;&#xA;  MyFrame.text:SetFontObject(&quot;GameFontNormal&quot;)&#xD;&#xA;  MyFrame.text:SetAllPoints()&#xD;&#xA;  MyFrame.text:SetText(MyFrameText)&#xD;&#xA;  MyFrame:SetPoint(&quot;CENTER&quot;, 0, -150)&#xD;&#xA;  MyFrame.text:SetTextColor(0, 1, 0, 1)&#xD;&#xA;  MyFrame:SetBackdropBorderColor(0, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  CreateFrame(&quot;Frame&quot;,&quot;Test&quot;,UIParent)&#xD;&#xA;  Test:SetWidth(55)&#xD;&#xA;  Test:SetHeight(55)&#xD;&#xA;  Test:SetPoint(&quot;TOPLEFT&quot;, MyFrame, -20, 25)&#xD;&#xA;  Test:CreateTexture(&quot;TestTexture&quot;)&#xD;&#xA;  TestTexture:SetAllPoints()&#xD;&#xA;  TestTexture:SetTexture(&quot;Interface\\Icons\\Ability_stealth&quot;)&#xD;&#xA;&#xD;&#xA;  RateFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  RateFrame:ClearAllPoints()&#xD;&#xA;  RateFrame:SetBackdrop(nil)&#xD;&#xA;  RateFrame:SetHeight(60)&#xD;&#xA;  RateFrame:SetWidth(200)&#xD;&#xA;  RateFrame.text = RateFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  RateFrame.text:SetAllPoints()&#xD;&#xA;  RateFrame.text:SetText(&quot;https://rocketr.net/sellers/Tarud for new products&quot;)&#xD;&#xA;  RateFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, -50)&#xD;&#xA;  RateFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  ByFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  ByFrame:ClearAllPoints()&#xD;&#xA;  ByFrame:SetBackdrop(nil)&#xD;&#xA;  ByFrame:SetHeight(60)&#xD;&#xA;  ByFrame:SetWidth(140)&#xD;&#xA;  ByFrame.text = ByFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  ByFrame.text:SetAllPoints()&#xD;&#xA;  ByFrame.text:SetText(&quot;lvl 30 Rogue Poisons Quest&quot;)&#xD;&#xA;  ByFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, 47)&#xD;&#xA;  ByFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  MyFrame:SetMovable(true)&#xD;&#xA;  MyFrame:EnableMouse(true)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  Test:SetMovable(true)&#xD;&#xA;  Test:EnableMouse(true)&#xD;&#xA;  Test:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  Test:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  RateFrame:SetMovable(true)&#xD;&#xA;  RateFrame:EnableMouse(true)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  ByFrame:SetMovable(true)&#xD;&#xA;  ByFrame:EnableMouse(true)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  MyFrame.Close = CreateFrame(&quot;BUTTON&quot;, nil, MyFrame, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;  MyFrame.Close:SetWidth(20)&#xD;&#xA;  MyFrame.Close:SetHeight(20)&#xD;&#xA;  MyFrame.Close:SetPoint(&quot;TOPRIGHT&quot;, MyFrame, 3, 3)&#xD;&#xA;  MyFrame.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;   MyFrame:Hide()&#xD;&#xA;   Test:Hide()&#xD;&#xA;   RateFrame:Hide()&#xD;&#xA;   ByFrame:Hide()&#xD;&#xA;   DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF8AFF40MyFrame is now CLOSED|r |cFFFC7DFFType /MyFrame|r |cFF8AFF40In Game to OPEN it again!|r&quot;)     &#xD;&#xA;  end)&#xD;&#xA;  &#xD;&#xA;  SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/MyFrame&quot;&#xD;&#xA;  SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;   if MyFrame:IsShown() then&#xD;&#xA;    MyFrame:Hide()&#xD;&#xA;    Test:Hide()&#xD;&#xA;    RateFrame:Hide()&#xD;&#xA;    ByFrame:Hide()&#xD;&#xA;   else&#xD;&#xA;    MyFrame:Show()&#xD;&#xA;    Test:Show()&#xD;&#xA;    RateFrame:Show()&#xD;&#xA;    ByFrame:Show()&#xD;&#xA;   end&#xD;&#xA;  end&#xD;&#xA; end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Start Rogue Poisons Quest'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="TheShatteredSalute" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Shattered Salute - Force /Salute'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(2460) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(2460)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!Quest.IsObjecti﻿veComplete(1, 2460))" />
+    <QuestsSorted Action="RunCode" NameClass="ObjectManager.Me.Target = ObjectManager.GetWoWUnitByName(&quot;Shenthul&quot;).First().Guid;" />
+    <QuestsSorted Action="Wait" NameClass="4000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="4000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(2460) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(2460)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!Quest.IsObjecti﻿veComplete(1, 2460))" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'If Salute Failed - Go to Step 5'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="GoToStep" NameClass="5" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Turnin Shattered Salute'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="TheShatteredSalute" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Deep Cover'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="DeepCover" />
+    <QuestsSorted Action="If" NameClass="!ItemsManager.HasItemById(5060)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Buy Thieves Tools (if we dont have)'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1811.04f, -4270.9f, 7.086227f), 3334);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Vendor.BuyItem(&quot;Thieves' Tools&quot;,1);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CloseMerchant()&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Check Lockpicking Skill Level (75)'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Lockpicking) &lt; 75" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'We are below 75 Lockpicking, Go to Ratchet'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(-1459.368f, -3969.084f, 7.561776f));" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Leveling Lockpicking to 75'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="Lockpicking170RatchetHORDE" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="IfHasQuest" NameClass="2379" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Abandon Zando'zan'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="QuestHelper.AbandonQuest(&quot;Zando'zan&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="IfHasQuest" NameClass="2458" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Run to Deep Cover (Kill all by Taskmaster)'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+    <QuestsSorted Action="Pulse" NameClass="RUNDeepCovertomob" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Quest.HasQuest(2478) &#xD;&#xA;&amp;&amp; &#xD;&#xA;Usefuls.ContinentId == (int) ContinentId.Kalimdor &#xD;&#xA;&amp;&amp; &#xD;&#xA;ObjectManager.Me.WowClass == WoWClass.Rogue" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Go Go Spot near TaskMaster'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(1231.031f, -3021.959f, 92.32294f));" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Targeting Taskmaster - Do Not Interupt!'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="ObjectManager.Me.Target = ObjectManager.GetWoWUnitByName(&quot;Taskmaster Fizzule&quot;).First().Guid;" />
+    <QuestsSorted Action="RunCode" NameClass="var target = ObjectManager.GetObjectWoWUnit().FirstOrDefault(o =&gt; o.Entry == 7723);&#xD;&#xA;    if (target != null &amp;&amp; target.IsAlive)&#xD;&#xA;    {&#xD;&#xA;        ObjectManager.Me.Target = target.Guid;&#xD;&#xA;        if (ItemsManager.HasItemById(8051))&#xD;&#xA;        {&#xD;&#xA;            ItemsManager.UseItem(8051);&#xD;&#xA;            Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);&#xD;&#xA;            Thread.Sleep(1000);&#xD;&#xA;            Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);&#xD;&#xA;            Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);&#xD;&#xA;            Thread.Sleep(1000);&#xD;&#xA;            Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);&#xD;&#xA;            Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);&#xD;&#xA;            Thread.Sleep(1000);&#xD;&#xA;            Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);&#xD;&#xA;            Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);&#xD;&#xA;        }&#xD;&#xA;}" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.ObjectManager.ObjectManager.Target.Reaction &lt; wManager.Wow.Enums.Reaction.Friendly" />
+    <QuestsSorted Action="RunCode" NameClass="ObjectManager.Me.Target = ObjectManager.GetWoWUnitByName(&quot;Taskmaster Fizzule&quot;).First().Guid;" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Use Flare - Taskmaster is Targeted'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(8051);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Spam Salute!'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="ObjectManager.Me.Target = ObjectManager.GetWoWUnitByName(&quot;Taskmaster Fizzule&quot;).First().Guid;" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(8051);" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('SALUTE')&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Do Deep Cover'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="DeepCover" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.ObjectManager.ObjectManager.Target.Reaction &lt; wManager.Wow.Enums.Reaction.Friendly" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'If Taskmaster is not Friendly, go back to step 34'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="GoToStep" NameClass="34" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Deep Cover Done - Turn In'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="DeepCover" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'PickUp Mission Possilble but....'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="MissionPossibleButNotProbable" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Checking if we have Foremans Key'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="!Key.haveKey(8072)﻿ &amp;&amp; !Quest.GetQuestCompleted(2478)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'DO NOT INTERUPT - Getting Key'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="RUNToKey" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Casting Stealth'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="        if (!ObjectManager.Me.HaveBuff(&quot;Stealth&quot;))&#xD;&#xA;        {&#xD;&#xA;            Lua.LuaDoString(&quot;CastSpellByName('Stealth')&quot;);&#xD;&#xA;        }" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="RunCode" NameClass="        if (!ObjectManager.Me.HaveBuff(&quot;Stealth&quot;))&#xD;&#xA;        {&#xD;&#xA;            Lua.LuaDoString(&quot;CastSpellByName('Stealth')&quot;);&#xD;&#xA;        }" />
+    <QuestsSorted Action="RunCode" NameClass="ObjectManager.Me.Target = ObjectManager.GetWoWUnitByName(&quot;Foreman Silixiz&quot;).First().Guid;" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;ClearTarget();&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="RuntoKey2" />
+    <QuestsSorted Action="RunCode" NameClass="Fight.StopFight();" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(1209.557f, -2933.721f, 91.667f));" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(1208.813f, -2934.376f, 91.66689f));" />
+    <QuestsSorted Action="RunLuaCode" NameClass="TargetNearestEnemy(); FocusUnit(&quot;target&quot;); TargetLastTarget();" />
+    <QuestsSorted Action="RunLuaCode" NameClass="CastSpellByName(&quot;Sap&quot;, onTarget);" />
+    <QuestsSorted Action="Wait" NameClass="400" />
+    <QuestsSorted Action="RunLuaCode" NameClass="CastSpellByName(&quot;Pick Pocket&quot;, onTarget);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Dont move Mouse! Clicking Loot Window'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="robotManager.Helpful.Mouse.CurseurWindowPercentagePosition(wManager.Wow.Memory.WowMemory.Memory.WindowHandle, 2, 18);&#xD;&#xA;robotManager.Helpful.Mouse.ClickLeft();" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="robotManager.Helpful.Mouse.CurseurWindowPercentagePosition(wManager.Wow.Memory.WowMemory.Memory.WindowHandle, 2, 22);&#xD;&#xA;robotManager.Helpful.Mouse.ClickLeft();" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="Pulse" NameClass="MissionTowerKey" />
+    <QuestsSorted Action="RunCode" NameClass="int keyId = 8072;&#xD;&#xA;&#xD;&#xA;Logging.Write(&quot;Have Key ID (&quot; +  keyId + &quot;): &quot; + Key.haveKey(keyId));" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!Key.haveKey(8072)﻿ &amp;&amp; !Quest.GetQuestCompleted(2478)" />
+    <QuestsSorted Action="GoToStep" NameClass="88" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(2478) &amp;&amp; !ItemsManager.HasItemById(8074) &amp;&amp; !ItemsManager.HasItemById(8073)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Kill Drones for Mission Possible'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
+    <QuestsSorted Action="Pulse" NameClass="MissionDrones" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Kill Patrollers'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="MissionPatrollers" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Kill Lookouts for Mission'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="MissionLookouts" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Kill Gallywax for Head'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="MissionGallywaxHead" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Loot the Box (if we need to)'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="MissionMixturefromChestLockpickingReq" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Check if quest is complete'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="MissionPossibleButNotProbable" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(2478) &amp;&amp; ItemsManager.HasItemById(8073) &amp;&amp; ItemsManager.HasItemById(8074) " />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Run to Turnin Mission Possible....'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="RUNFromTOWERtoMissoinProbabalTurnin" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="MissionPossibleButNotProbable" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Hinotts Assistance'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="HinottsAssistance" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(2479) &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Orgrimmar&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Durotar&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Barrens&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Run to Zepplin'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="RunToZepORG5" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Get On Zepplin to UC - Wait'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="CatchZeppelinShipOrgrimmartoUndercity5" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Get Off Zepplin (in brill)'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="RunDownUCRamp5" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(2479) &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Undercity&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Tirisfal Glades&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Silverpine Forest&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Hillsbrad Foothills&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Try to Fly to Hillsbrad if we have it'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(1567.12f, 266.345f, -43.10268f);&#xD;&#xA;int npcEntryId = 4551;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Tarren Mill') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(1567.12f, 266.345f, -43.10268f);&#xD;&#xA;int npcEntryId = 4551;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Tarren Mill, Hillsbrad Foothills') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(2479) &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Undercity&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Tirisfal Glades&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Silverpine Forest&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Hillsbrad Foothills&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'We couldnt Fly - Run to Hillsbrad'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="RUNUCtoHillsbradRogue" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(2.67557f, -857.919f, 58.7744f), 2389);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Turnin Hinotts Assistance'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="HinottsAssistance" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Hinotts Part 2'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="HinottsAssistancePart2Hillsbrad" />
+    <QuestsSorted Action="IfHasQuest" NameClass="2480" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Wait for him, then turnin Part 2'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="13000" />
+    <QuestsSorted Action="TurnIn" NameClass="HinottsAssistancePart2Hillsbrad" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ItemsManager.HasItemById(8095)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Use Item - Cure Poison'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(8095);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(8095);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Lua.LuaDoString&lt;string&gt;(&quot;bindlocation = GetBindLocation(); return bindlocation;&quot;) == &quot;Camp Taurajo&quot;) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Quest.HasQuest(1536) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(1536)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Azeroth)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Use Hearthstone - If found in Org'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="if (wManager.Wow.Helpers.Usefuls.ContinentId != (int) wManager.Wow.Enums.ContinentId.Kalimdor)&#xD;&#xA;        {&#xD;&#xA;            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;&#xD;&#xA;            wManager.Wow.Helpers.ItemsManager.UseItem(6948);&#xD;&#xA;            System.Threading.Thread.Sleep(1000 * 20); // 20 secondes&#xD;&#xA;            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;&#xD;&#xA;        }" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.SpellManager.KnowSpell(2842)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Rogue) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 31 &amp;&amp; ObjectManager.Me.Level &lt; 33) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Undercity&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Tirisfal Glades&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Silverpine Forest&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Hillsbrad Foothills&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'HS was Down - Run to Zepplin.'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="PATHRunToZeplinBrilltoOrg5" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Waiting on Zepplin!'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="CatchZeppelinShipBrilltoOrg5" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="Pulse" NameClass="PATHRunDownZeppDurotar5" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ItemsManager.HasItemById(8051) &amp;&amp; Quest.GetQuestCompleted(2480)" />
+    <QuestsSorted Action="RunCode" NameClass="throwAway.DeleteItems(&quot;Flare Gun&quot;, 0);&#xD;&#xA;throwAway.DeleteItems(&quot;Flare&quot;, 0);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ItemsManager.HasItemById(8066) &amp;&amp; Quest.GetQuestCompleted(2480)" />
+    <QuestsSorted Action="RunCode" NameClass="throwAway.DeleteItems(&quot;Fizzule's Whistle&quot;, 0);&#xD;&#xA;throwAway.DeleteItems(&quot;Fizzule's&quot;, 0);&#xD;&#xA;throwAway.DeleteItems(&quot;Whistle&quot;, 0);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - #1 PROFILE_LAUNCHER.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="3401" Name="Shenthul" GameObject="false">
+      <PickUpQuests>
+        <int>2460</int>
+        <int>2458</int>
+        <int>2479</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>2460</int>
+        <int>2478</int>
+      </TurnInQuests>
+      <Position X="1771.21" Y="-4284.42" Z="7.753315" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="7233" Name="Taskmaster Fizzule" GameObject="false">
+      <PickUpQuests>
+        <int>2478</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>2458</int>
+      </TurnInQuests>
+      <Position X="1236.78" Y="-2994.62" Z="91.6786" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="2391" Name="Serge Hinott" GameObject="false">
+      <PickUpQuests>
+        <int>2480</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>2479</int>
+        <int>2480</int>
+      </TurnInQuests>
+      <Position X="-9.28586" Y="-905.473" Z="57.54611" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Lockpicking 1 - 70 Ratchet HORDE</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>if (GoToTask.ToPosition(new Vector3(-1459.368f, -3969.084f, 7.561776f)))
+{
+    while (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause &amp;&amp; Skill.GetValue(SkillLine.Lockpicking) &lt; 75)
+    {
+        var obj = ObjectManager.GetObjectWoWGameObject()
+            .FirstOrDefault(o =&gt; !wManager.wManagerSetting.IsBlackListed(o.Guid) &amp;&amp; o.Entry == 123330);
+        if (obj != null)
+        {
+            Interact.InteractGameObject(obj.GetBaseAddress);
+            Usefuls.WaitIsCastingAndLooting();
+            Lua.LuaDoString("LootCloseButton:Click();");
+            wManager.wManagerSetting.AddBlackList(obj.Guid, 5000, true);
+        }
+        
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Lockpicking) &gt;= 75;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>The Shattered Salute</Name>
+      <QuestId>
+        <int>2460</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Deep Cover</Name>
+      <QuestId>
+        <int>2458</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1229.854" Y="-3030.732" Z="92.10005" />
+        </HotSpots>
+        <EntryIdTarget>
+          <int>7233</int>
+        </EntryIdTarget>
+        <ItemId>8051</ItemId>
+        <Range>17</Range>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return wManager.Wow.ObjectManager.ObjectManager.Me.TargetObject.Reaction == Reaction.Friendly;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>2460</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Deep Cover - to mob</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1711.733" Y="-3941.392" Z="49.46512" />
+          <Vector3 X="1703.784" Y="-3927.862" Z="51.51398" />
+          <Vector3 X="1688.222" Y="-3904.657" Z="50.98621" />
+          <Vector3 X="1672.215" Y="-3880.668" Z="62.82805" />
+          <Vector3 X="1656.874" Y="-3856.251" Z="62.3452" />
+          <Vector3 X="1640.548" Y="-3833.634" Z="50.52993" />
+          <Vector3 X="1638.713" Y="-3831.748" Z="50.66743" />
+          <Vector3 X="1608.641" Y="-3851.018" Z="50.39452" />
+          <Vector3 X="1595.369" Y="-3854.991" Z="50.01751" />
+          <Vector3 X="1567.482" Y="-3853.248" Z="47.88528" />
+          <Vector3 X="1538.718" Y="-3851.328" Z="38.60988" />
+          <Vector3 X="1510.803" Y="-3850.068" Z="26.80119" />
+          <Vector3 X="1482.065" Y="-3847.69" Z="25.08508" />
+          <Vector3 X="1453.456" Y="-3844.088" Z="26.56324" />
+          <Vector3 X="1427.249" Y="-3837.793" Z="27.19519" />
+          <Vector3 X="1414.444" Y="-3835.03" Z="26.07526" />
+          <Vector3 X="1397.923" Y="-3833.25" Z="26.66609" />
+          <Vector3 X="1369.262" Y="-3835.971" Z="27.35382" />
+          <Vector3 X="1342.188" Y="-3837.222" Z="29.29532" />
+          <Vector3 X="1324.73" Y="-3837.913" Z="28.68095" />
+          <Vector3 X="1309.9" Y="-3838.458" Z="28.27279" />
+          <Vector3 X="1281.451" Y="-3834.467" Z="29.74979" />
+          <Vector3 X="1268.885" Y="-3840.489" Z="30.51849" />
+          <Vector3 X="1241.845" Y="-3849.686" Z="30.01663" />
+          <Vector3 X="1213.204" Y="-3850.821" Z="28.61829" />
+          <Vector3 X="1184.545" Y="-3847.633" Z="28.45891" />
+          <Vector3 X="1158.48" Y="-3838.392" Z="27.015" />
+          <Vector3 X="1137.701" Y="-3822.419" Z="26.97388" />
+          <Vector3 X="1127.376" Y="-3814.281" Z="26.85408" />
+          <Vector3 X="1114.823" Y="-3799.755" Z="29.19521" />
+          <Vector3 X="1098.586" Y="-3782.714" Z="30.45657" />
+          <Vector3 X="1084.046" Y="-3759.057" Z="27.93319" />
+          <Vector3 X="1075.599" Y="-3732.867" Z="29.63237" />
+          <Vector3 X="1082.741" Y="-3715.319" Z="31.86797" />
+          <Vector3 X="1097.128" Y="-3700.11" Z="35.85639" />
+          <Vector3 X="1116.865" Y="-3679.158" Z="44.31826" />
+          <Vector3 X="1133.952" Y="-3657.051" Z="53.8889" />
+          <Vector3 X="1120.941" Y="-3657.528" Z="53.94455" />
+          <Vector3 X="1113.334" Y="-3645.198" Z="53.20214" />
+          <Vector3 X="1100.994" Y="-3640.856" Z="45.9161" />
+          <Vector3 X="1083.441" Y="-3624.295" Z="49.6163" />
+          <Vector3 X="1072.63" Y="-3604.837" Z="51.98322" />
+          <Vector3 X="1069.102" Y="-3574.684" Z="57.93511" />
+          <Vector3 X="1071.456" Y="-3558.355" Z="61.34327" />
+          <Vector3 X="1081.638" Y="-3543.826" Z="64.62209" />
+          <Vector3 X="1094.371" Y="-3527.365" Z="71.20918" />
+          <Vector3 X="1103.027" Y="-3507.407" Z="73.66762" />
+          <Vector3 X="1110.947" Y="-3479.711" Z="80.46583" />
+          <Vector3 X="1114.975" Y="-3460.942" Z="86.16534" />
+          <Vector3 X="1129.436" Y="-3435.479" Z="92.35876" />
+          <Vector3 X="1147.81" Y="-3413.641" Z="91.66712" />
+          <Vector3 X="1156.518" Y="-3396.292" Z="91.66712" />
+          <Vector3 X="1158.403" Y="-3381.572" Z="91.66978" />
+          <Vector3 X="1166.347" Y="-3348.522" Z="91.6669" />
+          <Vector3 X="1166.176" Y="-3320.523" Z="91.6669" />
+          <Vector3 X="1166.148" Y="-3292.581" Z="91.6669" />
+          <Vector3 X="1164.458" Y="-3265.609" Z="91.6669" />
+          <Vector3 X="1159.198" Y="-3237.268" Z="92.74917" />
+          <Vector3 X="1158.079" Y="-3202.941" Z="91.59782" />
+          <Vector3 X="1161.883" Y="-3175.261" Z="91.66679" />
+          <Vector3 X="1164.905" Y="-3149.228" Z="92.0827" />
+          <Vector3 X="1166.612" Y="-3134.528" Z="92.97373" />
+          <Vector3 X="1172.474" Y="-3121" Z="94.07027" />
+          <Vector3 X="1177.013" Y="-3106.005" Z="94.27061" />
+          <Vector3 X="1185.977" Y="-3093.662" Z="94.64104" />
+          <Vector3 X="1188.553" Y="-3077.304" Z="95.92172" />
+          <Vector3 X="1195.595" Y="-3061.396" Z="95.73926" />
+          <Vector3 X="1209.407" Y="-3045.581" Z="94.28943" />
+          <Vector3 X="1191.803" Y="-3075.799" Z="95.98354" />
+          <Vector3 X="1194.316" Y="-3070.708" Z="96.0785" />
+          <Vector3 X="1199.176" Y="-3057.617" Z="95.41518" />
+          <Vector3 X="1201.408" Y="-3050.982" Z="94.98639" />
+          <Vector3 X="1204.627" Y="-3048.701" Z="94.75839" />
+          <Vector3 X="1213.47" Y="-3044.893" Z="93.87875" />
+          <Vector3 X="1219.663" Y="-3041.631" Z="93.05981" />
+          <Vector3 X="1224.401" Y="-3041.495" Z="92.5032" />
+          <Vector3 X="1240.057" Y="-3050.071" Z="91.79013" />
+          <Vector3 X="1252.786" Y="-3055.767" Z="91.84898" />
+          <Vector3 X="1253.698" Y="-3045.951" Z="91.66832" />
+          <Vector3 X="1253.702" Y="-3039.399" Z="91.66679" />
+          <Vector3 X="1253.235" Y="-3033.319" Z="91.66679" />
+          <Vector3 X="1249.948" Y="-3021.545" Z="91.66679" />
+          <Vector3 X="1240.15" Y="-3025.207" Z="91.76198" />
+          <Vector3 X="1229.714" Y="-3029.643" Z="92.16153" />
+          <Vector3 X="1224.113" Y="-3030.483" Z="92.65536" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mission: Drones</Name>
+      <QuestId>
+        <int>2478</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1237.769" Y="-2947.323" Z="91.66687" />
+          <Vector3 X="1224.175" Y="-2929.241" Z="93.29585" />
+        </HotSpots>
+        <EntryTarget>
+          <int>7310</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>2</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Quest.IsObjecti﻿veComplete(1, 2478);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mission: Lookouts</Name>
+      <QuestId>
+        <int>2478</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1229.672" Y="-2914.967" Z="120.6768" />
+          <Vector3 X="1224.795" Y="-2931.128" Z="120.6768" />
+          <Vector3 X="1231.591" Y="-2913.583" Z="120.6768" />
+        </HotSpots>
+        <EntryTarget>
+          <int>7307</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>2</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Quest.IsObjecti﻿veComplete(2, 2478);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mission: Patrollers</Name>
+      <QuestId>
+        <int>2478</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1237.944" Y="-2922.551" Z="107.0649" />
+        </HotSpots>
+        <EntryTarget>
+          <int>7308</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>2</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>true</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Quest.IsObjecti﻿veComplete(3, 2478);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mission: Gallywax Head</Name>
+      <QuestId>
+        <int>2478</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1235.16" Y="-2925.27" Z="141.7343" />
+        </HotSpots>
+        <EntryTarget>
+          <int>7288</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>1</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>true</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(8074) &gt;= 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mission: Tower Key</Name>
+      <QuestId>
+        <int>2478</int>
+      </QuestId>
+      <QuestType>UseSpellOn</QuestType>
+      <QuestClass xsi:type="UseSpellOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1210.741" Y="-2933.726" Z="91.66687" />
+        </HotSpots>
+        <EntryIdTarget>
+          <int>7287</int>
+        </EntryIdTarget>
+        <SpellId>921</SpellId>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>1</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>true</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Key.haveKey(8072);﻿</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mission: Mixture from Chest (Lockpicking Req)</Name>
+      <QuestId>
+        <int>2478</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1236.252" Y="-2925.272" Z="141.7601" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>129127</int>
+          <int>130126</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>1</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>true</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(8073) &gt;= 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mission: Possible But Not Probable</Name>
+      <QuestId>
+        <int>2478</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1231.267" Y="-2927.545" Z="141.6967" />
+          <Vector3 X="1220.761" Y="-2929.721" Z="120.6768" />
+          <Vector3 X="1227.562" Y="-2911.526" Z="107.0074" />
+          <Vector3 X="1235.099" Y="-2918.936" Z="93.2951" />
+          <Vector3 X="1240.214" Y="-2948.293" Z="91.66686" />
+        </HotSpots>
+        <EntryTarget>
+          <int>7288</int>
+          <int>7307</int>
+          <int>7308</int>
+          <int>7310</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>2</ObjectiveCount1>
+      <ObjectiveCount2>2</ObjectiveCount2>
+      <ObjectiveCount3>2</ObjectiveCount3>
+      <ObjectiveCount4>1</ObjectiveCount4>
+      <ObjectiveCount5>1</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>true</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>true</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>true</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>2458</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: To Key</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1162.857" Y="-2957.591" Z="98.23376" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Run to Key 2</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1164.125" Y="-2953.916" Z="96.52663" />
+          <Vector3 X="1169.386" Y="-2952.922" Z="93.66454" />
+          <Vector3 X="1173.493" Y="-2952.373" Z="92.56637" />
+          <Vector3 X="1187.786" Y="-2950.461" Z="92.12646" />
+          <Vector3 X="1202.004" Y="-2948.252" Z="91.66786" />
+          <Vector3 X="1205.512" Y="-2946.981" Z="91.66786" />
+          <Vector3 X="1211.2" Y="-2944.868" Z="91.66786" />
+          <Vector3 X="1213.352" Y="-2940.51" Z="91.66786" />
+          <Vector3 X="1214.386" Y="-2936.836" Z="92.52643" />
+          <Vector3 X="1214.949" Y="-2933.143" Z="91.66679" />
+          <Vector3 X="1214.686" Y="-2933.742" Z="91.66679" />
+          <Vector3 X="1213.027" Y="-2934.004" Z="91.66679" />
+          <Vector3 X="1212.141" Y="-2933.657" Z="91.66691" />
+          <Vector3 X="1211.272" Y="-2933.467" Z="91.66678" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Hinott's Assistance</Name>
+      <QuestId>
+        <int>2479</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>2478</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Zeppelin/Ship ( Orgrimmar to Undercity) 5</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Northrend	 !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 164871; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(1318.107, -4658.047, 71.86043);// Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(1319.347, -4653.611, 53.90565, "None"); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(1313.499, -4653.126, 54.15598, "None");// Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(2062.376, 292.998, 114.973, "None"); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition =  new Vector3(2066.95, 290.7836, 97.03133, "None"); // Position to go out the Zeppelin/Ship (to)
+// var toPlayerLeaveBoat = new Vector3(1313.499, -4653.126, 54.15598, "None"); // put player at end of boat (to)
+
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,700);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Azeroth)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            wManager.Wow.Helpers.Move.Backward(Move.MoveAction.PressKey,3650);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Azeroth &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Run To Zep ( ORG ) 5</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1333.746" Y="-4624.443" Z="23.65951" />
+          <Vector3 X="1336.324" Y="-4630.94" Z="23.8837" />
+          <Vector3 X="1339.359" Y="-4637.356" Z="24.73155" />
+          <Vector3 X="1341.038" Y="-4640.544" Z="24.61759" />
+          <Vector3 X="1345.689" Y="-4645.756" Z="25.11077" />
+          <Vector3 X="1346.999" Y="-4648.948" Z="26.45592" />
+          <Vector3 X="1346.278" Y="-4652.325" Z="27.99674" />
+          <Vector3 X="1343.207" Y="-4653.973" Z="29.33457" />
+          <Vector3 X="1340.116" Y="-4652.389" Z="30.62794" />
+          <Vector3 X="1339" Y="-4649.098" Z="31.76267" />
+          <Vector3 X="1340.363" Y="-4645.969" Z="32.87626" />
+          <Vector3 X="1343.706" Y="-4644.9" Z="33.98718" />
+          <Vector3 X="1346.844" Y="-4646.391" Z="35.06942" />
+          <Vector3 X="1348.431" Y="-4649.556" Z="36.28629" />
+          <Vector3 X="1348.704" Y="-4653.032" Z="37.21837" />
+          <Vector3 X="1342.392" Y="-4654.72" Z="39.1129" />
+          <Vector3 X="1339.661" Y="-4652.443" Z="40.219" />
+          <Vector3 X="1339.259" Y="-4649.02" Z="41.35744" />
+          <Vector3 X="1340.298" Y="-4645.582" Z="42.48827" />
+          <Vector3 X="1343.183" Y="-4643.743" Z="43.38964" />
+          <Vector3 X="1346.66" Y="-4644.131" Z="44.25984" />
+          <Vector3 X="1349.528" Y="-4646.053" Z="45.00544" />
+          <Vector3 X="1350.552" Y="-4649.429" Z="45.65165" />
+          <Vector3 X="1350.036" Y="-4652.767" Z="46.56932" />
+          <Vector3 X="1347.886" Y="-4655.592" Z="47.36259" />
+          <Vector3 X="1344.598" Y="-4657.07" Z="48.08957" />
+          <Vector3 X="1338.288" Y="-4655.831" Z="49.41558" />
+          <Vector3 X="1337.621" Y="-4649.554" Z="50.74194" />
+          <Vector3 X="1338.893" Y="-4646.226" Z="51.65329" />
+          <Vector3 X="1341.729" Y="-4644.284" Z="52.53873" />
+          <Vector3 X="1345.251" Y="-4643.641" Z="53.42086" />
+          <Vector3 X="1348.848" Y="-4643.398" Z="53.54367" />
+          <Vector3 X="1354.629" Y="-4642.783" Z="55.09617" />
+          <Vector3 X="1347.719" Y="-4638.913" Z="53.54391" />
+          <Vector3 X="1342.201" Y="-4640.944" Z="53.54391" />
+          <Vector3 X="1336.708" Y="-4644.419" Z="53.54391" />
+          <Vector3 X="1334.7" Y="-4647.764" Z="53.54391" />
+          <Vector3 X="1333.235" Y="-4651.766" Z="53.54391" />
+          <Vector3 X="1329.63" Y="-4653.049" Z="54.32024" />
+          <Vector3 X="1326.028" Y="-4651.721" Z="53.77722" />
+          <Vector3 X="1326.647" Y="-4654.032" Z="53.56731" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Run Down UC Ramp 5</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="2065.069" Y="275.4799" Z="94.81228" />
+          <Vector3 X="2060.354" Y="272.2394" Z="94.10774" />
+          <Vector3 X="2056.918" Y="271.1834" Z="93.44917" />
+          <Vector3 X="2054.091" Y="269.1574" Z="92.10202" />
+          <Vector3 X="2052.125" Y="263.0982" Z="89.99776" />
+          <Vector3 X="2053.099" Y="259.6406" Z="89.99776" />
+          <Vector3 X="2054.704" Y="256.4204" Z="89.99776" />
+          <Vector3 X="2057.092" Y="253.9378" Z="88.96317" />
+          <Vector3 X="2060.311" Y="252.6222" Z="87.63278" />
+          <Vector3 X="2063.822" Y="253.2961" Z="86.33334" />
+          <Vector3 X="2067.075" Y="254.8244" Z="85.31231" />
+          <Vector3 X="2072.332" Y="259.3603" Z="85.1086" />
+          <Vector3 X="2073.576" Y="262.7265" Z="83.90235" />
+          <Vector3 X="2073.518" Y="266.2097" Z="82.47839" />
+          <Vector3 X="2072.473" Y="269.639" Z="81.17595" />
+          <Vector3 X="2069.812" Y="271.8462" Z="79.73618" />
+          <Vector3 X="2066.445" Y="273.1248" Z="79.70517" />
+          <Vector3 X="2062.939" Y="273.9486" Z="79.57597" />
+          <Vector3 X="2059.463" Y="273.864" Z="78.96066" />
+          <Vector3 X="2056.423" Y="272.2818" Z="77.41091" />
+          <Vector3 X="2053.836" Y="269.7848" Z="75.70721" />
+          <Vector3 X="2051.881" Y="266.9075" Z="74.12406" />
+          <Vector3 X="2051.001" Y="263.4258" Z="73.88014" />
+          <Vector3 X="2051.885" Y="259.3865" Z="73.77178" />
+          <Vector3 X="2054.706" Y="254.9858" Z="72.21759" />
+          <Vector3 X="2057.744" Y="253.0936" Z="71.5269" />
+          <Vector3 X="2061.297" Y="257.7178" Z="71.52897" />
+          <Vector3 X="2061.9" Y="261.1581" Z="69.74762" />
+          <Vector3 X="2062.598" Y="264.6945" Z="67.2684" />
+          <Vector3 X="2063.35" Y="268.2191" Z="64.84468" />
+          <Vector3 X="2063.964" Y="271.6575" Z="62.51191" />
+          <Vector3 X="2064.767" Y="275.0569" Z="60.10334" />
+          <Vector3 X="2065.739" Y="278.5282" Z="60.04923" />
+          <Vector3 X="2066.529" Y="281.2508" Z="60.04781" />
+          <Vector3 X="2062.53" Y="281.8156" Z="60.04781" />
+          <Vector3 X="2055.502" Y="282.8081" Z="59.14347" />
+          <Vector3 X="2052.043" Y="283.2966" Z="57.70941" />
+          <Vector3 X="2048.591" Y="283.8293" Z="56.68102" />
+          <Vector3 X="2045.015" Y="284.2774" Z="56.0198" />
+          <Vector3 X="2041.427" Y="284.6222" Z="55.51701" />
+          <Vector3 X="2034.385" Y="285.514" Z="53.75991" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: UC to Hillsbrad (Rogue)</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1655.521" Y="552.8303" Z="33.44471" />
+          <Vector3 X="1590.07" Y="578.3242" Z="38.38562" />
+          <Vector3 X="1552.897" Y="591.2817" Z="43.50607" />
+          <Vector3 X="1517.146" Y="605.0046" Z="47.53208" />
+          <Vector3 X="1488.043" Y="630.9991" Z="46.96171" />
+          <Vector3 X="1465.532" Y="662.1374" Z="46.54136" />
+          <Vector3 X="1442.3" Y="694.2741" Z="45.23246" />
+          <Vector3 X="1421.056" Y="726.2376" Z="45.49733" />
+          <Vector3 X="1403.622" Y="761.8038" Z="47.08061" />
+          <Vector3 X="1389.276" Y="796.0341" Z="48.59482" />
+          <Vector3 X="1373.842" Y="833.8286" Z="50.24911" />
+          <Vector3 X="1360.534" Y="869.8574" Z="51.93161" />
+          <Vector3 X="1350.462" Y="908.1257" Z="53.38319" />
+          <Vector3 X="1342.179" Y="945.5687" Z="54.24406" />
+          <Vector3 X="1333.623" Y="984.2776" Z="54.69273" />
+          <Vector3 X="1322.735" Y="1021.017" Z="54.59686" />
+          <Vector3 X="1299.443" Y="1052.999" Z="54.27434" />
+          <Vector3 X="1272.799" Y="1080.615" Z="53.98294" />
+          <Vector3 X="1243.992" Y="1107.867" Z="51.0969" />
+          <Vector3 X="1215.925" Y="1134.1" Z="47.54683" />
+          <Vector3 X="1183.561" Y="1156.945" Z="46.73916" />
+          <Vector3 X="1151.222" Y="1177.695" Z="48.41355" />
+          <Vector3 X="1119.306" Y="1201.193" Z="46.93338" />
+          <Vector3 X="1088.944" Y="1226.7" Z="45.785" />
+          <Vector3 X="1059.453" Y="1251.329" Z="45.78554" />
+          <Vector3 X="1029.124" Y="1274.892" Z="45.92553" />
+          <Vector3 X="996.3589" Y="1297.227" Z="45.71979" />
+          <Vector3 X="965.0905" Y="1317.363" Z="46.03761" />
+          <Vector3 X="929.7061" Y="1340.067" Z="45.41389" />
+          <Vector3 X="893.8103" Y="1355.984" Z="47.5672" />
+          <Vector3 X="855.6371" Y="1358.911" Z="53.08598" />
+          <Vector3 X="815.9879" Y="1359.517" Z="60.757" />
+          <Vector3 X="776.3436" Y="1360.429" Z="69.42342" />
+          <Vector3 X="737.9896" Y="1360.271" Z="74.50304" />
+          <Vector3 X="682.1473" Y="1316.664" Z="80.99382" />
+          <Vector3 X="647.7115" Y="1300.033" Z="84.80803" />
+          <Vector3 X="611.1637" Y="1285.045" Z="87.34727" />
+          <Vector3 X="576.8564" Y="1267.997" Z="86.79034" />
+          <Vector3 X="540.9449" Y="1251.279" Z="85.55808" />
+          <Vector3 X="505.0874" Y="1237.493" Z="88.99067" />
+          <Vector3 X="466.0211" Y="1231.279" Z="88.30167" />
+          <Vector3 X="427.6191" Y="1231.97" Z="86.13575" />
+          <Vector3 X="388.0429" Y="1234.299" Z="82.5189" />
+          <Vector3 X="349.2005" Y="1242.254" Z="81.27918" />
+          <Vector3 X="312.2454" Y="1252.766" Z="79.65266" />
+          <Vector3 X="274.1" Y="1263.598" Z="76.8278" />
+          <Vector3 X="236.0314" Y="1267.394" Z="76.0264" />
+          <Vector3 X="198.4459" Y="1259.577" Z="73.03815" />
+          <Vector3 X="160.524" Y="1248.026" Z="70.40269" />
+          <Vector3 X="122.9654" Y="1235.584" Z="69.86897" />
+          <Vector3 X="86.05769" Y="1224.928" Z="67.46308" />
+          <Vector3 X="47.71196" Y="1214.823" Z="65.72406" />
+          <Vector3 X="10.65145" Y="1204.703" Z="64.94047" />
+          <Vector3 X="-26.92244" Y="1192.026" Z="64.22195" />
+          <Vector3 X="-63.75672" Y="1181.445" Z="63.96806" />
+          <Vector3 X="-102.144" Y="1179.84" Z="63.23626" />
+          <Vector3 X="-142.9846" Y="1178.631" Z="64.16734" />
+          <Vector3 X="-181.2951" Y="1181.411" Z="63.31" />
+          <Vector3 X="-219.588" Y="1184.556" Z="63.73192" />
+          <Vector3 X="-274.6567" Y="1188.49" Z="63.59127" />
+          <Vector3 X="-312.9417" Y="1191.225" Z="63.41734" />
+          <Vector3 X="-353.7618" Y="1193.533" Z="64.54097" />
+          <Vector3 X="-391.1106" Y="1185.923" Z="67.50255" />
+          <Vector3 X="-424.6008" Y="1167.254" Z="72.83881" />
+          <Vector3 X="-453.0089" Y="1139.709" Z="78.5068" />
+          <Vector3 X="-474.4657" Y="1107.919" Z="84.84751" />
+          <Vector3 X="-491.8359" Y="1072.353" Z="91.25784" />
+          <Vector3 X="-504.0854" Y="1035.966" Z="93.72492" />
+          <Vector3 X="-509.516" Y="996.7298" Z="93.17878" />
+          <Vector3 X="-514.1967" Y="958.6556" Z="93.22411" />
+          <Vector3 X="-519.2217" Y="919.3248" Z="93.83192" />
+          <Vector3 X="-522.0781" Y="881.0096" Z="93.92719" />
+          <Vector3 X="-524.662" Y="841.4389" Z="94.41793" />
+          <Vector3 X="-527.689" Y="801.9086" Z="94.27785" />
+          <Vector3 X="-535.1721" Y="764.2871" Z="91.87009" />
+          <Vector3 X="-543.7018" Y="726.8229" Z="91.18984" />
+          <Vector3 X="-552.5117" Y="688.1589" Z="91.07475" />
+          <Vector3 X="-561.3215" Y="649.4949" Z="87.89667" />
+          <Vector3 X="-569.8575" Y="612.032" Z="84.52178" />
+          <Vector3 X="-577.0181" Y="574.3306" Z="83.36113" />
+          <Vector3 X="-579.8878" Y="534.7809" Z="83.50155" />
+          <Vector3 X="-583.03" Y="496.4866" Z="82.45699" />
+          <Vector3 X="-585.5638" Y="456.9475" Z="81.79153" />
+          <Vector3 X="-587.85" Y="418.5926" Z="78.98053" />
+          <Vector3 X="-593.8159" Y="379.4282" Z="76.02176" />
+          <Vector3 X="-600.6437" Y="341.6167" Z="72.95041" />
+          <Vector3 X="-606.6046" Y="303.6656" Z="68.745" />
+          <Vector3 X="-611.4546" Y="264.3084" Z="64.25182" />
+          <Vector3 X="-618.7204" Y="225.3428" Z="60.93419" />
+          <Vector3 X="-633.0093" Y="189.7987" Z="59.3758" />
+          <Vector3 X="-651.0076" Y="154.6085" Z="54.89411" />
+          <Vector3 X="-665.1532" Y="119.1072" Z="49.38936" />
+          <Vector3 X="-669.0697" Y="79.689" Z="46.8216" />
+          <Vector3 X="-672.0421" Y="41.38237" Z="47.33706" />
+          <Vector3 X="-667.6185" Y="2.109474" Z="47.19638" />
+          <Vector3 X="-660.4218" Y="-35.58773" Z="46.90021" />
+          <Vector3 X="-651.5165" Y="-74.22916" Z="47.05416" />
+          <Vector3 X="-637.4182" Y="-109.9126" Z="47.26297" />
+          <Vector3 X="-622.2685" Y="-145.1932" Z="47.3362" />
+          <Vector3 X="-607.1081" Y="-180.4988" Z="47.33615" />
+          <Vector3 X="-590.6009" Y="-217.9049" Z="47.33617" />
+          <Vector3 X="-574.6744" Y="-252.8715" Z="47.21554" />
+          <Vector3 X="-558.2053" Y="-288.9449" Z="46.90204" />
+          <Vector3 X="-539.5318" Y="-323.9073" Z="47.33979" />
+          <Vector3 X="-520.5674" Y="-357.323" Z="47.28168" />
+          <Vector3 X="-498.9908" Y="-390.5862" Z="47.34806" />
+          <Vector3 X="-477.5249" Y="-422.4539" Z="47.33098" />
+          <Vector3 X="-456.313" Y="-455.9334" Z="47.33621" />
+          <Vector3 X="-446.3954" Y="-492.7343" Z="47.26724" />
+          <Vector3 X="-441.2255" Y="-532.0504" Z="50.63053" />
+          <Vector3 X="-436.8934" Y="-571.4166" Z="53.33001" />
+          <Vector3 X="-429.8747" Y="-609.155" Z="54.50099" />
+          <Vector3 X="-419.8111" Y="-646.2355" Z="54.49971" />
+          <Vector3 X="-407.9212" Y="-684.0628" Z="54.51343" />
+          <Vector3 X="-395.0219" Y="-720.2413" Z="54.47375" />
+          <Vector3 X="-375.1536" Y="-754.4658" Z="54.46059" />
+          <Vector3 X="-304.1278" Y="-752.0208" Z="55.35779" />
+          <Vector3 X="-233.7332" Y="-727.411" Z="60.17967" />
+          <Vector3 X="-196.0444" Y="-720.0977" Z="62.88806" />
+          <Vector3 X="-156.7027" Y="-715.4512" Z="63.93177" />
+          <Vector3 X="-118.2921" Y="-715.884" Z="65.20243" />
+          <Vector3 X="-79.93332" Y="-716.8456" Z="68.02333" />
+          <Vector3 X="-40.5534" Y="-719.0251" Z="68.63407" />
+          <Vector3 X="-20.67102" Y="-754.665" Z="63.22268" />
+          <Vector3 X="-19.61436" Y="-793.072" Z="59.25781" />
+          <Vector3 X="-23.40454" Y="-852.5307" Z="63.14082" />
+          <Vector3 X="-22.40131" Y="-902.9459" Z="55.84476" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Hinott's Assistance - Part 2 (Hillsbrad)</Name>
+      <QuestId>
+        <int>2480</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>2479</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: From TOWER to Missoin Probabal Turnin</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1177.611" Y="-2937.825" Z="94.32432" />
+          <Vector3 X="1164.957" Y="-2963.213" Z="97.18324" />
+          <Vector3 X="1160.652" Y="-2998.752" Z="91.66702" />
+          <Vector3 X="1167.922" Y="-3020.962" Z="91.66702" />
+          <Vector3 X="1183.212" Y="-3047.408" Z="94.07349" />
+          <Vector3 X="1180.238" Y="-3085.708" Z="95.36693" />
+          <Vector3 X="1173.274" Y="-3125.996" Z="93.41174" />
+          <Vector3 X="1167.789" Y="-3162.774" Z="91.67259" />
+          <Vector3 X="1160.191" Y="-3201.694" Z="91.59343" />
+          <Vector3 X="1152.984" Y="-3239.421" Z="91.71719" />
+          <Vector3 X="1147.792" Y="-3277.339" Z="91.66689" />
+          <Vector3 X="1134.717" Y="-3314.776" Z="93.20221" />
+          <Vector3 X="1123.119" Y="-3351.36" Z="92.20992" />
+          <Vector3 X="1108.003" Y="-3384.549" Z="93.92561" />
+          <Vector3 X="1099.091" Y="-3424.418" Z="91.36294" />
+          <Vector3 X="1093.065" Y="-3462.352" Z="84.80109" />
+          <Vector3 X="1086.205" Y="-3500.156" Z="74.28301" />
+          <Vector3 X="1072.008" Y="-3537.058" Z="65.54375" />
+          <Vector3 X="1057.664" Y="-3574.017" Z="58.67425" />
+          <Vector3 X="1046.252" Y="-3610.701" Z="50.74421" />
+          <Vector3 X="1035.37" Y="-3646.345" Z="41.54819" />
+          <Vector3 X="1036.517" Y="-3686.065" Z="32.00495" />
+          <Vector3 X="1044.421" Y="-3722.476" Z="29.5036" />
+          <Vector3 X="1057.766" Y="-3745.085" Z="28.55983" />
+          <Vector3 X="1078.117" Y="-3763.685" Z="27.51082" />
+          <Vector3 X="1112.086" Y="-3783.825" Z="31.68938" />
+          <Vector3 X="1149.2" Y="-3800.981" Z="28.16547" />
+          <Vector3 X="1184.093" Y="-3817.069" Z="27.36552" />
+          <Vector3 X="1219.025" Y="-3829.479" Z="27.87613" />
+          <Vector3 X="1259.226" Y="-3836.923" Z="30.40959" />
+          <Vector3 X="1296.313" Y="-3839.361" Z="28.59456" />
+          <Vector3 X="1337.146" Y="-3838.648" Z="28.76058" />
+          <Vector3 X="1375.338" Y="-3834.442" Z="27.22755" />
+          <Vector3 X="1414.922" Y="-3835.844" Z="25.81168" />
+          <Vector3 X="1451.581" Y="-3847.179" Z="25.66326" />
+          <Vector3 X="1489.602" Y="-3852.131" Z="22.31211" />
+          <Vector3 X="1529.216" Y="-3851.609" Z="36.79023" />
+          <Vector3 X="1568.675" Y="-3852.666" Z="48.35045" />
+          <Vector3 X="1607.001" Y="-3851.384" Z="50.3759" />
+          <Vector3 X="1640.974" Y="-3832.358" Z="50.616" />
+          <Vector3 X="1649.578" Y="-3840.74" Z="52.10207" />
+          <Vector3 X="1657.056" Y="-3851.576" Z="60.81871" />
+          <Vector3 X="1667.515" Y="-3869.002" Z="64.58496" />
+          <Vector3 X="1680.313" Y="-3887.954" Z="58.11502" />
+          <Vector3 X="1699.054" Y="-3917.279" Z="51.55098" />
+          <Vector3 X="1717.344" Y="-3951.135" Z="49.28341" />
+          <Vector3 X="1729.871" Y="-3979.692" Z="48.73579" />
+          <Vector3 X="1738.115" Y="-4006.042" Z="47.66332" />
+          <Vector3 X="1739.93" Y="-4014.229" Z="47.2704" />
+          <Vector3 X="1733.546" Y="-4059.392" Z="44.72534" />
+          <Vector3 X="1714.592" Y="-4080.421" Z="41.40085" />
+          <Vector3 X="1680.438" Y="-4094.63" Z="36.47232" />
+          <Vector3 X="1643.929" Y="-4112.799" Z="32.07242" />
+          <Vector3 X="1610.989" Y="-4132.528" Z="31.54105" />
+          <Vector3 X="1589.36" Y="-4162.384" Z="37.34754" />
+          <Vector3 X="1586.307" Y="-4201.462" Z="41.9066" />
+          <Vector3 X="1596.913" Y="-4237.696" Z="44.79622" />
+          <Vector3 X="1625.055" Y="-4265.535" Z="46.61275" />
+          <Vector3 X="1633.366" Y="-4266.166" Z="48.71929" />
+          <Vector3 X="1641.637" Y="-4267.462" Z="49.51628" />
+          <Vector3 X="1651.194" Y="-4262.8" Z="50.83854" />
+          <Vector3 X="1656.798" Y="-4260.641" Z="50.974" />
+          <Vector3 X="1676.579" Y="-4252.065" Z="51.12933" />
+          <Vector3 X="1693.383" Y="-4242.674" Z="51.3315" />
+          <Vector3 X="1714.421" Y="-4230.917" Z="48.07439" />
+          <Vector3 X="1741.352" Y="-4217.759" Z="44.28589" />
+          <Vector3 X="1755.69" Y="-4217.302" Z="42.81182" />
+          <Vector3 X="1767.517" Y="-4219.111" Z="40.70364" />
+          <Vector3 X="1774.508" Y="-4220.985" Z="39.76551" />
+          <Vector3 X="1791.002" Y="-4228.236" Z="39.20156" />
+          <Vector3 X="1798.845" Y="-4231.223" Z="39.28122" />
+          <Vector3 X="1785.417" Y="-4236.42" Z="39.7701" />
+          <Vector3 X="1777.789" Y="-4240.102" Z="38.89456" />
+          <Vector3 X="1748.234" Y="-4255.968" Z="27.45592" />
+          <Vector3 X="1736.442" Y="-4265.447" Z="20.67011" />
+          <Vector3 X="1734.791" Y="-4277.929" Z="16.91297" />
+          <Vector3 X="1740.932" Y="-4295.737" Z="14.97885" />
+          <Vector3 X="1755.699" Y="-4304.505" Z="6.636369" />
+          <Vector3 X="1766.088" Y="-4309.299" Z="7.057046" />
+          <Vector3 X="1768.432" Y="-4308.117" Z="6.987902" />
+          <Vector3 X="1779.126" Y="-4294.921" Z="6.179402" />
+          <Vector3 X="1776.01" Y="-4285.809" Z="7.239413" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>Rogue</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>PATH: Run To Zeplin (Brill to Org) 5</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="2087.049" Y="276.6307" Z="57.05391" />
+          <Vector3 X="2084.688" Y="277.1056" Z="57.04686" />
+          <Vector3 X="2081.363" Y="277.7211" Z="57.03794" />
+          <Vector3 X="2077.921" Y="278.358" Z="58.21486" />
+          <Vector3 X="2074.369" Y="279.0154" Z="59.30146" />
+          <Vector3 X="2071.034" Y="279.6082" Z="60.04653" />
+          <Vector3 X="2067.557" Y="278.9016" Z="60.04653" />
+          <Vector3 X="2065.175" Y="276.5568" Z="60.04718" />
+          <Vector3 X="2064.122" Y="273.1217" Z="61.53139" />
+          <Vector3 X="2063.571" Y="269.7789" Z="63.79399" />
+          <Vector3 X="2062.981" Y="266.3289" Z="66.13152" />
+          <Vector3 X="2062.301" Y="262.7815" Z="68.59871" />
+          <Vector3 X="2061.628" Y="259.461" Z="70.92878" />
+          <Vector3 X="2060.592" Y="256.0211" Z="71.52821" />
+          <Vector3 X="2057.758" Y="254.5354" Z="71.52676" />
+          <Vector3 X="2054.608" Y="255.9137" Z="72.41856" />
+          <Vector3 X="2052.691" Y="258.7922" Z="73.66021" />
+          <Vector3 X="2051.909" Y="262.192" Z="73.87986" />
+          <Vector3 X="2052.108" Y="265.6738" Z="73.88029" />
+          <Vector3 X="2053.24" Y="269.0894" Z="75.2346" />
+          <Vector3 X="2055.471" Y="271.7515" Z="76.90106" />
+          <Vector3 X="2058.64" Y="273.1195" Z="78.43697" />
+          <Vector3 X="2062.129" Y="273.1469" Z="79.55401" />
+          <Vector3 X="2065.515" Y="272.2911" Z="79.70533" />
+          <Vector3 X="2068.659" Y="270.7628" Z="79.70874" />
+          <Vector3 X="2071.334" Y="268.7015" Z="81.19126" />
+          <Vector3 X="2072.897" Y="265.5055" Z="82.80737" />
+          <Vector3 X="2072.36" Y="262.1031" Z="84.36213" />
+          <Vector3 X="2070.639" Y="259.0652" Z="85.2317" />
+          <Vector3 X="2068.431" Y="256.5004" Z="85.31208" />
+          <Vector3 X="2065.552" Y="254.5485" Z="85.62525" />
+          <Vector3 X="2062.127" Y="253.9309" Z="86.90439" />
+          <Vector3 X="2058.765" Y="254.7626" Z="88.48003" />
+          <Vector3 X="2056.001" Y="257.015" Z="89.99779" />
+          <Vector3 X="2054.823" Y="260.1736" Z="89.99779" />
+          <Vector3 X="2054.238" Y="263.6203" Z="89.99779" />
+          <Vector3 X="2054.289" Y="267.1011" Z="91.44231" />
+          <Vector3 X="2056.066" Y="270.1787" Z="92.88393" />
+          <Vector3 X="2059.041" Y="271.9897" Z="94.01443" />
+          <Vector3 X="2062.248" Y="273.0757" Z="94.10763" />
+          <Vector3 X="2064.631" Y="275.5646" Z="94.81294" />
+          <Vector3 X="2065.49" Y="278.939" Z="96.42712" />
+          <Vector3 X="2066.051" Y="282.3929" Z="97.03153" />
+          <Vector3 X="2066.791" Y="285.9284" Z="97.03153" />
+          <Vector3 X="2067.508" Y="289.354" Z="97.03153" />
+          <Vector3 X="2067.821" Y="290.8476" Z="97.03153" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>PATH Run Down Zepp (Durotar) 5</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1327.918" Y="-4648.123" Z="53.95707" />
+          <Vector3 X="1332.683" Y="-4645.923" Z="53.54362" />
+          <Vector3 X="1339.144" Y="-4642.949" Z="53.54362" />
+          <Vector3 X="1345.681" Y="-4641.276" Z="53.54362" />
+          <Vector3 X="1349.618" Y="-4646.203" Z="53.54362" />
+          <Vector3 X="1343.069" Y="-4645.674" Z="52.8094" />
+          <Vector3 X="1338.47" Y="-4649.929" Z="50.6315" />
+          <Vector3 X="1339.41" Y="-4653.371" Z="49.70355" />
+          <Vector3 X="1342.35" Y="-4655.128" Z="48.62283" />
+          <Vector3 X="1348.672" Y="-4654.368" Z="47.03498" />
+          <Vector3 X="1349.219" Y="-4651.016" Z="46.09974" />
+          <Vector3 X="1348.355" Y="-4647.561" Z="45.16275" />
+          <Vector3 X="1342.365" Y="-4645.092" Z="43.08568" />
+          <Vector3 X="1339.234" Y="-4650.154" Z="40.99227" />
+          <Vector3 X="1341.292" Y="-4652.96" Z="39.69807" />
+          <Vector3 X="1344.463" Y="-4653.979" Z="38.4162" />
+          <Vector3 X="1347.19" Y="-4651.903" Z="37.1725" />
+          <Vector3 X="1347.845" Y="-4648.553" Z="35.90564" />
+          <Vector3 X="1346.204" Y="-4645.647" Z="34.79917" />
+          <Vector3 X="1342.832" Y="-4644.895" Z="33.67896" />
+          <Vector3 X="1339.822" Y="-4646.512" Z="32.64448" />
+          <Vector3 X="1339.921" Y="-4652.869" Z="30.54141" />
+          <Vector3 X="1342.771" Y="-4654.797" Z="29.42754" />
+          <Vector3 X="1346.182" Y="-4654.281" Z="28.40392" />
+          <Vector3 X="1348.626" Y="-4651.854" Z="27.41124" />
+          <Vector3 X="1348.506" Y="-4648.321" Z="26.37543" />
+          <Vector3 X="1346.642" Y="-4645.404" Z="25.35926" />
+          <Vector3 X="1341.056" Y="-4641.4" Z="24.61732" />
+          <Vector3 X="1338.29" Y="-4634.986" Z="24.00142" />
+          <Vector3 X="1336.74" Y="-4628.275" Z="23.70735" />
+          <Vector3 X="1335.952" Y="-4624.865" Z="23.72523" />
+          <Vector3 X="1334.265" Y="-4618.073" Z="23.66155" />
+          <Vector3 X="1333.473" Y="-4614.664" Z="23.88531" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Zeppelin/Ship (Brill to Org) 5</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Northrend	 !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 164871; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(2062.376, 292.998, 114.973);// Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(2067.869, 291.552, 97.03152, "None"); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(2068.413, 295.4044, 97.26634, "None");// Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(1318.107, -4658.047, 71.86043, "None"); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition =  new Vector3(1322.21, -4653.32, 53.85162, "None"); // Position to go out the Zeppelin/Ship (to)
+// var toPlayerLeaveBoat = new Vector3(6416.014, 821.959, 6.097741, "None"); // put player at end of boat (to)
+
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Azeroth)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,2500);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            wManager.Wow.Helpers.Move.Backward(Move.MoveAction.PressKey,2650);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Azeroth;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using wManager.Events;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.ComponentModel;
+using Microsoft.VisualBasic;
+using robotManager.Helpful;
+using System.Configuration;
+using System.Net;
+using System.Windows.Forms;
+using robotManager.Products;
+
+public class Key
+{
+    public static bool haveKey(int keyId)
+    {
+        bool haveKey = Lua.LuaDoString&lt;bool&gt;("local itemIdSearch = " + keyId + "; local bag = KEYRING_CONTAINER; for slot = 1,MAX_CONTAINER_ITEMS do local itemLink = GetContainerItemLink(bag,slot); local _, itemCount = GetContainerItemInfo(bag,slot); if itemLink and itemCount then local _,_,itemId = string.find(itemLink, '.*|Hitem:(%d+):.*'); if itemId and tonumber(itemId) == itemIdSearch then return true end end end return false");
+        return haveKey;
+    }
+}
+
+public class QuestHelper
+{
+ 
+    public static void AbandonQuest(string name)
+    {
+        string luaExecute = @"
+            for logId=1,GetNumQuestLogEntries() do
+                local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(logId);
+                if ( questTitle == ""{0}"" ) then
+                    SelectQuestLogEntry(logId);
+                    SetAbandonQuest();
+                    AbandonQuest();
+                    return;
+                end
+            end
+        ";
+ 
+        Lua.LuaDoString(string.Format(luaExecute, name));
+    }
+ 
+    public static void LoadStep(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if (p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 1;
+                    break;
+                }
+            }
+        }
+    }
+ 
+   public static void LoadOneStepBefore(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if ( p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 2;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+    //Abandon Quests
+    public class abandonQuest
+    {
+
+        public static void abandon(string questName)
+        {
+
+            string name = questName;
+
+            wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + name + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+
+        }
+
+    }
+
+
+
+    //Throw away items - by Reapler
+    public class throwAway
+    {
+        public static int GetItemQuantity(string itemName)
+        {
+            var execute =
+                "local itemCount = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "if string.find(itemLink, \"" + itemName + "\") then " +
+                                    "itemCount = itemCount + stackCount; " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; " +
+                "return itemCount; ";
+            return Lua.LuaDoString&lt;int&gt;(execute);
+        }
+
+        /// &lt;summary&gt;
+        /// Used to delete all items by name.
+        /// &lt;/summary&gt;
+        /// &lt;param name="itemName"&gt;The item to delete.&lt;/param&gt;
+        /// &lt;param name="leaveAmount"&gt;The amount of items which remain in the bag.&lt;/param&gt;
+        /// &lt;remarks&gt;Bug at links with "-"&lt;/remarks&gt;
+        public static void DeleteItems(string itemName, int leaveAmount)
+        {
+            var itemQuantity = GetItemQuantity(itemName) - leaveAmount;
+            if(string.IsNullOrWhiteSpace(itemName) || itemQuantity &lt;= 0)
+                return;
+            var execute =
+                "local itemCount = " + itemQuantity + "; " +
+                "local deleted = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "local leftItems = itemCount - deleted; " +
+                                "if string.find(itemLink, \"" + itemName + "\") and leftItems &gt; 0 then " +
+                                    "if stackCount &lt;= 1 then " +
+                                        "PickupContainerItem(b, s); " +
+                                        "DeleteCursorItem(); " +
+                                        "deleted = deleted + 1; " +
+                                    "else " +
+                                        "if (leftItems &gt; stackCount) then " +
+                                            "SplitContainerItem(b, s, stackCount); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + stackCount; " +
+                                        "else " +
+                                            "SplitContainerItem(b, s, leftItems); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + leftItems; " +
+                                        "end " +
+                                    "end " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; ";
+            Lua.LuaDoString(execute);
+        }
+    }</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

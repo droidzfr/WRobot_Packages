@@ -1,0 +1,1274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(1066)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 16 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Druid) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren))" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(1066)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 16 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Druid) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren))" />
+    <QuestsSorted Action="RunLuaCode" NameClass=" if not MyFrame then&#xD;&#xA;  MyFrameText = &quot;Starting Profile...&quot;&#xD;&#xA;  MyFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  MyFrame:ClearAllPoints()&#xD;&#xA;  MyFrame:SetBackdrop(StaticPopup1:GetBackdrop())&#xD;&#xA;  MyFrame:SetHeight(80)&#xD;&#xA;  MyFrame:SetWidth(310)&#xD;&#xA;&#xD;&#xA;  MyFrame.text = MyFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontGreen&quot;)&#xD;&#xA;  MyFrame.text:SetFontObject(&quot;GameFontNormal&quot;)&#xD;&#xA;  MyFrame.text:SetAllPoints()&#xD;&#xA;  MyFrame.text:SetText(MyFrameText)&#xD;&#xA;  MyFrame:SetPoint(&quot;CENTER&quot;, 0, -150)&#xD;&#xA;  MyFrame.text:SetTextColor(0, 1, 0, 1)&#xD;&#xA;  MyFrame:SetBackdropBorderColor(0, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  CreateFrame(&quot;Frame&quot;,&quot;Test&quot;,UIParent)&#xD;&#xA;  Test:SetWidth(50)&#xD;&#xA;  Test:SetHeight(50)&#xD;&#xA;  Test:SetPoint(&quot;TOPLEFT&quot;, MyFrame, -10, 4)&#xD;&#xA;  Test:CreateTexture(&quot;TestTexture&quot;)&#xD;&#xA;  TestTexture:SetAllPoints()&#xD;&#xA;  TestTexture:SetTexture(&quot;Interface\\Icons\\Ability_Druid_AquaticForm&quot;)&#xD;&#xA;&#xD;&#xA;  RateFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  RateFrame:ClearAllPoints()&#xD;&#xA;  RateFrame:SetBackdrop(nil)&#xD;&#xA;  RateFrame:SetHeight(60)&#xD;&#xA;  RateFrame:SetWidth(200)&#xD;&#xA;  RateFrame.text = RateFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  RateFrame.text:SetAllPoints()&#xD;&#xA;  RateFrame.text:SetText(&quot;https://rocketr.net/sellers/Tarud for new products&quot;)&#xD;&#xA;  RateFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, -50)&#xD;&#xA;  RateFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  ByFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  ByFrame:ClearAllPoints()&#xD;&#xA;  ByFrame:SetBackdrop(nil)&#xD;&#xA;  ByFrame:SetHeight(60)&#xD;&#xA;  ByFrame:SetWidth(140)&#xD;&#xA;  ByFrame.text = ByFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  ByFrame.text:SetAllPoints()&#xD;&#xA;  ByFrame.text:SetText(&quot;Druid Aquatic Form Class Q&quot;)&#xD;&#xA;  ByFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, 47)&#xD;&#xA;  ByFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  MyFrame:SetMovable(true)&#xD;&#xA;  MyFrame:EnableMouse(true)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  Test:SetMovable(true)&#xD;&#xA;  Test:EnableMouse(true)&#xD;&#xA;  Test:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  Test:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  RateFrame:SetMovable(true)&#xD;&#xA;  RateFrame:EnableMouse(true)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  ByFrame:SetMovable(true)&#xD;&#xA;  ByFrame:EnableMouse(true)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  MyFrame.Close = CreateFrame(&quot;BUTTON&quot;, nil, MyFrame, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;  MyFrame.Close:SetWidth(20)&#xD;&#xA;  MyFrame.Close:SetHeight(20)&#xD;&#xA;  MyFrame.Close:SetPoint(&quot;TOPRIGHT&quot;, MyFrame, 3, 3)&#xD;&#xA;  MyFrame.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;   MyFrame:Hide()&#xD;&#xA;   Test:Hide()&#xD;&#xA;   RateFrame:Hide()&#xD;&#xA;   ByFrame:Hide()&#xD;&#xA;   DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF8AFF40MyFrame is now CLOSED|r |cFFFC7DFFType /MyFrame|r |cFF8AFF40In Game to OPEN it again!|r&quot;)     &#xD;&#xA;  end)&#xD;&#xA;  &#xD;&#xA;  SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/MyFrame&quot;&#xD;&#xA;  SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;   if MyFrame:IsShown() then&#xD;&#xA;    MyFrame:Hide()&#xD;&#xA;    Test:Hide()&#xD;&#xA;    RateFrame:Hide()&#xD;&#xA;    ByFrame:Hide()&#xD;&#xA;   else&#xD;&#xA;    MyFrame:Show()&#xD;&#xA;    Test:Show()&#xD;&#xA;    RateFrame:Show()&#xD;&#xA;    ByFrame:Show()&#xD;&#xA;   end&#xD;&#xA;  end&#xD;&#xA; end" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF0DB3FFDruid Class Quest - Aquatic Form - Disable all steps to skip! (Profile Settings Tab) https://rocketr.net/sellers/Tarud |r&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'lvl 15 Druid Class Q - Aquatic Form'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="((Lua.LuaDoString&lt;string&gt;(&quot;bindlocation = GetBindLocation(); return bindlocation;&quot;) != &quot;Orgrimmar&quot;) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 1 &amp;&amp; ObjectManager.Me.Level &lt; 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor))" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1633.99f, -4439.37f, 15.43382f), 6929);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1633.99f, -4439.37f, 15.43382f), 6929);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(1633.99f, -4439.37f, 15.43382f);&#xD;&#xA;int npcEntryId = 6929;&#xD;&#xA;{&#xD;&#xA; if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;  Lua.LuaDoString(&quot;GossipTitleButton1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(2000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;GossipTitleButton2:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA;}" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="((!wManager.Wow.Helpers.SpellManager.KnowSpell(1066)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 16 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Druid) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.PlayerRace == PlayerFactions.Tauren) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor))" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Barrens&quot;) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 16 &amp;&amp; ObjectManager.Me.Level &lt; 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(1066)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!Quest.HasQuest(26) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(26))" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-2384.08f, -1880.94f, 95.85037f);&#xD;&#xA;int npcEntryId = 10378;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Thunder Bluff') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-2384.08f, -1880.94f, 95.85037f);&#xD;&#xA;int npcEntryId = 10378;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Thunder Bluff, Mulgore') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="168000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="PickUp" NameClass="ALessontoLearn" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(26) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(26))" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CastSpellByName(\&quot;Teleport: Moonglade\&quot;,1)&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CastSpellByName(\&quot;Teleport: Moonglade\&quot;,1)&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="20000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="ALessontoLearn" />
+    <QuestsSorted Action="PickUp" NameClass="TrialoftheLake" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(28) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(28))" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(28) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(28)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(15877)﻿" />
+    <QuestsSorted Action="Pulse" NameClass="RUNTrialoftheLake" />
+    <QuestsSorted Action="RunCode" NameClass="            WoWGameObject gong = wManager.Wow.ObjectManager.ObjectManager.GetObjectWoWGameObject().FirstOrDefault(i =&gt; i.Entry == 177785);&#xD;&#xA;            if (gong != null)&#xD;&#xA;            {&#xD;&#xA;                wManager.Wow.Helpers.Interact.InteractGameObject(gong.GetBaseAddress);&#xD;&#xA;            }" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(177785);" />
+    <QuestsSorted Action="Pulse" NameClass="TrialoftheLake" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(28) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(28)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;ItemsManager.HasItemById(15877)﻿" />
+    <QuestsSorted Action="Pulse" NameClass="RUNTrialoftheLakehavebubblegouse" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(7848.3f, -2216.35f, 470.8041f);&#xD;&#xA;int npcEntryId = 11832;&#xD;&#xA;uint itemId = 15877;&#xD;&#xA;&#xD;&#xA;{&#xD;&#xA;    if (!Quest.IsObjectiveComplete(1, 28))&#xD;&#xA; { &#xD;&#xA;       wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId);&#xD;&#xA;    wManager.Wow.Helpers.ItemsManager.UseItem(15877);&#xD;&#xA;       wManager.Wow.Helpers.Usefuls.WaitIsCasting();&#xD;&#xA; }&#xD;&#xA;}" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(15877);" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(15877);" />
+    <QuestsSorted Action="Pulse" NameClass="TrialoftheLakeUSEITEM" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="TrialoftheLake" />
+    <QuestsSorted Action="PickUp" NameClass="TrialoftheSeaLion" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor)" />
+    <QuestsSorted Action="If" NameClass="(Lua.LuaDoString&lt;string&gt;(&quot;bindlocation = GetBindLocation(); return bindlocation;&quot;) == &quot;Orgrimmar&quot;) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(15883)﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;Usefuls.ContinentId == (int) ContinentId.Kalimdor &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Moonglade&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="if (wManager.Wow.Helpers.Usefuls.ContinentId == (int) wManager.Wow.Enums.ContinentId.Kalimdor)&#xD;&#xA;        {&#xD;&#xA;            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;&#xD;&#xA;            wManager.Wow.Helpers.ItemsManager.UseItem(6948);&#xD;&#xA;            System.Threading.Thread.Sleep(1000 * 20); // 20 secondes&#xD;&#xA;            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;&#xD;&#xA;        }" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(15883)﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;Usefuls.ContinentId == (int) ContinentId.Kalimdor &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Moonglade&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(7785.46f, -2403.46f, 489.5431f), 11798);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(7785.46f, -2403.46f, 489.5431f), 11798);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(7785.46f, -2403.46f, 489.5431f);&#xD;&#xA;int npcEntryId = 11798;&#xD;&#xA;{&#xD;&#xA; if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;  Lua.LuaDoString(&quot;GossipTitleButton1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(2000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;GossipTitleButton2:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="522000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(15883)﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;Usefuls.ContinentId == (int) ContinentId.Kalimdor &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Thunder Bluff&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-1196.75f, 26.0777f, 176.9491f);&#xD;&#xA;int npcEntryId = 2995;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Crossroads') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-1196.75f, 26.0777f, 176.9491f);&#xD;&#xA;int npcEntryId = 2995;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Crossroads, The Barrens') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="144000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!ItemsManager.HasItemById(15883)﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;Usefuls.ContinentId == (int) ContinentId.Kalimdor" />
+    <QuestsSorted Action="Pulse" NameClass="RUNAquaticAgility" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="            WoWGameObject gong = wManager.Wow.ObjectManager.ObjectManager.GetObjectWoWGameObject().FirstOrDefault(i =&gt; i.Entry == 177794);&#xD;&#xA;            if (gong != null)&#xD;&#xA;            {&#xD;&#xA;                wManager.Wow.Helpers.Interact.InteractGameObject(gong.GetBaseAddress);&#xD;&#xA;            }" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(177794);" />
+    <QuestsSorted Action="Pulse" NameClass="TrialoftheSeaLionAquaticAgility" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!Quest.IsObjecti﻿veComplete(1, 30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ItemsManager.HasItemById(15883))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(15882)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor)" />
+    <QuestsSorted Action="Pulse" NameClass="RUNAgilityPendanttoOrgZep" />
+    <QuestsSorted Action="Pulse" NameClass="RunToZepORG16Druid" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="Pulse" NameClass="CatchZeppelinShip16Druid" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="Pulse" NameClass="RunDownUCRamp16Druid" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1567.12f, 266.345f, -43.10266f), 4551);" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1567.12f, 266.345f, -43.10266f), 4551);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!Quest.IsObjecti﻿veComplete(1, 30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ItemsManager.HasItemById(15883))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(15882)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Azeroth)" />
+    <QuestsSorted Action="Pulse" NameClass="RUNPendantofEndurance" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="            WoWGameObject gong = wManager.Wow.ObjectManager.ObjectManager.GetObjectWoWGameObject().FirstOrDefault(i =&gt; i.Entry == 177790);&#xD;&#xA;            if (gong != null)&#xD;&#xA;            {&#xD;&#xA;                wManager.Wow.Helpers.Interact.InteractGameObject(gong.GetBaseAddress);&#xD;&#xA;            }" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.ListHarvest.Add(177790);" />
+    <QuestsSorted Action="Pulse" NameClass="TrialoftheSeaLionAquaticEndurance" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!Quest.IsObjecti﻿veComplete(1, 30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ItemsManager.HasItemById(15883))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ItemsManager.HasItemById(15882)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Azeroth)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CastSpellByName(\&quot;Teleport: Moonglade\&quot;,1)&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CastSpellByName(\&quot;Teleport: Moonglade\&quot;,1)&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="10000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(30) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!Quest.IsObjecti﻿veComplete(1, 30)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ItemsManager.HasItemById(15883))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ItemsManager.HasItemById(15882)﻿) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Moonglade&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="RUNRuntoShrine" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(15883);" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(15883);" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="Pulse" NameClass="TrialoftheSeaLion" />
+    <QuestsSorted Action="TurnIn" NameClass="TrialoftheSeaLion" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="PickUp" NameClass="AquaticForm" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(31) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(31)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Moonglade&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(7785.46f, -2403.46f, 489.5431f), 11798);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(7785.46f, -2403.46f, 489.5431f), 11798);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(7785.46f, -2403.46f, 489.5431f);&#xD;&#xA;int npcEntryId = 11798;&#xD;&#xA;{&#xD;&#xA; if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;  Lua.LuaDoString(&quot;GossipTitleButton1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(2000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;GossipTitleButton2:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; System.Threading.Thread.Sleep(3000 * 1);&#xD;&#xA; Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);&#xD;&#xA; Lua.LuaDoString(&quot;CloseMerchant()&quot;);&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="522000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="AquaticForm" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - #1 PROFILE_LAUNCHER.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="3033" Name="Turak Runetotem" GameObject="false">
+      <PickUpQuests>
+        <int>26</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>31</int>
+      </TurnInQuests>
+      <Position X="-1039.41" Y="-281.56" Z="159.0306" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="11802" Name="Dendrite Starblaze" GameObject="false">
+      <PickUpQuests>
+        <int>28</int>
+        <int>31</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>26</int>
+        <int>30</int>
+      </TurnInQuests>
+      <Position X="8020" Y="-2678.74" Z="524.4499" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="11799" Name="Tajarri" GameObject="false">
+      <PickUpQuests>
+        <int>30</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>28</int>
+      </TurnInQuests>
+      <Position X="7874.23" Y="-2224.18" Z="469.0754" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>A Lesson to Learn</Name>
+      <QuestId>
+        <int>26</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Trial of the Lake</Name>
+      <QuestId>
+        <int>28</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7633.14" Y="-2635.114" Z="396.4138" Type="Swimming" />
+          <Vector3 X="7633.292" Y="-2634.468" Z="396.2704" Type="Swimming" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>177785</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Quest.IsObjecti﻿veComplete(1, 28);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>26</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Trial of the Lake</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="7975.878" Y="-2545.537" Z="490.1336" />
+          <Vector3 X="7973.649" Y="-2531.943" Z="491.5821" />
+          <Vector3 X="7971.626" Y="-2521.32" Z="487.9957" />
+          <Vector3 X="7969.585" Y="-2500.144" Z="487.4938" />
+          <Vector3 X="7968.713" Y="-2487.406" Z="487.6562" />
+          <Vector3 X="7967.785" Y="-2476.318" Z="486.9279" />
+          <Vector3 X="7965.319" Y="-2455.507" Z="487.7985" />
+          <Vector3 X="7963.859" Y="-2437.228" Z="488.7558" />
+          <Vector3 X="7961.983" Y="-2416.017" Z="488.9615" />
+          <Vector3 X="7959.816" Y="-2394.497" Z="488.9593" />
+          <Vector3 X="7956.238" Y="-2373.529" Z="486.4617" />
+          <Vector3 X="7946.394" Y="-2331.929" Z="479.7524" />
+          <Vector3 X="7934.168" Y="-2314.235" Z="473.8654" />
+          <Vector3 X="7918.876" Y="-2311.609" Z="469.8078" />
+          <Vector3 X="7876.837" Y="-2311.992" Z="465.3185" />
+          <Vector3 X="7837.491" Y="-2307.252" Z="456.5823" />
+          <Vector3 X="7807.782" Y="-2303.142" Z="455.5621" />
+          <Vector3 X="7794.088" Y="-2310.116" Z="455.5197" />
+          <Vector3 X="7780.878" Y="-2318.121" Z="454.6564" />
+          <Vector3 X="7760.296" Y="-2319.361" Z="455.4481" />
+          <Vector3 X="7746.105" Y="-2320.804" Z="453.2689" />
+          <Vector3 X="7737.993" Y="-2331.29" Z="452.351" />
+          <Vector3 X="7732.005" Y="-2341.076" Z="451.9064" Type="Swimming" />
+          <Vector3 X="7640.832" Y="-2642.821" Z="450.9579" Type="Swimming" />
+          <Vector3 X="7634.878" Y="-2634.113" Z="396.4622" Type="Swimming" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Trial of the Lake - have bubble - go use</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="7715.205" Y="-2513.513" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7712.198" Y="-2484.201" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7709.794" Y="-2460.76" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7707.39" Y="-2437.319" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7707.482" Y="-2413.15" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7712.663" Y="-2389.408" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7719.125" Y="-2366.747" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7725.732" Y="-2344.131" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7734.31" Y="-2321.377" Z="451.7988" Type="Swimming" />
+          <Vector3 X="7744.574" Y="-2306.608" Z="453.6206" />
+          <Vector3 X="7759.695" Y="-2291.936" Z="459.1427" />
+          <Vector3 X="7776.173" Y="-2266.193" Z="455.7545" />
+          <Vector3 X="7800.919" Y="-2236.381" Z="463.1771" />
+          <Vector3 X="7819.604" Y="-2229.099" Z="462.9992" />
+          <Vector3 X="7834.835" Y="-2232.983" Z="465.8865" />
+          <Vector3 X="7838.405" Y="-2232.493" Z="466.5399" />
+          <Vector3 X="7841.116" Y="-2227.878" Z="467.7068" />
+          <Vector3 X="7842.771" Y="-2224.802" Z="468.4979" />
+          <Vector3 X="7844.478" Y="-2221.626" Z="469.2968" />
+          <Vector3 X="7845.875" Y="-2219.288" Z="469.9354" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Trial of the Lake - USE ITEM</Name>
+      <QuestId>
+        <int>28</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7848.058" Y="-2216.628" Z="470.7033" />
+        </HotSpots>
+        <EntryIdTarget>
+          <int>11832</int>
+        </EntryIdTarget>
+        <ItemId>15877</ItemId>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Quest.IsObjecti﻿veComplete(1, 28);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>28</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Trial of the Sea Lion</Name>
+      <QuestId>
+        <int>30</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="7855.399" Y="-2212.933" Z="472.1767" />
+        </HotSpots>
+        <EntryIdTarget>
+          <int>300142</int>
+        </EntryIdTarget>
+        <ItemId>15883</ItemId>
+        <Range>6.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Quest.IsObjecti﻿veComplete(1, 30);</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>28</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Trial of the Sea Lion - Aquatic Agility</Name>
+      <QuestId>
+        <int>30</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1050.715" Y="-3120.733" Z="71.56002" Type="Swimming" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>177794</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(15883) &gt;= 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>28</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Trial of the Sea Lion - Aquatic Endurance</Name>
+      <QuestId>
+        <int>30</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots />
+        <EntryIdObjects />
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(15882) &gt;= 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>28</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Aquatic Agility</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="997.059" Y="-3736.086" Z="27.97972" />
+          <Vector3 X="947.9706" Y="-3723.931" Z="27.14147" />
+          <Vector3 X="919.22" Y="-3721.69" Z="27.16319" />
+          <Vector3 X="891.3427" Y="-3719.77" Z="27.18285" />
+          <Vector3 X="862.819" Y="-3715.649" Z="27.21766" />
+          <Vector3 X="835.0512" Y="-3713.009" Z="27.63158" />
+          <Vector3 X="806.2865" Y="-3710.926" Z="27.39817" />
+          <Vector3 X="778.4744" Y="-3710.997" Z="26.97599" />
+          <Vector3 X="751.0815" Y="-3716.519" Z="27.2023" />
+          <Vector3 X="716.9791" Y="-3720.18" Z="27.14163" />
+          <Vector3 X="664.6171" Y="-3718.545" Z="26.69976" />
+          <Vector3 X="612.3326" Y="-3716.544" Z="27.30239" />
+          <Vector3 X="558.2972" Y="-3714.475" Z="27.1821" />
+          <Vector3 X="506.4348" Y="-3708.663" Z="28.7982" />
+          <Vector3 X="453.7448" Y="-3696.99" Z="28.14424" />
+          <Vector3 X="403.6763" Y="-3681.758" Z="27.18579" />
+          <Vector3 X="354.7739" Y="-3658.697" Z="27.79679" />
+          <Vector3 X="319.9658" Y="-3640.722" Z="27.18661" />
+          <Vector3 X="297.3917" Y="-3595.212" Z="28.22226" />
+          <Vector3 X="279.0576" Y="-3544.538" Z="25.74296" />
+          <Vector3 X="255.8069" Y="-3495.974" Z="27.18052" />
+          <Vector3 X="241.0331" Y="-3454.332" Z="28.27157" />
+          <Vector3 X="216.4608" Y="-3425.747" Z="30.34556" />
+          <Vector3 X="184.4531" Y="-3382.173" Z="38.04794" />
+          <Vector3 X="166.4919" Y="-3333.76" Z="49.70145" />
+          <Vector3 X="159.7102" Y="-3280.212" Z="62.50082" />
+          <Vector3 X="153.2564" Y="-3228.216" Z="74.60001" />
+          <Vector3 X="145.2125" Y="-3174.76" Z="86.95769" />
+          <Vector3 X="135.0665" Y="-3123.467" Z="95.83232" />
+          <Vector3 X="125.6643" Y="-3070.221" Z="95.99043" />
+          <Vector3 X="118.8353" Y="-3016.582" Z="91.77821" />
+          <Vector3 X="113.0748" Y="-2964.512" Z="95.93542" />
+          <Vector3 X="98.23175" Y="-2914.915" Z="96.2443" />
+          <Vector3 X="88.59981" Y="-2861.836" Z="95.90755" />
+          <Vector3 X="79.49667" Y="-2810.358" Z="95.84276" />
+          <Vector3 X="61.24638" Y="-2759.487" Z="93.92156" />
+          <Vector3 X="62.8147" Y="-2725.174" Z="91.82031" />
+          <Vector3 X="91.96284" Y="-2703.887" Z="91.76395" />
+          <Vector3 X="144.2335" Y="-2703.761" Z="91.66712" />
+          <Vector3 X="197.0453" Y="-2693.38" Z="91.66712" />
+          <Vector3 X="249.0457" Y="-2687.818" Z="91.66712" />
+          <Vector3 X="276.1539" Y="-2681.543" Z="91.66712" />
+          <Vector3 X="328.3202" Y="-2667.485" Z="91.66712" />
+          <Vector3 X="377.6837" Y="-2649.933" Z="91.66712" />
+          <Vector3 X="428.3317" Y="-2630.989" Z="91.66712" />
+          <Vector3 X="477.4062" Y="-2612.633" Z="91.66712" />
+          <Vector3 X="527.4896" Y="-2592.272" Z="94.56956" />
+          <Vector3 X="553.0198" Y="-2581.206" Z="95.80461" />
+          <Vector3 X="589.9638" Y="-2599.006" Z="96.56125" />
+          <Vector3 X="637.6274" Y="-2620.762" Z="91.80302" />
+          <Vector3 X="677.9003" Y="-2652.163" Z="91.95043" />
+          <Vector3 X="705.2551" Y="-2688.372" Z="91.78883" />
+          <Vector3 X="728.6603" Y="-2710.57" Z="92.39754" />
+          <Vector3 X="768.0603" Y="-2722.134" Z="94.03587" />
+          <Vector3 X="775.6528" Y="-2726.44" Z="94.5581" />
+          <Vector3 X="787.7189" Y="-2745.507" Z="93.68573" />
+          <Vector3 X="798.6923" Y="-2758.005" Z="92.61184" />
+          <Vector3 X="817.129" Y="-2779.004" Z="91.6668" />
+          <Vector3 X="835.5657" Y="-2800.003" Z="91.6668" />
+          <Vector3 X="848.8603" Y="-2818.406" Z="92.25907" />
+          <Vector3 X="853.5428" Y="-2860" Z="94.41641" />
+          <Vector3 X="858.6566" Y="-2878.452" Z="93.09263" />
+          <Vector3 X="875.7937" Y="-2894.725" Z="93.75909" />
+          <Vector3 X="891.4235" Y="-2922.302" Z="92.52791" />
+          <Vector3 X="899.3586" Y="-2950.026" Z="91.75699" />
+          <Vector3 X="915.6279" Y="-2971.871" Z="92.74798" />
+          <Vector3 X="926.6747" Y="-2986.362" Z="93.81634" />
+          <Vector3 X="926.9742" Y="-3010.174" Z="92.36318" />
+          <Vector3 X="917.1782" Y="-3037.234" Z="92.04582" />
+          <Vector3 X="911.6201" Y="-3058.348" Z="91.89256" />
+          <Vector3 X="914.8073" Y="-3075.99" Z="91.66743" />
+          <Vector3 X="913.6021" Y="-3102.581" Z="91.66691" />
+          <Vector3 X="928.0072" Y="-3123.198" Z="91.66715" />
+          <Vector3 X="923.657" Y="-3146.523" Z="93.81846" />
+          <Vector3 X="937.9768" Y="-3159.246" Z="91.66721" />
+          <Vector3 X="953.4758" Y="-3165.123" Z="91.85734" />
+          <Vector3 X="959.4693" Y="-3164.633" Z="92.34255" />
+          <Vector3 X="965.1793" Y="-3166.79" Z="92.78853" />
+          <Vector3 X="970.0197" Y="-3161.733" Z="93.33585" />
+          <Vector3 X="972.4235" Y="-3157.05" Z="93.50347" />
+          <Vector3 X="974.251" Y="-3152.368" Z="93.55054" />
+          <Vector3 X="976.4161" Y="-3146.646" Z="93.47083" />
+          <Vector3 X="980.1305" Y="-3138.273" Z="92.74035" />
+          <Vector3 X="985.298" Y="-3130.717" Z="91.69907" />
+          <Vector3 X="989.3696" Y="-3129.135" Z="91.63611" />
+          <Vector3 X="990.2202" Y="-3129.356" Z="91.63142" />
+          <Vector3 X="994.0482" Y="-3131.455" Z="91.65724" />
+          <Vector3 X="999.4908" Y="-3130.52" Z="90.58163" />
+          <Vector3 X="1004.716" Y="-3130.184" Z="88.45875" />
+          <Vector3 X="1008.712" Y="-3128.419" Z="85.86123" />
+          <Vector3 X="1010.953" Y="-3127.039" Z="84.24495" />
+          <Vector3 X="1013.662" Y="-3125.635" Z="82.87624" />
+          <Vector3 X="1017.277" Y="-3125.043" Z="82.17967" />
+          <Vector3 X="1023.127" Y="-3126.085" Z="80.90706" />
+          <Vector3 X="1026.731" Y="-3126.068" Z="79.65903" />
+          <Vector3 X="1029.601" Y="-3125.23" Z="78.18581" Type="Swimming" />
+          <Vector3 X="1033.821" Y="-3123.215" Z="77.48853" Type="Swimming" />
+          <Vector3 X="1037.912" Y="-3122.364" Z="75.47302" Type="Swimming" />
+          <Vector3 X="1041.628" Y="-3123.882" Z="73.03028" Type="Swimming" />
+          <Vector3 X="1045.793" Y="-3121.942" Z="72.28168" Type="Swimming" />
+          <Vector3 X="1049.903" Y="-3120.174" Z="71.53412" Type="Swimming" />
+          <Vector3 X="1050.715" Y="-3120.733" Z="71.56002" Type="Swimming" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Agility Pendant to Org Zep</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1029.071" Y="-3130.032" Z="79.55336" />
+          <Vector3 X="1021.621" Y="-3128.93" Z="81.80338" />
+          <Vector3 X="1011.267" Y="-3128.904" Z="84.52498" />
+          <Vector3 X="1003.606" Y="-3130.561" Z="89.08493" />
+          <Vector3 X="990.8412" Y="-3135.112" Z="91.85164" />
+          <Vector3 X="977.4425" Y="-3140.426" Z="93.13794" />
+          <Vector3 X="966.1459" Y="-3148.229" Z="93.20592" />
+          <Vector3 X="961.089" Y="-3161.382" Z="92.61581" />
+          <Vector3 X="961.8893" Y="-3175.317" Z="91.95324" />
+          <Vector3 X="965.1462" Y="-3189.282" Z="91.66709" />
+          <Vector3 X="974.3576" Y="-3199.399" Z="91.72081" />
+          <Vector3 X="986.6789" Y="-3206.807" Z="92.91864" />
+          <Vector3 X="997.4727" Y="-3215.622" Z="92.60808" />
+          <Vector3 X="1006.143" Y="-3227.144" Z="91.66682" />
+          <Vector3 X="1015.183" Y="-3237.774" Z="92.18751" />
+          <Vector3 X="1024.287" Y="-3248.841" Z="93.10487" />
+          <Vector3 X="1027.373" Y="-3262.371" Z="92.19366" />
+          <Vector3 X="1030.506" Y="-3276.436" Z="91.67159" />
+          <Vector3 X="1036.262" Y="-3289.032" Z="91.67226" />
+          <Vector3 X="1045.142" Y="-3300.38" Z="91.85523" />
+          <Vector3 X="1049.78" Y="-3313.468" Z="91.66675" />
+          <Vector3 X="1051.592" Y="-3327.772" Z="91.67604" />
+          <Vector3 X="1053.288" Y="-3341.641" Z="91.66687" />
+          <Vector3 X="1055.21" Y="-3355.932" Z="91.66687" />
+          <Vector3 X="1051.158" Y="-3361.45" Z="91.66687" />
+          <Vector3 X="1048.848" Y="-3366.149" Z="91.66687" />
+          <Vector3 X="1044.622" Y="-3371.155" Z="91.66687" />
+          <Vector3 X="1035.471" Y="-3381.713" Z="91.69015" />
+          <Vector3 X="1026.039" Y="-3392.61" Z="93.21616" />
+          <Vector3 X="1017.26" Y="-3402.897" Z="91.82243" />
+          <Vector3 X="1007.581" Y="-3408.798" Z="91.66769" />
+          <Vector3 X="997.5214" Y="-3418.491" Z="91.66769" />
+          <Vector3 X="993.4481" Y="-3432.186" Z="91.67403" />
+          <Vector3 X="997.0565" Y="-3445.567" Z="91.667" />
+          <Vector3 X="1005.017" Y="-3457.528" Z="92.3323" />
+          <Vector3 X="1011.845" Y="-3464.903" Z="90.95934" />
+          <Vector3 X="1022.541" Y="-3468.717" Z="88.96234" />
+          <Vector3 X="1035.269" Y="-3474.36" Z="88.06409" />
+          <Vector3 X="1040.947" Y="-3474.093" Z="87.72298" />
+          <Vector3 X="1046.624" Y="-3473.818" Z="87.0445" />
+          <Vector3 X="1059.564" Y="-3475.444" Z="84.88617" />
+          <Vector3 X="1067.129" Y="-3478.896" Z="80.67288" />
+          <Vector3 X="1073.708" Y="-3482.321" Z="77.88113" />
+          <Vector3 X="1086.157" Y="-3486.164" Z="78.74876" />
+          <Vector3 X="1096.403" Y="-3495.246" Z="76.49536" />
+          <Vector3 X="1096.618" Y="-3504.262" Z="73.9946" />
+          <Vector3 X="1096.223" Y="-3518.092" Z="71.24976" />
+          <Vector3 X="1091.743" Y="-3531.702" Z="69.57773" />
+          <Vector3 X="1083.864" Y="-3543.766" Z="64.877" />
+          <Vector3 X="1075.088" Y="-3555.207" Z="62.20053" />
+          <Vector3 X="1067.889" Y="-3567.174" Z="59.34046" />
+          <Vector3 X="1062.122" Y="-3579.776" Z="57.22259" />
+          <Vector3 X="1069.061" Y="-3592.244" Z="54.88437" />
+          <Vector3 X="1072.555" Y="-3605.727" Z="51.50084" />
+          <Vector3 X="1075.114" Y="-3619.918" Z="48.2771" />
+          <Vector3 X="1078.243" Y="-3633.53" Z="45.15875" />
+          <Vector3 X="1082.328" Y="-3647.358" Z="42.28607" />
+          <Vector3 X="1086.535" Y="-3660.682" Z="39.6693" />
+          <Vector3 X="1089.043" Y="-3674.405" Z="38.68752" />
+          <Vector3 X="1090.409" Y="-3689.21" Z="37.55799" />
+          <Vector3 X="1091.211" Y="-3703.146" Z="34.3113" />
+          <Vector3 X="1090.62" Y="-3717.105" Z="31.26918" />
+          <Vector3 X="1090.186" Y="-3731.518" Z="29.31503" />
+          <Vector3 X="1082.298" Y="-3743.033" Z="28.10325" />
+          <Vector3 X="1073.265" Y="-3753.687" Z="27.34987" />
+          <Vector3 X="1064.818" Y="-3764.817" Z="27.12458" />
+          <Vector3 X="1057.527" Y="-3777.19" Z="26.82598" />
+          <Vector3 X="1056.612" Y="-3791.035" Z="25.87605" />
+          <Vector3 X="1057.137" Y="-3805.445" Z="25.10223" />
+          <Vector3 X="1058.552" Y="-3819.263" Z="25.6792" />
+          <Vector3 X="1063.021" Y="-3825.757" Z="24.54998" />
+          <Vector3 X="1067.174" Y="-3828.944" Z="26.32774" />
+          <Vector3 X="1081.534" Y="-3835.262" Z="24.51088" />
+          <Vector3 X="1086.32" Y="-3847.996" Z="17.23269" />
+          <Vector3 X="1089.701" Y="-3871.618" Z="16.16839" Type="Swimming" />
+          <Vector3 X="1096.365" Y="-3894.035" Z="17.12437" Type="Swimming" />
+          <Vector3 X="1104.298" Y="-3913.507" Z="17.11292" Type="Swimming" />
+          <Vector3 X="1111.064" Y="-3927.134" Z="19.18022" />
+          <Vector3 X="1113.424" Y="-3929.719" Z="20.48459" />
+          <Vector3 X="1113.971" Y="-3958.026" Z="17.47707" />
+          <Vector3 X="1117.719" Y="-3986.16" Z="15.09627" />
+          <Vector3 X="1101.648" Y="-4001.643" Z="17.13298" />
+          <Vector3 X="1083.437" Y="-4022.677" Z="19.71912" />
+          <Vector3 X="1073.581" Y="-4048.825" Z="17.48014" />
+          <Vector3 X="1067.412" Y="-4076.176" Z="14.96931" />
+          <Vector3 X="1068.467" Y="-4104.98" Z="17.80349" />
+          <Vector3 X="1064.514" Y="-4133.068" Z="18.66505" />
+          <Vector3 X="1067.596" Y="-4157.917" Z="19.51093" />
+          <Vector3 X="1077.224" Y="-4181.84" Z="20.72363" />
+          <Vector3 X="1091.045" Y="-4206.237" Z="20.80927" />
+          <Vector3 X="1094.652" Y="-4234.325" Z="21.83733" />
+          <Vector3 X="1101.984" Y="-4261.492" Z="22.25885" />
+          <Vector3 X="1116.905" Y="-4285.031" Z="20.3871" />
+          <Vector3 X="1134.131" Y="-4308.118" Z="22.30529" />
+          <Vector3 X="1149.183" Y="-4332.012" Z="24.80977" />
+          <Vector3 X="1166.421" Y="-4371.028" Z="26.51745" />
+          <Vector3 X="1184.087" Y="-4392.618" Z="23.4187" />
+          <Vector3 X="1207.381" Y="-4409.131" Z="22.75428" />
+          <Vector3 X="1234.274" Y="-4414.546" Z="22.7711" />
+          <Vector3 X="1262.387" Y="-4409.299" Z="25.58447" />
+          <Vector3 X="1287.929" Y="-4398.025" Z="26.29608" />
+          <Vector3 X="1312.147" Y="-4384.088" Z="26.24715" />
+          <Vector3 X="1313.532" Y="-4419.495" Z="25.35512" />
+          <Vector3 X="1315.183" Y="-4447.352" Z="24.94413" />
+          <Vector3 X="1313.691" Y="-4475.241" Z="23.86624" />
+          <Vector3 X="1311.247" Y="-4503.974" Z="22.20415" />
+          <Vector3 X="1311.468" Y="-4531.906" Z="22.211" />
+          <Vector3 X="1313.916" Y="-4560.608" Z="22.60571" />
+          <Vector3 X="1318.522" Y="-4588.118" Z="23.97161" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Zeppelin/Ship - 16 Druid</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Northrend	 !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 164871; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(1318.107, -4658.047, 71.86043);// Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(1319.347, -4653.611, 53.90565, "None"); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(1313.499, -4653.126, 54.15598, "None");// Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(2062.376, 292.998, 114.973, "None"); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition =  new Vector3(2066.95, 290.7836, 97.03133, "None"); // Position to go out the Zeppelin/Ship (to)
+// var toPlayerLeaveBoat = new Vector3(1313.499, -4653.126, 54.15598, "None"); // put player at end of boat (to)
+
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,1500);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Azeroth)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            wManager.Wow.Helpers.Move.Backward(Move.MoveAction.PressKey,3650);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Azeroth &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Run To Zep ( ORG ) - 16 Druid</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1333.746" Y="-4624.443" Z="23.65951" />
+          <Vector3 X="1336.324" Y="-4630.94" Z="23.8837" />
+          <Vector3 X="1339.359" Y="-4637.356" Z="24.73155" />
+          <Vector3 X="1341.038" Y="-4640.544" Z="24.61759" />
+          <Vector3 X="1345.689" Y="-4645.756" Z="25.11077" />
+          <Vector3 X="1346.999" Y="-4648.948" Z="26.45592" />
+          <Vector3 X="1346.278" Y="-4652.325" Z="27.99674" />
+          <Vector3 X="1343.207" Y="-4653.973" Z="29.33457" />
+          <Vector3 X="1340.116" Y="-4652.389" Z="30.62794" />
+          <Vector3 X="1339" Y="-4649.098" Z="31.76267" />
+          <Vector3 X="1340.363" Y="-4645.969" Z="32.87626" />
+          <Vector3 X="1343.706" Y="-4644.9" Z="33.98718" />
+          <Vector3 X="1346.844" Y="-4646.391" Z="35.06942" />
+          <Vector3 X="1348.431" Y="-4649.556" Z="36.28629" />
+          <Vector3 X="1348.704" Y="-4653.032" Z="37.21837" />
+          <Vector3 X="1342.392" Y="-4654.72" Z="39.1129" />
+          <Vector3 X="1339.661" Y="-4652.443" Z="40.219" />
+          <Vector3 X="1339.259" Y="-4649.02" Z="41.35744" />
+          <Vector3 X="1340.298" Y="-4645.582" Z="42.48827" />
+          <Vector3 X="1343.183" Y="-4643.743" Z="43.38964" />
+          <Vector3 X="1346.66" Y="-4644.131" Z="44.25984" />
+          <Vector3 X="1349.528" Y="-4646.053" Z="45.00544" />
+          <Vector3 X="1350.552" Y="-4649.429" Z="45.65165" />
+          <Vector3 X="1350.036" Y="-4652.767" Z="46.56932" />
+          <Vector3 X="1347.886" Y="-4655.592" Z="47.36259" />
+          <Vector3 X="1344.598" Y="-4657.07" Z="48.08957" />
+          <Vector3 X="1338.288" Y="-4655.831" Z="49.41558" />
+          <Vector3 X="1337.621" Y="-4649.554" Z="50.74194" />
+          <Vector3 X="1338.893" Y="-4646.226" Z="51.65329" />
+          <Vector3 X="1341.729" Y="-4644.284" Z="52.53873" />
+          <Vector3 X="1345.251" Y="-4643.641" Z="53.42086" />
+          <Vector3 X="1348.848" Y="-4643.398" Z="53.54367" />
+          <Vector3 X="1354.629" Y="-4642.783" Z="55.09617" />
+          <Vector3 X="1347.719" Y="-4638.913" Z="53.54391" />
+          <Vector3 X="1342.201" Y="-4640.944" Z="53.54391" />
+          <Vector3 X="1336.708" Y="-4644.419" Z="53.54391" />
+          <Vector3 X="1334.7" Y="-4647.764" Z="53.54391" />
+          <Vector3 X="1333.235" Y="-4651.766" Z="53.54391" />
+          <Vector3 X="1329.63" Y="-4653.049" Z="54.32024" />
+          <Vector3 X="1326.028" Y="-4651.721" Z="53.77722" />
+          <Vector3 X="1326.647" Y="-4654.032" Z="53.56731" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Run Down UC Ramp - 16 Druid</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="2065.069" Y="275.4799" Z="94.81228" />
+          <Vector3 X="2060.354" Y="272.2394" Z="94.10774" />
+          <Vector3 X="2056.918" Y="271.1834" Z="93.44917" />
+          <Vector3 X="2054.091" Y="269.1574" Z="92.10202" />
+          <Vector3 X="2052.125" Y="263.0982" Z="89.99776" />
+          <Vector3 X="2053.099" Y="259.6406" Z="89.99776" />
+          <Vector3 X="2054.704" Y="256.4204" Z="89.99776" />
+          <Vector3 X="2057.092" Y="253.9378" Z="88.96317" />
+          <Vector3 X="2060.311" Y="252.6222" Z="87.63278" />
+          <Vector3 X="2063.822" Y="253.2961" Z="86.33334" />
+          <Vector3 X="2067.075" Y="254.8244" Z="85.31231" />
+          <Vector3 X="2072.332" Y="259.3603" Z="85.1086" />
+          <Vector3 X="2073.576" Y="262.7265" Z="83.90235" />
+          <Vector3 X="2073.518" Y="266.2097" Z="82.47839" />
+          <Vector3 X="2072.473" Y="269.639" Z="81.17595" />
+          <Vector3 X="2069.812" Y="271.8462" Z="79.73618" />
+          <Vector3 X="2066.445" Y="273.1248" Z="79.70517" />
+          <Vector3 X="2062.939" Y="273.9486" Z="79.57597" />
+          <Vector3 X="2059.463" Y="273.864" Z="78.96066" />
+          <Vector3 X="2056.423" Y="272.2818" Z="77.41091" />
+          <Vector3 X="2053.836" Y="269.7848" Z="75.70721" />
+          <Vector3 X="2051.881" Y="266.9075" Z="74.12406" />
+          <Vector3 X="2051.001" Y="263.4258" Z="73.88014" />
+          <Vector3 X="2051.885" Y="259.3865" Z="73.77178" />
+          <Vector3 X="2054.706" Y="254.9858" Z="72.21759" />
+          <Vector3 X="2057.744" Y="253.0936" Z="71.5269" />
+          <Vector3 X="2061.297" Y="257.7178" Z="71.52897" />
+          <Vector3 X="2061.9" Y="261.1581" Z="69.74762" />
+          <Vector3 X="2062.598" Y="264.6945" Z="67.2684" />
+          <Vector3 X="2063.35" Y="268.2191" Z="64.84468" />
+          <Vector3 X="2063.964" Y="271.6575" Z="62.51191" />
+          <Vector3 X="2064.767" Y="275.0569" Z="60.10334" />
+          <Vector3 X="2065.739" Y="278.5282" Z="60.04923" />
+          <Vector3 X="2066.529" Y="281.2508" Z="60.04781" />
+          <Vector3 X="2062.53" Y="281.8156" Z="60.04781" />
+          <Vector3 X="2055.502" Y="282.8081" Z="59.14347" />
+          <Vector3 X="2052.043" Y="283.2966" Z="57.70941" />
+          <Vector3 X="2048.591" Y="283.8293" Z="56.68102" />
+          <Vector3 X="2045.015" Y="284.2774" Z="56.0198" />
+          <Vector3 X="2041.427" Y="284.6222" Z="55.51701" />
+          <Vector3 X="2034.385" Y="285.514" Z="53.75991" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Pendant of Endurance</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1888.492" Y="434.0287" Z="33.97355" />
+          <Vector3 X="1879.509" Y="457.5779" Z="34.02281" />
+          <Vector3 X="1867.995" Y="483.531" Z="34.80522" />
+          <Vector3 X="1844.035" Y="497.3159" Z="34.41845" />
+          <Vector3 X="1817.421" Y="508.4271" Z="33.5063" />
+          <Vector3 X="1791.225" Y="518.0091" Z="33.43227" />
+          <Vector3 X="1763.97" Y="527.4391" Z="33.39584" />
+          <Vector3 X="1737.262" Y="535.6268" Z="33.39584" />
+          <Vector3 X="1708.953" Y="540.9211" Z="33.49884" />
+          <Vector3 X="1681.38" Y="545.4238" Z="33.40037" />
+          <Vector3 X="1653.036" Y="550.7465" Z="33.39585" />
+          <Vector3 X="1624.926" Y="557.1856" Z="34.01201" />
+          <Vector3 X="1599.106" Y="567.6996" Z="37.52098" />
+          <Vector3 X="1572.788" Y="579.3954" Z="41.0691" />
+          <Vector3 X="1546.94" Y="590.0143" Z="44.03635" />
+          <Vector3 X="1522.282" Y="604.5865" Z="47.20051" />
+          <Vector3 X="1501.672" Y="623.4497" Z="47.05207" />
+          <Vector3 X="1481.509" Y="642.7957" Z="46.73636" />
+          <Vector3 X="1461.821" Y="663.8627" Z="46.40886" />
+          <Vector3 X="1444.386" Y="685.6316" Z="45.46432" />
+          <Vector3 X="1430.263" Y="710.7337" Z="44.63717" />
+          <Vector3 X="1417.878" Y="735.7385" Z="45.89404" />
+          <Vector3 X="1406.263" Y="761.1537" Z="46.88528" />
+          <Vector3 X="1394.62" Y="788.4772" Z="48.07545" />
+          <Vector3 X="1384.043" Y="815.3077" Z="49.49158" />
+          <Vector3 X="1373.794" Y="841.3047" Z="50.39713" />
+          <Vector3 X="1362.838" Y="867.0029" Z="51.78205" />
+          <Vector3 X="1352.323" Y="893.814" Z="53.08825" />
+          <Vector3 X="1346.497" Y="921.1122" Z="53.83381" />
+          <Vector3 X="1340.655" Y="949.3543" Z="54.37692" />
+          <Vector3 X="1334.692" Y="976.6495" Z="54.74129" />
+          <Vector3 X="1325.693" Y="1004.024" Z="54.5513" />
+          <Vector3 X="1312.937" Y="1028.751" Z="54.5332" />
+          <Vector3 X="1296.19" Y="1052.197" Z="53.91988" />
+          <Vector3 X="1280.85" Y="1074.413" Z="54.12486" />
+          <Vector3 X="1259.879" Y="1095.469" Z="52.86179" />
+          <Vector3 X="1238.945" Y="1115.307" Z="50.14416" />
+          <Vector3 X="1218.186" Y="1134.009" Z="47.61394" />
+          <Vector3 X="1195.695" Y="1152.047" Z="46.81439" />
+          <Vector3 X="1172.991" Y="1168.338" Z="47.65441" />
+          <Vector3 X="1149.67" Y="1183.641" Z="48.56201" />
+          <Vector3 X="1125.521" Y="1199.407" Z="47.30154" />
+          <Vector3 X="1104.259" Y="1217.493" Z="46.22744" />
+          <Vector3 X="1080.816" Y="1234.178" Z="45.73499" />
+          <Vector3 X="1059.209" Y="1251.887" Z="45.78499" />
+          <Vector3 X="1036.955" Y="1270.226" Z="46.12641" />
+          <Vector3 X="1013.912" Y="1286.01" Z="45.64624" />
+          <Vector3 X="989.2196" Y="1300.912" Z="45.90975" />
+          <Vector3 X="964.5457" Y="1315.843" Z="45.98946" />
+          <Vector3 X="940.7031" Y="1330.417" Z="45.40153" />
+          <Vector3 X="916.1332" Y="1345.435" Z="45.42461" />
+          <Vector3 X="892.2667" Y="1359.959" Z="47.90189" />
+          <Vector3 X="876.8987" Y="1362.76" Z="50.66498" />
+          <Vector3 X="871.2285" Y="1371.563" Z="50.20616" />
+          <Vector3 X="868.0551" Y="1382.461" Z="46.23309" />
+          <Vector3 X="867.9432" Y="1388.313" Z="45.62764" />
+          <Vector3 X="871.2147" Y="1395.314" Z="43.99789" />
+          <Vector3 X="878.4897" Y="1403.368" Z="40.77013" />
+          <Vector3 X="886.9388" Y="1413.37" Z="37.0108" />
+          <Vector3 X="895.6277" Y="1424.31" Z="33.60907" />
+          <Vector3 X="899.7064" Y="1431.388" Z="32.06059" Type="Swimming" />
+          <Vector3 X="900.5621" Y="1438.479" Z="32.06059" Type="Swimming" />
+          <Vector3 X="901.3713" Y="1445.654" Z="32.06059" Type="Swimming" />
+          <Vector3 X="902.1806" Y="1452.828" Z="32.06059" Type="Swimming" />
+          <Vector3 X="904.1005" Y="1462.332" Z="34.61665" />
+          <Vector3 X="911.1708" Y="1470.986" Z="36.18217" />
+          <Vector3 X="911.377" Y="1480.365" Z="36.43032" />
+          <Vector3 X="907.0549" Y="1488.896" Z="37.03249" />
+          <Vector3 X="901.9116" Y="1492.545" Z="37.69763" />
+          <Vector3 X="893.5857" Y="1494.958" Z="37.67606" />
+          <Vector3 X="894.0219" Y="1507.482" Z="36.06751" />
+          <Vector3 X="892.5392" Y="1516.475" Z="34.98024" />
+          <Vector3 X="884.3936" Y="1518.004" Z="34.3193" />
+          <Vector3 X="876.3869" Y="1521.414" Z="31.19519" />
+          <Vector3 X="870.2294" Y="1524.624" Z="30.71714" />
+          <Vector3 X="869.7402" Y="1536.778" Z="31.01761" />
+          <Vector3 X="867.8743" Y="1546.199" Z="31.89168" />
+          <Vector3 X="865.775" Y="1560.458" Z="30.33487" />
+          <Vector3 X="863.6143" Y="1574.248" Z="29.77375" />
+          <Vector3 X="860.1955" Y="1588.257" Z="31.14584" />
+          <Vector3 X="853.1682" Y="1600.218" Z="31.2529" />
+          <Vector3 X="849.79" Y="1608.186" Z="29.81505" />
+          <Vector3 X="845.9679" Y="1621.624" Z="26.76947" />
+          <Vector3 X="840.1858" Y="1634.308" Z="25.56787" />
+          <Vector3 X="831.7924" Y="1645.985" Z="25.28324" />
+          <Vector3 X="823.1811" Y="1656.98" Z="25.47074" />
+          <Vector3 X="815.8138" Y="1669.372" Z="24.94181" />
+          <Vector3 X="808.9041" Y="1681.516" Z="25.88456" />
+          <Vector3 X="807.5925" Y="1694.537" Z="27.38629" />
+          <Vector3 X="816.2515" Y="1705.44" Z="26.66917" />
+          <Vector3 X="820.3679" Y="1712.144" Z="24.9572" />
+          <Vector3 X="818.2057" Y="1721.474" Z="24.87578" />
+          <Vector3 X="815.7715" Y="1728.472" Z="24.37747" />
+          <Vector3 X="817.1357" Y="1737.527" Z="22.58664" />
+          <Vector3 X="815.4146" Y="1748.235" Z="21.18879" />
+          <Vector3 X="812.7845" Y="1755.612" Z="20.34107" />
+          <Vector3 X="807.0566" Y="1761.601" Z="20.56071" />
+          <Vector3 X="796.7881" Y="1771.715" Z="19.01148" />
+          <Vector3 X="788.859" Y="1783.157" Z="14.29021" />
+          <Vector3 X="782.2646" Y="1795.979" Z="11.35454" />
+          <Vector3 X="777.1974" Y="1808.971" Z="8.421846" />
+          <Vector3 X="774.4653" Y="1817.739" Z="6.036765" />
+          <Vector3 X="769.8734" Y="1831.408" Z="2.640106" />
+          <Vector3 X="767.7847" Y="1837.618" Z="1.238251" />
+          <Vector3 X="753.4788" Y="1882.431" Z="-1.114954" Type="Swimming" />
+          <Vector3 X="754.8009" Y="1891.162" Z="-1.114954" Type="Swimming" />
+          <Vector3 X="756.7025" Y="1902.046" Z="-1.114954" Type="Swimming" />
+          <Vector3 X="758.4487" Y="1909.203" Z="-1.114954" Type="Swimming" />
+          <Vector3 X="763.2557" Y="1923.898" Z="-0.7706662" Type="Swimming" />
+          <Vector3 X="765.6339" Y="1931.607" Z="-0.7706413" Type="Swimming" />
+          <Vector3 X="772.3531" Y="1954.171" Z="-0.7706745" Type="Swimming" />
+          <Vector3 X="774.5887" Y="1961.924" Z="-0.7706424" Type="Swimming" />
+          <Vector3 X="776.8546" Y="1975.716" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="778.9156" Y="1988.825" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="782.6928" Y="2012.849" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="786.4701" Y="2036.873" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="790.1511" Y="2060.147" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="796.265" Y="2083.683" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="803.0502" Y="2106.249" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="809.8354" Y="2128.815" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="816.8381" Y="2152.104" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="823.6234" Y="2174.67" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="826.801" Y="2185.254" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="830.2682" Y="2197.278" Z="-0.8523411" Type="Swimming" />
+          <Vector3 X="832.7661" Y="2202.593" Z="-3.941787" Type="Swimming" />
+          <Vector3 X="837.8489" Y="2211.169" Z="-8.471023" Type="Swimming" />
+          <Vector3 X="837.9394" Y="2211.029" Z="-18.05567" Type="Swimming" />
+          <Vector3 X="838.2141" Y="2210.73" Z="-41.61596" Type="Swimming" />
+          <Vector3 X="838.5664" Y="2210.519" Z="-65.17625" Type="Swimming" />
+          <Vector3 X="838.8905" Y="2210.245" Z="-89.49201" Type="Swimming" />
+          <Vector3 X="839.2538" Y="2209.967" Z="-113.051" Type="Swimming" />
+          <Vector3 X="840.4501" Y="2209.478" Z="-135.7052" Type="Swimming" />
+          <Vector3 X="841.5524" Y="2208.333" Z="-136.6302" Type="Swimming" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Run to Shrine</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="7955.79" Y="-2360.274" Z="486.5301" />
+          <Vector3 X="7954.881" Y="-2328.871" Z="481.4891" />
+          <Vector3 X="7952.428" Y="-2304.496" Z="478.776" />
+          <Vector3 X="7953.901" Y="-2276.592" Z="479.3878" />
+          <Vector3 X="7946.85" Y="-2252.774" Z="476.6668" />
+          <Vector3 X="7928.98" Y="-2240.274" Z="483.5717" />
+          <Vector3 X="7911.449" Y="-2235.267" Z="480.0482" />
+          <Vector3 X="7893.329" Y="-2232.659" Z="476.7446" />
+          <Vector3 X="7857.325" Y="-2243.415" Z="464.1365" />
+          <Vector3 X="7831.134" Y="-2253.095" Z="462.4737" />
+          <Vector3 X="7834.119" Y="-2234.208" Z="465.612" />
+          <Vector3 X="7834.119" Y="-2234.208" Z="465.612" />
+          <Vector3 X="7839.273" Y="-2229.471" Z="467.1351" />
+          <Vector3 X="7844.052" Y="-2224.381" Z="468.7869" />
+          <Vector3 X="7846.582" Y="-2220.82" Z="469.7329" />
+          <Vector3 X="7849.858" Y="-2215.67" Z="471.1781" />
+          <Vector3 X="7855.906" Y="-2212.689" Z="472.242" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Aquatic Form</Name>
+      <QuestId>
+        <int>31</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>30</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>16</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

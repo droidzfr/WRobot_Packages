@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="(!ItemsManager.HasItemById(5178))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor)" />
+    <QuestsSorted Action="RunLuaCode" NameClass=" if not MyFrame then&#xD;&#xA;  MyFrameText = &quot;Updating...&quot;&#xD;&#xA;  MyFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  MyFrame:ClearAllPoints()&#xD;&#xA;  MyFrame:SetBackdrop(StaticPopup1:GetBackdrop())&#xD;&#xA;  MyFrame:SetHeight(80)&#xD;&#xA;  MyFrame:SetWidth(310)&#xD;&#xA;&#xD;&#xA;  MyFrame.text = MyFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontGreen&quot;)&#xD;&#xA;  MyFrame.text:SetFontObject(&quot;GameFontNormal&quot;)&#xD;&#xA;  MyFrame.text:SetAllPoints()&#xD;&#xA;  MyFrame.text:SetText(MyFrameText)&#xD;&#xA;  MyFrame:SetPoint(&quot;CENTER&quot;, 0, -150)&#xD;&#xA;  MyFrame.text:SetTextColor(0, 1, 0, 1)&#xD;&#xA;  MyFrame:SetBackdropBorderColor(0, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  CreateFrame(&quot;Frame&quot;,&quot;Test&quot;,UIParent)&#xD;&#xA;  Test:SetWidth(55)&#xD;&#xA;  Test:SetHeight(55)&#xD;&#xA;  Test:SetPoint(&quot;TOPLEFT&quot;, MyFrame, -20, 25)&#xD;&#xA;  Test:CreateTexture(&quot;TestTexture&quot;)&#xD;&#xA;  TestTexture:SetAllPoints()&#xD;&#xA;  TestTexture:SetTexture(&quot;Interface\\Icons\\Spell_Nature_BloodLust&quot;)&#xD;&#xA;&#xD;&#xA;  RateFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  RateFrame:ClearAllPoints()&#xD;&#xA;  RateFrame:SetBackdrop(nil)&#xD;&#xA;  RateFrame:SetHeight(60)&#xD;&#xA;  RateFrame:SetWidth(200)&#xD;&#xA;  RateFrame.text = RateFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  RateFrame.text:SetAllPoints()&#xD;&#xA;  RateFrame.text:SetText(&quot;https://rocketr.net/sellers/Tarud for new products&quot;)&#xD;&#xA;  RateFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, -50)&#xD;&#xA;  RateFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  ByFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;  ByFrame:ClearAllPoints()&#xD;&#xA;  ByFrame:SetBackdrop(nil)&#xD;&#xA;  ByFrame:SetHeight(60)&#xD;&#xA;  ByFrame:SetWidth(140)&#xD;&#xA;  ByFrame.text = ByFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;  ByFrame.text:SetAllPoints()&#xD;&#xA;  ByFrame.text:SetText(&quot;lvl 30 Shaman Air Totem&quot;)&#xD;&#xA;  ByFrame:SetPoint(&quot;CENTER&quot;, MyFrame, 0, 47)&#xD;&#xA;  ByFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;  MyFrame:SetMovable(true)&#xD;&#xA;  MyFrame:EnableMouse(true)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  MyFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  Test:SetMovable(true)&#xD;&#xA;  Test:EnableMouse(true)&#xD;&#xA;  Test:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  Test:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  RateFrame:SetMovable(true)&#xD;&#xA;  RateFrame:EnableMouse(true)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  RateFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  ByFrame:SetMovable(true)&#xD;&#xA;  ByFrame:EnableMouse(true)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseDown&quot;,function() MyFrame:StartMoving() end)&#xD;&#xA;  ByFrame:SetScript(&quot;OnMouseUp&quot;,function() MyFrame:StopMovingOrSizing() end)&#xD;&#xA;&#xD;&#xA;  MyFrame.Close = CreateFrame(&quot;BUTTON&quot;, nil, MyFrame, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;  MyFrame.Close:SetWidth(20)&#xD;&#xA;  MyFrame.Close:SetHeight(20)&#xD;&#xA;  MyFrame.Close:SetPoint(&quot;TOPRIGHT&quot;, MyFrame, 3, 3)&#xD;&#xA;  MyFrame.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;   MyFrame:Hide()&#xD;&#xA;   Test:Hide()&#xD;&#xA;   RateFrame:Hide()&#xD;&#xA;   ByFrame:Hide()&#xD;&#xA;   DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFF8AFF40MyFrame is now CLOSED|r |cFFFC7DFFType /MyFrame|r |cFF8AFF40In Game to OPEN it again!|r&quot;)     &#xD;&#xA;  end)&#xD;&#xA;  &#xD;&#xA;  SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/MyFrame&quot;&#xD;&#xA;  SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;   if MyFrame:IsShown() then&#xD;&#xA;    MyFrame:Hide()&#xD;&#xA;    Test:Hide()&#xD;&#xA;    RateFrame:Hide()&#xD;&#xA;    ByFrame:Hide()&#xD;&#xA;   else&#xD;&#xA;    MyFrame:Show()&#xD;&#xA;    Test:Show()&#xD;&#xA;    RateFrame:Show()&#xD;&#xA;    ByFrame:Show()&#xD;&#xA;   end&#xD;&#xA;  end&#xD;&#xA; end" />
+    <QuestsSorted Action="RunLuaCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Call of Air Part 1'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.IgnoreCombatWithPet = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;" />
+    <QuestsSorted Action="If" NameClass="(!ItemsManager.HasItemById(5178))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor)" />
+    <QuestsSorted Action="If" NameClass="(Lua.LuaDoString&lt;string&gt;(&quot;bindlocation = GetBindLocation(); return bindlocation;&quot;) == &quot;Orgrimmar&quot;) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!ItemsManager.HasItemById(5178))﻿ &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Shaman) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 30 &amp;&amp; ObjectManager.Me.Level &lt;= 60) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Hearth to Org to pickup Air Q'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="if (wManager.Wow.Helpers.Usefuls.ContinentId == (int) wManager.Wow.Enums.ContinentId.Kalimdor)&#xD;&#xA;        {&#xD;&#xA;            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;&#xD;&#xA;            wManager.Wow.Helpers.ItemsManager.UseItem(6948);&#xD;&#xA;            System.Threading.Thread.Sleep(1000 * 20); // 20 secondes&#xD;&#xA;            wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;&#xD;&#xA;        }" />
+    <QuestsSorted Action="Wait" NameClass="5000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Call of Air'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="CallofAirPart1" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(1531) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(1531)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Orgrimmar&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Durotar&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Custom Fly - to Thousand Needles'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(1676.25f, -4313.45f, 61.56763f);&#xD;&#xA;int npcEntryId = 3310;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Freewind Post') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(1676.25f, -4313.45f, 61.56763f);&#xD;&#xA;int npcEntryId = 3310;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Freewind Post, Thousand Needles') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="360000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Turnin Call of Air'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="CallofAirPart1" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Gratz on Air Totem!'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'We have Air Totem, Load 13-31 Prof'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="WriteLog" NameClass="Loading 13-31 Horde Remake Profile, Air totem Aquired." />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 Horde - REMAKE - 13-31.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="5892" Name="Searn Firewarder" GameObject="false">
+      <PickUpQuests>
+        <int>1531</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="1920.95" Y="-4212.99" Z="42.09514" />
+    </NPCQuest>
+    <NPCQuest Id="5905" Name="Prate Cloudseer" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>1531</int>
+      </TurnInQuests>
+      <Position X="-5217.65" Y="-2788.99" Z="-7.528227" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Call of Air - Part 1</Name>
+      <QuestId>
+        <int>1531</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>30</MinLevel>
+      <WoWClass>Shaman</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.NpcDB.AcceptOnlyProfileNpc = true;" />
+    <QuestsSorted Action="RunCode" NameClass="if (!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Skinning Knife&quot;))&#xD;&#xA;                    {&#xD;&#xA;                        wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Skinning Knife&quot;);&#xD;&#xA;                    }" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.SkinMobs = true; &#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SkinNinja = false;" />
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame:Hide()&#xD;&#xA;ByFrame:Hide()&#xD;&#xA;RateFrame:Hide()" />
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;MyFrame:ClearAllPoints()&#xD;&#xA;MyFrame:SetBackdrop(StaticPopup1:GetBackdrop())&#xD;&#xA;MyFrame:SetHeight(90)&#xD;&#xA;MyFrame:SetWidth(310)&#xD;&#xA; &#xD;&#xA;MyFrame.text = MyFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontGreen&quot;)&#xD;&#xA;MyFrame.text:SetAllPoints()&#xD;&#xA;MyFrame.text:SetText(&quot;Initializing profile...&quot;)&#xD;&#xA;MyFrame:SetPoint(&quot;CENTER&quot;, 0, -100)&#xD;&#xA;MyFrame:SetBackdropBorderColor(1, 1, 1, 1)&#xD;&#xA;&#xD;&#xA;RateFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;RateFrame:ClearAllPoints()&#xD;&#xA;RateFrame:SetBackdrop(nil)&#xD;&#xA;RateFrame:SetHeight(60)&#xD;&#xA;RateFrame:SetWidth(160)&#xD;&#xA; &#xD;&#xA;RateFrame.text = RateFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;RateFrame.text:SetAllPoints()&#xD;&#xA;RateFrame.text:SetText(&quot;1-300 Skinning Version 1.0&quot;)&#xD;&#xA;RateFrame:SetPoint(&quot;CENTER&quot;, 0, -160)&#xD;&#xA;RateFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;ByFrame = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;ByFrame:ClearAllPoints()&#xD;&#xA;ByFrame:SetBackdrop(nil)&#xD;&#xA;ByFrame:SetHeight(60)&#xD;&#xA;ByFrame:SetWidth(140)&#xD;&#xA; &#xD;&#xA;ByFrame.text = ByFrame:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;ByFrame.text:SetAllPoints()&#xD;&#xA;ByFrame.text:SetText(&quot;1-300 Skinning 100% AFK - Horde&quot;)&#xD;&#xA;ByFrame:SetPoint(&quot;CENTER&quot;, -60, -45)&#xD;&#xA;ByFrame:SetBackdropBorderColor(1, 0, 0, 1)&#xD;&#xA;&#xD;&#xA;CreateFrame(&quot;Frame&quot;,&quot;Test&quot;,UIParent)&#xD;&#xA;Test:SetWidth(100)&#xD;&#xA;Test:SetHeight(100)&#xD;&#xA;Test:SetPoint(&quot;CENTER&quot;,150,-85)&#xD;&#xA;Test:CreateTexture(&quot;TestTexture&quot;)&#xD;&#xA;TestTexture:SetAllPoints()&#xD;&#xA;TestTexture:SetTexture(&quot;Interface\\TargetingFrame\\UI-PVP-Horde&quot;)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ERaceChecker|r Checking out current skinning level.&quot;)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;No Skinning? PickUp in Orgrimmar&quot;)" />
+    <QuestsSorted Action="If" NameClass="!ItemsManager.HasItemById(7005) &amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Barrens&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Orgrimmar&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Durotar&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Mulgore&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Thunder Bluff&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Stonetalon Mountains&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Ashenvale&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Moonglade&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Winterspring&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Thousand Needles&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Dustwallow Marsh&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Tanaris&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Un'Goro Crater&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Silithus&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Feralas&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Desolace&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Azshara&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Felwood&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Darkshore&quot;)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Buy Skinning Knife&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="RunToTrainerORGSkinning" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1848.01f, -4564.89f, 24.76052f), 3366);" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Vendor.BuyItem(&quot;Skinning Knife&quot;,1);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CloseMerchant()&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Skinning) &lt; 1 &amp;&amp; !wManager.Wow.Helpers.SpellManager.KnowSpell(8613)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Go Learn Skinning in Org&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="RunToTrainerORGSkinning" />
+    <QuestsSorted Action="RunCode" NameClass="if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new robotManager.Helpful.Vector3(1849.04f, -4569.23f, 24.76001f), 7088)) // replace 1, 2, 3 by position, and 12345 by npc entry id&#xD;&#xA; { &#xD;&#xA; wManager.Wow.Helpers.Usefuls.SelectGossipOption(wManager.Wow.Enums.GossipOptionsType.trainer);&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA;}" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Skinning) &gt;= 1 &amp;&amp;&#xD;&#xA;wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Skinning) &lt; 65" />
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Level Skinning to 65&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="Skinning165" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Skinning) &gt;= 65 &#xD;&#xA;&amp;&amp; &#xD;&#xA;wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Skinning) &lt;= 75) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!wManager.Wow.Helpers.SpellManager.KnowSpell(8617)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="MyFrame.text:SetText(&quot;Lvl 65 Skinning? Go Train Journeyman&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="RunToTrainerORGSkinning" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new robotManager.Helpful.Vector3(1849.04f, -4569.23f, 24.76001f), 7088)) // replace 1, 2, 3 by position, and 12345 by npc entry id&#xD;&#xA; { &#xD;&#xA; wManager.Wow.Helpers.Usefuls.SelectGossipOption(wManager.Wow.Enums.GossipOptionsType.trainer);&#xD;&#xA; wManager.Wow.Helpers.Trainer.TrainingSpell();&#xD;&#xA;}" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Skinning 1 - 65</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1252.47" Y="-4381.777" Z="28.46805" />
+          <Vector3 X="1209.874" Y="-4316.539" Z="21.21621" />
+          <Vector3 X="1208.792" Y="-4106.711" Z="22.38661" />
+          <Vector3 X="830.7205" Y="-3897.362" Z="18.57815" />
+          <Vector3 X="599.2667" Y="-3987.612" Z="9.577575" />
+          <Vector3 X="707.1325" Y="-4030.981" Z="-6.365373" />
+          <Vector3 X="179.4342" Y="-4003.121" Z="46.31976" />
+          <Vector3 X="164.2608" Y="-3773.732" Z="18.75469" />
+          <Vector3 X="-155.81" Y="-3941.721" Z="53.01438" />
+          <Vector3 X="-204.2706" Y="-3843.834" Z="21.12394" />
+        </HotSpots>
+        <EntryTarget>
+          <int>3100</int>
+          <int>3227</int>
+          <int>3225</int>
+          <int>3127</int>
+          <int>3123</int>
+          <int>3110</int>
+          <int>3130</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Skill.GetValue(SkillLine.Skinning) &gt;= 65;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Run To Trainer (ORG) Skinning</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1343.212" Y="-4384.097" Z="26.17196" />
+          <Vector3 X="1377.668" Y="-4373.086" Z="26.02337" />
+          <Vector3 X="1413.373" Y="-4367.563" Z="25.23539" />
+          <Vector3 X="1434.343" Y="-4366.844" Z="25.23539" />
+          <Vector3 X="1433.379" Y="-4388.942" Z="25.23539" />
+          <Vector3 X="1438.444" Y="-4414.921" Z="25.23539" />
+          <Vector3 X="1454.11" Y="-4424.546" Z="25.23539" />
+          <Vector3 X="1474.83" Y="-4421.143" Z="25.23539" />
+          <Vector3 X="1491.31" Y="-4418.222" Z="23.36741" />
+          <Vector3 X="1502.752" Y="-4416.194" Z="21.7005" />
+          <Vector3 X="1516.896" Y="-4413.688" Z="16.85296" />
+          <Vector3 X="1529.032" Y="-4422.964" Z="13.38515" />
+          <Vector3 X="1543.932" Y="-4438.228" Z="11.53371" />
+          <Vector3 X="1563.597" Y="-4445.721" Z="6.534498" />
+          <Vector3 X="1584.427" Y="-4443.561" Z="5.363119" />
+          <Vector3 X="1615.997" Y="-4432.359" Z="9.944565" />
+          <Vector3 X="1646.513" Y="-4415.284" Z="16.56995" />
+          <Vector3 X="1677.615" Y="-4396.781" Z="20.03531" />
+          <Vector3 X="1696.763" Y="-4383.757" Z="26.86935" />
+          <Vector3 X="1711.136" Y="-4373.783" Z="27.50413" />
+          <Vector3 X="1720.288" Y="-4385.986" Z="31.80335" />
+          <Vector3 X="1732.27" Y="-4405.772" Z="36.18287" />
+          <Vector3 X="1739.095" Y="-4420.66" Z="36.04262" />
+          <Vector3 X="1743.828" Y="-4444.59" Z="37.59785" />
+          <Vector3 X="1729.911" Y="-4467.89" Z="34.15708" />
+          <Vector3 X="1725.729" Y="-4478.787" Z="32.92851" />
+          <Vector3 X="1739.179" Y="-4500.673" Z="27.93957" />
+          <Vector3 X="1763.274" Y="-4525.69" Z="25.46756" />
+          <Vector3 X="1787.889" Y="-4536.092" Z="22.45607" />
+          <Vector3 X="1808.942" Y="-4536.943" Z="21.05709" />
+          <Vector3 X="1843.733" Y="-4537.289" Z="21.7381" />
+          <Vector3 X="1844.127" Y="-4548.817" Z="23.80907" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

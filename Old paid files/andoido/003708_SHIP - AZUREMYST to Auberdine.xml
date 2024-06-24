@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &gt;= 13 &amp;&amp; ObjectManager.Me.Level &lt;= 60 &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Azuremyst Isle&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Exodar&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Bloodmyst Isle&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="RunToSHIPAzuremystIsle" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShipAzuremystIsleDraenei" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="Pulse" NameClass="RunFromShipAuberdine" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Run To SHIP (Azuremyst Isle)</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-4252.373" Y="-11454.83" Z="10.89772" />
+          <Vector3 X="-4252.697" Y="-11447.41" Z="10.83138" />
+          <Vector3 X="-4253.359" Y="-11435.35" Z="9.133733" />
+          <Vector3 X="-4254.683" Y="-11422.75" Z="8.411016" />
+          <Vector3 X="-4256.466" Y="-11410.85" Z="6.781826" />
+          <Vector3 X="-4257.658" Y="-11399.01" Z="5.016613" />
+          <Vector3 X="-4258.793" Y="-11386.82" Z="5.286483" />
+          <Vector3 X="-4259.736" Y="-11374.9" Z="6.275116" />
+          <Vector3 X="-4260.695" Y="-11362.04" Z="5.256231" />
+          <Vector3 X="-4261.587" Y="-11350.07" Z="4.739095" />
+          <Vector3 X="-4262.801" Y="-11337.57" Z="5.631054" />
+          <Vector3 X="-4263.962" Y="-11332.12" Z="5.520101" />
+          <Vector3 X="-4264.432" Y="-11328.63" Z="5.799267" />
+          <Vector3 X="-4264.485" Y="-11328.18" Z="5.799346" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>59</MaxLevel>
+      <MinLevel>54</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Ship (Azuremyst Isle Draenei)</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Northrend &amp;&amp; !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 181646; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(-4264.997, -11317.2, 0);// Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(-4264.485, -11328.18, 5.799346, "None"); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(-4264.905, -11324.75, 4.790217, "None");// Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(6550.405, 938.1924, 0, "None"); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition =  new Vector3(6543.726, 928.6852, 5.960646, "None"); // Position to go out the Zeppelin/Ship (to)
+// var toPlayerLeaveBoat = new Vector3(-4264.905, -11324.75, 4.790217, "None"); // put player at end of boat (to)
+
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Expansion01)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,1000);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,4200);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Expansion01;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>59</MaxLevel>
+      <MinLevel>54</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Run From Ship (Auberdine)</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="6542.224" Y="928.0504" Z="5.996208" />
+          <Vector3 X="6531.997" Y="893.6775" Z="6.583019" />
+          <Vector3 X="6519.874" Y="853.7893" Z="6.869622" />
+          <Vector3 X="6505.932" Y="815.0892" Z="6.454346" />
+          <Vector3 X="6498.091" Y="795.2493" Z="7.855369" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>59</MaxLevel>
+      <MinLevel>54</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

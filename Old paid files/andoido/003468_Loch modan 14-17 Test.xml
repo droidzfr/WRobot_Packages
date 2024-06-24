@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Loch Modan&quot; &amp;&amp; ObjectManager.Me.Level &gt;= 14 &amp;&amp; ObjectManager.Me.Level &lt; 17" />
+    <QuestsSorted Action="RunCode" NameClass="Var.SetVar(&quot;MyVarName_SelectedTask&quot;, Others.Random(1, 2));&#xD;&#xA;Logging.Write(&quot;v = &quot; + Var.GetVar&lt;int&gt;(&quot;MyVarName_SelectedTask&quot;) );" />
+    <QuestsSorted Action="Pulse" NameClass="GRIND1417LochModanExcavationV1" />
+    <QuestsSorted Action="Pulse" NameClass="GRIND1417LochModanExcavationV2" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Loch Modan&quot; &amp;&amp; ObjectManager.Me.Level &gt;= 17 &amp;&amp; ObjectManager.Me.Level &lt; 21" />
+    <QuestsSorted Action="RunCode" NameClass="Var.SetVar(&quot;MyVarName_SelectedTask&quot;, Others.Random(1, 2));&#xD;&#xA;Logging.Write(&quot;v = &quot; + Var.GetVar&lt;int&gt;(&quot;MyVarName_SelectedTask&quot;) );" />
+    <QuestsSorted Action="Pulse" NameClass="GRIND1721LochModanV1" />
+    <QuestsSorted Action="Pulse" NameClass="GRIND1721LochModanV2" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc>
+    <Npc>
+      <Position X="-5702.52" Y="-3781.79" Z="322.8192" Type="Flying" />
+      <Entry>1214</Entry>
+      <Name>Aldren Cordon</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5702.52" Y="-3781.79" Z="322.8192" Type="Flying" />
+      <Entry>1214</Entry>
+      <Name>Aldren Cordon</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+  </Npc>
+  <EasyQuests>
+    <EasyQuest>
+      <Name>GRIND: 14-17 Loch Modan Excavation V1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-5707.095" Y="-3235.851" Z="312.6465" />
+          <Vector3 X="-5781.407" Y="-3410.321" Z="305.5045" />
+          <Vector3 X="-5912.044" Y="-3563.156" Z="342.7009" />
+          <Vector3 X="-5911.514" Y="-3750.546" Z="343.0283" />
+          <Vector3 X="-5855.619" Y="-3926.199" Z="352.9217" />
+          <Vector3 X="-5796.265" Y="-4036.225" Z="373.1694" />
+          <Vector3 X="-5810.611" Y="-4148.419" Z="388.8867" />
+          <Vector3 X="-5579.831" Y="-4198.253" Z="380.3757" />
+          <Vector3 X="-5442.578" Y="-4085.245" Z="357.0995" />
+          <Vector3 X="-5461.925" Y="-3903.71" Z="338.857" />
+        </HotSpots>
+        <EntryTarget>
+          <int>1191</int>
+          <int>1188</int>
+          <int>1184</int>
+          <int>1194</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Var.GetVar&lt;int&gt;("MyVarName_SelectedTask") == 1;</CanCondition>
+      <IsCompleteCondition>return !CanConditions() || ObjectManager.Me.Level == 17;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>16</MaxLevel>
+      <MinLevel>14</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GRIND: 14-17 Loch Modan Excavation V2</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-5869.487" Y="-3797.087" Z="347.3024" />
+          <Vector3 X="-5769.709" Y="-3330.433" Z="304.8446" />
+          <Vector3 X="-5536.958" Y="-3674.971" Z="297.7198" />
+          <Vector3 X="-5304.197" Y="-3695.059" Z="298.2796" />
+          <Vector3 X="-5236.099" Y="-3548.313" Z="297.5526" />
+          <Vector3 X="-5267.8" Y="-3473.45" Z="298.3301" />
+          <Vector3 X="-5157.965" Y="-3417.819" Z="297.9453" />
+          <Vector3 X="-5215.787" Y="-3634.885" Z="299.9561" />
+          <Vector3 X="-5497.017" Y="-3517.67" Z="300.0789" />
+        </HotSpots>
+        <EntryTarget>
+          <int>1184</int>
+          <int>1191</int>
+          <int>1188</int>
+          <int>1194</int>
+          <int>1693</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Var.GetVar&lt;int&gt;("MyVarName_SelectedTask") == 2;</CanCondition>
+      <IsCompleteCondition>return !CanConditions() || ObjectManager.Me.Level == 17;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>16</MaxLevel>
+      <MinLevel>14</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GRIND: 17-21 - Loch Modan V1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-5195.566" Y="-3656.337" Z="302.2451" />
+          <Vector3 X="-4829.385" Y="-3580.114" Z="308.8385" />
+          <Vector3 X="-5094.708" Y="-3717.167" Z="312.2665" />
+          <Vector3 X="-5227.666" Y="-4001.772" Z="325.8736" />
+          <Vector3 X="-5206.109" Y="-4124.536" Z="329.1483" />
+          <Vector3 X="-5351.035" Y="-4129.794" Z="336.5335" />
+          <Vector3 X="-5469.826" Y="-4108.235" Z="370.5753" />
+          <Vector3 X="-5185.746" Y="-3636.733" Z="302.0517" />
+          <Vector3 X="-4948.011" Y="-3660.665" Z="307.7856" />
+        </HotSpots>
+        <EntryTarget>
+          <int>1693</int>
+          <int>1192</int>
+          <int>1189</int>
+          <int>1185</int>
+          <int>1169</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Var.GetVar&lt;int&gt;("MyVarName_SelectedTask") == 1;</CanCondition>
+      <IsCompleteCondition>return !CanConditions() || ObjectManager.Me.Level == 21;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>20</MaxLevel>
+      <MinLevel>17</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GRIND: 17-21 - Loch Modan V2</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-5141.238" Y="-3646.825" Z="303.3592" />
+          <Vector3 X="-4929.604" Y="-3619.141" Z="301.5761" />
+          <Vector3 X="-5219.419" Y="-3836.178" Z="323.4554" />
+          <Vector3 X="-5202" Y="-4073.928" Z="322.4949" />
+          <Vector3 X="-5364.63" Y="-4106.513" Z="336.8306" />
+          <Vector3 X="-5225.42" Y="-4194.091" Z="351.9668" />
+        </HotSpots>
+        <EntryTarget>
+          <int>1192</int>
+          <int>1189</int>
+          <int>1185</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Var.GetVar&lt;int&gt;("MyVarName_SelectedTask") == 2;</CanCondition>
+      <IsCompleteCondition>return !CanConditions() || ObjectManager.Me.Level == 21;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>20</MaxLevel>
+      <MinLevel>17</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc>
+    <BlackNpc UniqueId="F1300004A70022A8" Name="Mangy Mountain Boar" />
+    <BlackNpc UniqueId="F13000048D00232F" Name="Stonesplinter Geomancer" />
+    <BlackNpc UniqueId="F1300004A70022BE" Name="Mangy Mountain Boar" />
+    <BlackNpc UniqueId="F13000049A002497" Name="Mo'grosh Ogre" />
+    <BlackNpc UniqueId="F13000049B0020AE" Name="Mo'grosh Enforcer" />
+    <BlackNpc UniqueId="F13000049A00225E" Name="Mo'grosh Ogre" />
+    <BlackNpc UniqueId="F1300004A50020A0" Name="Black Bear Patriarch" />
+    <BlackNpc UniqueId="F1300004A500221F" Name="Black Bear Patriarch" />
+    <BlackNpc UniqueId="F13000049A002491" Name="Mo'grosh Ogre" />
+    <BlackNpc UniqueId="F13000049B002495" Name="Mo'grosh Enforcer" />
+    <BlackNpc UniqueId="F13000049100240A" Name="Dark Iron Insurgent" />
+    <BlackNpc UniqueId="F130000491002408" Name="Dark Iron Insurgent" />
+    <BlackNpc UniqueId="F130000491002409" Name="Dark Iron Insurgent" />
+    <BlackNpc UniqueId="F1300004C60022E6" Name="Dark Iron Sapper" />
+    <BlackNpc UniqueId="F1300004C60022E5" Name="Dark Iron Sapper" />
+    <BlackNpc UniqueId="F1300009AC0023F2" Name="Large Loch Crocolisk" />
+    <BlackNpc UniqueId="F13000069D00247D" Name="Loch Crocolisk" />
+    <BlackNpc UniqueId="F13000069D00247C" Name="Loch Crocolisk" />
+    <BlackNpc UniqueId="F13000069D0022C3" Name="Loch Crocolisk" />
+  </BlacklistNpc>
+  <BlacklistNpcType>
+    <BlackNpcType TypeId="1165" Name="Stonesplinter Geomancer" />
+    <BlackNpcType TypeId="1167" Name="Stonesplinter Digger" />
+    <BlackNpcType TypeId="1178" Name="Mo'grosh Ogre" />
+    <BlackNpcType TypeId="1181" Name="Mo'grosh Shaman" />
+    <BlackNpcType TypeId="1179" Name="Mo'grosh Enforcer" />
+    <BlackNpcType TypeId="1180" Name="Mo'grosh Brute" />
+  </BlacklistNpcType>
+  <Blackspots>
+    <Blackspot X="-5771.812" Y="-3895.99438" Z="351.8801" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5773.1377" Y="-3927.92871" Z="356.280853" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5779.79736" Y="-3957.42725" Z="365.327576" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5790.19043" Y="-4003.14966" Z="367.130554" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5784.09131" Y="-4019.30054" Z="372.662323" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5757.925" Y="-4032.92651" Z="369.8758" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5734.423" Y="-4032.41553" Z="369.283844" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5712.69971" Y="-4032.911" Z="367.2622" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5681.10156" Y="-4040.58765" Z="363.583069" Radius="15" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5662.73633" Y="-4043.14282" Z="368.4095" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5629.30371" Y="-4038.31714" Z="374.6655" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5603.87939" Y="-4022.5415" Z="366.953064" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5575.831" Y="-4028.10474" Z="370.0756" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5571.41357" Y="-4042.71118" Z="374.78418" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5551.44971" Y="-4032.522" Z="372.099884" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; " />
+    <Blackspot X="-5625.45264" Y="-4004.11768" Z="325.875641" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5702.273" Y="-3993.86572" Z="328.9571" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5740.288" Y="-3943.344" Z="323.3533" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5755.85" Y="-3845.87427" Z="323.3391" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5642.427" Y="-3880.17456" Z="322.8978" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5645.48438" Y="-3918.747" Z="323.8718" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5588.698" Y="-3873.7417" Z="329.877716" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5586.698" Y="-3844.23267" Z="323.124176" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5589.856" Y="-3828.16113" Z="322.2779" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5575.453" Y="-3808.24683" Z="322.903168" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Ironband's Excavation Site" />
+    <Blackspot X="-5024.6084" Y="-4015.70557" Z="301.749146" Radius="100" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4950.469" Y="-4015.033" Z="299.901184" Radius="100" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4854.6377" Y="-4005.37769" Z="307.65094" Radius="100" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4843.51855" Y="-4075.52734" Z="311.3471" Radius="100" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4874.661" Y="-3938.306" Z="301.461334" Radius="100" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4877.64941" Y="-3887.685" Z="303.7769" Radius="100" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4887.43652" Y="-3845.304" Z="302.25705" Radius="100" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4854.472" Y="-3772.18628" Z="309.329651" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4921.11963" Y="-3758.091" Z="317.651062" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4960.19629" Y="-3751.211" Z="319.307831" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-5006.829" Y="-3768.17261" Z="320.851776" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-5038.50049" Y="-3798.21338" Z="319.068542" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-5093.548" Y="-3827.21533" Z="317.975677" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-5110.916" Y="-3866.8208" Z="324.743225" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-5146.37451" Y="-3897.30566" Z="327.578827" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-5058.32764" Y="-3805.02563" Z="317.345062" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-5044.637" Y="-3760.4978" Z="315.6171" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; " />
+    <Blackspot X="-4992.386" Y="-3748.99683" Z="320.373444" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4913.024" Y="-3711.32568" Z="314.742462" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4831.23975" Y="-3718.86255" Z="309.736877" Radius="44" Continent="Azeroth" Comment="Loch Modan &gt; Mo'grosh Stronghold" />
+    <Blackspot X="-4735.04932" Y="-3623.0835" Z="305.4946" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; " />
+    <Blackspot X="-4733.61426" Y="-3556.9375" Z="305.041" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Stonewrought Dam" />
+    <Blackspot X="-4725.222" Y="-3540.39429" Z="304.207062" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Stonewrought Dam" />
+    <Blackspot X="-4751.96338" Y="-3573.28857" Z="305.218445" Radius="22" Continent="Azeroth" Comment="Loch Modan &gt; Stonewrought Dam" />
+    <Blackspot X="-5495.2793" Y="-3601.718" Z="296.740784" Radius="55" Continent="Azeroth" Comment="Loch Modan &gt; The Loch" />
+  </Blackspots>
+</EasyQuestProfile>

@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warlock) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(5784)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59)" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warlock) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(5784)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Azeroth)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Warlock Mount: Were in Azeroth, Go to Zepplin&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="PATHRunToZeplinBrilltoOrg12" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Taking Zepplin to Orgrimmar - Warlock Mount&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="CatchZeppelinShipBrilltoOrg12" />
+    <QuestsSorted Action="Wait" NameClass="10" />
+    <QuestsSorted Action="Pulse" NameClass="PATHRunDownZeppDurotar12" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="(wManager.Wow.Helpers.Skill.GetValue(wManager.Wow.Enums.SkillLine.Riding) &lt; 1) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.WowClass == WoWClass.Warlock) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(!wManager.Wow.Helpers.SpellManager.KnowSpell(5784)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(ObjectManager.Me.Level &gt;= 45 &amp;&amp; ObjectManager.Me.Level &lt;= 59) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(Usefuls.ContinentId == (int) ContinentId.Kalimdor)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Summon Felsteed Part 1&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="SummonFelsteedPart1" />
+    <QuestsSorted Action="If" NameClass="(Quest.HasQuest(3631) &#xD;&#xA;&amp;&amp; &#xD;&#xA;!Quest.GetQuestCompleted(3631)) &#xD;&#xA;&amp;&amp; &#xD;&#xA;(wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Orgrimmar&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Custom Fly Code: Org to Barrens&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(1676.25f, -4313.45f, 61.56763f);&#xD;&#xA;int npcEntryId = 3310;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Ratchet') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="100" />
+    <QuestsSorted Action="None" NameClass="var position = new Vector3(1676.25f, -4313.45f, 61.56763f);&#xD;&#xA;int npcEntryId = 3310;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Ratchet, The Barrens') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="180000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Turnin Felsteed part 1&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="SummonFelsteedPart1" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Pickup Felsteed Part 2&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="SummonFelsteedPart2" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Turnin Felsteed Part 2&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="TurnIn" NameClass="SummonFelsteedPart2" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'GRATZ! Warlock Mount&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="CastSpellByName(&quot;Summon Felsteed&quot;,&quot;target&quot;)" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;MyFrameText = 'Victory Lap Baby&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;MyFrame.text:SetText(MyFrameText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="VICTORYLAPWarlock" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+	<QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE_Andoido\1-60 Horde - REMAKE - #1 PROFILE_LAUNCHER.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="3326" Name="Zevrost" GameObject="false">
+      <PickUpQuests>
+        <int>3631</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="1848.96" Y="-4360.43" Z="-14.94347" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="6251" Name="Strahad Farsan" GameObject="false">
+      <PickUpQuests>
+        <int>4490</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>3631</int>
+        <int>4490</int>
+      </TurnInQuests>
+      <Position X="-785.912" Y="-3723.26" Z="40.43206" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Summon Felsteed - Part 1</Name>
+      <QuestId>
+        <int>3631</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>60</MaxLevel>
+      <MinLevel>45</MinLevel>
+      <WoWClass>Warlock</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Summon Felsteed - Part 2</Name>
+      <QuestId>
+        <int>4490</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>60</MaxLevel>
+      <MinLevel>45</MinLevel>
+      <WoWClass>Warlock</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>VICTORY LAP - Warlock</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-786.5244" Y="-3718.277" Z="40.73469" />
+          <Vector3 X="-788.189" Y="-3711.913" Z="40.83746" />
+          <Vector3 X="-789.7008" Y="-3706.347" Z="40.55732" />
+          <Vector3 X="-791.1647" Y="-3700.953" Z="39.95094" />
+          <Vector3 X="-792.7347" Y="-3695.592" Z="39.56528" />
+          <Vector3 X="-794.8923" Y="-3690.244" Z="40.25215" />
+          <Vector3 X="-797.1901" Y="-3685.15" Z="41.21708" />
+          <Vector3 X="-800.6476" Y="-3680.578" Z="42.27785" />
+          <Vector3 X="-804.3259" Y="-3676.37" Z="42.67401" />
+          <Vector3 X="-808.1223" Y="-3672.027" Z="42.61185" />
+          <Vector3 X="-811.8007" Y="-3667.82" Z="42.07834" />
+          <Vector3 X="-815.5969" Y="-3663.477" Z="41.58453" />
+          <Vector3 X="-820.296" Y="-3660.606" Z="41.18275" />
+          <Vector3 X="-825.6728" Y="-3658.601" Z="40.39345" />
+          <Vector3 X="-831.4214" Y="-3658.128" Z="39.79483" />
+          <Vector3 X="-836.9915" Y="-3657.671" Z="39.53454" />
+          <Vector3 X="-842.7402" Y="-3657.199" Z="39.62366" />
+          <Vector3 X="-848.1295" Y="-3655.793" Z="38.99763" />
+          <Vector3 X="-853.463" Y="-3654.123" Z="37.95646" />
+          <Vector3 X="-858.9675" Y="-3652.4" Z="37.23353" />
+          <Vector3 X="-864.301" Y="-3650.73" Z="35.60354" />
+          <Vector3 X="-869.8989" Y="-3649.666" Z="33.09317" />
+          <Vector3 X="-875.4601" Y="-3650.221" Z="30.38784" />
+          <Vector3 X="-881.3668" Y="-3650.811" Z="27.83935" />
+          <Vector3 X="-886.9391" Y="-3651.367" Z="24.39072" />
+          <Vector3 X="-892.5033" Y="-3651.842" Z="20.42294" />
+          <Vector3 X="-897.9089" Y="-3650.44" Z="18.71113" />
+          <Vector3 X="-903.4709" Y="-3648.912" Z="17.14613" />
+          <Vector3 X="-909.1152" Y="-3648.042" Z="15.31066" />
+          <Vector3 X="-914.6788" Y="-3647.825" Z="14.57454" />
+          <Vector3 X="-920.2261" Y="-3647.145" Z="14.12951" />
+          <Vector3 X="-925.7028" Y="-3648.478" Z="13.43474" />
+          <Vector3 X="-931.1799" Y="-3649.223" Z="12.82925" />
+          <Vector3 X="-936.5789" Y="-3651.19" Z="12.01842" />
+          <Vector3 X="-940.3166" Y="-3655.323" Z="11.18225" />
+          <Vector3 X="-942.5352" Y="-3660.606" Z="10.44984" />
+          <Vector3 X="-944.351" Y="-3665.891" Z="9.753984" />
+          <Vector3 X="-946.225" Y="-3671.346" Z="9.104991" />
+          <Vector3 X="-945.5187" Y="-3676.771" Z="8.439973" />
+          <Vector3 X="-942.6234" Y="-3681.532" Z="7.873119" />
+          <Vector3 X="-940.6205" Y="-3686.75" Z="7.492571" />
+          <Vector3 X="-938.4199" Y="-3692.074" Z="7.520534" />
+          <Vector3 X="-935.8963" Y="-3697.059" Z="7.897379" />
+          <Vector3 X="-933.6317" Y="-3702.364" Z="8.344461" />
+          <Vector3 X="-931.6411" Y="-3707.583" Z="8.664471" />
+          <Vector3 X="-929.7528" Y="-3713.033" Z="8.957228" />
+          <Vector3 X="-927.9063" Y="-3718.308" Z="9.103707" />
+          <Vector3 X="-925.879" Y="-3723.708" Z="9.245329" />
+          <Vector3 X="-923.8265" Y="-3728.906" Z="9.412603" />
+          <Vector3 X="-921.6431" Y="-3734.245" Z="9.668011" />
+          <Vector3 X="-919.4489" Y="-3739.579" Z="9.946354" />
+          <Vector3 X="-916.0463" Y="-3743.894" Z="9.928319" />
+          <Vector3 X="-911.7773" Y="-3747.773" Z="9.840859" />
+          <Vector3 X="-907.6464" Y="-3751.526" Z="10.24264" />
+          <Vector3 X="-903.2219" Y="-3755.21" Z="10.91921" />
+          <Vector3 X="-898.4749" Y="-3758.058" Z="11.65886" />
+          <Vector3 X="-893.5212" Y="-3759.409" Z="12.39187" />
+          <Vector3 X="-893.5208" Y="-3764.827" Z="12.05978" />
+          <Vector3 X="-896.4758" Y="-3769.264" Z="11.61843" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>45</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>PATH: Run To Zeplin (Brill to Org) 12</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="2087.049" Y="276.6307" Z="57.05391" />
+          <Vector3 X="2084.688" Y="277.1056" Z="57.04686" />
+          <Vector3 X="2081.363" Y="277.7211" Z="57.03794" />
+          <Vector3 X="2077.921" Y="278.358" Z="58.21486" />
+          <Vector3 X="2074.369" Y="279.0154" Z="59.30146" />
+          <Vector3 X="2071.034" Y="279.6082" Z="60.04653" />
+          <Vector3 X="2067.557" Y="278.9016" Z="60.04653" />
+          <Vector3 X="2065.175" Y="276.5568" Z="60.04718" />
+          <Vector3 X="2064.122" Y="273.1217" Z="61.53139" />
+          <Vector3 X="2063.571" Y="269.7789" Z="63.79399" />
+          <Vector3 X="2062.981" Y="266.3289" Z="66.13152" />
+          <Vector3 X="2062.301" Y="262.7815" Z="68.59871" />
+          <Vector3 X="2061.628" Y="259.461" Z="70.92878" />
+          <Vector3 X="2060.592" Y="256.0211" Z="71.52821" />
+          <Vector3 X="2057.758" Y="254.5354" Z="71.52676" />
+          <Vector3 X="2054.608" Y="255.9137" Z="72.41856" />
+          <Vector3 X="2052.691" Y="258.7922" Z="73.66021" />
+          <Vector3 X="2051.909" Y="262.192" Z="73.87986" />
+          <Vector3 X="2052.108" Y="265.6738" Z="73.88029" />
+          <Vector3 X="2053.24" Y="269.0894" Z="75.2346" />
+          <Vector3 X="2055.471" Y="271.7515" Z="76.90106" />
+          <Vector3 X="2058.64" Y="273.1195" Z="78.43697" />
+          <Vector3 X="2062.129" Y="273.1469" Z="79.55401" />
+          <Vector3 X="2065.515" Y="272.2911" Z="79.70533" />
+          <Vector3 X="2068.659" Y="270.7628" Z="79.70874" />
+          <Vector3 X="2071.334" Y="268.7015" Z="81.19126" />
+          <Vector3 X="2072.897" Y="265.5055" Z="82.80737" />
+          <Vector3 X="2072.36" Y="262.1031" Z="84.36213" />
+          <Vector3 X="2070.639" Y="259.0652" Z="85.2317" />
+          <Vector3 X="2068.431" Y="256.5004" Z="85.31208" />
+          <Vector3 X="2065.552" Y="254.5485" Z="85.62525" />
+          <Vector3 X="2062.127" Y="253.9309" Z="86.90439" />
+          <Vector3 X="2058.765" Y="254.7626" Z="88.48003" />
+          <Vector3 X="2056.001" Y="257.015" Z="89.99779" />
+          <Vector3 X="2054.823" Y="260.1736" Z="89.99779" />
+          <Vector3 X="2054.238" Y="263.6203" Z="89.99779" />
+          <Vector3 X="2054.289" Y="267.1011" Z="91.44231" />
+          <Vector3 X="2056.066" Y="270.1787" Z="92.88393" />
+          <Vector3 X="2059.041" Y="271.9897" Z="94.01443" />
+          <Vector3 X="2062.248" Y="273.0757" Z="94.10763" />
+          <Vector3 X="2064.631" Y="275.5646" Z="94.81294" />
+          <Vector3 X="2065.49" Y="278.939" Z="96.42712" />
+          <Vector3 X="2066.051" Y="282.3929" Z="97.03153" />
+          <Vector3 X="2066.791" Y="285.9284" Z="97.03153" />
+          <Vector3 X="2067.508" Y="289.354" Z="97.03153" />
+          <Vector3 X="2067.821" Y="290.8476" Z="97.03153" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>PATH Run Down Zepp (Durotar) 12</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1327.918" Y="-4648.123" Z="53.95707" />
+          <Vector3 X="1332.683" Y="-4645.923" Z="53.54362" />
+          <Vector3 X="1339.144" Y="-4642.949" Z="53.54362" />
+          <Vector3 X="1345.681" Y="-4641.276" Z="53.54362" />
+          <Vector3 X="1349.618" Y="-4646.203" Z="53.54362" />
+          <Vector3 X="1343.069" Y="-4645.674" Z="52.8094" />
+          <Vector3 X="1338.47" Y="-4649.929" Z="50.6315" />
+          <Vector3 X="1339.41" Y="-4653.371" Z="49.70355" />
+          <Vector3 X="1342.35" Y="-4655.128" Z="48.62283" />
+          <Vector3 X="1348.672" Y="-4654.368" Z="47.03498" />
+          <Vector3 X="1349.219" Y="-4651.016" Z="46.09974" />
+          <Vector3 X="1348.355" Y="-4647.561" Z="45.16275" />
+          <Vector3 X="1342.365" Y="-4645.092" Z="43.08568" />
+          <Vector3 X="1339.234" Y="-4650.154" Z="40.99227" />
+          <Vector3 X="1341.292" Y="-4652.96" Z="39.69807" />
+          <Vector3 X="1344.463" Y="-4653.979" Z="38.4162" />
+          <Vector3 X="1347.19" Y="-4651.903" Z="37.1725" />
+          <Vector3 X="1347.845" Y="-4648.553" Z="35.90564" />
+          <Vector3 X="1346.204" Y="-4645.647" Z="34.79917" />
+          <Vector3 X="1342.832" Y="-4644.895" Z="33.67896" />
+          <Vector3 X="1339.822" Y="-4646.512" Z="32.64448" />
+          <Vector3 X="1339.921" Y="-4652.869" Z="30.54141" />
+          <Vector3 X="1342.771" Y="-4654.797" Z="29.42754" />
+          <Vector3 X="1346.182" Y="-4654.281" Z="28.40392" />
+          <Vector3 X="1348.626" Y="-4651.854" Z="27.41124" />
+          <Vector3 X="1348.506" Y="-4648.321" Z="26.37543" />
+          <Vector3 X="1346.642" Y="-4645.404" Z="25.35926" />
+          <Vector3 X="1341.056" Y="-4641.4" Z="24.61732" />
+          <Vector3 X="1338.29" Y="-4634.986" Z="24.00142" />
+          <Vector3 X="1336.74" Y="-4628.275" Z="23.70735" />
+          <Vector3 X="1335.952" Y="-4624.865" Z="23.72523" />
+          <Vector3 X="1334.265" Y="-4618.073" Z="23.66155" />
+          <Vector3 X="1333.473" Y="-4614.664" Z="23.88531" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Zeppelin/Ship (Brill to Org) 12</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Northrend	 !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 164871; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(2062.376, 292.998, 114.973);// Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(2067.869, 291.552, 97.03152, "None"); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(2068.413, 295.4044, 97.26634, "None");// Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(1318.107, -4658.047, 71.86043, "None"); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition =  new Vector3(1322.21, -4653.32, 53.85162, "None"); // Position to go out the Zeppelin/Ship (to)
+// var toPlayerLeaveBoat = new Vector3(6416.014, 821.959, 6.097741, "None"); // put player at end of boat (to)
+
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Azeroth)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,2500);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            wManager.Wow.Helpers.Move.Backward(Move.MoveAction.PressKey,2650);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Azeroth;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

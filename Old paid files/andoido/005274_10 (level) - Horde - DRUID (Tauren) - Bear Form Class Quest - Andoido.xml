@@ -1,0 +1,4660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="Pulse" NameClass="AutoUpdate" />
+    <QuestsSorted Action="RunCode" NameClass="ProfileRestarter.StartProfileRestarter();" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(5487) &amp;&amp; ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 30 &amp;&amp; ObjectManager.Me.WowClass == WoWClass.Druid &amp;&amp; (ObjectManager.Me.PlayerRace == PlayerFactions.Tauren) &amp;&amp; Usefuls.ContinentId == (int) ContinentId.Kalimdor" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(5487) &amp;&amp; ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 30 &amp;&amp; ObjectManager.Me.WowClass == WoWClass.Druid &amp;&amp; Usefuls.ContinentId == (int) ContinentId.Kalimdor" />
+    <QuestsSorted Action="PickUp" NameClass="HeedingtheCallTaurenDruid" />
+    <QuestsSorted Action="If" NameClass="(ObjectManager.Me.WowClass == WoWClass.Druid) &amp;&amp; Quest.HasQuest(5926) &amp;&amp; !Quest.GetQuestCompleted(5926) &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Thunder Bluff&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Mulgore&quot; || wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Barrens&quot;) || Usefuls.SubMapZoneName.Contains(&quot;Camp Turajo&quot;) || Usefuls.SubMapZoneName.Contains(&quot;Bloodhoof Village&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="RUNTaurenDruidBearFormGetTurajoFP" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-2384.08f, -1880.94f, 95.85037f), 10378, 1, false);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-2384.08f, -1880.94f, 95.85037f);&#xD;&#xA;int npcEntryId = 10378;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Thunder Bluff') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="78000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="HeedingtheCallTaurenDruid" />
+    <QuestsSorted Action="PickUp" NameClass="MoongladeTaurenDruidBearForm" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(5922) &amp;&amp; !Quest.GetQuestCompleted(5922) &amp;&amp; wManager.Wow.Helpers.SpellManager.KnowSpell(18960) &amp;&amp; (ObjectManager.Me.PlayerRace == PlayerFactions.Tauren)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CastSpellByName(\&quot;Teleport: Moonglade\&quot;,1)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;CastSpellByName(\&quot;Teleport: Moonglade\&quot;,1)&quot;);" />
+    <QuestsSorted Action="Wait" NameClass="15000" />
+    <QuestsSorted Action="TurnIn" NameClass="MoongladeTaurenDruidBearForm" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="MoongladeTaurenDruidBearForm" />
+    <QuestsSorted Action="PickUp" NameClass="GreatBearSpiritTaurenDruidBearForm" />
+    <QuestsSorted Action="IfHasQuest" NameClass="5930" />
+    <QuestsSorted Action="Pulse" NameClass="RUNGreatBearSpiritTaurenDruidClassQ" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8068.29f, -2284.12f, 496.9193f), 11956, 1, false);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="System.Threading.Thread.Sleep(1000 * 2);&#xD;&#xA;&#xD;&#xA;Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);&#xD;&#xA;&#xD;&#xA;Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);&#xD;&#xA;&#xD;&#xA;Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);&#xD;&#xA;&#xD;&#xA;Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);&#xD;&#xA;&#xD;&#xA;Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);&#xD;&#xA;&#xD;&#xA;Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);&#xD;&#xA;&#xD;&#xA;Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="GossipTitleButton1:Click();&#xA;GossipTitleButton1:Click();" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunLuaCode" NameClass="GossipTitleButton1:Click();&#xA;GossipTitleButton1:Click();" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunLuaCode" NameClass="GossipTitleButton1:Click();&#xA;GossipTitleButton1:Click();" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunLuaCode" NameClass="GossipTitleButton1:Click();&#xA;GossipTitleButton1:Click();" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunLuaCode" NameClass="GossipTitleButton1:Click();&#xA;GossipTitleButton1:Click();" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="TurnIn" NameClass="GreatBearSpiritTaurenDruidBearForm" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="PickUp" NameClass="BacktoThunderBluffTaurenDruidBearForm" />
+    <QuestsSorted Action="If" NameClass="(Lua.LuaDoString&lt;string&gt;(&quot;bindlocation = GetBindLocation(); return bindlocation;&quot;) == &quot;Bloodhoof Village&quot;) &amp;&amp; Quest.HasQuest(5932) &amp;&amp; !Quest.GetQuestCompleted(5932) &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Moonglade&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.ItemsManager.UseItem(6948);" />
+    <QuestsSorted Action="Wait" NameClass="22000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(5932) &amp;&amp; !Quest.GetQuestCompleted(5932) &amp;&amp; ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60 &amp;&amp; ObjectManager.Me.WowClass == WoWClass.Druid &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Moonglade&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="RUNMoongladeTaurenDruidGETFP" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(7466.15f, -2122.08f, 492.3441f), 12740, 1, false);" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="Pulse" NameClass="RUNFrommoongladefptoDruidFlytoTB" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(7785.46f, -2403.46f, 489.5431f);&#xD;&#xA;int npcEntryId = 11798;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Thunder Bluff') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="400" />
+    <QuestsSorted Action="RunCode" NameClass="Usefuls.SelectGossipOption(1);&#xD;&#xA;System.Threading.Thread.Sleep(1000 * 2);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="GossipTitleButton1:Click();&#xA;GossipTitleButton1:Click();" />
+    <QuestsSorted Action="RunLuaCode" NameClass="GossipTitleButton1:Click();&#xA;GossipTitleButton1:Click();" />
+    <QuestsSorted Action="Wait" NameClass="546000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="BacktoThunderBluffTaurenDruidBearForm" />
+    <QuestsSorted Action="PickUp" NameClass="BodyandHeartTaurenDruidBearForm" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(6002) &amp;&amp; ItemsManager.HasItemById(15710) &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;Thunder Bluff&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="RUNTaurnDruidRuntoTBFlightmaster" />
+    <QuestsSorted Action="Wait" NameClass="500" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-1196.75f, 26.0777f, 176.9492f);&#xD;&#xA;int npcEntryId = 2995;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Taurajo') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-1196.75f, 26.0777f, 176.9492f);&#xD;&#xA;int npcEntryId = 2995;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Camp Taurajo, The Barrens') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="90000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(6002) &amp;&amp; !Quest.GetQuestCompleted(6002) &amp;&amp; ItemsManager.HasItemById(15710)" />
+    <QuestsSorted Action="Pulse" NameClass="RUNBodyandHeartDruidTaurenRUNTO" />
+    <QuestsSorted Action="Wait" NameClass="1500" />
+    <QuestsSorted Action="RunCode" NameClass="var pos = new Vector3(-2496.714f, -1632.943f, 91.73521f);&#xD;&#xA;uint itemId = 15710;&#xD;&#xA;int objectId = 177644;&#xD;&#xA;int questId = 6002;&#xD;&#xA;&#xD;&#xA;wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithGameObject(pos, objectId);&#xD;&#xA;&#xD;&#xA;Thread.Sleep(Usefuls.Latency + 300);&#xD;&#xA;&#xD;&#xA;if (Quest.HasQuest(questId))&#xD;&#xA;{&#xD;&#xA;                ItemsManager.UseItem(itemId);&#xD;&#xA;}" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(15710);" />
+    <QuestsSorted Action="Pulse" NameClass="BodyandHeartTaurenDruidBearForm" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Quest.HasQuest(6002) &amp;&amp; !Quest.GetQuestCompleted(6002) &amp;&amp; !ItemsManager.HasItemById(15710) &amp;&amp; (wManager.Wow.Helpers.Usefuls.MapZoneName == &quot;The Barrens&quot; || Usefuls.SubMapZoneName.Contains(&quot;Camp Turajo&quot;) || Usefuls.SubMapZoneName.Contains(&quot;Barrens&quot;))" />
+    <QuestsSorted Action="Pulse" NameClass="RUNBodyandHeartCompletedRunTurajoFP" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-2384.08f, -1880.94f, 95.85037f), 10378, 1, false);" />
+    <QuestsSorted Action="RunCode" NameClass="var position = new Vector3(-2384.08f, -1880.94f, 95.85037f);&#xD;&#xA;int npcEntryId = 10378;&#xD;&#xA;&#xD;&#xA;if (!ObjectManager.Me.IsOnTaxi)&#xD;&#xA;{&#xD;&#xA;    if (wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(position, npcEntryId))&#xD;&#xA;    {&#xD;&#xA; int node;&#xD;&#xA;        Usefuls.SelectGossipOption(GossipOptionsType.taxi);&#xD;&#xA;&#xD;&#xA; node = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;(&quot;for i=0,30 do if string.find(TaxiNodeName(i),'Thunder Bluff') then return i end end&quot;);&#xD;&#xA;          &#xD;&#xA;        wManager.Wow.Helpers.Lua.LuaDoString(&quot;TakeTaxiNode(&quot; + node + &quot;)&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+    <QuestsSorted Action="Wait" NameClass="78000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="BodyandHeartTaurenDruidBearForm" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.SpellManager.KnowSpell(5487) &amp;&amp; ObjectManager.Me.Level &gt;= 10 &amp;&amp; ObjectManager.Me.Level &lt;= 60 &amp;&amp; ObjectManager.Me.WowClass == WoWClass.Druid" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETauren lvl 10 Bear Form Checker|r |cFFFF52F1Gratz on the New Bear Form!|r&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;DoEmote('VICTORY')&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="CastSpellByName(&quot;Bear Form&quot;, onSelf);" />
+    <QuestsSorted Action="Pulse" NameClass="RUNVICTORYLAPTaurenDruidBearForm" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="1-60 REMAKE HORDE_Andoido\1-60 Horde - REMAKE - 1 PROFILE_LAUNCHER.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="3064" Name="Gennia Runetotem" GameObject="false">
+      <PickUpQuests>
+        <int>5926</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-2315.75" Y="-442.634" Z="-5.438295" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="3033" Name="Turak Runetotem" GameObject="false">
+      <PickUpQuests>
+        <int>5922</int>
+        <int>6002</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>5926</int>
+        <int>5932</int>
+        <int>6002</int>
+      </TurnInQuests>
+      <Position X="-1039.41" Y="-281.56" Z="159.0304" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="11802" Name="Dendrite Starblaze" GameObject="false">
+      <PickUpQuests>
+        <int>5930</int>
+        <int>5932</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>5922</int>
+        <int>5930</int>
+      </TurnInQuests>
+      <Position X="8020" Y="-2678.74" Z="524.4499" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>WINTERSPRING</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="6740.85" Y="-4691.69" Z="721.3702" />
+      <Entry>11182</Entry>
+      <Name>Nixxrak</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="6733.39" Y="-4699.04" Z="721.3702" />
+      <Entry>11184</Entry>
+      <Name>Wixxrak</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="6679.62" Y="-4670.89" Z="721.7149" />
+      <Entry>11187</Entry>
+      <Name>Himmik</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="6695.15" Y="-4673.04" Z="721.5684" />
+      <Entry>11118</Entry>
+      <Name>Innkeeper Vizzie</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="6705.1" Y="-4667.35" Z="721.6" Type="Flying" />
+      <Entry>176404</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>AZSHARA</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3579.9" Y="-4383.46" Z="110.089" Type="Flying" />
+      <Entry>3621</Entry>
+      <Name>Kurll</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3614.14" Y="-4403.95" Z="114.3861" Type="Flying" />
+      <Entry>10361</Entry>
+      <Name>Gruul Darkblade</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>FELWOOD</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="5092.96" Y="-356.463" Z="357.3133" Type="Flying" />
+      <Entry>2806</Entry>
+      <Name>Bale</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="5095.58" Y="-360.128" Z="357.2961" Type="Flying" />
+      <Entry>10379</Entry>
+      <Name>Altsoba Ragetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="5103.54" Y="-360.519" Z="357.04" Type="Flying" />
+      <Entry>187260</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>WPL ENT</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1784.72" Y="-729.107" Z="59.38684" Type="Flying" />
+      <Entry>10856</Entry>
+      <Name>Argent Quartermaster Hasana</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2246.33" Y="308.24" Z="35.18924" Type="Flying" />
+      <Entry>2137</Entry>
+      <Name>Eliza Callen</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2238.56" Y="254.503" Z="34.0054" Type="Flying" />
+      <Entry>143990</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2269.51" Y="244.944" Z="34.25706" />
+      <Entry>5688</Entry>
+      <Name>Innkeeper Renee</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2221.271" Y="254.5662" Z="33.99164" Type="Flying" />
+      <Entry>3547</Entry>
+      <Name>Hamlin Atkins</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>EASTERN PLAGUELANDS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2289.56" Y="-5318.35" Z="88.64" Type="Flying" />
+      <Entry>181236</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2152.336" Y="-5263.845" Z="95.7466" Type="Flying" />
+      <Entry>11038</Entry>
+      <Name>Caretaker Alen</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>FERALAS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4339.65" Y="249.374" Z="26.31801" />
+      <Entry>8159</Entry>
+      <Name>Worb Strongstitch</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4405.37" Y="237.677" Z="26.7678" Type="Flying" />
+      <Entry>143986</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4460.1" Y="242.722" Z="39.10751" />
+      <Entry>7737</Entry>
+      <Name>Innkeeper Greul</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4484.55" Y="233.527" Z="48.3927" Type="Flying" />
+      <Entry>9548</Entry>
+      <Name>Cawind Trueaim</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4400.11" Y="194.325" Z="26.42768" Type="Flying" />
+      <Entry>8143</Entry>
+      <Name>Loorana</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>TANARIS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7149.83" Y="-3723.66" Z="8.495381" />
+      <Entry>8129</Entry>
+      <Name>Wrinkle Goodsteel</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7154.4" Y="-3829.52" Z="8.75029" Type="Flying" />
+      <Entry>144112</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7159.053" Y="-3841.672" Z="8.697378" />
+      <Entry>7733</Entry>
+      <Name>Innkeeper Fizzgrimble</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7168.27" Y="-3850.27" Z="8.78144" />
+      <Entry>8125</Entry>
+      <Name>Dirge Quikcleave</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6890.53" Y="-4816.76" Z="8.701994" />
+      <Entry>8137</Entry>
+      <Name>Gikkix</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>DESOLACE </Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1677.03" Y="3073.27" Z="34.53746" Type="Flying" />
+      <Entry>12045</Entry>
+      <Name>Hae'Wilani</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1609.2" Y="3118.86" Z="44.8293" Type="Flying" />
+      <Entry>179896</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1592.84" Y="3150.27" Z="46.4948" />
+      <Entry>11106</Entry>
+      <Name>Innkeeper Sikewa</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>HILLSBRAD FOOTHILLS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-158.525" Y="-867.18" Z="56.89798" Type="Flying" />
+      <Entry>3539</Entry>
+      <Name>Ott</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-20.3935" Y="-929.422" Z="55.4647" Type="Flying" />
+      <Entry>143988</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5.96873" Y="-942.282" Z="57.1621" />
+      <Entry>2388</Entry>
+      <Name>Innkeeper Shay</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-39.02986" Y="-878.1758" Z="55.93738" Type="Flying" />
+      <Entry>3544</Entry>
+      <Name>Jason Lemieux</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>HINTERLANDS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-599.543" Y="-4610.39" Z="9.73191" />
+      <Entry>179895</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-622.033" Y="-4583.4" Z="11.68729" />
+      <Entry>14731</Entry>
+      <Name>Lard</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-593.1902" Y="-4554.808" Z="9.106904" Type="Flying" />
+      <Entry>14737</Entry>
+      <Name>Smith Slagtree</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>BADLANDS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6673.13" Y="-2151.46" Z="244.1441" Type="Flying" />
+      <Entry>1407</Entry>
+      <Name>Sranda</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6673.95" Y="-2174.35" Z="244.16" />
+      <Entry>163313</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6650.01" Y="-2149.09" Z="245.3522" />
+      <Entry>9356</Entry>
+      <Name>Innkeeper Shul'kar</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6760.19" Y="-3135.55" Z="241.1637" Type="Flying" />
+      <Entry>9179</Entry>
+      <Name>Jazzrik</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>SEARING GORGE</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6524.04" Y="-1188.72" Z="309.2563" Type="Flying" />
+      <Entry>14624</Entry>
+      <Name>Master Smith Burninate</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6524.04" Y="-1188.72" Z="309.2563" Type="Flying" />
+      <Entry>14624</Entry>
+      <Name>Master Smith Burninate</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>UNGORO CRATER</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6144.07" Y="-1098.52" Z="-202.9274" Type="Flying" />
+      <Entry>3000</Entry>
+      <Name>Gibbert</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6157.44" Y="-1067.73" Z="-194.9492" Type="Flying" />
+      <Entry>12959</Entry>
+      <Name>Nergal</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>THOUSAND- freewind post</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5477.85" Y="-2460.43" Z="89.28385" />
+      <Entry>11116</Entry>
+      <Name>Innkeeper Abeqwa</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5467.54" Y="-2432.64" Z="89.69984" Type="Flying" />
+      <Entry>4875</Entry>
+      <Name>Turhaw</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5453.35" Y="-2408.38" Z="89.2765" Type="Flying" />
+      <Entry>9551</Entry>
+      <Name>Starn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4901.5" Y="-1360.03" Z="-51.34283" Type="Flying" />
+      <Entry>3689</Entry>
+      <Name>Laer Stepperunner - Far North</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5464.37" Y="-2450.8" Z="89.2474" Type="Flying" />
+      <Entry>176324</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>SIMMERING FLATS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6225.51" Y="-3970.78" Z="-58.74976" Type="Flying" />
+      <Entry>3053</Entry>
+      <Name>Synge</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-6209.62" Y="-3972.96" Z="-58.74957" Type="Flying" />
+      <Entry>6495</Entry>
+      <Name>Riznek</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>FERALAS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4405.37" Y="237.677" Z="26.7678" Type="Flying" />
+      <Entry>143986</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4460.1" Y="242.722" Z="39.10751" />
+      <Entry>7737</Entry>
+      <Name>Innkeeper Greul</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4484.55" Y="233.527" Z="48.39367" Type="Flying" />
+      <Entry>9548</Entry>
+      <Name>Cawind Trueaim</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4339.65" Y="249.374" Z="26.31801" />
+      <Entry>8159</Entry>
+      <Name>Worb Strongstitch</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4325.8" Y="160.51" Z="34.1195" />
+      <Entry>8142</Entry>
+      <Name>Jannos Lighthoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4400.11" Y="194.325" Z="26.42759" Type="Flying" />
+      <Entry>8143</Entry>
+      <Name>Loorana</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>DESOLACE - BY FP</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1592.84" Y="3150.27" Z="46.4949" />
+      <Entry>11106</Entry>
+      <Name>Innkeeper Sikewa</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1609.2" Y="3118.86" Z="44.8293" Type="Flying" />
+      <Entry>179896</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1677.03" Y="3073.27" Z="34.53744" Type="Flying" />
+      <Entry>12045</Entry>
+      <Name>Hae'Wilani</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1701.76" Y="3112.57" Z="32.64019" Type="Flying" />
+      <Entry>12027</Entry>
+      <Name>Tukk</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1241.63" Y="1734" Z="89.88953" Type="Flying" />
+      <Entry>8878</Entry>
+      <Name>Muuran</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>STV - Grom Gol</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-12357.8" Y="155.552" Z="4.249227" Type="Flying" />
+      <Entry>1146</Entry>
+      <Name>Vharr</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-12357.7" Y="142.379" Z="4.476241" Type="Flying" />
+      <Entry>1381</Entry>
+      <Name>Krakk</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-12434.4" Y="211.559" Z="2.367138" />
+      <Entry>5814</Entry>
+      <Name>Innkeeper Thulbek</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-12387.6" Y="145.805" Z="2.51911" Type="Flying" />
+      <Entry>163645</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-12414" Y="166.158" Z="3.393921" Type="Flying" />
+      <Entry>7485</Entry>
+      <Name>Nargatt</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>NORTH STV</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-11622.1" Y="-60.6165" Z="10.95549" Type="Flying" />
+      <Entry>2483</Entry>
+      <Name>Jaquilina Dramet</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>Booty Bay</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-14340.6" Y="414.604" Z="6.626438" />
+      <Entry>2839</Entry>
+      <Name>Haren Kanmae</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-14451.7" Y="495.417" Z="15.10528" />
+      <Entry>2832</Entry>
+      <Name>Nixxrax Fillamug</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-14417.4" Y="517.034" Z="5.01315" Type="Flying" />
+      <Entry>144126</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-14457.7" Y="495.348" Z="15.12723" />
+      <Entry>6807</Entry>
+      <Name>Innkeeper Skindle</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-14462" Y="480.032" Z="26.8612" Type="Flying" />
+      <Entry>144127</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-14468.3" Y="424.603" Z="25.37323" />
+      <Entry>2849</Entry>
+      <Name>Qixdi Goodstitch</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-14359.1" Y="367.467" Z="24.10333" />
+      <Entry>2845</Entry>
+      <Name>Fargon Mortalak</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>SWAMP OF SORROWS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-10464" Y="-3265.26" Z="20.1778" Type="Flying" />
+      <Entry>157637</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-10487.3" Y="-3258.84" Z="21.03014" />
+      <Entry>6930</Entry>
+      <Name>Innkeeper Karakul</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-10399.5" Y="-3270.43" Z="21.80836" Type="Flying" />
+      <Entry>981</Entry>
+      <Name>Hartash</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-10407" Y="-3265.75" Z="21.94903" Type="Flying" />
+      <Entry>8176</Entry>
+      <Name>Gharash</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-10406.9" Y="-3256.55" Z="22.03184" Type="Flying" />
+      <Entry>984</Entry>
+      <Name>Thralosh</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-10451" Y="-3290.11" Z="20.22123" Type="Flying" />
+      <Entry>982</Entry>
+      <Name>Thultash</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>DUSTWOLLOW MARSH</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-3117.45" Y="-2902" Z="33.99097" Type="Flying" />
+      <Entry>4879</Entry>
+      <Name>Ogg'marr</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-3112.94" Y="-2885.78" Z="35.26561" Type="Flying" />
+      <Entry>4883</Entry>
+      <Name>Krak</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-3146.33" Y="-2873.78" Z="34.27404" Type="Flying" />
+      <Entry>4884</Entry>
+      <Name>Zulrg</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>FERALAS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4339.65" Y="249.374" Z="26.31801" />
+      <Entry>8159</Entry>
+      <Name>Worb Strongstitch</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4405.37" Y="237.677" Z="26.7678" Type="Flying" />
+      <Entry>143986</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4460.1" Y="242.722" Z="39.10751" />
+      <Entry>7737</Entry>
+      <Name>Innkeeper Greul</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4484.55" Y="233.527" Z="48.3927" Type="Flying" />
+      <Entry>9548</Entry>
+      <Name>Cawind Trueaim</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4400.11" Y="194.325" Z="26.42768" Type="Flying" />
+      <Entry>8143</Entry>
+      <Name>Loorana</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4325.8" Y="160.51" Z="34.1195" />
+      <Entry>8142</Entry>
+      <Name>Jannos Lighthoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>TANARIS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7154.4" Y="-3829.52" Z="8.75029" Type="Flying" />
+      <Entry>144112</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7159.052" Y="-3841.671" Z="8.69978" />
+      <Entry>7733</Entry>
+      <Name>Innkeeper Fizzgrimble</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7168.27" Y="-3850.27" Z="8.781487" />
+      <Entry>8125</Entry>
+      <Name>Dirge Quikcleave</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7149.83" Y="-3723.66" Z="8.495381" />
+      <Entry>8129</Entry>
+      <Name>Wrinkle Goodsteel</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-7141.49" Y="-3719.69" Z="8.494997" />
+      <Entry>8131</Entry>
+      <Name>Blizrik Buckshot</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-443.692" Y="-2649.08" Z="95.7738" Type="Flying" />
+      <Entry>143982</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-356.996" Y="-2568.86" Z="95.78757" Type="Flying" />
+      <Entry>3479</Entry>
+      <Name>Nargal Deatheye</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-351.184" Y="-2556.51" Z="95.78771" Type="Flying" />
+      <Entry>3488</Entry>
+      <Name>Uthrok</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-407.123" Y="-2645.22" Z="96.22323" />
+      <Entry>3934</Entry>
+      <Name>Innkeeper Boorand Plainswind</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-403.68" Y="-2709.34" Z="97.53806" Type="Flying" />
+      <Entry>3489</Entry>
+      <Name>Zargh</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-451.129" Y="-2684.29" Z="95.61512" Type="Flying" />
+      <Entry>3480</Entry>
+      <Name>Moorane Hearthgrain</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-919.616" Y="-3683.76" Z="8.156109" />
+      <Entry>3491</Entry>
+      <Name>Ironzar</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1050.04" Y="-3664.8" Z="23.88535" />
+      <Entry>6791</Entry>
+      <Name>Innkeeper Wiley</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1035.11" Y="-3676.03" Z="23.067" Type="Flying" />
+      <Entry>144125</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>CAMP TURAJO</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2402.17" Y="-1911.01" Z="96.74238" />
+      <Entry>3705</Entry>
+      <Name>Gahroot</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2374.26" Y="-1948.79" Z="96.08655" Type="Flying" />
+      <Entry>10380</Entry>
+      <Name>Sanuye Runetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2351.58" Y="-1944.75" Z="95.7911" Type="Flying" />
+      <Entry>153578</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>STONETALON MOUNTAINS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-188.424" Y="-347.647" Z="8.790397" Type="Flying" />
+      <Entry>3411</Entry>
+      <Name>Denni'ka</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1231.9" Y="402.794" Z="65.38897" Type="Flying" />
+      <Entry>4086</Entry>
+      <Name>Veenix</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="925.941" Y="901.492" Z="104.969" Type="Flying" />
+      <Entry>143983</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="893.652" Y="927.947" Z="106.2577" />
+      <Entry>7731</Entry>
+      <Name>Innkeeper Jayka</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1016.04" Y="988.352" Z="105.0171" Type="Flying" />
+      <Entry>5870</Entry>
+      <Name>Krond</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="992.181" Y="1030.96" Z="105.5858" Type="Flying" />
+      <Entry>9549</Entry>
+      <Name>Borand</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>// THUNDERBLUFF \\</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1300.28" Y="38.4858" Z="129.2088" />
+      <Entry>6746</Entry>
+      <Name>Innkeeper Pala</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1237.21" Y="101.066" Z="129.0765" Type="Flying" />
+      <Entry>2999</Entry>
+      <Name>Taur Stonehoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1474.76" Y="-81.3723" Z="161.1019" />
+      <Entry>3039</Entry>
+      <Name>Holt Thunderhorn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1472.87" Y="-78.1839" Z="161.102" />
+      <Entry>3042</Entry>
+      <Name>Sark Ragetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1039.41" Y="-281.56" Z="159.0304" Type="Flying" />
+      <Entry>3033</Entry>
+      <Name>Turak Runetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-980.841" Y="287.174" Z="137.5903" Type="Flying" />
+      <Entry>3032</Entry>
+      <Name>Beram Skychaser</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-980.775" Y="269.899" Z="137.5903" Type="Flying" />
+      <Entry>3031</Entry>
+      <Name>Tigor Skychaser</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-996.925" Y="278.464" Z="137.5903" Type="Flying" />
+      <Entry>3030</Entry>
+      <Name>Siln Skychaser</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-997.349" Y="206.727" Z="136.1376" Type="Flying" />
+      <Entry>2798</Entry>
+      <Name>Pand Stonebinder</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>FirstAidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1007.06" Y="260.339" Z="112.0316" />
+      <Entry>3045</Entry>
+      <Name>Malakai Cross</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-956.24" Y="252.418" Z="97.79218" />
+      <Entry>3044</Entry>
+      <Name>Miles Welsh</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-994.015" Y="249.055" Z="102.2096" />
+      <Entry>3046</Entry>
+      <Name>Father Cobb</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-951.105" Y="279.08" Z="110.9126" />
+      <Entry>3047</Entry>
+      <Name>Archmage Shymm</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-948.744" Y="248.392" Z="97.14713" />
+      <Entry>3048</Entry>
+      <Name>Ursyn Ghull</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-995.85" Y="253.854" Z="101.7511" />
+      <Entry>3049</Entry>
+      <Name>Thurston Xane</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1243.86" Y="40.9178" Z="127.1142" Type="Flying" />
+      <Entry>8358</Entry>
+      <Name>Hewa</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1238.58" Y="38.971" Z="127.0638" Type="Flying" />
+      <Entry>8359</Entry>
+      <Name>Ahanu</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1263.31" Y="44.5454" Z="127.545" Type="Flying" />
+      <Entry>143985</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>ASHENVALE</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2332.56" Y="-2545.97" Z="101.627" Type="Flying" />
+      <Entry>178864</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2341.86" Y="-2566.99" Z="102.7736" />
+      <Entry>12196</Entry>
+      <Name>Innkeeper Kaylisk</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2354.76" Y="-2540.69" Z="102.8123" Type="Flying" />
+      <Entry>6028</Entry>
+      <Name>Burkrum</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="3362.23" Y="1024.84" Z="2.871348" Type="Flying" />
+      <Entry>12962</Entry>
+      <Name>Wik'Tar</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>HILLSBRAD FOOTHILLS</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-5.96873" Y="-942.282" Z="57.1621" />
+      <Entry>2388</Entry>
+      <Name>Innkeeper Shay</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-33.2878" Y="-907.46" Z="55.75444" Type="Flying" />
+      <Entry>3544</Entry>
+      <Name>Jason Lemieux</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-158.525" Y="-867.18" Z="56.89798" Type="Flying" />
+      <Entry>3539</Entry>
+      <Name>Ott</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-20.3935" Y="-929.422" Z="55.4647" Type="Flying" />
+      <Entry>143988</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>THOUSAND NEEDLES</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-4901.5" Y="-1360.03" Z="-51.34283" Type="Flying" />
+      <Entry>3689</Entry>
+      <Name>Laer Stepperunner - NORTH</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>UNDEAD STARTING ZONE</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1839.03" Y="1636.54" Z="96.93355" />
+      <Entry>2126</Entry>
+      <Name>Maximillion</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarlockTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1847.39" Y="1635.52" Z="96.93355" />
+      <Entry>2124</Entry>
+      <Name>Isabella</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1848.32" Y="1627.63" Z="96.93363" />
+      <Entry>2123</Entry>
+      <Name>Dark Cleric Duesten</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1859.65" Y="1563.3" Z="94.30669" />
+      <Entry>2122</Entry>
+      <Name>David Trias</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>RogueTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1862.46" Y="1556.33" Z="94.77857" />
+      <Entry>2119</Entry>
+      <Name>Dannal Stern</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1859.39" Y="1568.82" Z="94.3135" />
+      <Entry>2113</Entry>
+      <Name>Archibald Kava</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1866.02" Y="1574.45" Z="94.31389" />
+      <Entry>2115</Entry>
+      <Name>Joshua Kien</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1836.24" Y="1569.16" Z="96.5949" />
+      <Entry>2117</Entry>
+      <Name>Harold Raims</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1842.44" Y="1570.19" Z="96.58154" />
+      <Entry>2116</Entry>
+      <Name>Blacksmith Rand</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2157.34" Y="656.666" Z="34.54621" />
+      <Entry>3522</Entry>
+      <Name>Constance Brisboise</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>BRILL - </Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2256.81" Y="233.219" Z="41.11481" />
+      <Entry>2128</Entry>
+      <Name>Cain Firesong</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2259.05" Y="250.317" Z="41.11496" />
+      <Entry>2127</Entry>
+      <Name>Rupert Boch</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarlockTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2271.04" Y="242.997" Z="41.1149" />
+      <Entry>2130</Entry>
+      <Name>Marion Call</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>RogueTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2265.2" Y="251.054" Z="41.11489" />
+      <Entry>2129</Entry>
+      <Name>Dark Cleric Beryl</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2254.76" Y="238.445" Z="33.63382" />
+      <Entry>2131</Entry>
+      <Name>Austil de Mon</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2246.09" Y="239.849" Z="34.26041" />
+      <Entry>5759</Entry>
+      <Name>Nurse Neela</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>FirstAidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2269.51" Y="244.944" Z="34.25698" />
+      <Entry>5688</Entry>
+      <Name>Innkeeper Renee</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2246.33" Y="308.24" Z="35.18926" Type="Flying" />
+      <Entry>2137</Entry>
+      <Name>Eliza Callen</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2228.85" Y="316.131" Z="36.6975" />
+      <Entry>2136</Entry>
+      <Name>Oliver Dwor</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2234.341" Y="262.0825" Z="34.11322" Type="Flying" />
+      <Entry>3547</Entry>
+      <Name>Hamlin Atkins</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2238.56" Y="254.503" Z="34.0054" Type="Flying" />
+      <Entry>143990</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2029.08" Y="69.7176" Z="34.37704" Type="Flying" />
+      <Entry>6289</Entry>
+      <Name>Rand Rhobart</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>SkinningTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>TAUREN START</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2893.72" Y="-279.332" Z="53.91661" Type="Flying" />
+      <Entry>3072</Entry>
+      <Name>Kawnie Softbreeze</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2940.84" Y="-245.957" Z="53.81011" Type="Flying" />
+      <Entry>3883</Entry>
+      <Name>Moodan Sungrain</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2918.75" Y="-219.651" Z="54.2598" />
+      <Entry>3074</Entry>
+      <Name>Varia Hardhide</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2927.32" Y="-223.131" Z="54.2598" />
+      <Entry>3075</Entry>
+      <Name>Bronk Steelrage</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2926.32" Y="-215.715" Z="54.2598" />
+      <Entry>3073</Entry>
+      <Name>Marjak Keenblade</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2873.57" Y="-268.591" Z="53.91693" Type="Flying" />
+      <Entry>3060</Entry>
+      <Name>Gart Mistrunner</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2873.88" Y="-264.709" Z="53.91671" Type="Flying" />
+      <Entry>3062</Entry>
+      <Name>Meela Dawnstrider</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2880.43" Y="-213.02" Z="54.82101" />
+      <Entry>3059</Entry>
+      <Name>Harutt Thunderhorn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2865.4" Y="-225.731" Z="54.82076" />
+      <Entry>3061</Entry>
+      <Name>Lanka Farshot</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>TAUREN - 6+ AREA</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2338.21" Y="-367.143" Z="-8.52861" Type="Flying" />
+      <Entry>143984</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2365.37" Y="-347.31" Z="-8.956864" />
+      <Entry>6747</Entry>
+      <Name>Innkeeper Kauth</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2357.02" Y="-356.585" Z="-8.956907" />
+      <Entry>5939</Entry>
+      <Name>Vira Younghoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>FirstAidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2283.34" Y="-305.997" Z="-9.424864" Type="Flying" />
+      <Entry>3079</Entry>
+      <Name>Varg Windwhisper</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2284.47" Y="-310.26" Z="-9.424803" Type="Flying" />
+      <Entry>3080</Entry>
+      <Name>Harant Ironbrace</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2280.13" Y="-297.768" Z="-9.42457" Type="Flying" />
+      <Entry>3077</Entry>
+      <Name>Mahnott Roughwound</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2275.53" Y="-289.265" Z="-9.424829" Type="Flying" />
+      <Entry>3078</Entry>
+      <Name>Kennah Hawkseye</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2298.96" Y="-437.742" Z="-5.438416" Type="Flying" />
+      <Entry>3066</Entry>
+      <Name>Narm Skychaser</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2315.75" Y="-442.634" Z="-5.438262" Type="Flying" />
+      <Entry>3064</Entry>
+      <Name>Gennia Runetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2180.22" Y="-408.816" Z="-4.601516" Type="Flying" />
+      <Entry>3065</Entry>
+      <Name>Yaw Sharpmane</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2347.98" Y="-495.92" Z="-9.047287" Type="Flying" />
+      <Entry>3063</Entry>
+      <Name>Krang Stonehoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2338.21" Y="-367.143" Z="-8.52861" Type="Flying" />
+      <Entry>143984</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-588.703" Y="-4144.94" Z="41.02013" />
+      <Entry>3155</Entry>
+      <Name>Rwag</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>RogueTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-606.874" Y="-4111.87" Z="42.94466" />
+      <Entry>3156</Entry>
+      <Name>Nartok</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarlockTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-588.829" Y="-4102.27" Z="43.46375" />
+      <Entry>3159</Entry>
+      <Name>Kzan Thornslash</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-582.434" Y="-4102.68" Z="42.62154" />
+      <Entry>3161</Entry>
+      <Name>Rarc</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-581.734" Y="-4109.51" Z="43.52431" />
+      <Entry>3160</Entry>
+      <Name>Huklah</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-560.125" Y="-4217.2" Z="41.59045" Type="Flying" />
+      <Entry>3882</Entry>
+      <Name>Zlagk</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-617.395" Y="-4202.4" Z="38.13413" Type="Flying" />
+      <Entry>3707</Entry>
+      <Name>Ken'jai</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-623.939" Y="-4203.88" Z="38.13411" Type="Flying" />
+      <Entry>3157</Entry>
+      <Name>Shikrik</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-625.296" Y="-4210.17" Z="38.13414" Type="Flying" />
+      <Entry>5884</Entry>
+      <Name>Mai'ah</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-639.344" Y="-4230.19" Z="38.13422" Type="Flying" />
+      <Entry>3153</Entry>
+      <Name>Frang</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-635.462" Y="-4227.52" Z="38.13394" Type="Flying" />
+      <Entry>3154</Entry>
+      <Name>Jen'shan</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>SEN JIN VILLAGE - DUROTAR</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-786.558" Y="-4903.8" Z="19.59976" Type="Flying" />
+      <Entry>3933</Entry>
+      <Name>Hai'zan</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-769.15" Y="-4948.53" Z="22.8495" Type="Flying" />
+      <Entry>10369</Entry>
+      <Name>Trayexir</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-839.287" Y="-4939.83" Z="20.98999" Type="Flying" />
+      <Entry>5880</Entry>
+      <Name>Un'Thuwa</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>RAZOR HILL - DUROTAR</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="311.352" Y="-4827.79" Z="9.579772" />
+      <Entry>3169</Entry>
+      <Name>Tarshaw Jaggedscar</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="330.355" Y="-4826.93" Z="10.52416" />
+      <Entry>5943</Entry>
+      <Name>Rawrk</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>FirstAidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="307.114" Y="-4839.91" Z="10.52431" />
+      <Entry>3173</Entry>
+      <Name>Swart</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="294.884" Y="-4831.49" Z="10.52413" />
+      <Entry>3706</Entry>
+      <Name>Tai'jin</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="275.341" Y="-4704" Z="11.62509" />
+      <Entry>3171</Entry>
+      <Name>Thotar</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="268.13" Y="-4710.94" Z="17.48905" Type="Flying" />
+      <Entry>3170</Entry>
+      <Name>Kaplak</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>RogueTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="340.362" Y="-4686.29" Z="16.45796" />
+      <Entry>6928</Entry>
+      <Name>Innkeeper Grosk</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="305.722" Y="-4665.87" Z="16.44378" Type="Flying" />
+      <Entry>3881</Entry>
+      <Name>Grimtak</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="322.408" Y="-4706.9" Z="14.6834" Type="Flying" />
+      <Entry>143981</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="358.128" Y="-4706.73" Z="14.39406" Type="Flying" />
+      <Entry>3167</Entry>
+      <Name>Wuark</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="382.365" Y="-4713.01" Z="16.01775" Type="Flying" />
+      <Entry>3163</Entry>
+      <Name>Uhgar</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="362.105" Y="-4763.84" Z="12.46956" Type="Flying" />
+      <Entry>3165</Entry>
+      <Name>Ghrawt</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="367.885" Y="-4770.91" Z="12.47029" Type="Flying" />
+      <Entry>3166</Entry>
+      <Name>Cutac</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="356.192" Y="-4837.95" Z="11.08885" Type="Flying" />
+      <Entry>3172</Entry>
+      <Name>Dhugru Gorelust</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarlockTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>ORGRIMMAR</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1520.54" Y="-4355.58" Z="18.76792" />
+      <Entry>3313</Entry>
+      <Name>Trak'gen</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1589.02" Y="-4469.48" Z="7.665492" />
+      <Entry>3321</Entry>
+      <Name>Morgum</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1583.8" Y="-4473.31" Z="7.729592" />
+      <Entry>3317</Entry>
+      <Name>Ollanus</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1593.54" Y="-4465.65" Z="7.667894" />
+      <Entry>3319</Entry>
+      <Name>Sana</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1633.99" Y="-4439.37" Z="15.43382" />
+      <Entry>6929</Entry>
+      <Name>Innkeeper Gryshka</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1692.69" Y="-4412.03" Z="21.66096" />
+      <Entry>3322</Entry>
+      <Name>Kaja</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1473.55" Y="-4218.57" Z="42.95901" />
+      <Entry>5882</Entry>
+      <Name>Pephredo</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1452.43" Y="-4179.82" Z="44.05015" Type="Flying" />
+      <Entry>6018</Entry>
+      <Name>Ur'kyo</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1453.24" Y="-4185.65" Z="61.3339" Type="Flying" />
+      <Entry>6014</Entry>
+      <Name>X'yera</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1771.21" Y="-4284.42" Z="7.753315" Type="Flying" />
+      <Entry>3401</Entry>
+      <Name>Shenthul</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>RogueTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1844.21" Y="-4353.61" Z="-14.88162" Type="Flying" />
+      <Entry>3324</Entry>
+      <Name>Grol'dar</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarlockTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1848.96" Y="-4360.43" Z="-14.94347" Type="Flying" />
+      <Entry>3326</Entry>
+      <Name>Zevrost</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarlockTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1933.69" Y="-4224.86" Z="42.09506" />
+      <Entry>3344</Entry>
+      <Name>Kardris Dreamseeker</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1937.84" Y="-4222.84" Z="42.0948" />
+      <Entry>13417</Entry>
+      <Name>Sagorne Creststrider</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1932.88" Y="-4211.3" Z="42.09544" />
+      <Entry>3403</Entry>
+      <Name>Sian'tsu</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1997.93" Y="-4807.95" Z="56.7648" />
+      <Entry>3408</Entry>
+      <Name>Zel'mak</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1970.95" Y="-4808.17" Z="56.76521" />
+      <Entry>3354</Entry>
+      <Name>Sorek</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1980" Y="-4799.74" Z="55.79825" />
+      <Entry>3353</Entry>
+      <Name>Grezz Ragefist</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2084.96" Y="-4623.77" Z="58.59338" Type="Flying" />
+      <Entry>3406</Entry>
+      <Name>Xor'juul</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="2100.58" Y="-4606.96" Z="58.7034" Type="Flying" />
+      <Entry>3352</Entry>
+      <Name>Ormak Grimshot</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name>THUNDERBLUFF</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1039.41" Y="-281.56" Z="159.0304" Type="Flying" />
+      <Entry>3033</Entry>
+      <Name>Turak Runetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1037.98" Y="-288.508" Z="159.0304" Type="Flying" />
+      <Entry>3034</Entry>
+      <Name>Sheal Runetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1057.47" Y="-288.536" Z="159.0306" Type="Flying" />
+      <Entry>3036</Entry>
+      <Name>Kym Wildmane</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2315.75" Y="-442.634" Z="-5.437896" Type="Flying" />
+      <Entry>3064</Entry>
+      <Name>Gennia Runetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>DruidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-951.105" Y="279.08" Z="110.9123" />
+      <Entry>3047</Entry>
+      <Name>Archmage Shymm</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1007.06" Y="260.339" Z="112.0313" />
+      <Entry>3045</Entry>
+      <Name>Malakai Cross</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-995.85" Y="253.854" Z="101.7511" />
+      <Entry>3049</Entry>
+      <Name>Thurston Xane</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-994.015" Y="249.055" Z="102.2096" />
+      <Entry>3046</Entry>
+      <Name>Father Cobb</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-956.24" Y="252.418" Z="97.79218" />
+      <Entry>3044</Entry>
+      <Name>Miles Welsh</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>PriestTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-948.744" Y="248.392" Z="97.14713" />
+      <Entry>3048</Entry>
+      <Name>Ursyn Ghull</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>MageTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-980.841" Y="287.174" Z="137.5903" Type="Flying" />
+      <Entry>3032</Entry>
+      <Name>Beram Skychaser</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-996.925" Y="278.464" Z="137.5903" Type="Flying" />
+      <Entry>3030</Entry>
+      <Name>Siln Skychaser</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-980.775" Y="269.899" Z="137.5903" Type="Flying" />
+      <Entry>3031</Entry>
+      <Name>Tigor Skychaser</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>ShamanTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-997.349" Y="206.727" Z="136.1375" Type="Flying" />
+      <Entry>2798</Entry>
+      <Name>Pand Stonebinder</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>FirstAidTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1283.92" Y="84.3608" Z="128.7279" Type="Flying" />
+      <Entry>2997</Entry>
+      <Name>Jyn Stonehoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1300.17" Y="110.54" Z="131.3687" Type="Flying" />
+      <Entry>8362</Entry>
+      <Name>Kuruk</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1300.28" Y="38.4858" Z="129.2088" />
+      <Entry>6746</Entry>
+      <Name>Innkeeper Pala</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1454.48" Y="-100.468" Z="159.0185" />
+      <Entry>3040</Entry>
+      <Name>Urek Thunderhorn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1464.61" Y="-93.7802" Z="159.0187" />
+      <Entry>3038</Entry>
+      <Name>Kary Thunderhorn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1474.76" Y="-81.3723" Z="161.1019" />
+      <Entry>3039</Entry>
+      <Name>Holt Thunderhorn</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>HunterTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1472.87" Y="-78.1839" Z="161.102" />
+      <Entry>3042</Entry>
+      <Name>Sark Ragetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1457.96" Y="-80.8058" Z="159.0185" />
+      <Entry>3041</Entry>
+      <Name>Torm Ragetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1444.95" Y="-84.2832" Z="159.0186" />
+      <Entry>3043</Entry>
+      <Name>Ker Ragetotem</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>WarriorTrainer</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1237.21" Y="101.066" Z="129.0765" Type="Flying" />
+      <Entry>2999</Entry>
+      <Name>Taur Stonehoof</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Repair</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-1263.31" Y="44.5454" Z="127.545" Type="Flying" />
+      <Entry>143985</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="-2338.21" Y="-367.143" Z="-8.52861" Type="Flying" />
+      <Entry>143984</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="322.408" Y="-4706.9" Z="14.6834" Type="Flying" />
+      <Entry>143981</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="1615.58" Y="-4391.6" Z="10.108" Type="Flying" />
+      <Entry>173221</Entry>
+      <Name>Mailbox</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Mailbox</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+    <Npc>
+      <Position X="0" Y="0" Z="0" />
+      <Entry>0</Entry>
+      <Name />
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>None</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Kalimdor</ContinentId>
+    </Npc>
+  </Npc>
+  <EasyQuests>
+    <EasyQuest>
+      <Name>Auto Update</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>public sealed class AutoUpdate : QuestClass
+{
+    public AutoUpdate() // Don't forget to use good classe name
+    {
+		Name = "AutoUpdate";
+	
+try
+{
+    string onlineFile = "https://andoido.000webhostapp.com/Andoidos%20Profile%20Compendium/1-60%20REMAKE%20HORDE_Andoido/10%20(level)%20-%20Horde%20-%20DRUID%20(Tauren)%20-%20Bear%20Form%20Class%20Quest%20-%20Andoido.xml";
+    Quester.Bot.QuesterSetting.Load();
+    string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + Quester.Bot.QuesterSetting.CurrentSetting.ProfileName;
+
+    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+    var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+    {
+        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option "Short file"
+        {
+            if (currentFileContent != onlineFileContent) // if new update
+            {
+                robotManager.Helpful.Logging.Write("[Andoido 1-60 Alliance Remake]: New version found, try to update.");
+                System.IO.File.WriteAllText(currentFile, onlineFileContent,
+                System.Text.Encoding.UTF8); // replace user file by online file 
+                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+            }
+            if (currentFileContent == onlineFileContent)
+                robotManager.Helpful.Logging.Write("[Andoido 1-60 Alliance Remake]: The version on your pc is the latest updated version.");
+        }
+        else
+            robotManager.Helpful.Logging.Write("[Andoido 1-60 Alliance Remake]: Your currently running version is not encrypted.");
+    }
+}
+catch (System.Exception e)
+{
+    robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+}
+
+        Lua.LuaDoString("DungeonFrameWorkLoaded = true");
+    }
+}
+// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Lua.LuaDoString&lt;bool&gt;("return DungeonFrameWorkLoaded");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Heeding the Call - Tauren Druid</Name>
+      <QuestId>
+        <int>5926</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>60</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Moonglade -- Tauren Druid (Bear Form)</Name>
+      <QuestId>
+        <int>5922</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>5926</RequiredQuest>
+      <MaxLevel>60</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Great Bear Spirit - Tauren Druid (Bear Form)</Name>
+      <QuestId>
+        <int>5930</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>5922</RequiredQuest>
+      <MaxLevel>60</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Great Bear Spirit (Tauren Druid Class Q)</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="8000.011" Y="-2667.341" Z="512.1" />
+          <Vector3 X="8012.317" Y="-2651.961" Z="512.0997" />
+          <Vector3 X="8013.061" Y="-2636.888" Z="510.1859" />
+          <Vector3 X="8010.809" Y="-2615.73" Z="503.8976" />
+          <Vector3 X="8005.066" Y="-2595.563" Z="495.4789" />
+          <Vector3 X="8003.636" Y="-2574.665" Z="492.133" />
+          <Vector3 X="8006.347" Y="-2554" Z="490.8066" />
+          <Vector3 X="8007.814" Y="-2533.995" Z="487.3662" Type="Swimming" />
+          <Vector3 X="8002.632" Y="-2511.52" Z="492.3459" />
+          <Vector3 X="8005.989" Y="-2490.191" Z="492.5819" />
+          <Vector3 X="8007.835" Y="-2474.918" Z="489.0728" Type="Swimming" />
+          <Vector3 X="7990.248" Y="-2469.912" Z="489.6925" />
+          <Vector3 X="7971.863" Y="-2478.086" Z="487.2027" />
+          <Vector3 X="7966.51" Y="-2454.811" Z="487.8033" />
+          <Vector3 X="7965.224" Y="-2433.875" Z="488.9602" />
+          <Vector3 X="7963.8" Y="-2411.985" Z="488.9527" />
+          <Vector3 X="7960.761" Y="-2391.567" Z="488.956" />
+          <Vector3 X="7957.608" Y="-2369.854" Z="486.4076" />
+          <Vector3 X="7955.543" Y="-2348.325" Z="485.2043" />
+          <Vector3 X="7958.525" Y="-2328.295" Z="482.7338" />
+          <Vector3 X="7971.982" Y="-2311.451" Z="485.3742" />
+          <Vector3 X="7983.945" Y="-2294.643" Z="486.841" />
+          <Vector3 X="7996.149" Y="-2276.818" Z="488.6307" />
+          <Vector3 X="8015.797" Y="-2276.119" Z="493.1464" />
+          <Vector3 X="8036.792" Y="-2279.568" Z="497.9861" />
+          <Vector3 X="8057.883" Y="-2282.485" Z="499.0152" />
+          <Vector3 X="8067.78" Y="-2284.657" Z="496.8614" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>60</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Back to Thunder Bluff - Tauren Druid (Bear Form)</Name>
+      <QuestId>
+        <int>5932</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>5930</RequiredQuest>
+      <MaxLevel>60</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Moonglade - Tauren Druid GET FP</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="7952.038" Y="-2356.206" Z="486.1661" />
+          <Vector3 X="7945.845" Y="-2334.215" Z="480.0938" />
+          <Vector3 X="7937.784" Y="-2317.995" Z="475.1778" />
+          <Vector3 X="7915.176" Y="-2309.052" Z="468.9542" />
+          <Vector3 X="7898.601" Y="-2307.886" Z="467.2155" />
+          <Vector3 X="7883.971" Y="-2307.77" Z="466.7062" />
+          <Vector3 X="7833.315" Y="-2308.899" Z="456.2806" />
+          <Vector3 X="7797.416" Y="-2297.424" Z="455.3707" />
+          <Vector3 X="7772.193" Y="-2283.589" Z="455.1799" />
+          <Vector3 X="7751.935" Y="-2264.37" Z="454.8481" />
+          <Vector3 X="7729.567" Y="-2246.476" Z="454.006" />
+          <Vector3 X="7703.795" Y="-2236.221" Z="455.9352" />
+          <Vector3 X="7675.294" Y="-2231.813" Z="459.3618" />
+          <Vector3 X="7656.364" Y="-2228.896" Z="461.4991" />
+          <Vector3 X="7627.859" Y="-2208.794" Z="467.5069" />
+          <Vector3 X="7604.553" Y="-2191.916" Z="473.7411" />
+          <Vector3 X="7593.659" Y="-2180.641" Z="475.4132" />
+          <Vector3 X="7577.266" Y="-2189.615" Z="475.3154" />
+          <Vector3 X="7549.612" Y="-2193.227" Z="475.5842" />
+          <Vector3 X="7540.263" Y="-2173.016" Z="480.3849" />
+          <Vector3 X="7539.292" Y="-2144.193" Z="483.5987" />
+          <Vector3 X="7530.434" Y="-2128.714" Z="484.14" />
+          <Vector3 X="7510.624" Y="-2122.66" Z="485.1342" />
+          <Vector3 X="7488.725" Y="-2123.747" Z="490.361" />
+          <Vector3 X="7468.161" Y="-2123.727" Z="492.3446" />
+          <Vector3 X="7467.845" Y="-2123.635" Z="492.3448" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: From moonglade fp to Druid Fly to TB</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="7477.685" Y="-2125.56" Z="491.7875" />
+          <Vector3 X="7498.623" Y="-2126.439" Z="487.3471" />
+          <Vector3 X="7519.759" Y="-2128.377" Z="484.7141" />
+          <Vector3 X="7549.568" Y="-2147.086" Z="483.1923" />
+          <Vector3 X="7571.019" Y="-2166.364" Z="479.3454" />
+          <Vector3 X="7592.382" Y="-2184.36" Z="475.1327" />
+          <Vector3 X="7615.144" Y="-2202.071" Z="470.9917" />
+          <Vector3 X="7637.408" Y="-2218.957" Z="464.0083" />
+          <Vector3 X="7663.342" Y="-2231.214" Z="460.696" />
+          <Vector3 X="7690.906" Y="-2234.892" Z="457.9599" />
+          <Vector3 X="7719.373" Y="-2239.212" Z="454.1812" />
+          <Vector3 X="7745.503" Y="-2249.014" Z="454.3164" />
+          <Vector3 X="7769.755" Y="-2264.418" Z="454.9162" />
+          <Vector3 X="7789.89" Y="-2283.793" Z="455.5932" />
+          <Vector3 X="7814.456" Y="-2298.389" Z="456.3094" />
+          <Vector3 X="7840.255" Y="-2309.03" Z="457.0925" />
+          <Vector3 X="7868.924" Y="-2310.532" Z="463.9032" />
+          <Vector3 X="7896.863" Y="-2310.708" Z="467.101" />
+          <Vector3 X="7925.545" Y="-2312.616" Z="471.5016" />
+          <Vector3 X="7944.891" Y="-2330.193" Z="479.0135" />
+          <Vector3 X="7952.429" Y="-2357.968" Z="486.3498" />
+          <Vector3 X="7954.622" Y="-2377.588" Z="487.5035" />
+          <Vector3 X="7960.511" Y="-2398.355" Z="488.9608" />
+          <Vector3 X="7964.346" Y="-2414.706" Z="488.9502" />
+          <Vector3 X="7965.246" Y="-2434.832" Z="488.9591" />
+          <Vector3 X="7965.295" Y="-2456.075" Z="487.7949" />
+          <Vector3 X="7962.193" Y="-2477.142" Z="487.1815" />
+          <Vector3 X="7953.945" Y="-2491.874" Z="487.8649" />
+          <Vector3 X="7937.01" Y="-2493.574" Z="488.0173" />
+          <Vector3 X="7926.624" Y="-2494.962" Z="487.5446" />
+          <Vector3 X="7915.909" Y="-2496.435" Z="488.9901" />
+          <Vector3 X="7905.535" Y="-2497.915" Z="489.2961" />
+          <Vector3 X="7894.829" Y="-2499.442" Z="489.2961" />
+          <Vector3 X="7884.455" Y="-2500.921" Z="489.2945" />
+          <Vector3 X="7873.748" Y="-2502.448" Z="489.2945" />
+          <Vector3 X="7863.45" Y="-2501.883" Z="489.2966" />
+          <Vector3 X="7852.877" Y="-2500.021" Z="487.2352" />
+          <Vector3 X="7842.247" Y="-2498.703" Z="487.3886" />
+          <Vector3 X="7835.216" Y="-2491.272" Z="487.2253" />
+          <Vector3 X="7831.486" Y="-2481.154" Z="487.0136" />
+          <Vector3 X="7831.587" Y="-2470.677" Z="487.5345" />
+          <Vector3 X="7831.74" Y="-2460.199" Z="488.0847" />
+          <Vector3 X="7831.898" Y="-2449.385" Z="487.3289" />
+          <Vector3 X="7829.354" Y="-2439.1" Z="487.5361" />
+          <Vector3 X="7820.653" Y="-2433.453" Z="487.5402" />
+          <Vector3 X="7810.334" Y="-2430.247" Z="487.5458" />
+          <Vector3 X="7801.324" Y="-2425.106" Z="487.7119" />
+          <Vector3 X="7795.375" Y="-2414.55" Z="488.8198" />
+          <Vector3 X="7789.215" Y="-2405.707" Z="489.2361" />
+          <Vector3 X="7786.477" Y="-2402.9" Z="489.6515" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Body and Heart (Tauren Druid 10 Q)</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path />
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Body and Heart - Tauren Druid (Bear Form)</Name>
+      <QuestId>
+        <int>6002</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2500.89" Y="-1628.45" Z="91.70341" />
+        </HotSpots>
+        <EntryTarget>
+          <int>12138</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>5932</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Taurn Druid - Run to TB Flightmaster</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-1201.177" Y="-9.431441" Z="165.6397" />
+          <Vector3 X="-1200.744" Y="-3.32954" Z="165.4897" />
+          <Vector3 X="-1200.098" Y="3.739" Z="165.374" />
+          <Vector3 X="-1199.452" Y="10.80754" Z="164.6711" />
+          <Vector3 X="-1199.124" Y="14.39758" Z="164.6022" />
+          <Vector3 X="-1197.912" Y="21.35828" Z="164.852" />
+          <Vector3 X="-1192.915" Y="26.22278" Z="165.9003" />
+          <Vector3 X="-1190.485" Y="28.68083" Z="167.9588" />
+          <Vector3 X="-1189.379" Y="31.87361" Z="169.9872" />
+          <Vector3 X="-1190.665" Y="35.20361" Z="171.9084" />
+          <Vector3 X="-1193.408" Y="37.32501" Z="173.4489" />
+          <Vector3 X="-1196.884" Y="38.05194" Z="175.1211" />
+          <Vector3 X="-1200.351" Y="37.6347" Z="176.8741" />
+          <Vector3 X="-1204.184" Y="32.39167" Z="176.9491" />
+          <Vector3 X="-1201.793" Y="26.01423" Z="176.9491" />
+          <Vector3 X="-1196.574" Y="27.07314" Z="176.9491" />
+          <Vector3 X="-1196.574" Y="27.07314" Z="176.9491" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Tauren Druid (Bear Form) - Get Turajo FP</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-2316.443" Y="-627.5032" Z="-9.368999" />
+          <Vector3 X="-2334.255" Y="-669.912" Z="-9.410617" />
+          <Vector3 X="-2338.712" Y="-698.4055" Z="-9.371585" />
+          <Vector3 X="-2343.169" Y="-726.899" Z="-9.424659" />
+          <Vector3 X="-2347.488" Y="-754.5073" Z="-9.424659" />
+          <Vector3 X="-2351.806" Y="-782.1155" Z="-9.424677" />
+          <Vector3 X="-2356.939" Y="-811.3918" Z="-9.424122" />
+          <Vector3 X="-2363.289" Y="-838.5699" Z="-9.245848" />
+          <Vector3 X="-2369.336" Y="-865.8517" Z="-9.424773" />
+          <Vector3 X="-2373.122" Y="-894.3446" Z="-9.420377" />
+          <Vector3 X="-2375.774" Y="-922.132" Z="-9.423558" />
+          <Vector3 X="-2382.376" Y="-950.1957" Z="-9.280733" />
+          <Vector3 X="-2392.067" Y="-976.3721" Z="-9.421574" />
+          <Vector3 X="-2403.505" Y="-1002.8" Z="-9.420815" />
+          <Vector3 X="-2414.428" Y="-1028.518" Z="-9.424685" />
+          <Vector3 X="-2424.315" Y="-1055.611" Z="-9.424685" />
+          <Vector3 X="-2433.676" Y="-1081.937" Z="-9.424685" />
+          <Vector3 X="-2440.782" Y="-1109.835" Z="-9.421726" />
+          <Vector3 X="-2445.239" Y="-1138.328" Z="-9.424289" />
+          <Vector3 X="-2446.048" Y="-1166" Z="-9.424289" />
+          <Vector3 X="-2441.035" Y="-1194.401" Z="-9.331787" />
+          <Vector3 X="-2433.936" Y="-1221.39" Z="-9.405228" />
+          <Vector3 X="-2425.416" Y="-1248.004" Z="-9.419277" />
+          <Vector3 X="-2417.862" Y="-1275.737" Z="-8.902879" />
+          <Vector3 X="-2411.021" Y="-1303.754" Z="-8.162328" />
+          <Vector3 X="-2403.598" Y="-1330.681" Z="-4.517208" />
+          <Vector3 X="-2394.742" Y="-1357.148" Z="2.873644" />
+          <Vector3 X="-2383.55" Y="-1383.728" Z="11.52201" />
+          <Vector3 X="-2372.706" Y="-1409.482" Z="20.26309" />
+          <Vector3 X="-2361.681" Y="-1436.129" Z="27.82624" />
+          <Vector3 X="-2353.161" Y="-1462.729" Z="34.84989" />
+          <Vector3 X="-2346.948" Y="-1490.861" Z="41.11237" />
+          <Vector3 X="-2348.308" Y="-1519.47" Z="48.56271" />
+          <Vector3 X="-2350.307" Y="-1547.241" Z="56.58028" />
+          <Vector3 X="-2351.553" Y="-1576.054" Z="64.25471" />
+          <Vector3 X="-2352.246" Y="-1603.946" Z="71.23759" />
+          <Vector3 X="-2352.714" Y="-1631.882" Z="77.88371" />
+          <Vector3 X="-2352.869" Y="-1660.716" Z="82.82064" />
+          <Vector3 X="-2349.151" Y="-1687.645" Z="85.48209" />
+          <Vector3 X="-2354.952" Y="-1724.734" Z="88.99368" />
+          <Vector3 X="-2357.687" Y="-1765.603" Z="91.04672" />
+          <Vector3 X="-2350.626" Y="-1807.637" Z="95.20135" />
+          <Vector3 X="-2350.643" Y="-1808.533" Z="95.32603" />
+          <Vector3 X="-2353.242" Y="-1825.811" Z="95.88153" />
+          <Vector3 X="-2357.31" Y="-1850.85" Z="96.56667" />
+          <Vector3 X="-2360.311" Y="-1868.943" Z="96.05951" />
+          <Vector3 X="-2361.275" Y="-1871.95" Z="96.15414" />
+          <Vector3 X="-2363.654" Y="-1874.565" Z="96.1472" />
+          <Vector3 X="-2366.915" Y="-1876.1" Z="95.95331" />
+          <Vector3 X="-2370.088" Y="-1877.559" Z="95.72565" />
+          <Vector3 X="-2373.331" Y="-1878.894" Z="95.77282" />
+          <Vector3 X="-2376.741" Y="-1880.015" Z="95.84952" />
+          <Vector3 X="-2380.189" Y="-1881.068" Z="95.84952" />
+          <Vector3 X="-2383.368" Y="-1881.719" Z="95.84952" />
+          <Vector3 X="-2384.012" Y="-1881.581" Z="95.84952" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Body and Heart - Druid Tauren  RUN TO</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-2355.385" Y="-1718.673" Z="88.46161" />
+          <Vector3 X="-2355.147" Y="-1700.975" Z="86.81466" />
+          <Vector3 X="-2355.642" Y="-1689.857" Z="85.77215" />
+          <Vector3 X="-2356.164" Y="-1679.391" Z="84.86919" />
+          <Vector3 X="-2360.389" Y="-1669.257" Z="84.05078" />
+          <Vector3 X="-2367.185" Y="-1662.63" Z="84.29275" />
+          <Vector3 X="-2378.796" Y="-1653.464" Z="89.98274" />
+          <Vector3 X="-2382.142" Y="-1642.84" Z="90.1312" />
+          <Vector3 X="-2385.563" Y="-1632.935" Z="89.39436" />
+          <Vector3 X="-2389.094" Y="-1622.712" Z="90.44807" />
+          <Vector3 X="-2392.625" Y="-1612.49" Z="89.24512" />
+          <Vector3 X="-2396.075" Y="-1602.96" Z="89.94196" />
+          <Vector3 X="-2404.666" Y="-1597.932" Z="91.29748" />
+          <Vector3 X="-2411.784" Y="-1600.207" Z="91.9458" />
+          <Vector3 X="-2418.971" Y="-1608.753" Z="94.11647" />
+          <Vector3 X="-2428.182" Y="-1615.808" Z="94.59164" />
+          <Vector3 X="-2434.688" Y="-1618.07" Z="94.08638" />
+          <Vector3 X="-2440.877" Y="-1620.221" Z="92.56918" />
+          <Vector3 X="-2451.046" Y="-1622.117" Z="92.49009" />
+          <Vector3 X="-2461.521" Y="-1621.861" Z="92.81477" />
+          <Vector3 X="-2471.673" Y="-1622.121" Z="92.61192" />
+          <Vector3 X="-2482.372" Y="-1625.531" Z="91.67647" />
+          <Vector3 X="-2491.16" Y="-1631.239" Z="91.67188" />
+          <Vector3 X="-2495.381" Y="-1632.904" Z="91.72121" />
+          <Vector3 X="-2497.016" Y="-1632.998" Z="91.74605" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: Body and Heart (Completed) - Run Turajo FP</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-2473.614" Y="-1624.33" Z="92.07507" />
+          <Vector3 X="-2459.478" Y="-1622.996" Z="92.49868" />
+          <Vector3 X="-2449.097" Y="-1621.68" Z="92.42801" />
+          <Vector3 X="-2438.553" Y="-1619.276" Z="93.24671" />
+          <Vector3 X="-2428.237" Y="-1616.179" Z="94.29989" />
+          <Vector3 X="-2418.937" Y="-1611.358" Z="93.14807" />
+          <Vector3 X="-2409.834" Y="-1606.167" Z="91.69467" />
+          <Vector3 X="-2399.387" Y="-1606.57" Z="90.36099" />
+          <Vector3 X="-2389.612" Y="-1610.254" Z="88.30375" />
+          <Vector3 X="-2385.707" Y="-1620.168" Z="89.68553" />
+          <Vector3 X="-2382.462" Y="-1630.108" Z="88.53227" />
+          <Vector3 X="-2378.501" Y="-1640.171" Z="89.37303" />
+          <Vector3 X="-2374.667" Y="-1649.912" Z="88.97923" />
+          <Vector3 X="-2370.707" Y="-1659.976" Z="84.89503" />
+          <Vector3 X="-2366.869" Y="-1669.727" Z="84.44164" />
+          <Vector3 X="-2362.791" Y="-1680.088" Z="84.8415" />
+          <Vector3 X="-2358.953" Y="-1689.839" Z="85.8242" />
+          <Vector3 X="-2355.115" Y="-1699.59" Z="86.6725" />
+          <Vector3 X="-2355.191" Y="-1710.342" Z="87.7533" />
+          <Vector3 X="-2355.081" Y="-1720.82" Z="88.66096" />
+          <Vector3 X="-2353.944" Y="-1738.698" Z="90.25795" />
+          <Vector3 X="-2351.415" Y="-1766.481" Z="91.0404" />
+          <Vector3 X="-2349.266" Y="-1795.204" Z="93.44081" />
+          <Vector3 X="-2349.594" Y="-1824.029" Z="95.85928" />
+          <Vector3 X="-2352.272" Y="-1851.84" Z="96.15164" />
+          <Vector3 X="-2357.757" Y="-1868.873" Z="96.03369" />
+          <Vector3 X="-2366.768" Y="-1874.847" Z="95.9814" />
+          <Vector3 X="-2376.434" Y="-1879.672" Z="95.85034" />
+          <Vector3 X="-2384.305" Y="-1881.795" Z="95.85034" />
+          <Vector3 X="-2384.305" Y="-1881.795" Z="95.85034" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>Druid</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>RUN: VICTORY LAP - Tauren Druid Bear Form</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-1046.124" Y="-280.231" Z="159.0316" />
+          <Vector3 X="-1048.751" Y="-274.7146" Z="159.0316" />
+          <Vector3 X="-1050.355" Y="-271.4863" Z="159.0316" />
+          <Vector3 X="-1052.972" Y="-266.2209" Z="159.0316" />
+          <Vector3 X="-1055.739" Y="-260.6545" Z="159.0316" />
+          <Vector3 X="-1057.812" Y="-253.7591" Z="159.0316" />
+          <Vector3 X="-1058.597" Y="-241.0822" Z="159.0316" />
+          <Vector3 X="-1058.615" Y="-237.4716" Z="159.0316" />
+          <Vector3 X="-1058.326" Y="-233.8923" Z="159.0316" />
+          <Vector3 X="-1061.483" Y="-230.1266" Z="159.0316" />
+          <Vector3 X="-1069.791" Y="-225.4933" Z="159.0316" />
+          <Vector3 X="-1075.144" Y="-222.3446" Z="159.0316" />
+          <Vector3 X="-1078.068" Y="-219.2423" Z="159.0316" />
+          <Vector3 X="-1080.051" Y="-216.2484" Z="159.354" />
+          <Vector3 X="-1076.548" Y="-216.464" Z="159.0806" />
+          <Vector3 X="-1071.765" Y="-219.9157" Z="159.0304" />
+          <Vector3 X="-1062.801" Y="-225.8549" Z="159.0304" />
+          <Vector3 X="-1056.082" Y="-224.8846" Z="159.0304" />
+          <Vector3 X="-1050.268" Y="-218.6932" Z="159.106" />
+          <Vector3 X="-1045.098" Y="-220.4444" Z="159.7479" />
+          <Vector3 X="-1041.655" Y="-225.1722" Z="160.1917" />
+          <Vector3 X="-1037.062" Y="-235.2957" Z="159.7949" />
+          <Vector3 X="-1031.564" Y="-244.6037" Z="159.0306" />
+          <Vector3 X="-1025.916" Y="-253.4302" Z="159.0306" />
+          <Vector3 X="-1020.319" Y="-262.6815" Z="159.0306" />
+          <Vector3 X="-1015.695" Y="-272.0811" Z="159.0306" />
+          <Vector3 X="-1013.235" Y="-282.5382" Z="159.0306" />
+          <Vector3 X="-1014.284" Y="-292.9326" Z="159.0306" />
+          <Vector3 X="-1017.331" Y="-302.9378" Z="159.0306" />
+          <Vector3 X="-1021.65" Y="-312.8506" Z="159.0981" />
+          <Vector3 X="-1028.691" Y="-320.607" Z="159.0324" />
+          <Vector3 X="-1038.469" Y="-324.3137" Z="159.0304" />
+          <Vector3 X="-1048.956" Y="-326.9074" Z="159.0304" />
+          <Vector3 X="-1058.733" Y="-325.3374" Z="159.0463" />
+          <Vector3 X="-1057.654" Y="-328.877" Z="159.088" />
+          <Vector3 X="-1048.173" Y="-331.7599" Z="159.0304" />
+          <Vector3 X="-1037.787" Y="-328.8905" Z="159.0304" />
+          <Vector3 X="-1030.037" Y="-322.8749" Z="159.0304" />
+          <Vector3 X="-1022.527" Y="-314.7086" Z="159.1082" />
+          <Vector3 X="-1018.208" Y="-304.4357" Z="159.0316" />
+          <Vector3 X="-1015.349" Y="-294.3652" Z="159.0316" />
+          <Vector3 X="-1014.536" Y="-284.256" Z="159.0316" />
+          <Vector3 X="-1018.279" Y="-273.8455" Z="159.0316" />
+          <Vector3 X="-1022.215" Y="-264.1574" Z="159.0316" />
+          <Vector3 X="-1027.105" Y="-254.5737" Z="159.0316" />
+          <Vector3 X="-1033.688" Y="-245.9992" Z="159.0316" />
+          <Vector3 X="-1040.935" Y="-239.0269" Z="159.0936" />
+          <Vector3 X="-1051.14" Y="-234.5394" Z="159.0756" />
+          <Vector3 X="-1060.317" Y="-230.2475" Z="159.0304" />
+          <Vector3 X="-1070.012" Y="-225.6056" Z="159.0304" />
+          <Vector3 X="-1072.672" Y="-228.9369" Z="159.0304" />
+          <Vector3 X="-1074.731" Y="-235.8395" Z="159.0304" />
+          <Vector3 X="-1071.055" Y="-237.2088" Z="159.0304" />
+          <Vector3 X="-1060.494" Y="-240.7544" Z="159.0304" />
+          <Vector3 X="-1058.744" Y="-245.1745" Z="159.0304" />
+          <Vector3 X="-1057.197" Y="-255.5562" Z="159.0304" />
+          <Vector3 X="-1058.485" Y="-266.4069" Z="159.0304" />
+          <Vector3 X="-1063.558" Y="-275.5729" Z="159.0304" />
+          <Vector3 X="-1067.162" Y="-285.2419" Z="159.0304" />
+          <Vector3 X="-1062.802" Y="-295.3891" Z="159.0304" />
+          <Vector3 X="-1054.683" Y="-300.7534" Z="159.0304" />
+          <Vector3 X="-1044.149" Y="-297.8643" Z="159.0304" />
+          <Vector3 X="-1041.762" Y="-295.198" Z="159.0304" />
+          <Vector3 X="-1046.964" Y="-288.4695" Z="159.0304" />
+          <Vector3 X="-1046.964" Y="-288.4695" Z="159.0304" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>10</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>using robotManager.Helpful;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using wManager.Events;
+using wManager.Wow.Bot.Tasks;
+using wManager.Wow.Enums;
+using wManager.Wow.Helpers;
+using wManager.Wow.ObjectManager;
+using System.ComponentModel;
+using System.Configuration;
+using System.Net;
+using System.Windows.Forms;
+using robotManager.Products;
+using System.Threading.Tasks;
+
+public class ProfileRestarter
+{
+    private static bool _IsAfk = false;
+    private static Vector3 afkPosition = (Vector3)null;
+    private static int timer = 0;
+    private static bool _isSubscribed = false;
+    private static void WatchForEvents()
+    {
+        if (!_isSubscribed)
+        {
+            _isSubscribed = true;
+
+            EventsLuaWithArgs.OnEventsLuaWithArgs += (LuaEventsId id, List&lt;string&gt; args) =&gt;
+            {
+                if (id == wManager.Wow.Enums.LuaEventsId.CHAT_MSG_SYSTEM &amp;&amp; Conditions.ProductIsStartedNotInPause)
+                {
+
+                    if (args.FirstOrDefault().Contains("You are now AFK"))
+                    {
+                        _IsAfk = true;
+                        timer = 0;
+                        afkPosition = ObjectManager.Me.Position;
+                    }
+                }
+            };
+        }
+    }
+
+    public static void StartProfileRestarter()
+    {
+
+        Thread ProfileRestarterThread = new Thread(() =&gt;
+        {
+            Logging.Write("[Andoido_Quester]: Profile Restarter initialized");
+
+            string profileName	 = "1-60 REMAKE HORDE_Andoido\\1-60 Horde - REMAKE - #1 PROFILE_LAUNCHER.xml";
+            string currentProfileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+
+            while ((wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName) || !ObjectManager.Me.GetMove) &amp;&amp; Conditions.ProductIsStarted)
+            {
+                Thread.Sleep(1000);
+            }
+
+            if (!_isSubscribed)
+            {
+                Thread.Sleep(Usefuls.Latency + 500);
+                WatchForEvents();
+            }
+
+            while (Conditions.ProductIsStarted || Conditions.ProductInPause)
+            {
+
+                if (wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                    break;
+
+                while (_IsAfk &amp;&amp; timer &lt; 600 &amp;&amp; !wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    Thread.Sleep(1000);
+                    timer++;
+                }
+
+                if (_IsAfk &amp;&amp; timer &gt;= 600 &amp;&amp; ObjectManager.Me.Position.DistanceTo(afkPosition) &lt; 25)
+                {
+                    Logging.Write("[Andoido_Quester]: Bot seems to have stopped / went AFK for too long. Restart of profile in process...");
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName = profileName;
+                    robotManager.Products.Products.ProductRestart();
+                    break;
+                }
+
+                timer = 0;
+                _IsAfk = false;
+                Thread.Sleep(10000);
+            }
+
+            Logging.Write("[Andoido_Quester]: Profile Restarter disposed");
+
+        });
+
+        ProfileRestarterThread.Start();
+    }
+}
+
+//Additional functions for quests
+public class Quests
+{
+    public static void abandon(string questName)
+    {
+        wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + questName + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+    }
+
+    public static bool hasFailed(string questName)
+    {
+        int temp = 0;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) local questTimer = GetQuestLogTimeLeft() return questTimer end end");
+
+        if(temp &gt; 8)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public static bool isComplete(string questName)
+    {
+        int temp;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then local questTitleZ, levelZ, questTagZ, isHeaderZ, isCollapsedZ, isCompleteZ = GetQuestLogTitle(i) return isCompleteZ end end");
+
+        if(temp == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static bool isFailed(string questName)
+    {
+        int temp;
+        temp = wManager.Wow.Helpers.Lua.LuaDoString&lt;int&gt;("local name = '" + questName + "'  for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then local questTitleZ, levelZ, questTagZ, isHeaderZ, isCollapsedZ, isCompleteZ = GetQuestLogTitle(i) return isCompleteZ end end");
+
+        if(temp == -1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+public class Key
+{
+    public static bool haveKey(int keyId)
+    {
+        bool haveKey = Lua.LuaDoString&lt;bool&gt;("local itemIdSearch = " + keyId + "; local bag = KEYRING_CONTAINER; for slot = 1,MAX_CONTAINER_ITEMS do local itemLink = GetContainerItemLink(bag,slot); local _, itemCount = GetContainerItemInfo(bag,slot); if itemLink and itemCount then local _,_,itemId = string.find(itemLink, '.*|Hitem:(%d+):.*'); if itemId and tonumber(itemId) == itemIdSearch then return true end end end return false");
+        return haveKey;
+    }
+}
+
+public class QuestHelper
+{
+ 
+    public static void AbandonQuest(string name)
+    {
+        string luaExecute = @"
+            for logId=1,GetNumQuestLogEntries() do
+                local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(logId);
+                if ( questTitle == ""{0}"" ) then
+                    SelectQuestLogEntry(logId);
+                    SetAbandonQuest();
+                    AbandonQuest();
+                    return;
+                end
+            end
+        ";
+ 
+        Lua.LuaDoString(string.Format(luaExecute, name));
+    }
+ 
+    public static void LoadStep(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if (p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 1;
+                    break;
+                }
+            }
+        }
+    }
+ 
+   public static void LoadOneStepBefore(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if ( p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 2;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+    //Abandon Quests
+    public class abandonQuest
+    {
+
+        public static void abandon(string questName)
+        {
+
+            string name = questName;
+
+            wManager.Wow.Helpers.Lua.LuaDoString("local name = '" + name + "' for i=1,GetNumQuestLogEntries() do local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(i) if string.find(questTitle, name) then SelectQuestLogEntry(i) SetAbandonQuest() AbandonQuest() end end");
+
+
+        }
+
+    }
+
+
+
+    //Throw away items - by Reapler
+    public class throwAway
+    {
+        public static int GetItemQuantity(string itemName)
+        {
+            var execute =
+                "local itemCount = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "if string.find(itemLink, \"" + itemName + "\") then " +
+                                    "itemCount = itemCount + stackCount; " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; " +
+                "return itemCount; ";
+            return Lua.LuaDoString&lt;int&gt;(execute);
+        }
+
+        /// &lt;summary&gt;
+        /// Used to delete all items by name.
+        /// &lt;/summary&gt;
+        /// &lt;param name="itemName"&gt;The item to delete.&lt;/param&gt;
+        /// &lt;param name="leaveAmount"&gt;The amount of items which remain in the bag.&lt;/param&gt;
+        /// &lt;remarks&gt;Bug at links with "-"&lt;/remarks&gt;
+        public static void DeleteItems(string itemName, int leaveAmount)
+        {
+            var itemQuantity = GetItemQuantity(itemName) - leaveAmount;
+            if(string.IsNullOrWhiteSpace(itemName) || itemQuantity &lt;= 0)
+                return;
+            var execute =
+                "local itemCount = " + itemQuantity + "; " +
+                "local deleted = 0; " +
+                "for b=0,4 do " +
+                    "if GetBagName(b) then " +
+                        "for s=1, GetContainerNumSlots(b) do " +
+                            "local itemLink = GetContainerItemLink(b, s) " +
+                            "if itemLink then " +
+                                "local _, stackCount = GetContainerItemInfo(b, s)\t " +
+                                "local leftItems = itemCount - deleted; " +
+                                "if string.find(itemLink, \"" + itemName + "\") and leftItems &gt; 0 then " +
+                                    "if stackCount &lt;= 1 then " +
+                                        "PickupContainerItem(b, s); " +
+                                        "DeleteCursorItem(); " +
+                                        "deleted = deleted + 1; " +
+                                    "else " +
+                                        "if (leftItems &gt; stackCount) then " +
+                                            "SplitContainerItem(b, s, stackCount); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + stackCount; " +
+                                        "else " +
+                                            "SplitContainerItem(b, s, leftItems); " +
+                                            "DeleteCursorItem(); " +
+                                            "deleted = deleted + leftItems; " +
+                                        "end " +
+                                    "end " +
+                                "end " +
+                            "end " +
+                        "end " +
+                    "end " +
+                "end; ";
+            Lua.LuaDoString(execute);
+        }
+    }</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>
